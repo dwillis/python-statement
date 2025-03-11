@@ -1,0 +1,7 @@
+[project]
+name = "python-statement"
+version = "0.1.0"
+description = "Parse RSS feeds and HTML pages containing press releases from members of Congress"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ['requests', 'bs4', 'lxml', 'python-dateutil']
