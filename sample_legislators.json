@@ -1,0 +1,146 @@
+[
+  {
+    "id": {
+      "bioguide": "S001181",
+      "thomas": "01901",
+      "govtrack": 412542,
+      "opensecrets": "N00030573",
+      "lis": "S324"
+    },
+    "name": {
+      "first": "Jeanne",
+      "last": "Shaheen",
+      "official_full": "Jeanne Shaheen"
+    },
+    "bio": {
+      "birthday": "1947-01-28",
+      "gender": "F"
+    },
+    "terms": [
+      {
+        "type": "sen",
+        "start": "2009-01-06",
+        "end": "2027-01-03",
+        "state": "NH",
+        "class": 2,
+        "party": "Democrat",
+        "url": "https://www.shaheen.senate.gov"
+      }
+    ]
+  },
+  {
+    "id": {
+      "bioguide": "C000880",
+      "thomas": "00250",
+      "govtrack": 300030,
+      "opensecrets": "N00006267",
+      "lis": "S266"
+    },
+    "name": {
+      "first": "Mike",
+      "last": "Crapo",
+      "official_full": "Mike Crapo"
+    },
+    "bio": {
+      "birthday": "1951-05-20",
+      "gender": "M"
+    },
+    "terms": [
+      {
+        "type": "sen",
+        "start": "1999-01-06",
+        "end": "2029-01-03",
+        "state": "ID",
+        "class": 3,
+        "party": "Republican",
+        "url": "https://www.crapo.senate.gov"
+      }
+    ]
+  },
+  {
+    "id": {
+      "bioguide": "S001184",
+      "thomas": "02056",
+      "govtrack": 412671,
+      "opensecrets": "N00031782",
+      "lis": "S370"
+    },
+    "name": {
+      "first": "Tim",
+      "last": "Scott",
+      "official_full": "Tim Scott"
+    },
+    "bio": {
+      "birthday": "1965-09-19",
+      "gender": "M"
+    },
+    "terms": [
+      {
+        "type": "sen",
+        "start": "2013-01-03",
+        "end": "2029-01-03",
+        "state": "SC",
+        "class": 2,
+        "party": "Republican",
+        "url": "https://www.scott.senate.gov"
+      }
+    ]
+  },
+  {
+    "id": {
+      "bioguide": "K000383",
+      "thomas": "02185",
+      "govtrack": 412545,
+      "opensecrets": "N00034580",
+      "lis": "S363"
+    },
+    "name": {
+      "first": "Angus",
+      "last": "King",
+      "official_full": "Angus S. King Jr."
+    },
+    "bio": {
+      "birthday": "1944-03-31",
+      "gender": "M"
+    },
+    "terms": [
+      {
+        "type": "sen",
+        "start": "2013-01-03",
+        "end": "2025-01-03",
+        "state": "ME",
+        "class": 1,
+        "party": "Independent",
+        "url": "https://www.king.senate.gov"
+      }
+    ]
+  },
+  {
+    "id": {
+      "bioguide": "B001306",
+      "lis": "S409",
+      "govtrack": 412405,
+      "opensecrets": "N00027605"
+    },
+    "name": {
+      "first": "John",
+      "last": "Barrasso",
+      "official_full": "John Barrasso"
+    },
+    "bio": {
+      "birthday": "1952-07-21",
+      "gender": "M"
+    },
+    "terms": [
+      {
+        "type": "sen",
+        "start": "2007-06-25",
+        "end": "2025-01-03",
+        "state": "WY",
+        "class": 1,
+        "party": "Republican",
+        "url": "https://www.barrasso.senate.gov"
+      }
+    ]
+  }
+]
