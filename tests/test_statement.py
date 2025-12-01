@@ -6,12 +6,12 @@ Unit tests for the Statement module.
 import unittest
 from unittest.mock import patch, MagicMock
 import datetime
-from statement_python import Feed, Scraper, Utils
+from python_statement import Feed, Scraper, Utils
 
 class TestStatement(unittest.TestCase):
     """Test cases for the Statement module."""
 
-    @patch('statement_python.requests.get')
+    @patch('python_statement.requests.get')
     def test_parse_rss(self, mock_get):
         """Test parsing an RSS feed."""
         # Read the test XML file
@@ -26,7 +26,7 @@ class TestStatement(unittest.TestCase):
         self.assertEqual(results[0]['domain'], 'ruiz.house.gov')
         self.assertEqual(results[0]['title'], 'Dr. Ruiz Highlights First 100 Days in Congress')
 
-    @patch('statement_python.Scraper.open_html')
+    @patch('python_statement.Scraper.open_html')
     def test_crapo_scraper(self, mock_open_html):
         """Test the Crapo scraper."""
         # Set up mock response

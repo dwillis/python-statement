@@ -13,18 +13,30 @@ Statement Python provides tools to parse press releases from:
 ## Requirements
 
 - Python 3.6+
+- [uv](https://docs.astral.sh/uv/) (recommended) or pip
 - Required packages:
   - requests
   - beautifulsoup4
   - lxml
+  - python-dateutil
+  - pyyaml
 
 ## Installation
 
-1. Clone this repository
-2. Install required packages:
+### Using uv (recommended)
 
 ```bash
-pip install requests beautifulsoup4 lxml
+git clone https://github.com/dwillis/python-statement.git
+cd python-statement
+uv sync
+```
+
+### Using pip
+
+```bash
+git clone https://github.com/dwillis/python-statement.git
+cd python-statement
+pip install -e .
 ```
 
 ## Usage
@@ -61,6 +73,23 @@ all_results = Scraper.member_scrapers()
 
 # Scrape committee websites
 committee_results = Scraper.committee_scrapers()
+```
+
+### Using with uv
+
+Run Python scripts with uv:
+
+```bash
+uv run python your_script.py
+```
+
+Or use the Makefile commands:
+
+```bash
+make generate-legislators  # Generate legislators JSON
+make compare               # Compare with Ruby implementation
+make test                  # Run tests
+make help                  # Show all available commands
 ```
 
 ## Supported Scrapers
@@ -124,6 +153,44 @@ senator_results = Scraper.crapo()
 print(json.dumps(senator_results[0], default=json_serial, indent=2))
 ```
 
+## Generating Legislators Data
+
+To regenerate the `legislators_with_scrapers.json` file that maps current legislators to their scraper methods:
+
+```bash
+uv run python scripts/generate_legislators.py
+```
+
+This will:
+1. Fetch current legislators from the unitedstates/congress-legislators repository
+2. Match them with available scraper methods based on their official website URLs
+3. Generate `legislators_with_scrapers.json` with scraper assignments
+4. Display a summary of matches and coverage statistics
+
+## Development Tools
+
+### Compare Implementation with Ruby Statement
+
+To verify that the Python implementation matches the Ruby gem:
+
+```bash
+uv run python scripts/comprehensive_compare.py
+```
+
+This compares the member scraper methods between Python and Ruby implementations.
+
+### Run Tests
+
+```bash
+uv run pytest tests/
+```
+
+Run specific test scripts:
+```bash
+uv run python tests/test_media_body.py
+uv run python tests/test_react.py
+```
+
 ## Contributing
 
 When contributing a new scraper:
@@ -131,6 +198,7 @@ When contributing a new scraper:
 2. Use BeautifulSoup for parsing
 3. Ensure the scraper method follows the same return format
 4. Add tests for your new scraper
+5. Run the comparison script to verify coverage
 
 ## License
 

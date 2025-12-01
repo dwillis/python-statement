@@ -10,4 +10,11 @@ wheels/
 .venv
 uv.lock
 
+# Test results
+tests/test_results.txt
+test_results.txt
+
+# Generated data
+legislators_with_scrapers.json
+
 .DS_Store
