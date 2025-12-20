@@ -4,6 +4,10 @@ Comprehensive tests for generic scraper methods.
 This test suite validates that the generic scraper methods can correctly parse
 HTML from congressional member websites and extract press release information.
 
+NOTE: This test file is designed to be used AFTER the generic methods have been
+integrated into the Scraper class in statement.py. For testing the methods in
+their current standalone form, use test_generic_scrapers_standalone.py instead.
+
 Author: Generated for python-statement consolidation
 Date: 2025-12-20
 """
