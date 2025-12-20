@@ -112,9 +112,31 @@ Plus many House members:
 
 ---
 
+## Implementation Approach
+
+The generic methods are implemented in `generic_scrapers.py` as a separate `GenericScrapers` class. To integrate them into the `Scraper` class, simply use **inheritance**:
+
+```python
+# In statement.py
+from generic_scrapers import GenericScrapers
+
+class Scraper(GenericScrapers):
+    """Class for scraping HTML pages."""
+    # All existing methods stay as-is
+    # Generic methods inherited automatically
+```
+
+This approach:
+- ✅ Requires only 2 lines of code changes
+- ✅ Keeps generic methods in a separate, testable module
+- ✅ Avoids code duplication
+- ✅ Allows easy updates to generic methods
+- ✅ Preserves all existing Scraper functionality
+- ✅ `Scraper.open_html()` automatically overrides the base method
+
 ## Proposed New Generic Methods
 
-Below are the new generic methods that should be created to consolidate the duplicate code:
+Below are the new generic methods that are implemented in `generic_scrapers.py`:
 
 ### Method 1: `table_recordlist_date()`
 

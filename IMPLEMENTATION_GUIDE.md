@@ -13,38 +13,36 @@ This guide provides step-by-step instructions for implementing the generic scrap
 
 ## Quick Start
 
-### Step 1: Add Generic Methods to Scraper Class
+### Step 1: Add Generic Methods to Scraper Class Using Inheritance
 
-Copy the methods from `generic_scrapers.py` into the `Scraper` class in `statement.py`:
+The cleanest way to add the generic methods is through inheritance. Make ONE simple change to `statement.py`:
 
 ```python
-# In statement.py, add these methods to the Scraper class:
+# At the top of statement.py, add this import:
+from generic_scrapers import GenericScrapers
 
-@classmethod
-def table_recordlist_date(cls, urls=None, page=1):
-    # Copy implementation from generic_scrapers.py
-    pass
+# Then modify the Scraper class definition from:
+class Scraper:
+    """Class for scraping HTML pages."""
 
-@classmethod
-def jet_listing_elementor(cls, urls=None, page=1):
-    # Copy implementation from generic_scrapers.py
-    pass
+# To:
+class Scraper(GenericScrapers):
+    """Class for scraping HTML pages."""
 
-@classmethod
-def article_block_h2_p_date(cls, urls=None, page=1):
-    # Copy implementation from generic_scrapers.py
-    pass
-
-@classmethod
-def table_time(cls, urls=None, page=1):
-    # Copy implementation from generic_scrapers.py
-    pass
-
-@classmethod
-def element_post_media(cls, urls=None, page=1):
-    # Copy implementation from generic_scrapers.py
-    pass
+    # All existing methods stay exactly as they are
+    # The 5 generic methods are automatically inherited:
+    # - table_recordlist_date()
+    # - jet_listing_elementor()
+    # - article_block_h2_p_date()
+    # - table_time()
+    # - element_post_media()
 ```
+
+That's it! Just **2 lines changed**:
+1. Add the import at the top
+2. Change the class definition to inherit from `GenericScrapers`
+
+**Note**: The `Scraper.open_html()` method will automatically override `GenericScrapers.open_html()`, so the existing implementation is preserved.
 
 ### Step 2: Run Tests
 
