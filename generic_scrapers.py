@@ -11,10 +11,29 @@ Date: 2025-12-20
 
 import datetime
 from urllib.parse import urlparse
+import requests
+from bs4 import BeautifulSoup
 
 
 class GenericScrapers:
-    """Collection of generic scraper methods to be added to the Scraper class."""
+    @staticmethod
+    def open_html(url):
+        """
+        Open an HTML page and return a BeautifulSoup object.
+
+        This is a mock method for testing. In production, this functionality
+        is provided by the Scraper class in statement.py.
+        """
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            }
+            response = requests.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            return BeautifulSoup(response.content, 'lxml')
+        except Exception as e:
+            print(f"Error opening HTML page {url}: {e}")
+            return None
 
     @classmethod
     def table_recordlist_date(cls, urls=None, page=1):
