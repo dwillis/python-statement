@@ -70,6 +70,137 @@ def crapo(cls, page=1):
 6. Build result dictionary with required keys
 7. Return list of results
 
+## Check Generic Scrapers First!
+
+**IMPORTANT:** Before writing a custom scraper, check if the website matches an existing generic pattern. This saves time and reduces code duplication.
+
+### Available Generic Patterns
+
+The library includes five generic scraper methods in `generic_scrapers.py`:
+
+1. **`table_recordlist_date`** - Senate sites with table layout and `td.recordListDate` class
+2. **`jet_listing_elementor`** - WordPress sites using Elementor/Jet Engine plugins
+3. **`article_block_h2_p_date`** - Senate sites with `div.ArticleBlock` layout
+4. **`table_time`** - House sites with simple table layout and `<time>` elements
+5. **`element_post_media`** - Custom element layout with post-media-list classes
+
+### How to Check if a Site Matches
+
+1. Visit the member's press release page
+2. Right-click a press release item → Inspect Element
+3. Look for these patterns in the HTML:
+
+```html
+<!-- Pattern 1: table_recordlist_date -->
+<table>
+  <tbody>
+    <tr>
+      <td class="recordListDate">01/15/24</td>
+      <td><a href="/press/123">Title</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Pattern 2: table_time (House sites) -->
+<table>
+  <tr>
+    <td><time datetime="2024-01-15">01/15/24</time></td>
+    <td><a href="/press/123">Title</a></td>
+  </tr>
+</table>
+
+<!-- Pattern 3: article_block_h2_p_date -->
+<div class="ArticleBlock">
+  <h2><a href="/press/123">Title</a></h2>
+  <p>01.15.24</p>
+</div>
+
+<!-- Pattern 4: jet_listing_elementor -->
+<div class="jet-listing-grid__item">
+  <h3><a href="/press/123">Title</a></h3>
+  <span class="elementor-icon-list-text">January 15, 2024</span>
+</div>
+```
+
+### Tour of a Generic Method: table_time (House Sites)
+
+The `table_time` method handles House member sites with a simple table structure. Here's how it works:
+
+**HTML Pattern it expects:**
+```html
+<table>
+  <tr><!-- header row, will be skipped --></tr>
+  <tr>
+    <td><time datetime="2024-01-15">01/15/24</time></td>
+    <td><a href="/media-center/press-releases/123">Title</a></td>
+  </tr>
+  <!-- more rows... -->
+</table>
+```
+
+**Example usage:**
+```python
+@classmethod
+def barr(cls, page=1):
+    """Scrape Representative Barr's press releases."""
+    return cls.table_time(
+        urls=['https://barr.house.gov/media-center/press-releases'],
+        page=page
+    )
+```
+
+**What the generic method does:**
+
+1. **Builds the URL with pagination:**
+   ```python
+   source_url = f"{url}{'&' if '?' in url else '?'}page={page}"
+   # Result: https://barr.house.gov/media-center/press-releases?page=1
+   ```
+
+2. **Fetches the page:**
+   ```python
+   doc = cls.open_html(source_url)
+   ```
+
+3. **Finds all table rows, skipping the first (header):**
+   ```python
+   rows = doc.select("table tr")[1:]  # [1:] skips the header row
+   ```
+
+4. **For each row, extracts the link and time element:**
+   ```python
+   link = row.select_one("td a") or row.select_one("a")
+   time_elem = row.select_one("time")
+   ```
+
+5. **Parses the date from the `datetime` attribute (or text if no attribute):**
+   ```python
+   date_text = time_elem.get('datetime') or time_elem.text.strip()
+   # Tries multiple formats: "%m/%d/%y", "%Y-%m-%d", "%B %d, %Y", etc.
+   ```
+
+6. **Handles relative URLs:**
+   ```python
+   href = link.get('href')
+   if not href.startswith('http'):
+       href = f"https://{domain}{href}"
+   ```
+
+7. **Returns a list of results in the standard format**
+
+**Benefits of using the generic method:**
+- Handles edge cases (missing dates, relative URLs, multiple date formats)
+- Less code to maintain (3 lines vs. 30+ lines)
+- Consistent behavior across similar sites
+- Automatic updates when the generic method improves
+
+### When to Write a Custom Scraper
+
+Write a custom scraper only when:
+- The site doesn't match any generic pattern
+- The site requires special logic (e.g., JavaScript rendering, authentication)
+- The generic method doesn't handle a specific edge case for that site
+
 ## Building Your First Scraper
 
 ### Step 1: Inspect the Website
@@ -300,29 +431,40 @@ Check the site's pagination links to see which pattern they use.
 
 ## Generic Scraper Methods
 
-For common patterns, use existing generic methods in `generic_scrapers.py`:
+**See the "Check Generic Scrapers First!" section above for a detailed explanation of available patterns and how to use them.**
+
+Quick reference for calling generic methods:
 
 ```python
-# Table with recordListDate class
-Scraper.table_recordlist_date(urls=['https://senator.senate.gov/press'])
+# Table with recordListDate class (many Senate sites)
+return cls.table_recordlist_date(
+    urls=['https://senator.senate.gov/press'],
+    page=page
+)
 
-# Elementor/Jet Engine sites
-Scraper.jet_listing_elementor(urls=['https://senator.senate.gov/press'])
+# Elementor/Jet Engine sites (WordPress-based sites)
+return cls.jet_listing_elementor(
+    urls=['https://senator.senate.gov/press'],
+    page=page
+)
 
-# ArticleBlock pattern
-Scraper.article_block_h2_p_date(urls=['https://senator.senate.gov/press'])
-```
+# ArticleBlock pattern (Senate sites)
+return cls.article_block_h2_p_date(
+    urls=['https://senator.senate.gov/press'],
+    page=page
+)
 
-If a site matches one of these patterns, you can create a simple wrapper:
+# Table with time elements (House sites)
+return cls.table_time(
+    urls=['https://representative.house.gov/press'],
+    page=page
+)
 
-```python
-@classmethod
-def lastname(cls, page=1):
-    """Scrape Senator Lastname's press releases."""
-    return cls.table_recordlist_date(
-        urls=['https://lastname.senate.gov/press'],
-        page=page
-    )
+# Element post-media pattern (custom Senate sites)
+return cls.element_post_media(
+    urls=['https://senator.senate.gov/press'],
+    page=page
+)
 ```
 
 ## Required Return Format
@@ -375,10 +517,10 @@ if results:
 
 1. Pick a member without a scraper (check the website)
 2. Inspect their press release page HTML
-3. Identify the pattern (ArticleBlock, table, article tags, etc.)
-4. Write the method following the template
-5. Test with a few pages
-6. Check if it matches an existing generic pattern
+3. **Check if it matches a generic pattern first** (see "Check Generic Scrapers First!" section)
+4. If it matches a generic pattern, write a simple wrapper method
+5. If it doesn't match, write a custom scraper following the template
+6. Test with a few pages to ensure it works correctly
 
 ## Adding Your Scraper to the Library
 
