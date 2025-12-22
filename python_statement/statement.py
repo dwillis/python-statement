@@ -275,18 +275,37 @@ class Scraper:
     def member_methods(cls):
         """Return a list of member scraper methods."""
         return [
-            cls.crapo, cls.trentkelly, cls.heinrich, cls.document_query_new, cls.barr, cls.media_body, 
-            cls.steube, cls.bera, cls.meeks, cls.sykes, cls.barragan, cls.castor, cls.marshall, cls.hawley, 
-            cls.jetlisting_h2, cls.barrasso, cls.timscott, cls.senate_drupal_newscontent, 
-            # ... (remaining methods)
+            cls.aguilar, cls.angusking, cls.article_block, cls.article_block_h2, cls.article_block_h2_date,
+            cls.article_newsblocker, cls.article_span_published, cls.bacon, cls.baldwin, cls.barr,
+            cls.barragan, cls.barrasso, cls.bennet, cls.bera, cls.bergman, cls.blackburn, cls.boozman,
+            cls.britt, cls.brownley, cls.budd, cls.cantwell, cls.capito, cls.cardin, cls.carey,
+            cls.carper, cls.casey, cls.cassidy, cls.castor, cls.clark, cls.clarke, cls.clyburn,
+            cls.connolly, cls.coons, cls.cornyn, cls.cortezmasto, cls.cotton, cls.crapo, cls.crawford,
+            cls.cruz, cls.daines, cls.document_query_new, cls.duckworth, cls.durbin, cls.elementor_post_date,
+            cls.ellzey, cls.emmer, cls.ernst, cls.fetterman, cls.fischer, cls.foxx, cls.garypeters,
+            cls.gillibrand, cls.gimenez, cls.gosar, cls.graham, cls.grassley, cls.griffith, cls.grijalva,
+            cls.hagerty, cls.hassan, cls.hawley, cls.heinrich, cls.hirono, cls.hoeven, cls.houlahan,
+            cls.house_title_header, cls.huizenga, cls.hydesmith, cls.jackreed, cls.jasonsmith, cls.jayapal,
+            cls.jeffries, cls.jetlisting_h2, cls.joyce, cls.kaine, cls.kennedy, cls.lankford, cls.larsen,
+            cls.lofgren, cls.lucas, cls.lujan, cls.lummis, cls.manchin, cls.markey, cls.markkelly,
+            cls.marshall, cls.mast, cls.mcgovern, cls.media_body, cls.media_digest, cls.meeks,
+            cls.menendez, cls.merkley, cls.mikelee, cls.mooney, cls.moran, cls.mullin, cls.murphy,
+            cls.murray, cls.norcross, cls.ossoff, cls.padilla, cls.paul, cls.porter, cls.pressley,
+            cls.react, cls.recordlist, cls.reschenthaler, cls.rickscott, cls.risch, cls.ronjohnson,
+            cls.rosen, cls.rounds, cls.rubio, cls.scanlon, cls.schatz, cls.schumer, cls.schweikert,
+            cls.senate_drupal, cls.senate_drupal_newscontent, cls.shaheen, cls.sherrod_brown, cls.stabenow,
+            cls.steube, cls.sykes, cls.takano, cls.tester, cls.thune, cls.tillis, cls.timscott,
+            cls.tinasmith, cls.titus, cls.tlaib, cls.toddyoung, cls.tokuda, cls.tonko, cls.trentkelly,
+            cls.tuberville, cls.vance, cls.vanhollen, cls.warner, cls.welch, cls.whitehouse, cls.wicker,
+            cls.wyden
         ]
     
     @classmethod
     def committee_methods(cls):
         """Return a list of committee scraper methods."""
         return [
-            cls.senate_approps_majority, cls.senate_approps_minority, cls.senate_banking_majority,
-            # ... (remaining methods)
+            cls.house_gop, cls.senate_approps_majority, cls.senate_approps_minority,
+            cls.senate_banking_majority, cls.senate_banking_minority
         ]
     
     @classmethod
