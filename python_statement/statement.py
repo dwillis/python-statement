@@ -453,22 +453,21 @@ class Scraper:
         doc = cls.open_html(url)
         if not doc:
             return []
-        
-        rows = doc.select('table tr')[1:]  # Skip header row
+
+        rows = doc.select('.press-browser__item-row')
         for row in rows:
             links = row.select('a')
             if not links:
                 continue
-                
+
             link = links[0]
-            date_cell = row.find_all('td')[0] if row.find_all('td') else None
             date = None
+            date_cell = row.select_one('td.press-browser__date')
             if date_cell:
-                try:
-                    date = datetime.datetime.strptime(date_cell.text.strip(), "%m/%d/%y").date()
-                except ValueError:
-                    pass
-            
+                time_elem = date_cell.find('time')
+                if time_elem and time_elem.get('datetime'):
+                    date = time_elem.get('datetime')
+
             result = {
                 'source': url,
                 'url': "https://www.king.senate.gov" + link.get('href'),
@@ -477,7 +476,7 @@ class Scraper:
                 'domain': "www.king.senate.gov"
             }
             results.append(result)
-        
+
         return results
 
     @classmethod
