@@ -104,13 +104,14 @@ def crapo(cls, page=1):
 
 ### Available Generic Patterns
 
-The library includes five generic scraper methods in `generic_scrapers.py`:
+The library includes these generic scraper methods:
 
 1. **`table_recordlist_date`** - Senate sites with table layout and `td.recordListDate` class
 2. **`jet_listing_elementor`** - WordPress sites using Elementor/Jet Engine plugins
 3. **`article_block_h2_p_date`** - Senate sites with `div.ArticleBlock` layout
 4. **`table_time`** - House sites with simple table layout and `<time>` elements
 5. **`element_post_media`** - Custom element layout with post-media-list classes
+6. **`media_body`** - House sites with `.media-body` class (230+ members)
 
 ### How to Check if a Site Matches
 
