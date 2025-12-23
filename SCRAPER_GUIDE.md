@@ -487,13 +487,7 @@ Check the site's pagination links to see which pattern they use.
 
 ## Generic Scraper Methods
 
-<<<<<<< HEAD
-For common patterns, the library includes generic methods that automatically collect their URLs from `SCRAPER_CONFIG`:
-=======
-**See the "Check Generic Scrapers First!" section above for a detailed explanation of available patterns and how to use them.**
-
 Quick reference for calling generic methods:
->>>>>>> a5461ff420eeec7c8e8417211108861fb84daf6b
 
 ### Available Generic Patterns
 

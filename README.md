@@ -6,9 +6,11 @@ A Python 3 port of the Ruby gem 'Statement' for parsing RSS feeds and HTML pages
 
 Statement Python provides tools to parse press releases from:
 - RSS feeds of members of Congress
-- HTML pages that require scraping (when RSS feeds are unavailable or broken)
+- HTML pages using configuration-driven generic scrapers (260+ sites)
+- HTML pages requiring custom scraping logic
 - Committee websites
-- Special groups like House Republicans
+
+The library prioritizes maintainability through a configuration-driven design that uses generic scraper methods for common website patterns, reducing code duplication across hundreds of congressional websites.
 
 ## Requirements
 
@@ -60,13 +62,19 @@ results, failures = Feed.batch(urls)
 
 ### Scraping HTML Pages
 
-For websites that require HTML scraping:
+The library uses a configuration-driven approach for most congressional websites:
 
 ```python
 from python_statement import Scraper
 
-# Scrape an individual member's website
-results = Scraper.crapo()  # Senator Crapo's press releases
+# Scrape individual members using simple wrapper methods
+results = Scraper.lujan()      # Senator Luján (uses generic jet_listing_elementor)
+results = Scraper.crapo()      # Senator Crapo (uses generic article_block_h2_p_date)
+results = Scraper.issa()       # Representative Issa (uses generic media_body)
+
+# Generic methods automatically scrape all configured sites
+all_media_body = Scraper.media_body()  # Scrapes 230+ House sites automatically
+all_elementor = Scraper.jet_listing_elementor()  # Scrapes 13 Senate sites
 
 # Scrape all supported members
 all_results = Scraper.member_scrapers()
@@ -74,6 +82,8 @@ all_results = Scraper.member_scrapers()
 # Scrape committee websites
 committee_results = Scraper.committee_scrapers()
 ```
+
+**How it works:** Most scrapers are just 2-line wrapper methods that call `run_scraper()`, which looks up the configuration and routes to the appropriate generic method. This eliminates code duplication across sites with similar HTML structures.
 
 ### Using with uv
 
@@ -94,31 +104,77 @@ make help                  # Show all available commands
 
 ## Supported Scrapers
 
-The module includes scrapers for numerous members of Congress. Some examples:
+The library includes scrapers for 260+ congressional websites using six generic patterns:
 
-- `Scraper.crapo()` - Senator Mike Crapo
-- `Scraper.bera()` - Congressman Ami Bera
+### Generic Scraper Patterns
+
+1. **media_body** (230+ House members) - Sites using `.media-body` class
+2. **jet_listing_elementor** (13 senators) - WordPress/Elementor sites
+3. **article_block_h2_p_date** (16+ senators) - Sites with `div.ArticleBlock`
+4. **table_recordlist_date** (5 senators) - Table layouts with `td.recordListDate`
+5. **element_post_media** (3 senators) - Custom element layouts
+6. **table_time** - House sites with simple table and `<time>` elements
+
+### Example Member Scrapers
+
+Configuration-driven scrapers (using generic patterns):
+- `Scraper.lujan()` - Senator Ben Ray Luján (jet_listing_elementor)
+- `Scraper.crapo()` - Senator Mike Crapo (article_block_h2_p_date)
+- `Scraper.issa()` - Representative Darrell Issa (media_body)
+- `Scraper.timscott()` - Senator Tim Scott (jet_listing_elementor)
+- `Scraper.tillis()` - Senator Thom Tillis (element_post_media)
+
+Custom scrapers (unique website structures):
 - `Scraper.shaheen()` - Senator Jeanne Shaheen
-- `Scraper.timscott()` - Senator Tim Scott
-- `Scraper.marshall()` - Senator Roger Marshall
-- `Scraper.angusking()` - Senator Angus King
 - `Scraper.hawley()` - Senator Josh Hawley
-- `Scraper.barrasso()` - Senator John Barrasso
-- `Scraper.castor()` - Congresswoman Kathy Castor
-- `Scraper.meeks()` - Congressman Gregory Meeks
-- `Scraper.steube()` - Congressman Greg Steube
+- `Scraper.bera()` - Representative Ami Bera
 
-## Bulk Scrapers
+**See [SCRAPER_GUIDE.md](SCRAPER_GUIDE.md) for detailed documentation on adding new scrapers or fixing broken ones.**
 
-The module includes several specialized scrapers for different website layouts:
+## Generic Scrapers in Detail
 
-- `Scraper.recordlist()` - For websites using recordList tables
-- `Scraper.media_body()` - For websites using media-body class
-- `Scraper.article_block()` - For websites using ArticleBlock class
-- `Scraper.react()` - For React-based websites
-- `Scraper.elementor_post_date()` - For Elementor-based websites
-- `Scraper.article_newsblocker()` - For news blockers
-- `Scraper.senate_drupal()` - For Senate Drupal sites
+The library uses generic scraper methods that automatically collect their target URLs from `SCRAPER_CONFIG`. This configuration-driven approach means:
+
+- **Less code duplication**: One generic method handles 230+ similar sites
+- **Easier maintenance**: Fix a bug once, all sites benefit
+- **Simple additions**: Add new sites with 2-line wrapper methods
+
+### How to Add a New Scraper
+
+1. **Check if the site matches a generic pattern** (see SCRAPER_GUIDE.md)
+2. **If it matches**: Add to `SCRAPER_CONFIG` and create a wrapper:
+
+```python
+# In SCRAPER_CONFIG:
+'newmember': {
+    'method': 'media_body',
+    'url_base': 'https://newmember.house.gov/media/press-releases'
+}
+
+# Wrapper method:
+@classmethod
+def newmember(cls, page=1):
+    """Scrape Representative NewMember's press releases."""
+    return cls.run_scraper('newmember', page)
+```
+
+3. **If it doesn't match**: Write a custom scraper (see SCRAPER_GUIDE.md for template)
+
+### Calling Generic Methods Directly
+
+You can call generic methods with or without specific URLs:
+
+```python
+# Scrape all media_body sites (230+)
+all_results = Scraper.media_body()
+
+# Scrape specific sites only
+specific = Scraper.media_body(['https://issa.house.gov/media/press-releases'], page=1)
+
+# Same for other patterns
+senate_results = Scraper.jet_listing_elementor()  # All 13 configured sites
+craig_only = Scraper.article_block_h2_p_date(['https://craig.house.gov/media/press-releases'])
+```
 
 ## Data Structure
 
@@ -194,11 +250,25 @@ uv run python tests/test_react.py
 ## Contributing
 
 When contributing a new scraper:
-1. Study the website structure carefully
-2. Use BeautifulSoup for parsing
-3. Ensure the scraper method follows the same return format
-4. Add tests for your new scraper
-5. Run the comparison script to verify coverage
+
+1. **Check generic patterns first**: See if the site matches an existing pattern in [SCRAPER_GUIDE.md](SCRAPER_GUIDE.md)
+2. **If it matches**: Add to `SCRAPER_CONFIG` and create a 2-line wrapper method
+3. **If it doesn't match**: Write a custom scraper following the template in SCRAPER_GUIDE.md
+4. Ensure the scraper follows the standard return format (see Data Structure above)
+5. Add the method to `member_methods()` list
+6. Test with multiple pages: `Scraper.newmember(page=1)`, `Scraper.newmember(page=2)`
+7. Run the comparison script to verify coverage
+
+### Fixing Broken Scrapers
+
+Websites change frequently. To fix a broken scraper:
+
+1. Follow the debugging steps in [SCRAPER_GUIDE.md](SCRAPER_GUIDE.md)
+2. Update URLs, selectors, or pagination patterns as needed
+3. Consider converting custom scrapers to use generic patterns when possible
+4. Test thoroughly before submitting
+
+**Known Issues**: See the "Suggested Starting Points for Fixes" section in SCRAPER_GUIDE.md for scrapers that need attention.
 
 ## License
 
