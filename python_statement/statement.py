@@ -219,7 +219,7 @@ class Scraper:
         'toddyoung': {'method': 'jet_listing_elementor', 'url_base': 'https://www.young.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
         'markkelly': {'method': 'jet_listing_elementor', 'url_base': 'https://www.kelly.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
         'lujan': {'method': 'jet_listing_elementor', 'url_base': 'https://www.lujan.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
-        'mullin': {'method': 'jet_listing_elementor', 'url_base': 'https://www.mullin.senate.gov/press-releases/page/'},
+        'mullin': {'method': 'jet_listing_elementor', 'url_base': 'https://www.mullin.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
         'ossoff': {'method': 'jet_listing_elementor', 'url_base': 'https://www.ossoff.senate.gov/press-releases/?jsf=jet-engine:press-list'},
         
         # article_block_h2_p_date pattern - Senate sites with ArticleBlock
@@ -4505,9 +4505,54 @@ class Scraper:
     
     @classmethod
     def mullin(cls, page=1):
-        """Scrape Senator Mullin's press releases."""
-        return cls.run_scraper('mullin', page)
-    
+        """Scrape Mullin's press releases."""
+        results = []
+        domain = 'www.mullin.senate.gov'
+        url = f"https://{domain}/newsroom/press-releases?jsf=jet-engine:press-list&pagenum={page}"
+
+        doc = cls.open_html(url)
+        if not doc:
+            return []
+
+        # Find all individual press release items
+        items = doc.select('.jet-listing-grid__item')
+
+        for item in items:
+            link = item.select_one('a')
+            if not link:
+                continue
+
+            # Extract data
+            title = link.text.strip()
+            href = link.get('href')
+
+            # Handle relative URLs
+            if not href.startswith('http'):
+                href = f"https://{domain}{href}"
+
+            # Extract date
+            date_elem = item.select_one('span.elementor-post-info__item--type-date')
+            date = None
+            if date_elem:
+                time_elem = date_elem.select_one('time')
+                if time_elem:
+                    date_text = time_elem.text.strip()
+                    try:
+                        date = datetime.datetime.strptime(date_text, "%m.%d.%y").date()
+                    except ValueError:
+                        pass  # Date parsing failed, leave as None
+
+            result = {
+                'source': url,
+                'url': href,
+                'title': title,
+                'date': date,
+                'domain': domain
+            }
+            results.append(result)
+
+        return results
+
     @classmethod
     def murray(cls, page=1):
         """Scrape Senator Murray's press releases."""
