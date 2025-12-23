@@ -511,6 +511,7 @@ Quick reference for calling generic methods:
 # </div>
 
 # Example sites: timscott, cassidy, fetterman, lujan, mullin, ossoff
+# Note: Handles multiple pagination patterns (?jsf=, /page/, /pagenum/)
 ```
 
 **3. article_block_h2_p_date** - Senate sites with ArticleBlock
@@ -705,6 +706,24 @@ if results:
     print(results[0])
 ```
 
+### Example: Fixed Scraper (Mullin)
+
+**Problem:** Scraper was only retrieving one result instead of all press releases on the page.
+
+**Root Cause:** The code was finding the wrong container element:
+```python
+# Wrong: Found the parent container (only 1 on page)
+containers = doc.find_all('div', {'class': 'jet-listing-grid__items'})
+```
+
+**Solution:** Changed to find individual item elements:
+```python
+# Correct: Find all individual press release items
+items = doc.select('.jet-listing-grid__item')
+```
+
+**Key Lesson:** When scraping returns fewer results than expected, check if you're selecting the parent container instead of the repeating child elements. Use browser DevTools to inspect the HTML structure and identify the element that repeats for each press release.
+
 ### Suggested Starting Points for Fixes
 
 Here are scrapers that likely need updating based on recent testing:
@@ -722,11 +741,6 @@ Here are scrapers that likely need updating based on recent testing:
    - Pattern should work but URL structure changed
    - Test: `https://www.padilla.senate.gov/newsroom/press-releases/`
    - **Action:** Check pagination pattern, update URL in config
-
-3. **mullin** - URL/pagination issue
-   - Uses `/page/X/` pagination instead of jsf parameter
-   - Config updated but may need verification
-   - **Action:** Test with: `Scraper.mullin(page=2)`
 
 **Medium Priority - May Have Issues:**
 
