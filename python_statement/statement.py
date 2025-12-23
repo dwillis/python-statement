@@ -199,6 +199,340 @@ class Feed:
 class Scraper:
     """Class for scraping HTML pages."""
     
+    # Configuration for scrapers that use generic methods
+    # Maps scraper_method name -> {method: generic_method_name, url_base: base_url}
+    SCRAPER_CONFIG = {
+        # table_recordlist_date pattern - Senate sites with table.recordListDate
+        'moran': {'method': 'table_recordlist_date', 'url_base': 'https://www.moran.senate.gov/public/index.cfm/news-releases'},
+        'boozman': {'method': 'table_recordlist_date', 'url_base': 'https://www.boozman.senate.gov/public/index.cfm/press-releases'},
+        'thune': {'method': 'table_recordlist_date', 'url_base': 'https://www.thune.senate.gov/public/index.cfm/press-releases'},
+        'barrasso': {'method': 'table_recordlist_date', 'url_base': 'https://www.barrasso.senate.gov/public/index.cfm/news-releases'},
+        'graham': {'method': 'table_recordlist_date', 'url_base': 'https://www.lgraham.senate.gov/public/index.cfm/press-releases'},
+        
+        # jet_listing_elementor pattern - WordPress/Elementor sites
+        'timscott': {'method': 'jet_listing_elementor', 'url_base': 'https://www.scott.senate.gov/media-center/press-releases/jsf/jet-engine:press-list'},
+        'cassidy': {'method': 'jet_listing_elementor', 'url_base': 'https://www.cassidy.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
+        'fetterman': {'method': 'jet_listing_elementor', 'url_base': 'https://www.fetterman.senate.gov/press-releases/?jsf=jet-engine:press-list'},
+        'tester': {'method': 'jet_listing_elementor', 'url_base': 'https://www.tester.senate.gov/newsroom/press-releases'},
+        'marshall': {'method': 'jet_listing_elementor', 'url_base': 'https://www.marshall.senate.gov/media/press-releases'},
+        'britt': {'method': 'jet_listing_elementor', 'url_base': 'https://www.britt.senate.gov/media/press-releases/?jsf=jet-engine:press-list'},
+        'toddyoung': {'method': 'jet_listing_elementor', 'url_base': 'https://www.young.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
+        'markkelly': {'method': 'jet_listing_elementor', 'url_base': 'https://www.kelly.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
+        'lujan': {'method': 'jet_listing_elementor', 'url_base': 'https://www.lujan.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
+        'mullin': {'method': 'jet_listing_elementor', 'url_base': 'https://www.mullin.senate.gov/press-releases/page/'},
+        'ossoff': {'method': 'jet_listing_elementor', 'url_base': 'https://www.ossoff.senate.gov/press-releases/?jsf=jet-engine:press-list'},
+        
+        # article_block_h2_p_date pattern - Senate sites with ArticleBlock
+        'murphy': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.murphy.senate.gov/newsroom/press-releases'},
+        'markey': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.markey.senate.gov/news/press-releases'},
+        'cotton': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cotton.senate.gov/news/press-releases'},
+        'rounds': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.rounds.senate.gov/newsroom/press-releases'},
+        'kaine': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.kaine.senate.gov/news'},
+        'durbin': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.durbin.senate.gov/newsroom/press-releases'},
+        'sherrod_brown': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.brown.senate.gov/newsroom/press'},
+        'crapo': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.crapo.senate.gov/media/newsreleases'},
+        'hirono': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.hirono.senate.gov/news/press-releases'},
+        'ernst': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.ernst.senate.gov/news/press-releases'},
+        'garypeters': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.peters.senate.gov/newsroom/press-releases'},
+        'jackreed': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.reed.senate.gov/news/releases'},
+        'heinrich': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.heinrich.senate.gov/newsroom/press-releases'},
+        'aguilar': {'method': 'article_block_h2_p_date', 'url_base': 'https://aguilar.house.gov/media/press-releases'},
+        'bergman': {'method': 'article_block_h2_p_date', 'url_base': 'https://bergman.house.gov/media/press-releases'},
+        'cantwell': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cantwell.senate.gov/news/press-releases'},
+        'capito': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.capito.senate.gov/news/press-releases'},
+        'carey': {'method': 'article_block_h2_p_date', 'url_base': 'https://carey.house.gov/media/press-releases'},
+        'cortezmasto': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cortezmasto.senate.gov/news/press-releases'},
+        'cruz': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cruz.senate.gov/newsroom/press-releases'},
+        'daines': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.daines.senate.gov/news/press-releases'},
+        'duckworth': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.duckworth.senate.gov/news/press-releases'},
+        'ellzey': {'method': 'article_block_h2_p_date', 'url_base': 'https://ellzey.house.gov/media/press-releases'},
+        'gimenez': {'method': 'article_block_h2_p_date', 'url_base': 'https://gimenez.house.gov/media/press-releases'},
+        'hassan': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.hassan.senate.gov/news/press-releases'},
+        
+        # element_post_media pattern - Senate sites with .element class
+        'tillis': {'method': 'element_post_media', 'url_base': 'https://www.tillis.senate.gov/press-releases'},
+        'wicker': {'method': 'element_post_media', 'url_base': 'https://www.wicker.senate.gov/press-releases'},
+        'blackburn': {'method': 'element_post_media', 'url_base': 'https://www.blackburn.senate.gov/news/cc8c80c1-d564-4bbb-93a4-f1d772346ae0'},
+        
+        # media_body pattern - House sites with media-body class (200+ members)
+        'issa': {'method': 'media_body', 'url_base': 'https://issa.house.gov/media/press-releases'},
+        'tenney': {'method': 'media_body', 'url_base': 'https://tenney.house.gov/media/press-releases'},
+        'amodei': {'method': 'media_body', 'url_base': 'https://amodei.house.gov/news-releases'},
+        'palmer': {'method': 'media_body', 'url_base': 'https://palmer.house.gov/media-center/press-releases'},
+        'newhouse': {'method': 'media_body', 'url_base': 'https://newhouse.house.gov/media-center/press-releases'},
+        'doggett': {'method': 'media_body', 'url_base': 'https://doggett.house.gov/media/press-releases'},
+        'ocasio-cortez': {'method': 'media_body', 'url_base': 'https://ocasio-cortez.house.gov/media/press-releases'},
+        'hudson': {'method': 'media_body', 'url_base': 'https://hudson.house.gov/media/press-releases'},
+        'davis': {'method': 'media_body', 'url_base': 'https://davis.house.gov/media'},
+        'espaillat': {'method': 'media_body', 'url_base': 'https://espaillat.house.gov/media/press-releases'},
+        'algreen': {'method': 'media_body', 'url_base': 'https://algreen.house.gov/media/press-releases'},
+        'mariodiazbalart': {'method': 'media_body', 'url_base': 'https://mariodiazbalart.house.gov/media-center/press-releases'},
+        'biggs': {'method': 'media_body', 'url_base': 'https://biggs.house.gov/media/press-releases'},
+        'johnjoyce': {'method': 'media_body', 'url_base': 'https://johnjoyce.house.gov/media/press-releases'},
+        'larson': {'method': 'media_body', 'url_base': 'https://larson.house.gov/media-center/press-releases'},
+        'kaptur': {'method': 'media_body', 'url_base': 'https://kaptur.house.gov/media-center/press-releases'},
+        'benniethompson': {'method': 'media_body', 'url_base': 'https://benniethompson.house.gov/media/press-releases'},
+        'walberg': {'method': 'media_body', 'url_base': 'https://walberg.house.gov/media/press-releases'},
+        'burchett': {'method': 'media_body', 'url_base': 'https://burchett.house.gov/media/press-releases'},
+        'cline': {'method': 'media_body', 'url_base': 'https://cline.house.gov/media/press-releases'},
+        'golden': {'method': 'media_body', 'url_base': 'https://golden.house.gov/media/press-releases'},
+        'harder': {'method': 'media_body', 'url_base': 'https://harder.house.gov/media/press-releases'},
+        'dustyjohnson': {'method': 'media_body', 'url_base': 'https://dustyjohnson.house.gov/media/press-releases'},
+        'meuser': {'method': 'media_body', 'url_base': 'https://meuser.house.gov/media/press-releases'},
+        'miller': {'method': 'media_body', 'url_base': 'https://miller.house.gov/media/press-releases'},
+        'johnrose': {'method': 'media_body', 'url_base': 'https://johnrose.house.gov/media/press-releases'},
+        'roy': {'method': 'media_body', 'url_base': 'https://roy.house.gov/media/press-releases'},
+        'sherrill': {'method': 'media_body', 'url_base': 'https://sherrill.house.gov/media/press-releases'},
+        'steil': {'method': 'media_body', 'url_base': 'https://steil.house.gov/media/press-releases'},
+        'schrier': {'method': 'media_body', 'url_base': 'https://schrier.house.gov/media/press-releases'},
+        'scalise': {'method': 'media_body', 'url_base': 'https://scalise.house.gov/media/press-releases'},
+        'neguse': {'method': 'media_body', 'url_base': 'https://neguse.house.gov/media/press-releases'},
+        'boyle': {'method': 'media_body', 'url_base': 'https://boyle.house.gov/media-center/press-releases'},
+        'smucker': {'method': 'media_body', 'url_base': 'https://smucker.house.gov/media/press-releases'},
+        'waters': {'method': 'media_body', 'url_base': 'https://waters.house.gov/media-center/press-releases'},
+        'khanna': {'method': 'media_body', 'url_base': 'https://khanna.house.gov/media/press-releases'},
+        'pelosi': {'method': 'media_body', 'url_base': 'https://pelosi.house.gov/news/press-releases'},
+        'cherfilus-mccormick': {'method': 'media_body', 'url_base': 'https://cherfilus-mccormick.house.gov/media/press-releases'},
+        'shontelbrown': {'method': 'media_body', 'url_base': 'https://shontelbrown.house.gov/media/press-releases'},
+        'stansbury': {'method': 'media_body', 'url_base': 'https://stansbury.house.gov/media/press-releases'},
+        'troycarter': {'method': 'media_body', 'url_base': 'https://troycarter.house.gov/media/press-releases'},
+        'letlow': {'method': 'media_body', 'url_base': 'https://letlow.house.gov/media/press-releases'},
+        'matsui': {'method': 'media_body', 'url_base': 'https://matsui.house.gov/media'},
+        'harris': {'method': 'media_body', 'url_base': 'https://harris.house.gov/media/press-releases'},
+        'wagner': {'method': 'media_body', 'url_base': 'https://wagner.house.gov/media-center/press-releases'},
+        'pappas': {'method': 'media_body', 'url_base': 'https://pappas.house.gov/media/press-releases'},
+        'crow': {'method': 'media_body', 'url_base': 'https://crow.house.gov/media/press-releases'},
+        'chuygarcia': {'method': 'media_body', 'url_base': 'https://chuygarcia.house.gov/media/press-releases'},
+        'omar': {'method': 'media_body', 'url_base': 'https://omar.house.gov/media/press-releases'},
+        'underwood': {'method': 'media_body', 'url_base': 'https://underwood.house.gov/media/press-releases'},
+        'casten': {'method': 'media_body', 'url_base': 'https://casten.house.gov/media/press-releases'},
+        'fleischmann': {'method': 'media_body', 'url_base': 'https://fleischmann.house.gov/media/press-releases'},
+        'stevens': {'method': 'media_body', 'url_base': 'https://stevens.house.gov/media/press-releases'},
+        'guest': {'method': 'media_body', 'url_base': 'https://guest.house.gov/media/press-releases'},
+        'morelle': {'method': 'media_body', 'url_base': 'https://morelle.house.gov/media/press-releases'},
+        'beatty': {'method': 'media_body', 'url_base': 'https://beatty.house.gov/media-center/press-releases'},
+        'robinkelly': {'method': 'media_body', 'url_base': 'https://robinkelly.house.gov/media-center/press-releases'},
+        'moolenaar': {'method': 'media_body', 'url_base': 'https://moolenaar.house.gov/media-center/press-releases'},
+        'adams': {'method': 'media_body', 'url_base': 'https://adams.house.gov/media-center/press-releases'},
+        'mfume': {'method': 'media_body', 'url_base': 'https://mfume.house.gov/media/press-releases'},
+        'tiffany': {'method': 'media_body', 'url_base': 'https://tiffany.house.gov/media/press-releases'},
+        'barrymoore': {'method': 'media_body', 'url_base': 'https://barrymoore.house.gov/media/press-releases'},
+        'obernolte': {'method': 'media_body', 'url_base': 'https://obernolte.house.gov/media/press-releases'},
+        'boebert': {'method': 'media_body', 'url_base': 'https://boebert.house.gov/media/press-releases'},
+        'cammack': {'method': 'media_body', 'url_base': 'https://cammack.house.gov/media/press-releases'},
+        'salazar': {'method': 'media_body', 'url_base': 'https://salazar.house.gov/media/press-releases'},
+        'hinson': {'method': 'media_body', 'url_base': 'https://hinson.house.gov/media/press-releases'},
+        'millermeeks': {'method': 'media_body', 'url_base': 'https://millermeeks.house.gov/media/press-releases'},
+        'feenstra': {'method': 'media_body', 'url_base': 'https://feenstra.house.gov/media/press-releases'},
+        'marymiller': {'method': 'media_body', 'url_base': 'https://marymiller.house.gov/media/press-releases'},
+        'mrvan': {'method': 'media_body', 'url_base': 'https://mrvan.house.gov/media/press-releases'},
+        'spartz': {'method': 'media_body', 'url_base': 'https://spartz.house.gov/media/press-releases'},
+        'mann': {'method': 'media_body', 'url_base': 'https://mann.house.gov/media/press-releases'},
+        'garbarino': {'method': 'media_body', 'url_base': 'https://garbarino.house.gov/media/press-releases'},
+        'malliotakis': {'method': 'media_body', 'url_base': 'https://malliotakis.house.gov/media/press-releases'},
+        'bice': {'method': 'media_body', 'url_base': 'https://bice.house.gov/media/press-releases'},
+        'bentz': {'method': 'media_body', 'url_base': 'https://bentz.house.gov/media/press-releases'},
+        'mace': {'method': 'media_body', 'url_base': 'https://mace.house.gov/media/press-releases'},
+        'harshbarger': {'method': 'media_body', 'url_base': 'https://harshbarger.house.gov/media/press-releases'},
+        'blakemoore': {'method': 'media_body', 'url_base': 'https://blakemoore.house.gov/media/press-releases'},
+        'fitzgerald': {'method': 'media_body', 'url_base': 'https://fitzgerald.house.gov/media/press-releases'},
+        'flood': {'method': 'media_body', 'url_base': 'https://flood.house.gov/media/press-releases'},
+        'patryan': {'method': 'media_body', 'url_base': 'https://patryan.house.gov/media/press-releases'},
+        'kamlager-dove': {'method': 'media_body', 'url_base': 'https://kamlager-dove.house.gov/media/press-releases'},
+        'robertgarcia': {'method': 'media_body', 'url_base': 'https://robertgarcia.house.gov/media/press-releases'},
+        'bean': {'method': 'media_body', 'url_base': 'https://bean.house.gov/media/press-releases'},
+        'mccormick': {'method': 'media_body', 'url_base': 'https://mccormick.house.gov/media/press-releases'},
+        'collins': {'method': 'media_body', 'url_base': 'https://collins.house.gov/media/press-releases'},
+        'edwards': {'method': 'media_body', 'url_base': 'https://edwards.house.gov/media/press-releases'},
+        'kean': {'method': 'media_body', 'url_base': 'https://kean.house.gov/media/press-releases'},
+        'goldman': {'method': 'media_body', 'url_base': 'https://goldman.house.gov/media/press-releases'},
+        'langworthy': {'method': 'media_body', 'url_base': 'https://langworthy.house.gov/media/press-releases'},
+        'magaziner': {'method': 'media_body', 'url_base': 'https://magaziner.house.gov/media/press-releases'},
+        'vanorden': {'method': 'media_body', 'url_base': 'https://vanorden.house.gov/media/press-releases'},
+        'hunt': {'method': 'media_body', 'url_base': 'https://hunt.house.gov/media/press-releases'},
+        'casar': {'method': 'media_body', 'url_base': 'https://casar.house.gov/media/press-releases'},
+        'crockett': {'method': 'media_body', 'url_base': 'https://crockett.house.gov/media/press-releases'},
+        'luttrell': {'method': 'media_body', 'url_base': 'https://luttrell.house.gov/media/press-releases'},
+        'deluzio': {'method': 'media_body', 'url_base': 'https://deluzio.house.gov/media/press-releases'},
+        'lalota': {'method': 'media_body', 'url_base': 'https://lalota.house.gov/media/press-releases'},
+        'vasquez': {'method': 'media_body', 'url_base': 'https://vasquez.house.gov/media/press-releases'},
+        'scholten': {'method': 'media_body', 'url_base': 'https://scholten.house.gov/media/press-releases'},
+        'ivey': {'method': 'media_body', 'url_base': 'https://ivey.house.gov/media/press-releases'},
+        'sorensen': {'method': 'media_body', 'url_base': 'https://sorensen.house.gov/media/press-releases'},
+        'nunn': {'method': 'media_body', 'url_base': 'https://nunn.house.gov/media/press-releases'},
+        'laurellee': {'method': 'media_body', 'url_base': 'https://laurellee.house.gov/media/press-releases'},
+        'mills': {'method': 'media_body', 'url_base': 'https://mills.house.gov/media/press-releases'},
+        'ciscomani': {'method': 'media_body', 'url_base': 'https://ciscomani.house.gov/media/press-releases'},
+        'democraticleader': {'method': 'media_body', 'url_base': 'https://democraticleader.house.gov/media/press-releases'},
+        'horsford': {'method': 'media_body', 'url_base': 'https://horsford.house.gov/media/press-releases'},
+        'cleaver': {'method': 'media_body', 'url_base': 'https://cleaver.house.gov/media-center/press-releases'},
+        'aderholt': {'method': 'media_body', 'url_base': 'https://aderholt.house.gov/media-center/press-releases'},
+        'courtney': {'method': 'media_body', 'url_base': 'https://courtney.house.gov/media-center/press-releases'},
+        'stauber': {'method': 'media_body', 'url_base': 'https://stauber.house.gov/media/press-releases'},
+        'mccaul': {'method': 'media_body', 'url_base': 'https://mccaul.house.gov/media-center/press-releases'},
+        'foster': {'method': 'media_body', 'url_base': 'https://foster.house.gov/media/press-releases'},
+        'schakowsky': {'method': 'media_body', 'url_base': 'https://schakowsky.house.gov/media/press-releases'},
+        'craig': {'method': 'media_body', 'url_base': 'https://craig.house.gov/media/press-releases'},
+        'desaulnier': {'method': 'media_body', 'url_base': 'https://desaulnier.house.gov/media-center/press-releases'},
+        'murphy': {'method': 'media_body', 'url_base': 'https://murphy.house.gov/media/press-releases'},
+        'calvert': {'method': 'media_body', 'url_base': 'https://calvert.house.gov/media/press-releases'},
+        'bobbyscott': {'method': 'media_body', 'url_base': 'https://bobbyscott.house.gov/media-center/press-releases'},
+        'bilirakis': {'method': 'media_body', 'url_base': 'https://bilirakis.house.gov/media/press-releases'},
+        'delauro': {'method': 'media_body', 'url_base': 'https://delauro.house.gov/media-center/press-releases'},
+        'norton': {'method': 'media_body', 'url_base': 'https://norton.house.gov/media/press-releases'},
+        'mikethompson': {'method': 'media_body', 'url_base': 'https://mikethompson.house.gov/newsroom/press-releases'},
+        'degette': {'method': 'media_body', 'url_base': 'https://degette.house.gov/media-center/press-releases'},
+        'ruiz': {'method': 'media_body', 'url_base': 'https://ruiz.house.gov/media-center/press-releases'},
+        'sherman': {'method': 'media_body', 'url_base': 'https://sherman.house.gov/media-center/press-releases'},
+        'quigley': {'method': 'media_body', 'url_base': 'https://quigley.house.gov/media-center/press-releases'},
+        'swalwell': {'method': 'media_body', 'url_base': 'https://swalwell.house.gov/media-center/press-releases'},
+        'panetta': {'method': 'media_body', 'url_base': 'https://panetta.house.gov/media/press-releases'},
+        'schneider': {'method': 'media_body', 'url_base': 'https://schneider.house.gov/media/press-releases'},
+        'dankildee': {'method': 'media_body', 'url_base': 'https://dankildee.house.gov/media/press-releases'},
+        'sylviagarcia': {'method': 'media_body', 'url_base': 'https://sylviagarcia.house.gov/media/press-releases'},
+        'susielee': {'method': 'media_body', 'url_base': 'https://susielee.house.gov/media/press-releases'},
+        'amo': {'method': 'media_body', 'url_base': 'https://amo.house.gov/press-releases'},
+        'mcclellan': {'method': 'media_body', 'url_base': 'https://mcclellan.house.gov/media/press-releases'},
+        'rulli': {'method': 'media_body', 'url_base': 'https://rulli.house.gov/media/press-releases'},
+        'suozzi': {'method': 'media_body', 'url_base': 'https://suozzi.house.gov/media/press-releases'},
+        'fong': {'method': 'media_body', 'url_base': 'https://fong.house.gov/media/press-releases'},
+        'lopez': {'method': 'media_body', 'url_base': 'https://lopez.house.gov/media/press-releases'},
+        'mciver': {'method': 'media_body', 'url_base': 'https://mciver.house.gov/media/press-releases'},
+        'wied': {'method': 'media_body', 'url_base': 'https://wied.house.gov/media/press-releases'},
+        'ericaleecarter': {'method': 'media_body', 'url_base': 'https://ericaleecarter.house.gov/media/press-releases'},
+        'moulton': {'method': 'media_body', 'url_base': 'https://moulton.house.gov/news/press-releases'},
+        'nehls': {'method': 'media_body', 'url_base': 'https://nehls.house.gov/media'},
+        'meng': {'method': 'media_body', 'url_base': 'https://meng.house.gov/media-center/press-releases'},
+        'lindasanchez': {'method': 'media_body', 'url_base': 'https://lindasanchez.house.gov/media-center/press-releases'},
+        'lamalfa': {'method': 'media_body', 'url_base': 'https://lamalfa.house.gov/media-center/press-releases'},
+        'dondavis': {'method': 'media_body', 'url_base': 'https://dondavis.house.gov/media/press-releases'},
+        'strong': {'method': 'media_body', 'url_base': 'https://strong.house.gov/media/press-releases'},
+        'chu': {'method': 'media_body', 'url_base': 'https://chu.house.gov/media-center/press-releases'},
+        'lieu': {'method': 'media_body', 'url_base': 'https://lieu.house.gov/media-center/press-releases'},
+        'joewilson': {'method': 'media_body', 'url_base': 'https://joewilson.house.gov/media/press-releases'},
+        'zinke': {'method': 'media_body', 'url_base': 'https://zinke.house.gov/media/press-releases'},
+        'rutherford': {'method': 'media_body', 'url_base': 'https://rutherford.house.gov/media/press-releases'},
+        'veasey': {'method': 'media_body', 'url_base': 'https://veasey.house.gov/media-center/press-releases'},
+        'garamendi': {'method': 'media_body', 'url_base': 'https://garamendi.house.gov/media/press-releases'},
+        'kustoff': {'method': 'media_body', 'url_base': 'https://kustoff.house.gov/media/press-releases'},
+        'gonzalez': {'method': 'media_body', 'url_base': 'https://gonzalez.house.gov/media/press-releases'},
+        'costa': {'method': 'media_body', 'url_base': 'https://costa.house.gov/media/press-releases'},
+        'houchin': {'method': 'media_body', 'url_base': 'https://houchin.house.gov/media/press-releases'},
+        'williams': {'method': 'media_body', 'url_base': 'https://williams.house.gov/media-center/press-releases'},
+        'menendez': {'method': 'media_body', 'url_base': 'https://menendez.house.gov/media/press-releases'},
+        'pocan': {'method': 'media_body', 'url_base': 'https://pocan.house.gov/media-center/press-releases'},
+        'ogles': {'method': 'media_body', 'url_base': 'https://ogles.house.gov/media/press-releases'},
+        'velazquez': {'method': 'media_body', 'url_base': 'https://velazquez.house.gov/media-center/press-releases'},
+        'bonamici': {'method': 'media_body', 'url_base': 'https://bonamici.house.gov/media/press-releases'},
+        'keithself': {'method': 'media_body', 'url_base': 'https://keithself.house.gov/media/press-releases'},
+        'bishop': {'method': 'media_body', 'url_base': 'https://bishop.house.gov/media-center/press-releases'},
+        'hoyer': {'method': 'media_body', 'url_base': 'https://hoyer.house.gov/media'},
+        'burlison': {'method': 'media_body', 'url_base': 'https://burlison.house.gov/media/press-releases'},
+        'jonathanjackson': {'method': 'media_body', 'url_base': 'https://jonathanjackson.house.gov/media/press-releases'},
+        'davids': {'method': 'media_body', 'url_base': 'https://davids.house.gov/media/press-releases'},
+        'mccollum': {'method': 'media_body', 'url_base': 'https://mccollum.house.gov/media/press-releases'},
+        'adamsmith': {'method': 'media_body', 'url_base': 'https://adamsmith.house.gov/news/press-releases'},
+        'hankjohnson': {'method': 'media_body', 'url_base': 'https://hankjohnson.house.gov/media-center/press-releases'},
+        'evans': {'method': 'media_body', 'url_base': 'https://evans.house.gov/media/press-releases'},
+        'salinas': {'method': 'media_body', 'url_base': 'https://salinas.house.gov/media/press-releases'},
+        'pallone': {'method': 'media_body', 'url_base': 'https://pallone.house.gov/media/press-releases'},
+        'ramirez': {'method': 'media_body', 'url_base': 'https://ramirez.house.gov/media/press-releases'},
+        'graves': {'method': 'media_body', 'url_base': 'https://graves.house.gov/media/press-releases'},
+        'cole': {'method': 'media_body', 'url_base': 'https://cole.house.gov/media-center/press-releases'},
+        'jordan': {'method': 'media_body', 'url_base': 'https://jordan.house.gov/media/press-releases'},
+        'hageman': {'method': 'media_body', 'url_base': 'https://hageman.house.gov/media/press-releases'},
+        'figures': {'method': 'media_body', 'url_base': 'https://figures.house.gov/media'},
+        'begich': {'method': 'media_body', 'url_base': 'https://begich.house.gov/media/press-releases'},
+        'ansari': {'method': 'media_body', 'url_base': 'https://ansari.house.gov/media/press-releases'},
+        'simon': {'method': 'media_body', 'url_base': 'https://simon.house.gov/media/press-releases'},
+        'gray': {'method': 'media_body', 'url_base': 'https://gray.house.gov/media/press-releases'},
+        'liccardo': {'method': 'media_body', 'url_base': 'https://liccardo.house.gov/media/press-releases'},
+        'rivas': {'method': 'media_body', 'url_base': 'https://rivas.house.gov/media/press-releases'},
+        'friedman': {'method': 'media_body', 'url_base': 'https://friedman.house.gov/media/press-releases'},
+        'tran': {'method': 'media_body', 'url_base': 'https://tran.house.gov/media/press-releases'},
+        'min': {'method': 'media_body', 'url_base': 'https://min.house.gov/media/press-releases'},
+        'hurd': {'method': 'media_body', 'url_base': 'https://hurd.house.gov/media/press-releases'},
+        'crank': {'method': 'media_body', 'url_base': 'https://crank.house.gov/media/press-releases'},
+        'gabeevans': {'method': 'media_body', 'url_base': 'https://gabeevans.house.gov/media/press-releases'},
+        'mcbride': {'method': 'media_body', 'url_base': 'https://mcbride.house.gov/media/press-releases'},
+        'haridopolos': {'method': 'media_body', 'url_base': 'https://haridopolos.house.gov/media/press-releases'},
+        'jack': {'method': 'media_body', 'url_base': 'https://jack.house.gov/media/press-releases'},
+        'stutzman': {'method': 'media_body', 'url_base': 'https://stutzman.house.gov/media/press-releases'},
+        'shreve': {'method': 'media_body', 'url_base': 'https://shreve.house.gov/media/press-releases'},
+        'fields': {'method': 'media_body', 'url_base': 'https://fields.house.gov/media/press-releases'},
+        'olszewski': {'method': 'media_body', 'url_base': 'https://olszewski.house.gov/media/press-releases'},
+        'elfreth': {'method': 'media_body', 'url_base': 'https://elfreth.house.gov/media/press-releases'},
+        'mcclaindelaney': {'method': 'media_body', 'url_base': 'https://mcclaindelaney.house.gov/media/press-releases'},
+        'mcdonaldrivet': {'method': 'media_body', 'url_base': 'https://mcdonaldrivet.house.gov/media/press-releases'},
+        'barrett': {'method': 'media_body', 'url_base': 'https://barrett.house.gov/media/press-releases'},
+        'morrison': {'method': 'media_body', 'url_base': 'https://morrison.house.gov/media/press-releases'},
+        'bell': {'method': 'media_body', 'url_base': 'https://bell.house.gov/media/press-releases'},
+        'downing': {'method': 'media_body', 'url_base': 'https://downing.house.gov/media/press-releases'},
+        'goodlander': {'method': 'media_body', 'url_base': 'https://goodlander.house.gov/media/press-releases'},
+        'pou': {'method': 'media_body', 'url_base': 'https://pou.house.gov/media/press-releases'},
+        'gillen': {'method': 'media_body', 'url_base': 'https://gillen.house.gov/media/press-releases'},
+        'latimer': {'method': 'media_body', 'url_base': 'https://latimer.house.gov/media/press-releases'},
+        'riley': {'method': 'media_body', 'url_base': 'https://riley.house.gov/media/press-releases'},
+        'mannion': {'method': 'media_body', 'url_base': 'https://mannion.house.gov/media/press-releases'},
+        'mcdowell': {'method': 'media_body', 'url_base': 'https://mcdowell.house.gov/media/press-releases'},
+        'markharris': {'method': 'media_body', 'url_base': 'https://markharris.house.gov/media/press-releases'},
+        'harrigan': {'method': 'media_body', 'url_base': 'https://harrigan.house.gov/media/press-releases'},
+        'knott': {'method': 'media_body', 'url_base': 'https://knott.house.gov/media/press-releases'},
+        'timmoore': {'method': 'media_body', 'url_base': 'https://timmoore.house.gov/media/press-releases'},
+        'fedorchak': {'method': 'media_body', 'url_base': 'https://fedorchak.house.gov/media/press-releases'},
+        'king-hinds': {'method': 'media_body', 'url_base': 'https://king-hinds.house.gov/media'},
+        'taylor': {'method': 'media_body', 'url_base': 'https://taylor.house.gov/media/press-releases'},
+        'dexter': {'method': 'media_body', 'url_base': 'https://dexter.house.gov/media/press-releases'},
+        'bynum': {'method': 'media_body', 'url_base': 'https://bynum.house.gov/media/press-releases'},
+        'mackenzie': {'method': 'media_body', 'url_base': 'https://mackenzie.house.gov/media/press-releases'},
+        'bresnahan': {'method': 'media_body', 'url_base': 'https://bresnahan.house.gov/media'},
+        'hernandez': {'method': 'media_body', 'url_base': 'https://hernandez.house.gov/media/press-releases'},
+        'sheribiggs': {'method': 'media_body', 'url_base': 'https://sheribiggs.house.gov/media/press-releases'},
+        'craiggoldman': {'method': 'media_body', 'url_base': 'https://craiggoldman.house.gov/media/press-releases'},
+        'sylvesterturner': {'method': 'media_body', 'url_base': 'https://sylvesterturner.house.gov/media/press-releases'},
+        'gill': {'method': 'media_body', 'url_base': 'https://gill.house.gov/media/press-releases'},
+        'juliejohnson': {'method': 'media_body', 'url_base': 'https://juliejohnson.house.gov/media/press-releases'},
+        'mcguire': {'method': 'media_body', 'url_base': 'https://mcguire.house.gov/media/press-releases'},
+        'vindman': {'method': 'media_body', 'url_base': 'https://vindman.house.gov/media/press-releases'},
+        'subramanyam': {'method': 'media_body', 'url_base': 'https://subramanyam.house.gov/media/press-releases'},
+        'baumgartner': {'method': 'media_body', 'url_base': 'https://baumgartner.house.gov/media/press-releases'},
+        'randall': {'method': 'media_body', 'url_base': 'https://randall.house.gov/media/press-releases'},
+        'rileymoore': {'method': 'media_body', 'url_base': 'https://rileymoore.house.gov/media/press-releases'},
+    }
+    
+    @classmethod
+    def run_scraper(cls, scraper_name, page=1, **kwargs):
+        """
+        Configuration-driven scraper dispatcher.
+        
+        For scrapers in SCRAPER_CONFIG, routes to the appropriate generic method with URL.
+        For others, calls the method directly if it exists.
+        
+        Args:
+            scraper_name: Name of the scraper to run (e.g., 'moran', 'boozman')
+            page: Page number for pagination
+            **kwargs: Additional arguments (e.g., urls for generic methods)
+            
+        Returns:
+            List of scraped results or empty list if scraper not found
+        """
+        config = cls.SCRAPER_CONFIG.get(scraper_name)
+        if not config:
+            # Fall back to calling the method directly if it exists
+            if hasattr(cls, scraper_name):
+                method = getattr(cls, scraper_name)
+                return method(page=page, **kwargs)
+            return []
+        
+        method_name = config['method']
+        url_base = config['url_base']
+        
+        # Get the generic method
+        method = getattr(cls, method_name)
+        
+        # All generic methods accept urls and page
+        return method([url_base], page)
+    
     @staticmethod
     def open_html(url):
         """Open an HTML page and return a BeautifulSoup object."""
@@ -413,37 +747,7 @@ class Scraper:
     @classmethod
     def timscott(cls, page=1):
         """Scrape Senator Tim Scott's press releases."""
-        results = []
-        domain = "www.scott.senate.gov"
-        url = f"https://www.scott.senate.gov/media-center/press-releases/jsf/jet-engine:press-list/pagenum/{page}/"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        grid_items = doc.select('.jet-listing-grid .elementor-widget-wrap')
-        for row in grid_items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-                
-            date_elem = row.select_one("li span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('timscott', page)
         
     @classmethod
     def angusking(cls, page=1):
@@ -529,254 +833,19 @@ class Scraper:
 
     @classmethod
     def media_body(cls, urls=None, page=0):
-        """Scrape press releases from websites with media-body class."""
+        """
+        Scrape press releases from websites with media-body class.
+        
+        If urls is None, automatically collects all URLs from SCRAPER_CONFIG 
+        where method='media_body'.
+        """
         results = []
         if urls is None:
+            # Collect all URLs from SCRAPER_CONFIG where method='media_body'
             urls = [
-                "https://issa.house.gov/media/press-releases",
-                "https://tenney.house.gov/media/press-releases",
-                "https://amodei.house.gov/news-releases",
-                "https://palmer.house.gov/media-center/press-releases",
-                "https://newhouse.house.gov/media-center/press-releases",
-                "https://doggett.house.gov/media/press-releases",
-                "https://ocasio-cortez.house.gov/media/press-releases",
-                "https://hudson.house.gov/media/press-releases",
-                "https://davis.house.gov/media",
-                "https://espaillat.house.gov/media/press-releases",
-                "https://algreen.house.gov/media/press-releases",
-                "https://mariodiazbalart.house.gov/media-center/press-releases",
-                "https://biggs.house.gov/media/press-releases",
-                "https://johnjoyce.house.gov/media/press-releases",
-                "https://larson.house.gov/media-center/press-releases",
-                "https://kaptur.house.gov/media-center/press-releases",
-                "https://benniethompson.house.gov/media/press-releases",
-                "https://walberg.house.gov/media/press-releases",
-                "https://burchett.house.gov/media/press-releases",
-                "https://cline.house.gov/media/press-releases",
-                "https://golden.house.gov/media/press-releases",
-                "https://harder.house.gov/media/press-releases",
-                "https://dustyjohnson.house.gov/media/press-releases",
-                "https://meuser.house.gov/media/press-releases",
-                "https://miller.house.gov/media/press-releases",
-                "https://johnrose.house.gov/media/press-releases",
-                "https://roy.house.gov/media/press-releases",
-                "https://sherrill.house.gov/media/press-releases",
-                "https://steil.house.gov/media/press-releases",
-                "https://schrier.house.gov/media/press-releases",
-                "https://cherfilus-mccormick.house.gov/media/press-releases",
-                "https://shontelbrown.house.gov/media/press-releases",
-                "https://stansbury.house.gov/media/press-releases",
-                "https://troycarter.house.gov/media/press-releases",
-                "https://letlow.house.gov/media/press-releases",
-                "https://matsui.house.gov/media",
-                "https://harris.house.gov/media/press-releases",
-                "https://wagner.house.gov/media-center/press-releases",
-                "https://pappas.house.gov/media/press-releases",
-                "https://crow.house.gov/media/press-releases",
-                "https://chuygarcia.house.gov/media/press-releases",
-                "https://omar.house.gov/media/press-releases",
-                "https://underwood.house.gov/media/press-releases",
-                "https://casten.house.gov/media/press-releases",
-                "https://fleischmann.house.gov/media/press-releases",
-                "https://stevens.house.gov/media/press-releases",
-                "https://guest.house.gov/media/press-releases",
-                "https://morelle.house.gov/media/press-releases",
-                "https://beatty.house.gov/media-center/press-releases",
-                "https://robinkelly.house.gov/media-center/press-releases",
-                "https://moolenaar.house.gov/media-center/press-releases",
-                "https://adams.house.gov/media-center/press-releases",
-                "https://mfume.house.gov/media/press-releases",
-                "https://tiffany.house.gov/media/press-releases",
-                "https://barrymoore.house.gov/media/press-releases",
-                "https://obernolte.house.gov/media/press-releases",
-                "https://boebert.house.gov/media/press-releases",
-                "https://cammack.house.gov/media/press-releases",
-                "https://salazar.house.gov/media/press-releases",
-                "https://hinson.house.gov/media/press-releases",
-                "https://millermeeks.house.gov/media/press-releases",
-                "https://feenstra.house.gov/media/press-releases",
-                "https://marymiller.house.gov/media/press-releases",
-                "https://mrvan.house.gov/media/press-releases",
-                "https://spartz.house.gov/media/press-releases",
-                "https://mann.house.gov/media/press-releases",
-                "https://garbarino.house.gov/media/press-releases",
-                "https://malliotakis.house.gov/media/press-releases",
-                "https://bice.house.gov/media/press-releases",
-                "https://bentz.house.gov/media/press-releases",
-                "https://mace.house.gov/media/press-releases",
-                "https://harshbarger.house.gov/media/press-releases",
-                "https://blakemoore.house.gov/media/press-releases",
-                "https://fitzgerald.house.gov/media/press-releases",
-                "https://flood.house.gov/media/press-releases",
-                "https://patryan.house.gov/media/press-releases",
-                "https://kamlager-dove.house.gov/media/press-releases",
-                "https://robertgarcia.house.gov/media/press-releases",
-                "https://bean.house.gov/media/press-releases",
-                "https://mccormick.house.gov/media/press-releases",
-                "https://collins.house.gov/media/press-releases",
-                "https://edwards.house.gov/media/press-releases",
-                "https://kean.house.gov/media/press-releases",
-                "https://goldman.house.gov/media/press-releases",
-                "https://langworthy.house.gov/media/press-releases",
-                "https://magaziner.house.gov/media/press-releases",
-                "https://vanorden.house.gov/media/press-releases",
-                "https://hunt.house.gov/media/press-releases",
-                "https://casar.house.gov/media/press-releases",
-                "https://crockett.house.gov/media/press-releases",
-                "https://luttrell.house.gov/media/press-releases",
-                "https://deluzio.house.gov/media/press-releases",
-                "https://lalota.house.gov/media/press-releases",
-                "https://vasquez.house.gov/media/press-releases",
-                "https://scholten.house.gov/media/press-releases",
-                "https://ivey.house.gov/media/press-releases",
-                "https://sorensen.house.gov/media/press-releases",
-                "https://nunn.house.gov/media/press-releases",
-                "https://laurellee.house.gov/media/press-releases",
-                "https://mills.house.gov/media/press-releases",
-                "https://ciscomani.house.gov/media/press-releases",
-                "https://democraticleader.house.gov/media/press-releases",
-                "https://horsford.house.gov/media/press-releases",
-                "https://cleaver.house.gov/media-center/press-releases",
-                "https://aderholt.house.gov/media-center/press-releases",
-                "https://courtney.house.gov/media-center/press-releases",
-                "https://stauber.house.gov/media/press-releases",
-                "https://mccaul.house.gov/media-center/press-releases",
-                "https://foster.house.gov/media/press-releases",
-                "https://schakowsky.house.gov/media/press-releases",
-                "https://craig.house.gov/media/press-releases",
-                "https://desaulnier.house.gov/media-center/press-releases",
-                "https://scalise.house.gov/media/press-releases",
-                "https://neguse.house.gov/media/press-releases",
-                "https://murphy.house.gov/media/press-releases",
-                "https://boyle.house.gov/media-center/press-releases",
-                "https://calvert.house.gov/media/press-releases",
-                "https://bobbyscott.house.gov/media-center/press-releases",
-                "https://bilirakis.house.gov/media/press-releases",
-                "https://delauro.house.gov/media-center/press-releases",
-                "https://norton.house.gov/media/press-releases",
-                "https://mikethompson.house.gov/newsroom/press-releases",
-                "https://smucker.house.gov/media/press-releases",
-                "https://degette.house.gov/media-center/press-releases",
-                "https://ruiz.house.gov/media-center/press-releases",
-                "https://sherman.house.gov/media-center/press-releases",
-                "https://quigley.house.gov/media-center/press-releases",
-                "https://waters.house.gov/media-center/press-releases",
-                "https://swalwell.house.gov/media-center/press-releases",
-                "https://khanna.house.gov/media/press-releases",
-                "https://panetta.house.gov/media/press-releases",
-                "https://schneider.house.gov/media/press-releases",
-                "https://dankildee.house.gov/media/press-releases",
-                "https://sylviagarcia.house.gov/media/press-releases",
-                "https://susielee.house.gov/media/press-releases",
-                "https://amo.house.gov/press-releases",
-                "https://mcclellan.house.gov/media/press-releases",
-                "https://rulli.house.gov/media/press-releases",
-                "https://suozzi.house.gov/media/press-releases",
-                "https://fong.house.gov/media/press-releases",
-                "https://lopez.house.gov/media/press-releases",
-                "https://mciver.house.gov/media/press-releases",
-                "https://wied.house.gov/media/press-releases",
-                "https://ericaleecarter.house.gov/media/press-releases",
-                "https://moulton.house.gov/news/press-releases",
-                "https://nehls.house.gov/media",
-                "https://meng.house.gov/media-center/press-releases",
-                "https://lindasanchez.house.gov/media-center/press-releases",
-                "https://lamalfa.house.gov/media-center/press-releases",
-                "https://dondavis.house.gov/media/press-releases",
-                "https://strong.house.gov/media/press-releases",
-                "https://chu.house.gov/media-center/press-releases",
-                "https://lieu.house.gov/media-center/press-releases",
-                "https://joewilson.house.gov/media/press-releases",
-                "https://zinke.house.gov/media/press-releases",
-                "https://pelosi.house.gov/news/press-releases",
-                "https://rutherford.house.gov/media/press-releases",
-                "https://veasey.house.gov/media-center/press-releases",
-                "https://garamendi.house.gov/media/press-releases",
-                "https://kustoff.house.gov/media/press-releases",
-                "https://gonzalez.house.gov/media/press-releases",
-                "https://costa.house.gov/media/press-releases",
-                "https://houchin.house.gov/media/press-releases",
-                "https://williams.house.gov/media-center/press-releases",
-                "https://menendez.house.gov/media/press-releases",
-                "https://pocan.house.gov/media-center/press-releases",
-                "https://ogles.house.gov/media/press-releases",
-                "https://velazquez.house.gov/media-center/press-releases",
-                "https://bonamici.house.gov/media/press-releases",
-                "https://keithself.house.gov/media/press-releases",
-                "https://bishop.house.gov/media-center/press-releases",
-                "https://hoyer.house.gov/media",
-                "https://burlison.house.gov/media/press-releases",
-                "https://jonathanjackson.house.gov/media/press-releases",
-                "https://davids.house.gov/media/press-releases",
-                "https://mccollum.house.gov/media/press-releases",
-                "https://adamsmith.house.gov/news/press-releases",
-                "https://hankjohnson.house.gov/media-center/press-releases",
-                "https://evans.house.gov/media/press-releases",
-                "https://salinas.house.gov/media/press-releases",
-                "https://pallone.house.gov/media/press-releases",
-                "https://ramirez.house.gov/media/press-releases",
-                "https://graves.house.gov/media/press-releases",
-                "https://cole.house.gov/media-center/press-releases",
-                "https://jordan.house.gov/media/press-releases",
-                "https://hageman.house.gov/media/press-releases",
-                "https://figures.house.gov/media",
-                "https://begich.house.gov/media/press-releases",
-                "https://ansari.house.gov/media/press-releases",
-                "https://simon.house.gov/media/press-releases",
-                "https://gray.house.gov/media/press-releases",
-                "https://liccardo.house.gov/media/press-releases",
-                "https://rivas.house.gov/media/press-releases",
-                "https://friedman.house.gov/media/press-releases",
-                "https://tran.house.gov/media/press-releases",
-                "https://min.house.gov/media/press-releases",
-                "https://hurd.house.gov/media/press-releases",
-                "https://crank.house.gov/media/press-releases",
-                "https://gabeevans.house.gov/media/press-releases",
-                "https://mcbride.house.gov/media/press-releases",
-                "https://haridopolos.house.gov/media/press-releases",
-                "https://jack.house.gov/media/press-releases",
-                "https://stutzman.house.gov/media/press-releases",
-                "https://shreve.house.gov/media/press-releases",
-                "https://fields.house.gov/media/press-releases",
-                "https://olszewski.house.gov/media/press-releases",
-                "https://elfreth.house.gov/media/press-releases",
-                "https://mcclaindelaney.house.gov/media/press-releases",
-                "https://mcdonaldrivet.house.gov/media/press-releases",
-                "https://barrett.house.gov/media/press-releases",
-                "https://morrison.house.gov/media/press-releases",
-                "https://bell.house.gov/media/press-releases",
-                "https://downing.house.gov/media/press-releases",
-                "https://goodlander.house.gov/media/press-releases",
-                "https://pou.house.gov/media/press-releases",
-                "https://mciver.house.gov/media/press-releases",
-                "https://gillen.house.gov/media/press-releases",
-                "https://latimer.house.gov/media/press-releases",
-                "https://riley.house.gov/media/press-releases",
-                "https://mannion.house.gov/media/press-releases",
-                "https://mcdowell.house.gov/media/press-releases",
-                "https://markharris.house.gov/media/press-releases",
-                "https://harrigan.house.gov/media/press-releases",
-                "https://knott.house.gov/media/press-releases",
-                "https://timmoore.house.gov/media/press-releases",
-                "https://fedorchak.house.gov/media/press-releases",
-                "https://king-hinds.house.gov/media",
-                "https://taylor.house.gov/media/press-releases",
-                "https://dexter.house.gov/media/press-releases",
-                "https://bynum.house.gov/media/press-releases",
-                "https://mackenzie.house.gov/media/press-releases",
-                "https://bresnahan.house.gov/media",
-                "https://hernandez.house.gov/media/press-releases",
-                "https://sheribiggs.house.gov/media/press-releases",
-                "https://craiggoldman.house.gov/media/press-releases",
-                "https://sylvesterturner.house.gov/media/press-releases",
-                "https://gill.house.gov/media/press-releases",
-                "https://juliejohnson.house.gov/media/press-releases",
-                "https://mcguire.house.gov/media/press-releases",
-                "https://vindman.house.gov/media/press-releases",
-                "https://subramanyam.house.gov/media/press-releases",
-                "https://baumgartner.house.gov/media/press-releases",
-                "https://randall.house.gov/media/press-releases",
-                "https://rileymoore.house.gov/media/press-releases"
+                config['url_base'] 
+                for config in cls.SCRAPER_CONFIG.values() 
+                if config['method'] == 'media_body'
             ]
         
         for url in urls:
@@ -1154,36 +1223,7 @@ class Scraper:
     @classmethod
     def barrasso(cls, page=1):
         """Scrape Senator Barrasso's press releases."""
-        results = []
-        url = f"https://www.barrasso.senate.gov/public/index.cfm/news-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("table tbody tr")
-        for row in rows:
-            link = row.select_one('a')
-            date_cell = row.select_one('td.recordListDate')
-            
-            if not (link and date_cell):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_cell.text.strip(), "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.barrasso.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('barrasso', page)
     
     @classmethod
     def senate_drupal_newscontent(cls, urls=None, page=1):
@@ -1792,284 +1832,496 @@ class Scraper:
         
         return results
     
+    # Generic scraper methods that can be reused across multiple members
+    
+    @classmethod
+    def table_recordlist_date(cls, urls=None, page=1):
+        """
+        Scrape press releases from websites with table tbody tr and td.recordListDate.
+
+        This pattern is used by Senate sites that display press releases in a table
+        with a specific recordListDate class for the date column.
+
+        Args:
+            urls: List of URLs to scrape (default: None, auto-collected from SCRAPER_CONFIG)
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+
+        Example URLs:
+            - https://www.moran.senate.gov/public/index.cfm/news-releases
+            - https://www.boozman.senate.gov/public/index.cfm/press-releases
+            - https://www.thune.senate.gov/public/index.cfm/press-releases
+            - https://www.barrasso.senate.gov/public/index.cfm/news-releases
+            - https://www.lgraham.senate.gov/public/index.cfm/press-releases
+        """
+        results = []
+        if urls is None:
+            # Collect all URLs from SCRAPER_CONFIG where method='table_recordlist_date'
+            urls = [
+                config['url_base']
+                for config in cls.SCRAPER_CONFIG.values()
+                if config['method'] == 'table_recordlist_date'
+            ]
+
+        for url in urls:
+            parsed_url = urlparse(url)
+            domain = parsed_url.netloc
+            source_url = f"{url}?page={page}" if "?" not in url else f"{url}&page={page}"
+
+            doc = cls.open_html(source_url)
+            if not doc:
+                continue
+
+            rows = doc.select("table tbody tr")
+            for row in rows:
+                link = row.select_one('a')
+                date_cell = row.select_one('td.recordListDate')
+
+                if not (link and date_cell):
+                    continue
+
+                # Parse date with multiple format attempts
+                date = None
+                date_text = date_cell.text.strip()
+
+                # Try multiple date formats
+                date_formats = [
+                    "%m/%d/%y",      # 01/15/24
+                    "%m/%d/%Y",      # 01/15/2024
+                    "%m.%d.%y",      # 01.15.24
+                    "%m.%d.%Y",      # 01.15.2024
+                    "%B %d, %Y",     # January 15, 2024
+                ]
+
+                for fmt in date_formats:
+                    try:
+                        date = datetime.datetime.strptime(date_text, fmt).date()
+                        break
+                    except ValueError:
+                        continue
+
+                # Handle relative URL
+                href = link.get('href')
+                if href.startswith('http'):
+                    full_url = href
+                else:
+                    full_url = f"https://{domain}{href}"
+
+                result = {
+                    'source': url,
+                    'url': full_url,
+                    'title': link.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+
+    @classmethod
+    def jet_listing_elementor(cls, urls=None, page=1):
+        """
+        Scrape press releases from websites using Jet Engine listing with Elementor.
+
+        This pattern is used by sites built with WordPress, Elementor, and the Jet Engine plugin.
+        The press releases are displayed in a grid with each item containing an h3 link and
+        an elementor-icon-list-text span for the date.
+
+        Args:
+            urls: List of URLs to scrape (default: None, auto-collected from SCRAPER_CONFIG)
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+
+        Example URLs:
+            - https://www.scott.senate.gov/media-center/press-releases (timscott)
+            - https://www.fetterman.senate.gov/press-releases (fetterman)
+            - https://www.tester.senate.gov/newsroom/press-releases (tester)
+            - https://www.hawley.senate.gov/media/press-releases (hawley)
+            - https://www.marshall.senate.gov/media/press-releases (marshall)
+        """
+        results = []
+        if urls is None:
+            # Collect all URLs from SCRAPER_CONFIG where method='jet_listing_elementor'
+            urls = [
+                config['url_base']
+                for config in cls.SCRAPER_CONFIG.values()
+                if config['method'] == 'jet_listing_elementor'
+            ]
+
+        for url in urls:
+            parsed_url = urlparse(url)
+            domain = parsed_url.netloc
+
+            # Handle different URL structures for pagination
+            if "?jsf=" in url:
+                source_url = f"{url}&pagenum={page}"
+            elif "/pagenum/" in url:
+                # Replace existing page number or add it
+                if f"/pagenum/{page}/" in url:
+                    source_url = url
+                else:
+                    # Find and replace the page number
+                    import re
+                    source_url = re.sub(r'/pagenum/\d+/', f'/pagenum/{page}/', url)
+                    if '/pagenum/' not in source_url:
+                        source_url = f"{url.rstrip('/')}/pagenum/{page}/"
+            elif url.endswith('/page/'):
+                # URL structure like /press-releases/page/
+                source_url = f"{url}{page}/"
+            elif "/jsf/" in url:
+                source_url = f"{url}/pagenum/{page}/"
+            else:
+                source_url = f"{url}{'&' if '?' in url else '?'}jsf=jet-engine:press-list&pagenum={page}"
+
+            doc = cls.open_html(source_url)
+            if not doc:
+                continue
+
+            # Try both possible selectors for jet listing items
+            items = doc.select(".jet-listing-grid__item")
+            if not items:
+                items = doc.select(".elementor-widget-wrap")
+
+            for row in items:
+                link = row.select_one("h3 a")
+                if not link:
+                    continue
+
+                # Try multiple selectors for date
+                date_elem = (
+                    row.select_one("span.elementor-icon-list-text") or
+                    row.select_one("li span.elementor-icon-list-text") or
+                    row.select_one(".elementor-post-date")
+                )
+
+                date = None
+                if date_elem:
+                    date_text = date_elem.text.strip()
+                    date_formats = [
+                        "%B %d, %Y",     # January 15, 2024
+                        "%m/%d/%Y",      # 01/15/2024
+                        "%m/%d/%y",      # 01/15/24
+                    ]
+
+                    for fmt in date_formats:
+                        try:
+                            date = datetime.datetime.strptime(date_text, fmt).date()
+                            break
+                        except ValueError:
+                            continue
+
+                result = {
+                    'source': url,
+                    'url': link.get('href'),
+                    'title': link.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+
+    @classmethod
+    def article_block_h2_p_date(cls, urls=None, page=1):
+        """
+        Scrape press releases from websites with ArticleBlock class, h2 titles, and date in p tag.
+
+        This is an enhanced version that handles multiple date formats automatically.
+        Used by many Senate sites that use the ArticleBlock layout pattern.
+
+        Args:
+            urls: List of URLs to scrape (default: None, auto-collected from SCRAPER_CONFIG)
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+
+        Example URLs:
+            - https://www.durbin.senate.gov/newsroom/press-releases (durbin)
+            - https://www.brown.senate.gov/newsroom/press (sherrod_brown)
+            - https://www.crapo.senate.gov/media/newsreleases (crapo)
+            - https://www.hirono.senate.gov/news/press-releases (hirono)
+            - https://www.ernst.senate.gov/news/press-releases (ernst)
+        """
+        results = []
+        if urls is None:
+            # Collect all URLs from SCRAPER_CONFIG where method='article_block_h2_p_date'
+            urls = [
+                config['url_base']
+                for config in cls.SCRAPER_CONFIG.values()
+                if config['method'] == 'article_block_h2_p_date'
+            ]
+
+        for url in urls:
+            parsed_url = urlparse(url)
+            domain = parsed_url.netloc
+
+            # Handle different URL structures for pagination
+            if "PageNum_rs" in url:
+                source_url = url  # Already has PageNum_rs
+                if f"PageNum_rs={page}" not in url:
+                    import re
+                    source_url = re.sub(r'PageNum_rs=\d+', f'PageNum_rs={page}', url)
+            elif "?" in url:
+                source_url = f"{url}&PageNum_rs={page}"
+            else:
+                source_url = f"{url}?PageNum_rs={page}"
+
+            doc = cls.open_html(source_url)
+            if not doc:
+                continue
+
+            blocks = doc.select("div.ArticleBlock")
+            for row in blocks:
+                # Try h2 first, then h3 as fallback
+                link = row.select_one("h2 a")
+                if not link:
+                    link = row.select_one("h3 a")
+
+                if not link:
+                    continue
+
+                # Get date from p tag or time tag
+                date_elem = row.select_one("p") or row.select_one("time")
+                date = None
+
+                if date_elem:
+                    date_text = date_elem.text.strip()
+                    if date_elem.name == 'time' and date_elem.get('datetime'):
+                        date_text = date_elem.get('datetime')
+
+                    # Replace dots with slashes for consistent parsing
+                    date_text_normalized = date_text.replace(".", "/")
+
+                    # Try multiple date formats
+                    date_formats = [
+                        "%m/%d/%y",      # 01/15/24 or 01.15.24
+                        "%m/%d/%Y",      # 01/15/2024 or 01.15.2024
+                        "%B %d, %Y",     # January 15, 2024
+                        "%b %d, %Y",     # Jan 15, 2024
+                        "%Y-%m-%d",      # 2024-01-15 (ISO format from datetime attr)
+                    ]
+
+                    for fmt in date_formats:
+                        try:
+                            date = datetime.datetime.strptime(date_text_normalized, fmt).date()
+                            break
+                        except ValueError:
+                            try:
+                                # Try with original text if normalized doesn't work
+                                date = datetime.datetime.strptime(date_text, fmt).date()
+                                break
+                            except ValueError:
+                                continue
+
+                result = {
+                    'source': url,
+                    'url': link.get('href'),
+                    'title': link.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+
+    @classmethod
+    def table_time(cls, urls=None, page=1):
+        """
+        Scrape press releases from websites with simple table tr structure and time element.
+
+        This pattern is used by House sites that display press releases in a table
+        with a time element for dates.
+
+        Args:
+            urls: List of URLs to scrape (default: None)
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+
+        Example URLs:
+            - https://barr.house.gov/media-center/press-releases (barr)
+        """
+        results = []
+        if urls is None:
+            urls = []
+
+        for url in urls:
+            parsed_url = urlparse(url)
+            domain = parsed_url.netloc
+            source_url = f"{url}{'&' if '?' in url else '?'}page={page}"
+
+            doc = cls.open_html(source_url)
+            if not doc:
+                continue
+
+            # Skip first row (header)
+            rows = doc.select("table tr")[1:]
+
+            for row in rows:
+                link = row.select_one("td a") or row.select_one("a")
+                if not link:
+                    continue
+
+                time_elem = row.select_one("time")
+                date = None
+
+                if time_elem:
+                    # Try datetime attribute first
+                    date_text = time_elem.get('datetime') or time_elem.text.strip()
+
+                    date_formats = [
+                        "%m/%d/%y",      # 01/15/24
+                        "%m/%d/%Y",      # 01/15/2024
+                        "%Y-%m-%d",      # 2024-01-15
+                        "%B %d, %Y",     # January 15, 2024
+                    ]
+
+                    for fmt in date_formats:
+                        try:
+                            date = datetime.datetime.strptime(date_text, fmt).date()
+                            break
+                        except ValueError:
+                            continue
+
+                # Handle relative URL
+                href = link.get('href')
+                if href.startswith('http'):
+                    full_url = href
+                else:
+                    full_url = f"https://{domain}{href}"
+
+                result = {
+                    'source': url,
+                    'url': full_url,
+                    'title': link.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+
+    @classmethod
+    def element_post_media(cls, urls=None, page=1):
+        """
+        Scrape press releases from websites with .element class and post-media-list structure.
+
+        This pattern is used by some Senate sites that use a custom element layout
+        with post-media-list-title and post-media-list-date classes.
+
+        Args:
+            urls: List of URLs to scrape (default: None, auto-collected from SCRAPER_CONFIG)
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+
+        Example URLs:
+            - https://www.wicker.senate.gov/media/press-releases (wicker)
+            - https://www.tillis.senate.gov/press-releases (tillis)
+        """
+        results = []
+        if urls is None:
+            # Collect all URLs from SCRAPER_CONFIG where method='element_post_media'
+            urls = [
+                config['url_base']
+                for config in cls.SCRAPER_CONFIG.values()
+                if config['method'] == 'element_post_media'
+            ]
+
+        for url in urls:
+            parsed_url = urlparse(url)
+            domain = parsed_url.netloc
+            source_url = f"{url}{'&' if '?' in url else '?'}page={page}"
+
+            doc = cls.open_html(source_url)
+            if not doc:
+                continue
+
+            elements = doc.select(".element")
+            for row in elements:
+                link = row.select_one('a')
+                title_elem = row.select_one(".post-media-list-title") or row.select_one(".element-title")
+                date_elem = row.select_one(".post-media-list-date") or row.select_one(".element-datetime")
+
+                if not (link and title_elem and date_elem):
+                    continue
+
+                date = None
+                date_text = date_elem.text.strip()
+
+                date_formats = [
+                    "%B %d, %Y",     # January 15, 2024
+                    "%m/%d/%Y",      # 01/15/2024
+                    "%m/%d/%y",      # 01/15/24
+                    "%m.%d.%Y",      # 01.15.2024
+                ]
+
+                for fmt in date_formats:
+                    try:
+                        date = datetime.datetime.strptime(date_text, fmt).date()
+                        break
+                    except ValueError:
+                        continue
+
+                result = {
+                    'source': url,
+                    'url': link.get('href'),
+                    'title': title_elem.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+    
+    # Individual member scraper methods
+    
     @classmethod
     def tillis(cls, page=1):
         """Scrape Senator Tillis's press releases."""
-        results = []
-        url = f"https://www.tillis.senate.gov/press-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        elements = doc.select(".element")
-        for row in elements:
-            link = row.select_one('a')
-            title_elem = row.select_one(".element-title")
-            date_elem = row.select_one(".element-datetime")
-            
-            if not (link and title_elem and date_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_elem.text.strip(), "%m/%d/%Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': title_elem.text.strip(),
-                'date': date,
-                'domain': "www.tillis.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('tillis', page)
     
     @classmethod
     def wicker(cls, page=1):
         """Scrape Senator Wicker's press releases."""
-        results = []
-        url = f"https://www.wicker.senate.gov/press-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        elements = doc.select(".element")
-        for row in elements:
-            link = row.select_one('a')
-            title_elem = row.select_one(".post-media-list-title")
-            date_elem = row.select_one(".post-media-list-date")
-            
-            if not (link and title_elem and date_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': title_elem.text.strip(),
-                'date': date,
-                'domain': "www.wicker.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('wicker', page)
     
     @classmethod
     def moran(cls, page=1):
         """Scrape Senator Moran's press releases."""
-        results = []
-        domain = "www.moran.senate.gov"
-        url = f"https://www.moran.senate.gov/public/index.cfm/news-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("table tbody tr")
-        for row in rows:
-            link = row.select_one('a')
-            date_cell = row.select_one('td.recordListDate')
-            
-            if not (link and date_cell):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_cell.text.strip(), "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': f"https://www.moran.senate.gov{link.get('href')}",
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('moran', page)
     
     @classmethod
     def boozman(cls, page=1):
         """Scrape Senator Boozman's press releases."""
-        results = []
-        domain = "www.boozman.senate.gov"
-        url = f"https://www.boozman.senate.gov/public/index.cfm/press-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("table tbody tr")
-        for row in rows:
-            link = row.select_one('a')
-            date_cell = row.select_one('td.recordListDate')
-            
-            if not (link and date_cell):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_cell.text.strip(), "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': f"https://www.boozman.senate.gov{link.get('href')}",
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('boozman', page)
     
     @classmethod
     def thune(cls, page=1):
         """Scrape Senator Thune's press releases."""
-        results = []
-        url = f"https://www.thune.senate.gov/public/index.cfm/press-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("table tbody tr")
-        for row in rows:
-            link = row.select_one('a')
-            date_cell = row.select_one('td.recordListDate')
-            
-            if not (link and date_cell):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_cell.text.strip(), "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': f"https://www.thune.senate.gov{link.get('href')}",
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.thune.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('thune', page)
     
     @classmethod
     def murphy(cls, page=1):
         """Scrape Senator Murphy's press releases."""
-        results = []
-        url = f"https://www.murphy.senate.gov/newsroom/press-releases?PageNum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select("li.PageList__item")
-        for row in items:
-            link = row.select_one('a')
-            h1 = row.select_one('h1')
-            date_elem = row.select_one('.ArticleBlock__date')
-            
-            if not (link and h1 and date_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': h1.text.strip(),
-                'date': date,
-                'domain': 'www.murphy.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('murphy', page)
     
     @classmethod
     def markey(cls, page=1):
         """Scrape Senator Markey's press releases."""
-        results = []
-        domain = 'www.markey.senate.gov'
-        url = f"https://www.markey.senate.gov/news/press-releases?pagenum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select(".ArticleBlock")
-        for row in blocks:
-            link = row.select_one('a')
-            date_elem = row.select_one('.ArticleBlock__date')
-            
-            if not (link and date_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('markey', page)
     
     @classmethod
     def cotton(cls, page=1):
         """Scrape Senator Cotton's press releases."""
-        results = []
-        domain = 'www.cotton.senate.gov'
-        url = f"https://www.cotton.senate.gov/news/press-releases?pagenum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select(".ArticleBlock")
-        for row in blocks:
-            link = row.select_one('a')
-            date_elem = row.select_one('.ArticleBlock__date')
-            
-            if not (link and date_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('cotton', page)
     
     @classmethod
     def tokuda(cls, page=1):
@@ -2116,36 +2368,7 @@ class Scraper:
     @classmethod
     def cassidy(cls, page=1):
         """Scrape Senator Cassidy's press releases."""
-        results = []
-        url = f"https://www.cassidy.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("a")
-            date_elem = row.select_one("ul li")
-            
-            if not (link and date_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.cassidy.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('cassidy', page)
     
     @classmethod
     def britt(cls, page=1):
@@ -4140,36 +4363,7 @@ class Scraper:
     @classmethod
     def lujan(cls, page=1):
         """Scrape Senator Luján's press releases."""
-        results = []
-        domain = 'www.lujan.senate.gov'
-        url = f"https://www.lujan.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('lujan', page)
     
     @classmethod
     def mast(cls, page=1):
@@ -4312,36 +4506,7 @@ class Scraper:
     @classmethod
     def mullin(cls, page=1):
         """Scrape Senator Mullin's press releases."""
-        results = []
-        domain = 'www.mullin.senate.gov'
-        url = f"https://www.mullin.senate.gov/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('mullin', page)
     
     @classmethod
     def murray(cls, page=1):
@@ -4415,70 +4580,12 @@ class Scraper:
     @classmethod
     def ossoff(cls, page=1):
         """Scrape Senator Ossoff's press releases."""
-        results = []
-        domain = 'www.ossoff.senate.gov'
-        url = f"https://www.ossoff.senate.gov/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('ossoff', page)
     
     @classmethod
     def padilla(cls, page=1):
         """Scrape Senator Padilla's press releases."""
-        results = []
-        domain = 'www.padilla.senate.gov'
-        url = f"https://www.padilla.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('padilla', page)
     
     @classmethod
     def paul(cls, page=1):
@@ -4688,36 +4795,7 @@ class Scraper:
     @classmethod
     def rosen(cls, page=1):
         """Scrape Senator Rosen's press releases."""
-        results = []
-        domain = 'www.rosen.senate.gov'
-        url = f"https://www.rosen.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('rosen', page)
     
     @classmethod
     def schatz(cls, page=1):
