@@ -223,7 +223,7 @@ class Scraper:
         'ossoff': {'method': 'jet_listing_elementor', 'url_base': 'https://www.ossoff.senate.gov/press-releases/?jsf=jet-engine:press-list'},
         
         # article_block_h2_p_date pattern - Senate sites with ArticleBlock
-        'murphy': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.murphy.senate.gov/newsroom/press-releases'},
+        'chrismurphy': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.murphy.senate.gov/newsroom/press-releases'},
         'markey': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.markey.senate.gov/news/press-releases'},
         'cotton': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cotton.senate.gov/news/press-releases'},
         'rounds': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.rounds.senate.gov/newsroom/press-releases'},
@@ -232,7 +232,6 @@ class Scraper:
         'sherrod_brown': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.brown.senate.gov/newsroom/press'},
         'crapo': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.crapo.senate.gov/media/newsreleases'},
         'hirono': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.hirono.senate.gov/news/press-releases'},
-        'ernst': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.ernst.senate.gov/news/press-releases'},
         'garypeters': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.peters.senate.gov/newsroom/press-releases'},
         'jackreed': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.reed.senate.gov/news/releases'},
         'heinrich': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.heinrich.senate.gov/newsroom/press-releases'},
@@ -253,7 +252,34 @@ class Scraper:
         'tillis': {'method': 'element_post_media', 'url_base': 'https://www.tillis.senate.gov/press-releases'},
         'wicker': {'method': 'element_post_media', 'url_base': 'https://www.wicker.senate.gov/press-releases'},
         'blackburn': {'method': 'element_post_media', 'url_base': 'https://www.blackburn.senate.gov/news/cc8c80c1-d564-4bbb-93a4-f1d772346ae0'},
-        
+
+        # middot_sibling_date pattern - House sites with documentquery and middot date separator
+        'brownley': {'method': 'middot_sibling_date', 'url_base': 'https://brownley.house.gov', 'doc_type_id': '2519'},
+        'emmer': {'method': 'middot_sibling_date', 'url_base': 'https://emmer.house.gov', 'doc_type_id': '2516'},
+        'foxx': {'method': 'middot_sibling_date', 'url_base': 'https://foxx.house.gov', 'doc_type_id': '1525'},
+        'gosar': {'method': 'middot_sibling_date', 'url_base': 'https://gosar.house.gov', 'doc_type_id': '27'},
+        'griffith': {'method': 'middot_sibling_date', 'url_base': 'https://griffith.house.gov', 'doc_type_id': '27'},
+        'houlahan': {'method': 'middot_sibling_date', 'url_base': 'https://houlahan.house.gov', 'doc_type_id': '27'},
+        'huizenga': {'method': 'middot_sibling_date', 'url_base': 'https://huizenga.house.gov', 'doc_type_id': '27'},
+        'jasonsmith': {'method': 'middot_sibling_date', 'url_base': 'https://jasonsmith.house.gov', 'doc_type_id': '27'},
+        'mast': {'method': 'middot_sibling_date', 'url_base': 'https://mast.house.gov', 'doc_type_id': '27'},
+        'mcgovern': {'method': 'middot_sibling_date', 'url_base': 'https://mcgovern.house.gov', 'doc_type_id': '27'},
+        'norcross': {'method': 'middot_sibling_date', 'url_base': 'https://norcross.house.gov', 'doc_type_id': '27'},
+        'porter': {'method': 'middot_sibling_date', 'url_base': 'https://porter.house.gov', 'doc_type_id': '27'},
+        'schweikert': {'method': 'middot_sibling_date', 'url_base': 'https://schweikert.house.gov', 'doc_type_id': '27'},
+        'titus': {'method': 'middot_sibling_date', 'url_base': 'https://titus.house.gov', 'doc_type_id': '27'},
+
+        # news_texthold pattern - House sites with .news-texthold class
+        'larsen': {'method': 'news_texthold', 'url_base': 'https://larsen.house.gov', 'doc_type_id': '27'},
+        'connolly': {'method': 'news_texthold', 'url_base': 'https://connolly.house.gov', 'doc_type_id': '1952'},
+        'tonko': {'method': 'news_texthold', 'url_base': 'https://tonko.house.gov', 'doc_type_id': '27'},
+
+        # et_pb_post pattern - Divi theme sites (Senate)
+        'hagerty': {'method': 'et_pb_post', 'url_base': 'https://www.hagerty.senate.gov/press-releases/?et_blog'},
+        'budd': {'method': 'et_pb_post', 'url_base': 'https://www.budd.senate.gov/category/news/press-releases/?et_blog'},
+        'lummis': {'method': 'et_pb_post', 'url_base': 'https://www.lummis.senate.gov/press-releases/?et_blog'},
+        'rubio': {'method': 'et_pb_post', 'url_base': 'https://www.rubio.senate.gov/news/?et_blog'},
+
         # media_body pattern - House sites with media-body class (200+ members)
         'issa': {'method': 'media_body', 'url_base': 'https://issa.house.gov/media/press-releases'},
         'tenney': {'method': 'media_body', 'url_base': 'https://tenney.house.gov/media/press-releases'},
@@ -668,41 +694,7 @@ class Scraper:
     @classmethod
     def crapo(cls, page=1):
         """Scrape Senator Crapo's press releases."""
-        results = []
-        url = f"https://www.crapo.senate.gov/media/newsreleases/?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        article_blocks = doc.find_all('div', {'class': 'ArticleBlock'})
-        for block in article_blocks:
-            link = block.find('a')
-            if not link:
-                continue
-                
-            href = link.get('href')
-            title = link.text.strip()
-            date_text = block.find('p').text if block.find('p') else None
-            date = None
-            if date_text:
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m.%d.%y").date()
-                except ValueError:
-                    try:
-                        date = datetime.datetime.strptime(date_text, "%B %d, %Y").date()
-                    except ValueError:
-                        date = None
-            
-            result = {
-                'source': url,
-                'url': href,
-                'title': title,
-                'date': date,
-                'domain': 'www.crapo.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('crapo', page)
 
     @classmethod
     def shaheen(cls, page=1):
@@ -2280,7 +2272,203 @@ class Scraper:
                 results.append(result)
 
         return results
-    
+
+    @classmethod
+    def middot_sibling_date(cls, urls=None, page=1):
+        """
+        Scrape press releases from House sites using documentquery with middot date pattern.
+
+        This pattern is used by House member sites that display press releases with
+        a middot separator before the date text.
+
+        Args:
+            urls: List of (domain, doc_type_id) tuples to scrape
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+        """
+        results = []
+        if urls is None:
+            # Collect all URLs from SCRAPER_CONFIG where method='middot_sibling_date'
+            urls = [
+                (config['url_base'].split('/')[2], config.get('doc_type_id', '27'))
+                for name, config in cls.SCRAPER_CONFIG.items()
+                if config['method'] == 'middot_sibling_date'
+            ]
+
+        for domain, doc_type_id in urls:
+            url = f"https://{domain}/news/documentquery.aspx?DocumentTypeID={doc_type_id}&Page={page}"
+
+            doc = cls.open_html(url)
+            if not doc:
+                continue
+
+            articles = doc.select("article")
+            for row in articles:
+                link = row.select_one("h2 a")
+                if not link:
+                    continue
+
+                date = None
+                date_elem = row.select_one("span.middot")
+                if date_elem and date_elem.next_sibling:
+                    date_text = date_elem.next_sibling.strip()
+                    date_formats = ["%m/%d/%Y", "%m/%d/%y", "%B %d, %Y"]
+                    for fmt in date_formats:
+                        try:
+                            date = datetime.datetime.strptime(date_text, fmt).date()
+                            break
+                        except ValueError:
+                            continue
+
+                # Handle relative URL
+                href = link.get('href')
+                if href.startswith('http'):
+                    full_url = href
+                else:
+                    full_url = f"https://{domain}/news/{href}"
+
+                result = {
+                    'source': url,
+                    'url': full_url,
+                    'title': link.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+
+    @classmethod
+    def news_texthold(cls, urls=None, page=1):
+        """
+        Scrape press releases from House sites using news-texthold pattern.
+
+        This pattern is used by House member sites that display press releases
+        in a .news-texthold container.
+
+        Args:
+            urls: List of (domain, doc_type_id) tuples to scrape
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+        """
+        results = []
+        if urls is None:
+            urls = [
+                (config['url_base'].split('/')[2], config.get('doc_type_id', '27'))
+                for name, config in cls.SCRAPER_CONFIG.items()
+                if config['method'] == 'news_texthold'
+            ]
+
+        for domain, doc_type_id in urls:
+            url = f"https://{domain}/news/documentquery.aspx?DocumentTypeID={doc_type_id}&Page={page}"
+
+            doc = cls.open_html(url)
+            if not doc:
+                continue
+
+            news_holds = doc.select('.news-texthold')
+            for row in news_holds:
+                link = row.select_one('h2 a')
+                if not link:
+                    continue
+
+                time_elem = row.select_one('time')
+                date = None
+                if time_elem:
+                    date_text = time_elem.text.strip()
+                    try:
+                        date = datetime.datetime.strptime(date_text, "%B %d, %Y").date()
+                    except ValueError:
+                        pass
+
+                # Handle relative URL
+                href = link.get('href')
+                if href.startswith('http'):
+                    full_url = href
+                else:
+                    full_url = f"https://{domain}/news/{href}"
+
+                result = {
+                    'source': url,
+                    'url': full_url,
+                    'title': link.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+
+    @classmethod
+    def et_pb_post(cls, urls=None, page=1):
+        """
+        Scrape press releases from sites using Divi theme (et_pb_post pattern).
+
+        This pattern is used by Senate sites built with the Divi theme that display
+        press releases in article.et_pb_post elements.
+
+        Args:
+            urls: List of URL bases to scrape
+            page: Page number for pagination (default: 1)
+
+        Returns:
+            List of dictionaries with keys: source, url, title, date, domain
+        """
+        results = []
+        if urls is None:
+            urls = [
+                config['url_base']
+                for config in cls.SCRAPER_CONFIG.values()
+                if config['method'] == 'et_pb_post'
+            ]
+
+        for url_base in urls:
+            parsed_url = urlparse(url_base)
+            domain = parsed_url.netloc
+
+            # Handle different URL structures for pagination
+            if '?et_blog' in url_base or '/?et_blog' in url_base:
+                # URL like /press-releases/?et_blog
+                url = url_base.replace(f'/page/{page-1}/', f'/page/{page}/') if f'/page/' in url_base else url_base.replace('?et_blog', f'/page/{page}/?et_blog')
+            elif url_base.endswith('/'):
+                url = f"{url_base}page/{page}/"
+            else:
+                url = f"{url_base}/page/{page}/"
+
+            doc = cls.open_html(url)
+            if not doc:
+                continue
+
+            posts = doc.select("article.et_pb_post")
+            for row in posts:
+                # Try h2 a first, then h3 a
+                link = row.select_one("h2 a") or row.select_one("h3 a")
+                if not link:
+                    continue
+
+                date_span = row.select_one("p span.published") or row.select_one("span.published")
+                date = None
+                if date_span:
+                    try:
+                        date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
+                    except ValueError:
+                        pass
+
+                result = {
+                    'source': url,
+                    'url': link.get('href'),
+                    'title': link.text.strip(),
+                    'date': date,
+                    'domain': domain
+                }
+                results.append(result)
+
+        return results
+
     # Individual member scraper methods
     
     @classmethod
@@ -2310,8 +2498,13 @@ class Scraper:
     
     @classmethod
     def murphy(cls, page=1):
-        """Scrape Senator Murphy's press releases."""
+        """Scrape Congressman Murphy's press releases."""
         return cls.run_scraper('murphy', page)
+
+    @classmethod
+    def chrismurphy(cls, page=1):
+        """Scrape Senator Chris Murphy's press releases."""
+        return cls.run_scraper('chrismurphy', page)
     
     @classmethod
     def markey(cls, page=1):
@@ -2373,172 +2566,27 @@ class Scraper:
     @classmethod
     def britt(cls, page=1):
         """Scrape Senator Britt's press releases."""
-        results = []
-        url = f"https://www.britt.senate.gov/media/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            date_elem = row.select_one("h3.elementor-heading-title")
-            
-            if not (link and date_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.britt.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('britt', page)
     
     @classmethod
     def toddyoung(cls, page=1):
         """Scrape Senator Todd Young's press releases."""
-        results = []
-        url = f"https://www.young.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("a")
-            date_span = row.select_one("span.elementor-post-info__item--type-date")
-            
-            if not (link and date_span):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.young.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('toddyoung', page)
     
     @classmethod
     def markkelly(cls, page=1):
         """Scrape Senator Mark Kelly's press releases."""
-        results = []
-        url = f"https://www.kelly.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select('div.jet-listing-grid__item')
-        for row in items:
-            link = row.select_one("h3 a")
-            date_span = row.select_one("span.elementor-post-info__item--type-date")
-            
-            if not (link and date_span):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.kelly.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('markkelly', page)
     
     @classmethod
     def hagerty(cls, page=1):
         """Scrape Senator Hagerty's press releases."""
-        results = []
-        url = f"https://www.hagerty.senate.gov/press-releases/?et_blog&sf_paged={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        posts = doc.select("article.et_pb_post")
-        for row in posts:
-            link = row.select_one("h2 a")
-            date_span = row.select_one("p span.published")
-            
-            if not (link and date_span):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.hagerty.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('hagerty', page)
     
     @classmethod
     def budd(cls, page=1):
         """Scrape Senator Budd's press releases."""
-        results = []
-        url = f"https://www.budd.senate.gov/category/news/press-releases/page/{page}/?et_blog"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        posts = doc.select("article.et_pb_post")
-        for row in posts:
-            link = row.select_one("h2 a")
-            date_span = row.select_one("p span.published")
-            
-            if not (link and date_span):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.budd.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('budd', page)
     
     @classmethod
     def vance(cls, page=1):
@@ -2577,36 +2625,7 @@ class Scraper:
     @classmethod
     def lummis(cls, page=1):
         """Scrape Senator Lummis's press releases."""
-        results = []
-        url = f"https://www.lummis.senate.gov/press-releases/page/{page}/?et_blog"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        posts = doc.select("article.et_pb_post")
-        for row in posts:
-            link = row.select_one("h2 a")
-            date_span = row.select_one("p span.published")
-            
-            if not (link and date_span):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.lummis.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('lummis', page)
     
     @classmethod
     def welch(cls, page=1):
@@ -2646,36 +2665,7 @@ class Scraper:
     @classmethod
     def rubio(cls, page=1):
         """Scrape Senator Rubio's press releases."""
-        results = []
-        url = f"https://www.rubio.senate.gov/news/page/{page}/?et_blog"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        posts = doc.select("article.et_pb_post")
-        for row in posts:
-            link = row.select_one("h3 a")
-            date_span = row.select_one("p span.published")
-            
-            if not (link and date_span):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': "www.rubio.senate.gov"
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('rubio', page)
     
     @classmethod
     def cornyn(cls, page=1, posts_per_page=15):
@@ -2866,176 +2856,27 @@ class Scraper:
     @classmethod
     def garypeters(cls, page=1):
         """Scrape Senator Gary Peters's press releases."""
-        results = []
-        url = f"https://www.peters.senate.gov/newsroom/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one('a')
-            h2 = row.select_one('h2')
-            p_elem = row.select_one('p')
-            
-            if not (link and h2 and p_elem):
-                continue
-                
-            date = None
-            try:
-                date_text = p_elem.text.replace('.', '/')
-                date = datetime.datetime.strptime(date_text, "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': h2.text.strip(),
-                'date': date,
-                'domain': 'www.peters.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('garypeters', page)
     
     @classmethod
     def jackreed(cls, page=1):
         """Scrape Senator Jack Reed's press releases."""
-        results = []
-        url = f"https://www.reed.senate.gov/news/releases?pagenum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one('a')
-            time_elem = row.select_one("time")
-            
-            if not (link and time_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(time_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': 'www.reed.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('jackreed', page)
     
     @classmethod
     def rounds(cls, page=1):
         """Scrape Senator Rounds's press releases."""
-        results = []
-        url = f"https://www.rounds.senate.gov/newsroom/press-releases?pagenum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one('a')
-            p_elem = row.select_one("p")
-            
-            if not (link and p_elem):
-                continue
-                
-            date = None
-            try:
-                date_text = p_elem.text.replace(".", "/")
-                date = datetime.datetime.strptime(date_text, "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': 'www.rounds.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('rounds', page)
     
     @classmethod
     def kaine(cls, page=1):
         """Scrape Senator Kaine's press releases."""
-        results = []
-        url = f"https://www.kaine.senate.gov/news?pagenum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one('a')
-            p_elem = row.select_one("p")
-            
-            if not (link and p_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(p_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': 'www.kaine.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('kaine', page)
     
     @classmethod
     def blackburn(cls, page=1):
         """Scrape Senator Blackburn's press releases."""
-        results = []
-        url = f"https://www.blackburn.senate.gov/news/cc8c80c1-d564-4bbb-93a4-f1d772346ae0?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        elements = doc.select("div.element")
-        for row in elements:
-            link = row.select_one('a')
-            title_div = row.select_one('div.element-title')
-            date_span = row.select_one('span.element-datetime')
-            
-            if not (link and title_div and date_span):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': title_div.text.strip(),
-                'date': date,
-                'domain': 'www.blackburn.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('blackburn', page)
     
     @classmethod
     def gillibrand(cls, page=1):
@@ -3074,37 +2915,7 @@ class Scraper:
     @classmethod
     def heinrich(cls, page=1):
         """Scrape Senator Heinrich's press releases."""
-        results = []
-        url = f"https://www.heinrich.senate.gov/newsroom/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one('a')
-            h2 = row.select_one('h2')
-            p_elem = row.select_one('p')
-            
-            if not (link and h2 and p_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(p_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': h2.text.strip(),
-                'date': date,
-                'domain': 'www.heinrich.senate.gov'
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('heinrich', page)
     
     @classmethod
     def clark(cls, page=1):
@@ -3332,312 +3143,47 @@ class Scraper:
     @classmethod
     def larsen(cls, page=1):
         """Scrape Congressman Larsen's press releases."""
-        results = []
-        domain = 'larsen.house.gov'
-        url = f"https://larsen.house.gov/news/documentquery.aspx?DocumentTypeID=27&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        news_holds = doc.select('.news-texthold')
-        for row in news_holds:
-            link = row.select_one('h2 a')
-            time_elem = row.select_one('time')
-            
-            if not (link and time_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(time_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': f"https://larsen.house.gov/news/{link.get('href')}",
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('larsen', page)
     
     @classmethod
     def connolly(cls, page=1):
         """Scrape Congressman Connolly's press releases."""
-        results = []
-        domain = 'connolly.house.gov'
-        url = f"https://connolly.house.gov/news/documentquery.aspx?DocumentTypeID=1952&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        news_holds = doc.select('.news-texthold')
-        for row in news_holds:
-            link = row.select_one('h2 a')
-            time_elem = row.select_one('time')
-            
-            if not (link and time_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(time_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': f"https://connolly.house.gov/news/{link.get('href')}",
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('connolly', page)
     
     @classmethod
     def tonko(cls, page=1):
         """Scrape Congressman Tonko's press releases."""
-        results = []
-        domain = 'tonko.house.gov'
-        url = f"https://tonko.house.gov/news/documentquery.aspx?DocumentTypeID=27&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        news_holds = doc.select('.news-texthold')
-        for row in news_holds:
-            link = row.select_one('h2 a')
-            time_elem = row.select_one('time')
-            
-            if not (link and time_elem):
-                continue
-                
-            date = None
-            try:
-                date = datetime.datetime.strptime(time_elem.text.strip(), "%B %d, %Y").date()
-            except ValueError:
-                pass
-            
-            result = {
-                'source': url,
-                'url': f"https://tonko.house.gov/news/{link.get('href')}",
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('tonko', page)
     
     @classmethod
     def aguilar(cls, page=1):
         """Scrape Congressman Aguilar's press releases."""
-        results = []
-        domain = 'aguilar.house.gov'
-        url = f"https://aguilar.house.gov/media/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
-    
+        return cls.run_scraper('aguilar', page)
+
     @classmethod
     def bergman(cls, page=1):
         """Scrape Congressman Bergman's press releases."""
-        results = []
-        domain = 'bergman.house.gov'
-        url = f"https://bergman.house.gov/media/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('bergman', page)
     
     @classmethod
     def brownley(cls, page=1):
         """Scrape Congresswoman Brownley's press releases."""
-        results = []
-        domain = 'brownley.house.gov'
-        url = f"https://brownley.house.gov/news/documentquery.aspx?DocumentTypeID=2519&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://brownley.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('brownley', page)
     
     @classmethod
     def cantwell(cls, page=1):
         """Scrape Senator Cantwell's press releases."""
-        results = []
-        domain = 'www.cantwell.senate.gov'
-        url = f"https://www.cantwell.senate.gov/news/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('cantwell', page)
     
     @classmethod
     def capito(cls, page=1):
         """Scrape Senator Capito's press releases."""
-        results = []
-        domain = 'www.capito.senate.gov'
-        url = f"https://www.capito.senate.gov/news/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('capito', page)
     
     @classmethod
     def carey(cls, page=1):
         """Scrape Congressman Carey's press releases."""
-        results = []
-        domain = 'carey.house.gov'
-        url = f"https://carey.house.gov/media/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('carey', page)
     
     @classmethod
     def clarke(cls, page=1):
@@ -3676,36 +3222,7 @@ class Scraper:
     @classmethod
     def cortezmasto(cls, page=1):
         """Scrape Senator Cortez Masto's press releases."""
-        results = []
-        domain = 'www.cortezmasto.senate.gov'
-        url = f"https://www.cortezmasto.senate.gov/news/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('cortezmasto', page)
     
     @classmethod
     def crawford(cls, page=1):
@@ -3744,311 +3261,47 @@ class Scraper:
     @classmethod
     def cruz(cls, page=1):
         """Scrape Senator Cruz's press releases."""
-        results = []
-        domain = 'www.cruz.senate.gov'
-        url = f"https://www.cruz.senate.gov/newsroom/press-releases?pagenum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('cruz', page)
     
     @classmethod
     def daines(cls, page=1):
         """Scrape Senator Daines's press releases."""
-        results = []
-        domain = 'www.daines.senate.gov'
-        url = f"https://www.daines.senate.gov/news/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('daines', page)
     
     @classmethod
     def duckworth(cls, page=1):
         """Scrape Senator Duckworth's press releases."""
-        results = []
-        domain = 'www.duckworth.senate.gov'
-        url = f"https://www.duckworth.senate.gov/news/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('duckworth', page)
     
     @classmethod
     def ellzey(cls, page=1):
         """Scrape Congressman Ellzey's press releases."""
-        results = []
-        domain = 'ellzey.house.gov'
-        url = f"https://ellzey.house.gov/media/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('ellzey', page)
     
     @classmethod
     def emmer(cls, page=1):
         """Scrape Congressman Emmer's press releases."""
-        results = []
-        domain = 'emmer.house.gov'
-        url = f"https://emmer.house.gov/news/documentquery.aspx?DocumentTypeID=2516&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://emmer.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('emmer', page)
     
     @classmethod
     def fetterman(cls, page=1):
         """Scrape Senator Fetterman's press releases."""
-        results = []
-        domain = 'www.fetterman.senate.gov'
-        url = f"https://www.fetterman.senate.gov/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('fetterman', page)
     
     @classmethod
     def foxx(cls, page=1):
         """Scrape Congresswoman Foxx's press releases."""
-        results = []
-        domain = 'foxx.house.gov'
-        url = f"https://foxx.house.gov/news/documentquery.aspx?DocumentTypeID=1525&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://foxx.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('foxx', page)
     
     @classmethod
     def gimenez(cls, page=1):
         """Scrape Congressman Gimenez's press releases."""
-        results = []
-        domain = 'gimenez.house.gov'
-        url = f"https://gimenez.house.gov/media/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('gimenez', page)
     
     @classmethod
     def gosar(cls, page=1):
         """Scrape Congressman Gosar's press releases."""
-        results = []
-        domain = 'gosar.house.gov'
-        url = f"https://gosar.house.gov/news/documentquery.aspx?DocumentTypeID=27&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://gosar.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('gosar', page)
     
     @classmethod
     def graham(cls, page=1):
@@ -4087,37 +3340,7 @@ class Scraper:
     @classmethod
     def griffith(cls, page=1):
         """Scrape Congressman Griffith's press releases."""
-        results = []
-        domain = 'griffith.house.gov'
-        url = f"https://griffith.house.gov/news/documentquery.aspx?DocumentTypeID=27&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://griffith.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('griffith', page)
     
     @classmethod
     def grijalva(cls, page=1):
@@ -4156,106 +3379,17 @@ class Scraper:
     @classmethod
     def hassan(cls, page=1):
         """Scrape Senator Hassan's press releases."""
-        results = []
-        domain = 'www.hassan.senate.gov'
-        url = f"https://www.hassan.senate.gov/news/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('hassan', page)
     
     @classmethod
     def houlahan(cls, page=1):
         """Scrape Congresswoman Houlahan's press releases."""
-        results = []
-        domain = 'houlahan.house.gov'
-        url = f"https://houlahan.house.gov/news/documentquery.aspx?DocumentTypeID=2545&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://houlahan.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('houlahan', page)
     
     @classmethod
     def huizenga(cls, page=1):
         """Scrape Congressman Huizenga's press releases."""
-        results = []
-        domain = 'huizenga.house.gov'
-        url = f"https://huizenga.house.gov/news/documentquery.aspx?DocumentTypeID=27&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://huizenga.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('huizenga', page)
     
     @classmethod
     def hydesmith(cls, page=1):
@@ -4294,37 +3428,7 @@ class Scraper:
     @classmethod
     def jasonsmith(cls, page=1):
         """Scrape Congressman Jason Smith's press releases."""
-        results = []
-        domain = 'jasonsmith.house.gov'
-        url = f"https://jasonsmith.house.gov/news/documentquery.aspx?DocumentTypeID=1545&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://jasonsmith.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('jasonsmith', page)
     
     @classmethod
     def jayapal(cls, page=1):
@@ -4368,72 +3472,12 @@ class Scraper:
     @classmethod
     def mast(cls, page=1):
         """Scrape Congressman Mast's press releases."""
-        results = []
-        domain = 'mast.house.gov'
-        url = f"https://mast.house.gov/news/documentquery.aspx?DocumentTypeID=2526&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://mast.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('mast', page)
     
     @classmethod
     def mcgovern(cls, page=1):
         """Scrape Congressman McGovern's press releases."""
-        results = []
-        domain = 'mcgovern.house.gov'
-        url = f"https://mcgovern.house.gov/news/documentquery.aspx?DocumentTypeID=27&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://mcgovern.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('mcgovern', page)
     
     @classmethod
     def mikelee(cls, page=1):
@@ -4590,37 +3634,7 @@ class Scraper:
     @classmethod
     def norcross(cls, page=1):
         """Scrape Congressman Norcross's press releases."""
-        results = []
-        domain = 'norcross.house.gov'
-        url = f"https://norcross.house.gov/news/documentquery.aspx?DocumentTypeID=27&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://norcross.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('norcross', page)
     
     @classmethod
     def ossoff(cls, page=1):
@@ -4669,37 +3683,7 @@ class Scraper:
     @classmethod
     def porter(cls, page=1):
         """Scrape Congresswoman Porter's press releases."""
-        results = []
-        domain = 'porter.house.gov'
-        url = f"https://porter.house.gov/news/documentquery.aspx?DocumentTypeID=2581&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://porter.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('porter', page)
     
     @classmethod
     def pressley(cls, page=1):
@@ -4913,37 +3897,7 @@ class Scraper:
     @classmethod
     def schweikert(cls, page=1):
         """Scrape Congressman Schweikert's press releases."""
-        results = []
-        domain = 'schweikert.house.gov'
-        url = f"https://schweikert.house.gov/news/documentquery.aspx?DocumentTypeID=1530&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://schweikert.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('schweikert', page)
     
     @classmethod
     def takano(cls, page=1):
@@ -5016,37 +3970,7 @@ class Scraper:
     @classmethod
     def titus(cls, page=1):
         """Scrape Congresswoman Titus's press releases."""
-        results = []
-        domain = 'titus.house.gov'
-        url = f"https://titus.house.gov/news/documentquery.aspx?DocumentTypeID=1510&Page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        articles = doc.select("article")
-        for row in articles:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.middot")
-            date = None
-            if date_elem and date_elem.next_sibling:
-                date_text = date_elem.next_sibling.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m/%d/%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': "https://titus.house.gov" + link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('titus', page)
     
     @classmethod
     def tlaib(cls, page=1):
@@ -5436,104 +4360,17 @@ class Scraper:
     @classmethod
     def tester(cls, page=1):
         """Scrape Senator Tester's press releases."""
-        results = []
-        domain = 'www.tester.senate.gov'
-        url = f"https://www.tester.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        items = doc.select(".jet-listing-grid__item")
-        for row in items:
-            link = row.select_one("h3 a")
-            if not link:
-                continue
-            date_elem = row.select_one("span.elementor-icon-list-text")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('tester', page)
     
     @classmethod
     def sherrod_brown(cls, page=1):
         """Scrape Senator Sherrod Brown's press releases."""
-        results = []
-        domain = 'www.brown.senate.gov'
-        url = f"https://www.brown.senate.gov/newsroom/press?PageNum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('sherrod_brown', page)
     
     @classmethod
     def durbin(cls, page=1):
         """Scrape Senator Durbin's press releases."""
-        results = []
-        domain = 'www.durbin.senate.gov'
-        url = f"https://www.durbin.senate.gov/newsroom/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('durbin', page)
     
     @classmethod
     def bennet(cls, page=1):
@@ -5742,36 +4579,7 @@ class Scraper:
     @classmethod
     def hirono(cls, page=1):
         """Scrape Senator Hirono's press releases."""
-        results = []
-        domain = 'www.hirono.senate.gov'
-        url = f"https://www.hirono.senate.gov/news/press-releases?PageNum_rs={page}&"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        blocks = doc.select("div.ArticleBlock")
-        for row in blocks:
-            link = row.select_one("h2 a")
-            if not link:
-                continue
-            date_elem = row.select_one("p")
-            date = None
-            if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except ValueError:
-                    pass
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
+        return cls.run_scraper('hirono', page)
     
     @classmethod
     def hoeven(cls, page=1):
