@@ -208,6 +208,8 @@ class Scraper:
         'thune': {'method': 'table_recordlist_date', 'url_base': 'https://www.thune.senate.gov/public/index.cfm/press-releases'},
         'barrasso': {'method': 'table_recordlist_date', 'url_base': 'https://www.barrasso.senate.gov/public/index.cfm/news-releases'},
         'graham': {'method': 'table_recordlist_date', 'url_base': 'https://www.lgraham.senate.gov/public/index.cfm/press-releases'},
+        'klobuchar': {'method': 'table_recordlist_date', 'url_base': 'https://www.klobuchar.senate.gov/public/index.cfm/news-releases'},
+        'mcconnell': {'method': 'table_recordlist_date', 'url_base': 'https://www.mcconnell.senate.gov/public/index.cfm/pressreleases'},
         
         # jet_listing_elementor pattern - WordPress/Elementor sites
         'timscott': {'method': 'jet_listing_elementor', 'url_base': 'https://www.scott.senate.gov/media-center/press-releases/jsf/jet-engine:press-list'},
@@ -253,9 +255,30 @@ class Scraper:
         'tillis': {'method': 'element_post_media', 'url_base': 'https://www.tillis.senate.gov/press-releases'},
         'wicker': {'method': 'element_post_media', 'url_base': 'https://www.wicker.senate.gov/press-releases'},
         'blackburn': {'method': 'element_post_media', 'url_base': 'https://www.blackburn.senate.gov/news/cc8c80c1-d564-4bbb-93a4-f1d772346ae0'},
-        
+
+        # table_time pattern - House sites with table and <time> elements
+        'buchanan': {'method': 'table_time', 'url_base': 'https://buchanan.house.gov/press-releases'},
+
         # media_body pattern - House sites with media-body class (200+ members)
+        'adriansmith': {'method': 'media_body', 'url_base': 'https://adriansmith.house.gov/media/press-releases'},
+        'carson': {'method': 'media_body', 'url_base': 'https://carson.house.gov/media/press-releases'},
+        'cisneros': {'method': 'media_body', 'url_base': 'https://cisneros.house.gov/media/press-releases'},
+        'cohen': {'method': 'media_body', 'url_base': 'https://cohen.house.gov/media-center/press-releases'},
+        'conaway': {'method': 'media_body', 'url_base': 'https://conaway.house.gov/media/press-releases'},
+        'hamadeh': {'method': 'media_body', 'url_base': 'https://hamadeh.house.gov/media/press-releases'},
         'issa': {'method': 'media_body', 'url_base': 'https://issa.house.gov/media/press-releases'},
+        'keating': {'method': 'media_body', 'url_base': 'https://keating.house.gov/media/press-releases'},
+        'kelly': {'method': 'media_body', 'url_base': 'https://kelly.house.gov/media/press-releases'},
+        'krishnamoorthi': {'method': 'media_body', 'url_base': 'https://krishnamoorthi.house.gov/media/press-releases'},
+        'mcclintock': {'method': 'media_body', 'url_base': 'https://mcclintock.house.gov/newsroom/press-releases'},
+        'mikekennedy': {'method': 'media_body', 'url_base': 'https://mikekennedy.house.gov/media/press-releases'},
+        'moylan': {'method': 'media_body', 'url_base': 'https://moylan.house.gov/media/press-releases'},
+        'onder': {'method': 'media_body', 'url_base': 'https://onder.house.gov/media/press-releases'},
+        'patronis': {'method': 'media_body', 'url_base': 'https://patronis.house.gov/media/press-releases'},
+        'radewagen': {'method': 'media_body', 'url_base': 'https://radewagen.house.gov/media/press-releases'},
+        'schmidt': {'method': 'media_body', 'url_base': 'https://schmidt.house.gov/media/press-releases'},
+        'soto': {'method': 'media_body', 'url_base': 'https://soto.house.gov/media/press-releases'},
+        'summerlee': {'method': 'media_body', 'url_base': 'https://summerlee.house.gov/newsroom/press-releases'},
         'tenney': {'method': 'media_body', 'url_base': 'https://tenney.house.gov/media/press-releases'},
         'amodei': {'method': 'media_body', 'url_base': 'https://amodei.house.gov/news-releases'},
         'palmer': {'method': 'media_body', 'url_base': 'https://palmer.house.gov/media-center/press-releases'},
@@ -316,6 +339,7 @@ class Scraper:
         'adams': {'method': 'media_body', 'url_base': 'https://adams.house.gov/media-center/press-releases'},
         'mfume': {'method': 'media_body', 'url_base': 'https://mfume.house.gov/media/press-releases'},
         'tiffany': {'method': 'media_body', 'url_base': 'https://tiffany.house.gov/media/press-releases'},
+        'thompson': {'method': 'media_body', 'url_base': 'https://thompson.house.gov/media-center/press-releases'},
         'barrymoore': {'method': 'media_body', 'url_base': 'https://barrymoore.house.gov/media/press-releases'},
         'obernolte': {'method': 'media_body', 'url_base': 'https://obernolte.house.gov/media/press-releases'},
         'boebert': {'method': 'media_body', 'url_base': 'https://boebert.house.gov/media/press-releases'},
@@ -355,6 +379,7 @@ class Scraper:
         'luttrell': {'method': 'media_body', 'url_base': 'https://luttrell.house.gov/media/press-releases'},
         'deluzio': {'method': 'media_body', 'url_base': 'https://deluzio.house.gov/media/press-releases'},
         'lalota': {'method': 'media_body', 'url_base': 'https://lalota.house.gov/media/press-releases'},
+        'vargas': {'method': 'media_body', 'url_base': 'https://vargas.house.gov/media/press-releases'},
         'vasquez': {'method': 'media_body', 'url_base': 'https://vasquez.house.gov/media/press-releases'},
         'scholten': {'method': 'media_body', 'url_base': 'https://scholten.house.gov/media/press-releases'},
         'ivey': {'method': 'media_body', 'url_base': 'https://ivey.house.gov/media/press-releases'},
@@ -398,6 +423,7 @@ class Scraper:
         'fong': {'method': 'media_body', 'url_base': 'https://fong.house.gov/media/press-releases'},
         'lopez': {'method': 'media_body', 'url_base': 'https://lopez.house.gov/media/press-releases'},
         'mciver': {'method': 'media_body', 'url_base': 'https://mciver.house.gov/media/press-releases'},
+        'westerman': {'method': 'media_body', 'url_base': 'https://westerman.house.gov/media-center/press-releases'},
         'wied': {'method': 'media_body', 'url_base': 'https://wied.house.gov/media/press-releases'},
         'ericaleecarter': {'method': 'media_body', 'url_base': 'https://ericaleecarter.house.gov/media/press-releases'},
         'moulton': {'method': 'media_body', 'url_base': 'https://moulton.house.gov/news/press-releases'},
@@ -419,6 +445,7 @@ class Scraper:
         'costa': {'method': 'media_body', 'url_base': 'https://costa.house.gov/media/press-releases'},
         'houchin': {'method': 'media_body', 'url_base': 'https://houchin.house.gov/media/press-releases'},
         'williams': {'method': 'media_body', 'url_base': 'https://williams.house.gov/media-center/press-releases'},
+        'wilson': {'method': 'media_body', 'url_base': 'https://wilson.house.gov/media/press-releases'},
         'menendez': {'method': 'media_body', 'url_base': 'https://menendez.house.gov/media/press-releases'},
         'pocan': {'method': 'media_body', 'url_base': 'https://pocan.house.gov/media-center/press-releases'},
         'ogles': {'method': 'media_body', 'url_base': 'https://ogles.house.gov/media/press-releases'},
@@ -609,28 +636,28 @@ class Scraper:
     def member_methods(cls):
         """Return a list of member scraper methods."""
         return [
-            cls.aguilar, cls.angusking, cls.article_block, cls.article_block_h2, cls.article_block_h2_date,
+            cls.adriansmith, cls.aguilar, cls.angusking, cls.article_block, cls.article_block_h2, cls.article_block_h2_date,
             cls.article_newsblocker, cls.article_span_published, cls.bacon, cls.baldwin, cls.barr,
             cls.barragan, cls.barrasso, cls.bennet, cls.bera, cls.bergman, cls.blackburn, cls.boozman,
-            cls.britt, cls.brownley, cls.budd, cls.cantwell, cls.capito, cls.cardin, cls.carey,
-            cls.carper, cls.casey, cls.cassidy, cls.castor, cls.clark, cls.clarke, cls.clyburn,
+            cls.britt, cls.brownley, cls.buchanan, cls.budd, cls.cantwell, cls.capito, cls.cardin, cls.carey, cls.carson,
+            cls.carper, cls.casey, cls.cassidy, cls.castor, cls.cisneros, cls.clark, cls.clarke, cls.clyburn, cls.cohen, cls.conaway,
             cls.connolly, cls.coons, cls.cornyn, cls.cortezmasto, cls.cotton, cls.crapo, cls.crawford,
             cls.cruz, cls.daines, cls.document_query_new, cls.duckworth, cls.durbin, cls.elementor_post_date,
             cls.ellzey, cls.emmer, cls.ernst, cls.fetterman, cls.fischer, cls.foxx, cls.garypeters,
             cls.gillibrand, cls.gimenez, cls.gosar, cls.graham, cls.grassley, cls.griffith, cls.grijalva,
-            cls.hagerty, cls.hassan, cls.hawley, cls.heinrich, cls.hirono, cls.hoeven, cls.houlahan,
+            cls.hagerty, cls.hamadeh, cls.hassan, cls.hawley, cls.heinrich, cls.hirono, cls.hoeven, cls.houlahan,
             cls.house_title_header, cls.huizenga, cls.hydesmith, cls.jackreed, cls.jasonsmith, cls.jayapal,
-            cls.jeffries, cls.jetlisting_h2, cls.joyce, cls.kaine, cls.kennedy, cls.lankford, cls.larsen,
+            cls.jeffries, cls.jetlisting_h2, cls.joyce, cls.kaine, cls.keating, cls.kelly, cls.kennedy, cls.klobuchar, cls.krishnamoorthi, cls.lankford, cls.larsen,
             cls.lofgren, cls.lucas, cls.lujan, cls.lummis, cls.manchin, cls.markey, cls.markkelly,
-            cls.marshall, cls.mast, cls.mcgovern, cls.media_body, cls.media_digest, cls.meeks,
-            cls.menendez, cls.merkley, cls.mikelee, cls.mooney, cls.moran, cls.mullin, cls.murphy,
-            cls.murray, cls.norcross, cls.ossoff, cls.padilla, cls.paul, cls.porter, cls.pressley,
-            cls.react, cls.recordlist, cls.reschenthaler, cls.rickscott, cls.risch, cls.ronjohnson,
-            cls.rosen, cls.rounds, cls.rubio, cls.scanlon, cls.schatz, cls.schumer, cls.schweikert,
+            cls.marshall, cls.mast, cls.mcclintock, cls.mcconnell, cls.mcgovern, cls.media_body, cls.media_digest, cls.meeks,
+            cls.menendez, cls.merkley, cls.mikekennedy, cls.mikelee, cls.mooney, cls.moylan, cls.moran, cls.mullin, cls.murphy,
+            cls.murray, cls.norcross, cls.onder, cls.ossoff, cls.padilla, cls.patronis, cls.paul, cls.porter, cls.pressley,
+            cls.react, cls.radewagen, cls.recordlist, cls.reschenthaler, cls.rickscott, cls.risch, cls.ronjohnson,
+            cls.rosen, cls.rounds, cls.rubio, cls.scanlon, cls.schatz, cls.schmidt, cls.schumer, cls.schweikert, cls.soto, cls.summerlee,
             cls.senate_drupal, cls.senate_drupal_newscontent, cls.shaheen, cls.sherrod_brown, cls.stabenow,
-            cls.steube, cls.sykes, cls.takano, cls.tester, cls.thune, cls.tillis, cls.timscott,
+            cls.steube, cls.sykes, cls.takano, cls.tester, cls.thompson, cls.thune, cls.tillis, cls.timscott,
             cls.tinasmith, cls.titus, cls.tlaib, cls.toddyoung, cls.tokuda, cls.tonko, cls.trentkelly,
-            cls.tuberville, cls.vance, cls.vanhollen, cls.warner, cls.welch, cls.whitehouse, cls.wicker,
+            cls.tuberville, cls.vance, cls.vanhollen, cls.vargas, cls.warner, cls.welch, cls.westerman, cls.whitehouse, cls.wicker, cls.wilson,
             cls.wyden
         ]
     
@@ -1066,6 +1093,11 @@ class Scraper:
             results.append(result)
         
         return results
+
+    @classmethod
+    def carson(cls, page=1):
+        """Scrape Representative Carson's press releases."""
+        return cls.run_scraper('carson', page)
 
     @classmethod
     def castor(cls, page=1):
@@ -2473,6 +2505,11 @@ class Scraper:
         return results
     
     @classmethod
+    def hamadeh(cls, page=1):
+        """Scrape Representative Hamadeh's press releases."""
+        return cls.run_scraper('hamadeh', page)
+
+    @classmethod
     def hagerty(cls, page=1):
         """Scrape Senator Hagerty's press releases."""
         results = []
@@ -2539,7 +2576,12 @@ class Scraper:
             results.append(result)
         
         return results
-    
+
+    @classmethod
+    def buchanan(cls, page=1):
+        """Scrape Representative Buchanan's press releases."""
+        return cls.run_scraper('buchanan', page)
+
     @classmethod
     def vance(cls, page=1):
         """Scrape Senator Vance's press releases."""
@@ -2608,6 +2650,16 @@ class Scraper:
         
         return results
     
+    @classmethod
+    def westerman(cls, page=1):
+        """Scrape Representative Westerman's press releases."""
+        return cls.run_scraper('westerman', page)
+
+    @classmethod
+    def wilson(cls, page=1):
+        """Scrape Representative Wilson's press releases."""
+        return cls.run_scraper('wilson', page)
+
     @classmethod
     def welch(cls, page=1):
         """Scrape Senator Welch's press releases."""
@@ -2793,6 +2845,11 @@ class Scraper:
         return results
     
     @classmethod
+    def vargas(cls, page=1):
+        """Scrape Representative Vargas's press releases."""
+        return cls.run_scraper('vargas', page)
+
+    @classmethod
     def vanhollen(cls, page=1):
         """Scrape Senator Van Hollen's press releases."""
         results = []
@@ -2862,7 +2919,27 @@ class Scraper:
             results.append(result)
         
         return results
-    
+
+    @classmethod
+    def keating(cls, page=1):
+        """Scrape Representative Keating's press releases."""
+        return cls.run_scraper('keating', page)
+
+    @classmethod
+    def kelly(cls, page=1):
+        """Scrape Representative Kelly's press releases."""
+        return cls.run_scraper('kelly', page)
+
+    @classmethod
+    def klobuchar(cls, page=1):
+        """Scrape Senator Klobuchar's press releases."""
+        return cls.run_scraper('klobuchar', page)
+
+    @classmethod
+    def krishnamoorthi(cls, page=1):
+        """Scrape Representative Krishnamoorthi's press releases."""
+        return cls.run_scraper('krishnamoorthi', page)
+
     @classmethod
     def garypeters(cls, page=1):
         """Scrape Senator Gary Peters's press releases."""
@@ -3467,7 +3544,12 @@ class Scraper:
             results.append(result)
         
         return results
-    
+
+    @classmethod
+    def adriansmith(cls, page=1):
+        """Scrape Representative Adrian Smith's press releases."""
+        return cls.run_scraper('adriansmith', page)
+
     @classmethod
     def bergman(cls, page=1):
         """Scrape Congressman Bergman's press releases."""
@@ -3672,7 +3754,22 @@ class Scraper:
             results.append(result)
         
         return results
-    
+
+    @classmethod
+    def cisneros(cls, page=1):
+        """Scrape Representative Cisneros's press releases."""
+        return cls.run_scraper('cisneros', page)
+
+    @classmethod
+    def cohen(cls, page=1):
+        """Scrape Representative Cohen's press releases."""
+        return cls.run_scraper('cohen', page)
+
+    @classmethod
+    def conaway(cls, page=1):
+        """Scrape Representative Conaway's press releases."""
+        return cls.run_scraper('conaway', page)
+
     @classmethod
     def cortezmasto(cls, page=1):
         """Scrape Senator Cortez Masto's press releases."""
@@ -4434,7 +4531,22 @@ class Scraper:
             results.append(result)
         
         return results
-    
+
+    @classmethod
+    def mcclintock(cls, page=1):
+        """Scrape Representative McClintock's press releases."""
+        return cls.run_scraper('mcclintock', page)
+
+    @classmethod
+    def mcconnell(cls, page=1):
+        """Scrape Senator McConnell's press releases."""
+        return cls.run_scraper('mcconnell', page)
+
+    @classmethod
+    def mikekennedy(cls, page=1):
+        """Scrape Representative Kennedy's press releases."""
+        return cls.run_scraper('mikekennedy', page)
+
     @classmethod
     def mikelee(cls, page=1):
         """Scrape Senator Mike Lee's press releases."""
@@ -4469,6 +4581,11 @@ class Scraper:
         
         return results
     
+    @classmethod
+    def moylan(cls, page=1):
+        """Scrape Representative Moylan's press releases."""
+        return cls.run_scraper('moylan', page)
+
     @classmethod
     def mooney(cls, page=1):
         """Scrape Congressman Mooney's press releases."""
@@ -4633,6 +4750,16 @@ class Scraper:
         return cls.run_scraper('padilla', page)
     
     @classmethod
+    def onder(cls, page=1):
+        """Scrape Representative Onder's press releases."""
+        return cls.run_scraper('onder', page)
+
+    @classmethod
+    def patronis(cls, page=1):
+        """Scrape Representative Patronis's press releases."""
+        return cls.run_scraper('patronis', page)
+
+    @classmethod
     def paul(cls, page=1):
         """Scrape Senator Rand Paul's press releases."""
         results = []
@@ -4735,6 +4862,11 @@ class Scraper:
         
         return results
     
+    @classmethod
+    def radewagen(cls, page=1):
+        """Scrape Representative Radewagen's press releases."""
+        return cls.run_scraper('radewagen', page)
+
     @classmethod
     def reschenthaler(cls, page=1):
         """Scrape Congressman Reschenthaler's press releases."""
@@ -4877,6 +5009,11 @@ class Scraper:
         return results
     
     @classmethod
+    def schmidt(cls, page=1):
+        """Scrape Representative Schmidt's press releases."""
+        return cls.run_scraper('schmidt', page)
+
+    @classmethod
     def schumer(cls, page=1):
         """Scrape Senator Schumer's press releases."""
         results = []
@@ -4910,6 +5047,16 @@ class Scraper:
         
         return results
     
+    @classmethod
+    def soto(cls, page=1):
+        """Scrape Representative Soto's press releases."""
+        return cls.run_scraper('soto', page)
+
+    @classmethod
+    def summerlee(cls, page=1):
+        """Scrape Representative Summer Lee's press releases."""
+        return cls.run_scraper('summerlee', page)
+
     @classmethod
     def schweikert(cls, page=1):
         """Scrape Congressman Schweikert's press releases."""
@@ -5013,6 +5160,11 @@ class Scraper:
         
         return results
     
+    @classmethod
+    def thompson(cls, page=1):
+        """Scrape Representative Thompson's press releases."""
+        return cls.run_scraper('thompson', page)
+
     @classmethod
     def titus(cls, page=1):
         """Scrape Congresswoman Titus's press releases."""
