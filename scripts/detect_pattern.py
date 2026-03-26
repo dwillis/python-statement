@@ -238,17 +238,23 @@ def detect(url, verify=True):
 
     # Generate config entry
     pattern_info = next(p for p in PATTERNS if p['name'] == best['pattern'])
-    scraper_name = domain.split('.')[0] if '.house.gov' in domain else domain.split('.')[1] if '.senate.gov' in domain else domain.split('.')[0]
+    # Extract scraper name from domain
+    parts = domain.split('.')
+    if '.senate.gov' in domain and len(parts) > 1:
+        scraper_name = parts[1]
+    else:
+        scraper_name = parts[0]
 
     config = {
         'method': 'generic',
         'url_base': url,
         'container': pattern_info['container'],
         'title_sel': pattern_info['title_sel'],
-        'date_sel': pattern_info.get('date_sel', ''),
         'date_fmt': pattern_info.get('date_fmt', ['%B %d, %Y']),
-        'pagination': '?page={page}',
+        'pagination': '?page={page}',  # Default guess — verify and adjust
     }
+    if pattern_info.get('date_sel'):
+        config['date_sel'] = pattern_info['date_sel']
     if pattern_info.get('date_attr'):
         config['date_attr'] = pattern_info['date_attr']
     if pattern_info.get('date_from_next_sibling'):
@@ -321,7 +327,7 @@ def verify_config(config, scraper_name='__detect_temp'):
             results_p2 = Scraper.generic_scraper(scraper_name, page=2)
             if not results_p2:
                 warnings.append("Page 2 returned 0 results. Pagination may not work.")
-            elif results_p2 == results:
+            elif set(r['url'] for r in results_p2) == set(r['url'] for r in results):
                 warnings.append("Page 2 returned identical results. Pagination pattern may be wrong.")
             else:
                 print(f"Page 2: {len(results_p2)} results (pagination works)")
