@@ -323,15 +323,10 @@ class Scraper:
                     if not (link and time_elem):
                         continue
                         
-                    date = None
-                    try:
-                        date_attr = time_elem.get('datetime') or time_elem.text
-                        date = datetime.datetime.strptime(date_attr, "%Y-%m-%d").date()
-                    except (ValueError, TypeError):
-                        try:
-                            date = datetime.datetime.strptime(time_elem.text, "%B %d, %Y").date()
-                        except ValueError:
-                            pass
+                    date_attr = time_elem.get('datetime') or time_elem.text
+                    date = Utils.parse_date(date_attr, ["%Y-%m-%d"])
+                    if date is None:
+                        date = Utils.parse_date(time_elem.text, ["%B %d, %Y"])
                     
                     result = {
                         'source': source_url,
@@ -378,15 +373,8 @@ class Scraper:
                 if not (link and date_elem):
                     continue
                     
-                date = None
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m/%d/%y").date()
-                except ValueError:
-                    try:
-                        date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                    except ValueError:
-                        pass
-                
+                date = Utils.parse_date(date_elem.text.strip(), ["%m/%d/%y", "%B %d, %Y"])
+
                 result = {
                     'source': url,
                     'url': f"https://{domain}{link.get('href')}",
@@ -395,9 +383,9 @@ class Scraper:
                     'domain': domain
                 }
                 results.append(result)
-        
+
         return results
-    
+
     # More scraper methods would be implemented here following the same pattern
 
 
@@ -430,12 +418,8 @@ class Scraper:
                 if not (link and date_span):
                     continue
                     
-                date = None
-                try:
-                    date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-                
+                date = Utils.parse_date(date_span.text.strip(), ["%B %d, %Y"])
+
                 result = {
                     'source': "https://www.marshall.senate.gov/newsroom/press-releases",
                     'url': link.get('href'),
@@ -474,12 +458,8 @@ class Scraper:
                 if not (link and date_span):
                     continue
                     
-                date = None
-                try:
-                    date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-                
+                date = Utils.parse_date(date_span.text.strip(), ["%B %d, %Y"])
+
                 result = {
                     'source': url,
                     'url': link.get('href'),
@@ -488,9 +468,9 @@ class Scraper:
                     'domain': urlparse(url).netloc
                 }
                 results.append(result)
-        
+
         return results
-    
+
     @classmethod
     def senate_drupal_newscontent(cls, urls=None, page=1):
         """Scrape press releases from Senate Drupal sites with newscontent divs."""
@@ -527,14 +507,8 @@ class Scraper:
                 date_text = prev.text if prev else None
                 date = None
                 if date_text:
-                    try:
-                        date = datetime.datetime.strptime(date_text, "%m.%d.%y").date()
-                    except ValueError:
-                        try:
-                            date = datetime.datetime.strptime(date_text, "%B %d, %Y").date()
-                        except ValueError:
-                            pass
-                
+                    date = Utils.parse_date(date_text, ["%m.%d.%y", "%B %d, %Y"])
+
                 result = {
                     'source': url,
                     'url': f"https://{domain}{link.get('href')}",
@@ -543,9 +517,9 @@ class Scraper:
                     'domain': domain
                 }
                 results.append(result)
-        
+
         return results
-    
+
     @classmethod
     def senate_approps_majority(cls, page=1):
         """Scrape Senate Appropriations Committee majority press releases."""
@@ -572,11 +546,8 @@ class Scraper:
             raw_date = prev.text if prev else None
             date = None
             if raw_date:
-                try:
-                    date = datetime.datetime.strptime(raw_date, "%m.%d.%y").date()
-                except ValueError:
-                    pass
-            
+                date = Utils.parse_date(raw_date, ["%m.%d.%y"])
+
             result = {
                 'source': url,
                 'url': release_url,
@@ -619,11 +590,8 @@ class Scraper:
             date_cell = row.find_all('td')[0] if len(row.find_all('td')) > 0 else None
             date = None
             if date_cell:
-                try:
-                    date = datetime.datetime.strptime(date_cell.text.strip(), "%m/%d/%y").date()
-                except ValueError:
-                    pass
-            
+                date = Utils.parse_date(date_cell.text.strip(), ["%m/%d/%y"])
+
             result = {
                 'source': url,
                 'url': release_url,
@@ -676,13 +644,7 @@ class Scraper:
                 date_cell = row.find_all('td')[0] if len(row.find_all('td')) > 0 else None
                 date = None
                 if date_cell:
-                    try:
-                        date = datetime.datetime.strptime(date_cell.text.strip(), "%m/%d/%y").date()
-                    except ValueError:
-                        try:
-                            date = datetime.datetime.strptime(date_cell.text.strip(), "%B %d, %Y").date()
-                        except ValueError:
-                            pass
+                    date = Utils.parse_date(date_cell.text.strip(), ["%m/%d/%y", "%B %d, %Y"])
                 
                 result = {
                     'source': url,
@@ -726,11 +688,8 @@ class Scraper:
                 date_elem = row.select_one('.ArticleBlock__date')
                 date = None
                 if date_elem:
-                    try:
-                        date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                    except ValueError:
-                        pass
-                
+                    date = Utils.parse_date(date_elem.text.strip(), ["%B %d, %Y"])
+
                 result = {
                     'source': url,
                     'url': link.get('href'),
@@ -739,9 +698,9 @@ class Scraper:
                     'domain': domain
                 }
                 results.append(result)
-        
+
         return results
-    
+
     @classmethod
     def article_block_h2(cls, urls=None, page=1):
         """Scrape press releases from websites with ArticleBlock class and h2 titles."""
@@ -769,11 +728,8 @@ class Scraper:
                 date_elem = row.select_one('.ArticleBlock__date')
                 date = None
                 if date_elem:
-                    try:
-                        date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                    except ValueError:
-                        pass
-                
+                    date = Utils.parse_date(date_elem.text.strip(), ["%B %d, %Y"])
+
                 result = {
                     'source': url,
                     'url': link.get('href'),
@@ -782,9 +738,9 @@ class Scraper:
                     'domain': domain
                 }
                 results.append(result)
-        
+
         return results
-    
+
     @classmethod
     def article_block_h2_date(cls, urls=None, page=1):
         """Scrape press releases from websites with ArticleBlock class, h2 titles and date in p tag."""
@@ -817,10 +773,7 @@ class Scraper:
                 date_elem = row.select_one('p')
                 date = None
                 if date_elem:
-                    try:
-                        date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                    except ValueError:
-                        pass
+                    date = Utils.parse_date(date_elem.text.strip(), ["%B %d, %Y"])
                 
                 result = {
                     'source': url,
@@ -857,12 +810,8 @@ class Scraper:
                 if not (link and date_span):
                     continue
                     
-                date = None
-                try:
-                    date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-                
+                date = Utils.parse_date(date_span.text.strip(), ["%B %d, %Y"])
+
                 result = {
                     'source': url,
                     'url': link.get('href'),
@@ -871,9 +820,9 @@ class Scraper:
                     'domain': urlparse(url).netloc
                 }
                 results.append(result)
-        
+
         return results
-    
+
     @classmethod
     def article_newsblocker(cls, domains=None, page=1):
         """Scrape press releases from websites that use documentquery but return article elements."""
@@ -900,15 +849,11 @@ class Scraper:
                 if not (link and time_elem):
                     continue
                     
-                date = None
-                try:
-                    date_attr = time_elem.get('datetime')
-                    if date_attr:
-                        date = datetime.datetime.strptime(date_attr, "%Y-%m-%d").date()
-                    else:
-                        date = datetime.datetime.strptime(time_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
+                date_attr = time_elem.get('datetime')
+                if date_attr:
+                    date = Utils.parse_date(date_attr, ["%Y-%m-%d"])
+                else:
+                    date = Utils.parse_date(time_elem.text.strip(), ["%B %d, %Y"])
                 
                 result = {
                     'source': url,
@@ -962,24 +907,15 @@ class Scraper:
                 
                 if domain == 'www.tomudall.senate.gov' or domain == "www.vanhollen.senate.gov" or domain == "www.warren.senate.gov":
                     if raw_date:
-                        try:
-                            date = datetime.datetime.strptime(raw_date, "%B %d, %Y").date()
-                        except ValueError:
-                            pass
+                        date = Utils.parse_date(raw_date, ["%B %d, %Y"])
                 elif url == 'https://www.republicanleader.senate.gov/newsroom/press-releases':
                     domain = 'mcconnell.senate.gov'
                     if raw_date:
-                        try:
-                            date = datetime.datetime.strptime(raw_date.replace('.', '/'), "%m/%d/%y").date()
-                        except ValueError:
-                            pass
+                        date = Utils.parse_date(raw_date.replace('.', '/'), ["%m/%d/%y"])
                     release_url = release_url.replace('mcconnell.senate.gov', 'www.republicanleader.senate.gov')
                 else:
                     if raw_date:
-                        try:
-                            date = datetime.datetime.strptime(raw_date, "%m.%d.%y").date()
-                        except ValueError:
-                            pass
+                        date = Utils.parse_date(raw_date, ["%m.%d.%y"])
                 
                 result = {
                     'source': source_url,
@@ -1020,12 +956,8 @@ class Scraper:
                 if not (link and h2 and date_elem):
                     continue
                     
-                date = None
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-                
+                date = Utils.parse_date(date_elem.text.strip(), ["%B %d, %Y"])
+
                 result = {
                     'source': url,
                     'url': link.get('href'),
@@ -1149,24 +1081,14 @@ class Scraper:
                     continue
 
                 # Parse date with multiple format attempts
-                date = None
                 date_text = date_cell.text.strip()
-
-                # Try multiple date formats
-                date_formats = [
+                date = Utils.parse_date(date_text, [
                     "%m/%d/%y",      # 01/15/24
                     "%m/%d/%Y",      # 01/15/2024
                     "%m.%d.%y",      # 01.15.24
                     "%m.%d.%Y",      # 01.15.2024
                     "%B %d, %Y",     # January 15, 2024
-                ]
-
-                for fmt in date_formats:
-                    try:
-                        date = datetime.datetime.strptime(date_text, fmt).date()
-                        break
-                    except ValueError:
-                        continue
+                ])
 
                 # Handle relative URL
                 href = link.get('href')
@@ -1267,18 +1189,11 @@ class Scraper:
                 date = None
                 if date_elem:
                     date_text = date_elem.text.strip()
-                    date_formats = [
+                    date = Utils.parse_date(date_text, [
                         "%B %d, %Y",     # January 15, 2024
                         "%m/%d/%Y",      # 01/15/2024
                         "%m/%d/%y",      # 01/15/24
-                    ]
-
-                    for fmt in date_formats:
-                        try:
-                            date = datetime.datetime.strptime(date_text, fmt).date()
-                            break
-                        except ValueError:
-                            continue
+                    ])
 
                 result = {
                     'source': url,
@@ -1360,29 +1275,14 @@ class Scraper:
                     if date_elem.name == 'time' and date_elem.get('datetime'):
                         date_text = date_elem.get('datetime')
 
-                    # Replace dots with slashes for consistent parsing
-                    date_text_normalized = date_text.replace(".", "/")
-
-                    # Try multiple date formats
-                    date_formats = [
+                    # Utils.parse_date handles dot→slash normalization internally
+                    date = Utils.parse_date(date_text, [
                         "%m/%d/%y",      # 01/15/24 or 01.15.24
                         "%m/%d/%Y",      # 01/15/2024 or 01.15.2024
                         "%B %d, %Y",     # January 15, 2024
                         "%b %d, %Y",     # Jan 15, 2024
                         "%Y-%m-%d",      # 2024-01-15 (ISO format from datetime attr)
-                    ]
-
-                    for fmt in date_formats:
-                        try:
-                            date = datetime.datetime.strptime(date_text_normalized, fmt).date()
-                            break
-                        except ValueError:
-                            try:
-                                # Try with original text if normalized doesn't work
-                                date = datetime.datetime.strptime(date_text, fmt).date()
-                                break
-                            except ValueError:
-                                continue
+                    ])
 
                 result = {
                     'source': url,
@@ -1441,19 +1341,12 @@ class Scraper:
                     # Try datetime attribute first
                     date_text = time_elem.get('datetime') or time_elem.text.strip()
 
-                    date_formats = [
+                    date = Utils.parse_date(date_text, [
                         "%m/%d/%y",      # 01/15/24
                         "%m/%d/%Y",      # 01/15/2024
                         "%Y-%m-%d",      # 2024-01-15
                         "%B %d, %Y",     # January 15, 2024
-                    ]
-
-                    for fmt in date_formats:
-                        try:
-                            date = datetime.datetime.strptime(date_text, fmt).date()
-                            break
-                        except ValueError:
-                            continue
+                    ])
 
                 # Handle relative URL
                 href = link.get('href')
@@ -1519,22 +1412,13 @@ class Scraper:
                 if not (link and title_elem and date_elem):
                     continue
 
-                date = None
                 date_text = date_elem.text.strip()
-
-                date_formats = [
+                date = Utils.parse_date(date_text, [
                     "%B %d, %Y",     # January 15, 2024
                     "%m/%d/%Y",      # 01/15/2024
                     "%m/%d/%y",      # 01/15/24
                     "%m.%d.%Y",      # 01.15.2024
-                ]
-
-                for fmt in date_formats:
-                    try:
-                        date = datetime.datetime.strptime(date_text, fmt).date()
-                        break
-                    except ValueError:
-                        continue
+                ])
 
                 result = {
                     'source': url,
@@ -1575,11 +1459,8 @@ class Scraper:
             
             date = None
             if prev:
-                try:
-                    date = datetime.datetime.strptime(prev.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-            
+                date = Utils.parse_date(prev.text.strip(), ["%B %d, %Y"])
+
             result = {
                 'source': url,
                 'url': f"https://tokuda.house.gov{link.get('href')}",
@@ -1623,12 +1504,8 @@ class Scraper:
                 if not (link and date_span):
                     continue
                     
-                date = None
-                try:
-                    date = datetime.datetime.strptime(date_span.text.strip(), "%B %d, %Y").date()
-                except ValueError:
-                    pass
-                
+                date = Utils.parse_date(date_span.text.strip(), ["%B %d, %Y"])
+
                 result = {
                     'source': "https://www.cornyn.senate.gov/news/",
                     'url': link.get('href'),
@@ -1662,12 +1539,8 @@ class Scraper:
             if not link:
                 continue
                 
-            date = None
-            try:
-                date = datetime.datetime.strptime(cells[0].text.strip(), "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
+            date = Utils.parse_date(cells[0].text.strip(), ["%m/%d/%y"])
+
             result = {
                 'source': url,
                 'url': link.get('href'),
@@ -1699,12 +1572,8 @@ class Scraper:
             if not link:
                 continue
                 
-            date = None
-            try:
-                date = datetime.datetime.strptime(cells[0].text.strip(), "%m/%d/%y").date()
-            except ValueError:
-                pass
-            
+            date = Utils.parse_date(cells[0].text.strip(), ["%m/%d/%y"])
+
             result = {
                 'source': url,
                 'url': f"https://www.kennedy.senate.gov{link.get('href')}",
@@ -1737,11 +1606,7 @@ class Scraper:
             if not link:
                 continue
                 
-            date = None
-            try:
-                date = datetime.datetime.strptime(cells[0].text.strip(), "%m/%d/%y").date()
-            except ValueError:
-                pass
+            date = Utils.parse_date(cells[0].text.strip(), ["%m/%d/%y"])
             
             result = {
                 'source': url,
@@ -1849,11 +1714,7 @@ class Scraper:
             date = None
             date_text_elem = row.find_next_sibling('p')
             if date_text_elem:
-                date_text = date_text_elem.text.strip()
-                try:
-                    date = datetime.datetime.strptime(date_text, "%m.%d.%Y").date()
-                except (ValueError, AttributeError):
-                    pass
+                date = Utils.parse_date(date_text_elem.text.strip(), ["%m.%d.%Y"])
             
             result = {
                 'source': url,
@@ -1884,10 +1745,7 @@ class Scraper:
             date_elem = row.find('td', text=lambda x: x and '.' in str(x))
             date = None
             if date_elem:
-                try:
-                    date = datetime.datetime.strptime(date_elem.text.strip(), "%m.%d.%Y").date()
-                except (ValueError, AttributeError):
-                    pass
+                date = Utils.parse_date(date_elem.text.strip(), ["%m.%d.%Y"])
             
             result = {
                 'source': url,
@@ -1922,11 +1780,8 @@ class Scraper:
                 date_elem = row.select_one("time")
                 date = None
                 if date_elem:
-                    try:
-                        date = datetime.datetime.strptime(date_elem.text.strip(), "%m/%d/%y").date()
-                    except ValueError:
-                        pass
-                
+                    date = Utils.parse_date(date_elem.text.strip(), ["%m/%d/%y"])
+
                 result = {
                     'source': source_url,
                     'url': f"https://{domain}{link.get('href')}",
@@ -1935,9 +1790,9 @@ class Scraper:
                     'domain': domain
                 }
                 results.append(result)
-        
+
         return results
-    
+
     @classmethod
     def media_digest(cls, urls=None, page=1):
         """Scrape House press releases with media digest pattern."""
