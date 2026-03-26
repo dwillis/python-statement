@@ -174,22 +174,7 @@ class Scraper:
                         date_text = date_elem.text.strip()
 
                     if date_text:
-                        # Normalize common separators
-                        date_text_normalized = date_text.replace('.', '/')
-                        for fmt in date_fmts:
-                            try:
-                                date = datetime.datetime.strptime(date_text_normalized, fmt).date()
-                                break
-                            except ValueError:
-                                continue
-                        # If none of the formats worked, try the original text
-                        if date is None:
-                            for fmt in date_fmts:
-                                try:
-                                    date = datetime.datetime.strptime(date_text, fmt).date()
-                                    break
-                                except ValueError:
-                                    continue
+                        date = Utils.parse_date(date_text, date_fmts)
 
             result = {
                 'source': url_base,
