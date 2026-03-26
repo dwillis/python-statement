@@ -66,7 +66,9 @@ class Utils:
             return None
 
         if formats:
-            # Try with normalized separators (dots → slashes)
+            # First pass: normalize dots to slashes for numeric formats like
+            # "01.15.24" → "01/15/24". Second pass tries original text for
+            # abbreviated months like "Jan. 15, 2024" where dots aren't separators.
             normalized = text.replace('.', '/')
             for fmt in formats:
                 try:

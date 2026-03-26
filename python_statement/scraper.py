@@ -970,7 +970,7 @@ class Scraper:
                 elif url == 'https://www.republicanleader.senate.gov/newsroom/press-releases':
                     domain = 'mcconnell.senate.gov'
                     if raw_date:
-                        date = Utils.parse_date(raw_date.replace('.', '/'), ["%m/%d/%y"])
+                        date = Utils.parse_date(raw_date, ["%m/%d/%y"])
                     release_url = release_url.replace('mcconnell.senate.gov', 'www.republicanleader.senate.gov')
                 else:
                     if raw_date:
