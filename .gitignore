@@ -17,4 +17,8 @@ test_results.txt
 # Generated data
 legislators_with_scrapers.json
 
+# Health check transient output
+health_results.json
+health_output.txt
+
 .DS_Store
