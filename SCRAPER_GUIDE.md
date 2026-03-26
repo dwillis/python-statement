@@ -200,7 +200,9 @@ Results show status for each scraper: `+` OK, `-` empty, `?` no dates, `X` error
 
 ## Date Parsing
 
-Dates vary widely across sites. For `'method': 'generic'` configs, list formats to try in `date_fmt`:
+All date parsing uses `Utils.parse_date(text, formats)` which tries strptime formats first (with dot→slash normalization), then falls back to `dateutil.parser.parse(fuzzy=True)`. Never write raw strptime try/except blocks — use the helper.
+
+For `'method': 'generic'` configs, list formats to try in `date_fmt`:
 
 ```python
 'date_fmt': ['%B %d, %Y', '%m/%d/%y', '%Y-%m-%d']

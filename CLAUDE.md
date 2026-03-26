@@ -210,7 +210,9 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
 
 ### Date Parsing
 
-Date formats vary widely. The generic dispatcher tries all formats in the `date_fmt` list. Common formats:
+Use `Utils.parse_date(text, formats)` for all date parsing. It tries strptime formats first (with dot→slash normalization), then falls back to `dateutil.parser.parse(fuzzy=True)`. Never write raw strptime try/except blocks.
+
+Common formats for the `date_fmt` config key:
 - `%m/%d/%y`, `%m/%d/%Y` (01/15/24, 01/15/2024)
 - `%m.%d.%y` (01.15.24)
 - `%B %d, %Y`, `%b %d, %Y` (January 15, 2024)
@@ -254,7 +256,13 @@ tests/
 - Access attributes: `element.get('href')` not `element['href']` (avoids KeyError)
 
 ### HTTP Requests
-`open_html()` includes User-Agent header, 10-second timeout, retry logic. Returns None on failure.
+`open_html()` includes User-Agent header, 30-second timeout. Returns None on failure.
+
+### Rate Limiting
+`open_html()` sleeps 0.5s before every HTTP request. Cache hits bypass this delay.
+
+### Disk Cache
+`Scraper.enable_cache(ttl=3600)` enables file-based caching in `~/.cache/python-statement/`. Useful during development to avoid repeated HTTP requests. Off by default. Use `Scraper.clear_cache()` to reset.
 
 ### Pagination Patterns
 Common patterns handled by config `pagination` field:
