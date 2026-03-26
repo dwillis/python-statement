@@ -1,846 +1,255 @@
 # Scraper Guide
 
-A practical introduction to building congressional press release scrapers in Python.
+A practical guide to adding new scrapers and fixing broken ones for congressional press release sites.
 
-## What This Code Does
+## Quick Start: Adding a New Site
 
-This library extracts press releases from congressional websites. Some members provide RSS feeds (easy), others require scraping HTML (more work). This guide focuses on HTML scraping.
+### Step 1: Run Pattern Detection
 
-## Code Structure
-
-Two main classes:
-
-- **Feed**: Handles RSS/Atom feeds - just parse XML and extract data
-- **Scraper**: Handles HTML scraping - the focus of this guide
-
-## Two Approaches to Scraping
-
-### 1. Configuration-Driven (Preferred)
-
-If a website matches one of our generic patterns, just add it to `SCRAPER_CONFIG`:
-
-```python
-SCRAPER_CONFIG = {
-    'lujan': {
-        'method': 'jet_listing_elementor', 
-        'url_base': 'https://www.lujan.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'
-    },
-}
+```bash
+uv run python scripts/detect_pattern.py https://newmember.house.gov/press
 ```
 
-Then create a simple wrapper method:
+This tests 14 known HTML patterns against the page and recommends a config entry with CSS selectors. If it finds a match, it prints a ready-to-use config dict and then **verifies** the recommendation by running it through `generic_scraper()` — checking that results are returned, dates parse correctly, URLs are absolute, and pagination works.
+
+Use `--no-verify` to skip verification for faster scanning.
+
+### Step 2: Add the Config Entry
+
+Edit `python_statement/config.py` and add the entry to `SCRAPER_CONFIG` (alphabetically):
 
 ```python
-@classmethod
-def lujan(cls, page=1):
-    """Scrape Senator Luján's press releases."""
-    return cls.run_scraper('lujan', page)
+'newmember': {
+    'method': 'generic',
+    'url_base': 'https://newmember.house.gov/press',
+    'container': '.media-body',
+    'title_sel': 'a',
+    'date_sel': 'time',
+    'date_attr': 'datetime',
+    'date_fmt': ['%Y-%m-%d'],
+    'pagination': '?page={page}',
+},
 ```
 
-**That's it!** The generic method handles everything.
+If the site matches one of the batch generic patterns (media_body, article_block_h2_p_date, etc.), use that method name instead:
 
-### 2. Custom Scraper (When Needed)
+```python
+'newmember': {
+    'method': 'media_body',
+    'url_base': 'https://newmember.house.gov/media/press-releases'
+},
+```
 
-For unique website structures, write a custom method. Each member gets their own method like `Scraper.crapo()` or `Scraper.shaheen()`.
+### Step 3: Add the Wrapper Method
 
-## Anatomy of a Scraper Method
-
-Every scraper follows the same pattern. Here's `Scraper.crapo()` broken down:
+Edit `python_statement/scraper.py` and add a wrapper method to the Scraper class (alphabetically):
 
 ```python
 @classmethod
-def crapo(cls, page=1):
-    """Scrape Senator Crapo's press releases."""
-    results = []
-    url = f"https://www.crapo.senate.gov/media/newsreleases/?PageNum_rs={page}&"
-    doc = cls.open_html(url)
-    if not doc:
-        return []
-
-    article_blocks = doc.find_all('div', {'class': 'ArticleBlock'})
-    for block in article_blocks:
-        link = block.find('a')
-        if not link:
-            continue
-
-        href = link.get('href')
-        title = link.text.strip()
-        date_text = block.find('p').text if block.find('p') else None
-        date = None
-        if date_text:
-            try:
-                date = datetime.datetime.strptime(date_text, "%m.%d.%y").date()
-            except ValueError:
-                try:
-                    date = datetime.datetime.strptime(date_text, "%B %d, %Y").date()
-                except ValueError:
-                    date = None
-
-        result = {
-            'source': url,
-            'url': href,
-            'title': title,
-            'date': date,
-            'domain': 'www.crapo.senate.gov'
-        }
-        results.append(result)
-
-    return results
+def newmember(cls, page=1):
+    """Scrape Representative NewMember's press releases."""
+    return cls.run_scraper('newmember', page)
 ```
 
-**The pattern:**
+### Step 4: Register and Test
 
-1. Build URL (with pagination parameter)
-2. Fetch HTML using `cls.open_html(url)`
-3. Find container elements (the repeating blocks that hold each press release)
-4. Loop through containers, extract: link, title, date
-5. Parse date (try multiple formats - websites aren't consistent)
-6. Build result dictionary with required keys
-7. Return list of results
-
-## Check Generic Scrapers First!
-
-**IMPORTANT:** Before writing a custom scraper, check if the website matches an existing generic pattern. This saves time and reduces code duplication.
-
-### Available Generic Patterns
-
-The library includes these generic scraper methods:
-
-1. **`table_recordlist_date`** - Senate sites with table layout and `td.recordListDate` class
-2. **`jet_listing_elementor`** - WordPress sites using Elementor/Jet Engine plugins
-3. **`article_block_h2_p_date`** - Senate sites with `div.ArticleBlock` layout
-4. **`table_time`** - House sites with simple table layout and `<time>` elements
-5. **`element_post_media`** - Custom element layout with post-media-list classes
-6. **`media_body`** - House sites with `.media-body` class (230+ members)
-
-### How to Check if a Site Matches
-
-1. Visit the member's press release page
-2. Right-click a press release item → Inspect Element
-3. Look for these patterns in the HTML:
-
-```html
-<!-- Pattern 1: table_recordlist_date -->
-<table>
-  <tbody>
-    <tr>
-      <td class="recordListDate">01/15/24</td>
-      <td><a href="/press/123">Title</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- Pattern 2: table_time (House sites) -->
-<table>
-  <tr>
-    <td><time datetime="2024-01-15">01/15/24</time></td>
-    <td><a href="/press/123">Title</a></td>
-  </tr>
-</table>
-
-<!-- Pattern 3: article_block_h2_p_date -->
-<div class="ArticleBlock">
-  <h2><a href="/press/123">Title</a></h2>
-  <p>01.15.24</p>
-</div>
-
-<!-- Pattern 4: jet_listing_elementor -->
-<div class="jet-listing-grid__item">
-  <h3><a href="/press/123">Title</a></h3>
-  <span class="elementor-icon-list-text">January 15, 2024</span>
-</div>
-```
-
-### Tour of a Generic Method: table_time (House Sites)
-
-The `table_time` method handles House member sites with a simple table structure. Here's how it works:
-
-**HTML Pattern it expects:**
-```html
-<table>
-  <tr><!-- header row, will be skipped --></tr>
-  <tr>
-    <td><time datetime="2024-01-15">01/15/24</time></td>
-    <td><a href="/media-center/press-releases/123">Title</a></td>
-  </tr>
-  <!-- more rows... -->
-</table>
-```
-
-**Example usage:**
-```python
-@classmethod
-def barr(cls, page=1):
-    """Scrape Representative Barr's press releases."""
-    return cls.table_time(
-        urls=['https://barr.house.gov/media-center/press-releases'],
-        page=page
-    )
-```
-
-**What the generic method does:**
-
-1. **Builds the URL with pagination:**
-   ```python
-   source_url = f"{url}{'&' if '?' in url else '?'}page={page}"
-   # Result: https://barr.house.gov/media-center/press-releases?page=1
-   ```
-
-2. **Fetches the page:**
-   ```python
-   doc = cls.open_html(source_url)
-   ```
-
-3. **Finds all table rows, skipping the first (header):**
-   ```python
-   rows = doc.select("table tr")[1:]  # [1:] skips the header row
-   ```
-
-4. **For each row, extracts the link and time element:**
-   ```python
-   link = row.select_one("td a") or row.select_one("a")
-   time_elem = row.select_one("time")
-   ```
-
-5. **Parses the date from the `datetime` attribute (or text if no attribute):**
-   ```python
-   date_text = time_elem.get('datetime') or time_elem.text.strip()
-   # Tries multiple formats: "%m/%d/%y", "%Y-%m-%d", "%B %d, %Y", etc.
-   ```
-
-6. **Handles relative URLs:**
-   ```python
-   href = link.get('href')
-   if not href.startswith('http'):
-       href = f"https://{domain}{href}"
-   ```
-
-7. **Returns a list of results in the standard format**
-
-**Benefits of using the generic method:**
-- Handles edge cases (missing dates, relative URLs, multiple date formats)
-- Less code to maintain (3 lines vs. 30+ lines)
-- Consistent behavior across similar sites
-- Automatic updates when the generic method improves
-
-### When to Write a Custom Scraper
-
-Write a custom scraper only when:
-- The site doesn't match any generic pattern
-- The site requires special logic (e.g., JavaScript rendering, authentication)
-- The generic method doesn't handle a specific edge case for that site
-
-## Building Your First Scraper
-
-### Step 0: Check for Generic Patterns First
-
-Before writing custom code, check if the site matches one of our generic patterns:
-
-1. **table_recordlist_date**: Senate sites with `<table>` and `td.recordListDate`
-2. **jet_listing_elementor**: WordPress/Elementor sites with `.jet-listing-grid__item`
-3. **article_block_h2_p_date**: Sites with `div.ArticleBlock`
-4. **element_post_media**: Sites with `.element` and `.post-media-list`
-5. **media_body**: House sites with `.media-body` class
-
-**To test if a site matches a pattern:**
+Add the method name to `member_methods()` in `scraper.py`, then test:
 
 ```python
 from python_statement import Scraper
 
-# Test the generic method directly
-url = 'https://senator.senate.gov/press'
-results = Scraper.jet_listing_elementor([url], page=1)
-print(f"Found {len(results)} results")
-if results:
-    print(results[0])  # If this works, add to SCRAPER_CONFIG!
+results = Scraper.newmember(page=1)
+print(f"Page 1: {len(results)} results")
+for r in results[:3]:
+    print(f"  {r['date']} - {r['title'][:60]}")
+
+results2 = Scraper.newmember(page=2)
+print(f"Page 2: {len(results2)} results")
 ```
 
-**If it matches:** Add to SCRAPER_CONFIG and create a wrapper method (see Configuration-Driven approach above).
+## Generic Dispatcher Config Keys
 
-**If it doesn't match:** Write a custom scraper (continue to Step 1 below).
+For `'method': 'generic'` entries, these config keys control scraping behavior:
 
-### Step 1: Inspect the Website
+| Key | Required | Description | Example |
+|-----|----------|-------------|---------|
+| `url_base` | Yes | Base URL of the press page | `'https://member.senate.gov/news'` |
+| `container` | Yes | CSS selector for each press release item | `'article'`, `'.jet-listing-grid__item'` |
+| `title_sel` | Yes | CSS selector for title within container | `'h2 a'`, `'a'` |
+| `date_sel` | No | CSS selector for date within container | `'time'`, `'span.published'` |
+| `date_fmt` | No | List of strptime format strings | `['%B %d, %Y', '%m/%d/%y']` |
+| `date_attr` | No | HTML attribute to read date from | `'datetime'` |
+| `date_from_next_sibling` | No | Read date from text node after date_sel element | `True` |
+| `pagination` | No | URL suffix with `{page}` placeholder | `'?page={page}'` |
+| `url_prefix` | No | Path prefix for relative URLs | `'/news/'` |
+| `skip_first` | No | Number of container elements to skip | `1` (for header rows) |
+| `link_sel` | No | CSS selector for link if different from title | `'h3 a'` |
+| `link_attr` | No | Attribute for URL if not `href` | |
+| `base_domain` | No | Override domain for URL construction | |
+| `max_results` | No | Limit results returned | |
 
-Open the member's press release page in a browser. Right-click an item → Inspect Element.
+## Batch Generic Methods
 
-Look for:
-- The container element that wraps each press release
-- Where the title/link is
-- Where the date is
-- How dates are formatted
+For sites that share an identical HTML structure, use one of the batch generic methods instead of `'method': 'generic'`. These require only `url_base`:
 
-Example HTML pattern (Senator Crapo):
-```html
-<div class="ArticleBlock">
-    <h2><a href="/path/to/release">Title Here</a></h2>
-    <p>01.15.24</p>
-</div>
-```
+| Method | HTML Pattern | Sites | Typical Use |
+|--------|-------------|-------|-------------|
+| `media_body` | `.media-body` with `<time>` | 230+ House | Most House members |
+| `article_block_h2_p_date` | `div.ArticleBlock` with `h2 a` + `p` date | 16+ Senate | Senate sites |
+| `jet_listing_elementor` | `.jet-listing-grid__item` | 13 Senate | WordPress/Elementor |
+| `table_recordlist_date` | `table` with `td.recordListDate` | 5 Senate | Table layouts |
+| `element_post_media` | `div.element` with post-media classes | 3 Senate | Custom element layout |
+| `table_time` | `table tr` with `<time>` | House | Simple table layout |
 
-### Step 2: Write the Method
+## Patterns Detected by detect_pattern.py
 
-Use this template:
+The pattern detection tool tests these 14 patterns (in order):
+
+1. **media_body** — `.media-body` containers with `<time>` dates
+2. **ArticleBlock** — `div.ArticleBlock` with `h2 a` titles
+3. **jet_listing_grid** — `.jet-listing-grid__item` (WordPress/Elementor)
+4. **et_pb_post** — `article.et_pb_post` (Divi theme)
+5. **table_recordlist** — `table.recordList tr` with `td.recordListDate`
+6. **table_time** — `tr` containers with `td a` titles and `<time>` dates
+7. **documentquery_article** — `article` with `h2 a` and `<time>`
+8. **documentquery_middot** — `article` with `span.middot` + sibling date text
+9. **news_texthold** — `.news-texthold` with `h2 a` and `<time>`
+10. **views_row** — `.views-row` with `.evo-card-date`
+11. **element_post_media** — `div.element` with `span.element-datetime`
+12. **elementor_post_card** — `.elementor-post__card` with `span.elementor-post-date`
+13. **wordpress_article** — `article` with `h2 a` and `<time>`
+14. **PageList_item** — `li.PageList__item`
+
+## Writing Custom Scrapers
+
+Write a custom scraper only when no pattern matches. Only ~7 scrapers need custom code (e.g., AJAX-loaded content, JSON APIs, unusual DOM structures).
+
+Template:
 
 ```python
 @classmethod
 def lastname(cls, page=1):
     """Scrape Representative/Senator Lastname's press releases."""
     results = []
-    domain = 'lastname.house.gov'  # or lastname.senate.gov
+    domain = 'lastname.house.gov'
     url = f"https://{domain}/news/press-releases?page={page}"
 
     doc = cls.open_html(url)
     if not doc:
         return []
 
-    # Find all press release containers
-    containers = doc.find_all('div', {'class': 'container-class-name'})
-
+    containers = doc.select('.container-class')
     for container in containers:
-        link = container.find('a')
+        link = container.select_one('a')
         if not link:
             continue
 
-        # Extract data
         title = link.text.strip()
         href = link.get('href')
-
-        # Handle relative URLs
         if not href.startswith('http'):
             href = f"https://{domain}{href}"
 
-        # Extract date
-        date_elem = container.find('span', {'class': 'date-class'})
         date = None
+        date_elem = container.select_one('time')
         if date_elem:
-            date_text = date_elem.text.strip()
             try:
-                date = datetime.datetime.strptime(date_text, "%B %d, %Y").date()
+                date = datetime.datetime.strptime(
+                    date_elem.get('datetime', date_elem.text.strip()),
+                    "%Y-%m-%d"
+                ).date()
             except ValueError:
-                pass  # Date parsing failed, leave as None
+                pass
 
-        result = {
+        results.append({
             'source': url,
             'url': href,
             'title': title,
             'date': date,
             'domain': domain
-        }
-        results.append(result)
+        })
 
     return results
 ```
 
-### Step 3: Test It
+## Fixing Broken Scrapers
 
-```python
-from python_statement import Scraper
+### Finding Broken Scrapers
 
-results = Scraper.lastname()
-for r in results[:3]:  # Show first 3
-    print(r)
+```bash
+# Run quick health check
+make health-quick
+
+# Or full check
+make health
 ```
 
-## Common BeautifulSoup Patterns
+Results show status for each scraper: `+` OK, `-` empty, `?` no dates, `X` error.
 
-### Finding Elements
+### Debugging Process
 
-```python
-# By tag name
-doc.find('div')                     # First div
-doc.find_all('div')                 # All divs
+1. **Test the URL:**
+   ```python
+   doc = Scraper.open_html('https://member.senate.gov/press')
+   print("Loaded" if doc else "URL broken")
+   ```
 
-# By class
-doc.find('div', {'class': 'ArticleBlock'})
-doc.find_all('div', {'class': 'ArticleBlock'})
+2. **Run pattern detection on the current URL:**
+   ```bash
+   uv run python scripts/detect_pattern.py https://member.senate.gov/press
+   ```
 
-# By CSS selector (more powerful)
-doc.select_one('div.ArticleBlock')  # First match
-doc.select('div.ArticleBlock')      # All matches
-doc.select('table tbody tr')        # Nested selection
+3. **If the pattern changed:** Update the config entry in `config.py`
 
-# Find within an element
-container = doc.find('div', {'class': 'ArticleBlock'})
-link = container.find('a')
-date = container.find('time')
-```
+4. **If the URL changed:** Find the new press page URL and update `url_base`
 
-### Extracting Data
+### Common Issues
 
-```python
-# Text content
-link.text                    # Returns: "  Title Here  "
-link.text.strip()            # Returns: "Title Here"
+- **404 errors** — URL structure changed. Visit the site, find the new press page URL.
+- **Empty results** — HTML structure changed. Run `detect_pattern.py` to identify new selectors.
+- **No dates** — Date format or selector changed. Check the HTML and update `date_sel`/`date_fmt`.
+- **Page 1 works, page 2 fails** — Pagination pattern changed. Update the `pagination` config key.
 
-# Attributes
-link.get('href')             # Returns: "/news/releases/123"
-time_elem.get('datetime')    # Returns: "2024-01-15"
-```
+## Date Parsing
 
-### Handling URLs
+Dates vary widely across sites. For `'method': 'generic'` configs, list formats to try in `date_fmt`:
 
 ```python
-href = link.get('href')
-
-# Relative URL
-if not href.startswith('http'):
-    href = f"https://{domain}{href}"
-
-# Already absolute
-# Just use it as-is
+'date_fmt': ['%B %d, %Y', '%m/%d/%y', '%Y-%m-%d']
 ```
 
-## Date Parsing Patterns
+Common formats:
+- `%m/%d/%y` — 01/15/24
+- `%m/%d/%Y` — 01/15/2024
+- `%m.%d.%y` — 01.15.24
+- `%B %d, %Y` — January 15, 2024
+- `%Y-%m-%d` — 2024-01-15 (ISO, common in `<time datetime="">`)
 
-Dates are inconsistent across sites. Try multiple formats:
+For sites with `<time datetime="...">`, use `date_attr: 'datetime'` to read the attribute directly.
 
-```python
-date = None
-date_text = date_elem.text.strip()
-
-# Common formats
-date_formats = [
-    "%m/%d/%y",      # 01/15/24
-    "%m/%d/%Y",      # 01/15/2024
-    "%m.%d.%y",      # 01.15.24
-    "%B %d, %Y",     # January 15, 2024
-    "%b %d, %Y",     # Jan 15, 2024
-    "%Y-%m-%d",      # 2024-01-15 (from datetime attributes)
-]
-
-for fmt in date_formats:
-    try:
-        date = datetime.datetime.strptime(date_text, fmt).date()
-        break  # Got it, stop trying
-    except ValueError:
-        continue  # Try next format
-
-# If all fail, date remains None
-```
-
-**Tip:** Check `<time>` elements for a `datetime` attribute - it's usually in ISO format:
-```python
-time_elem = container.find('time')
-if time_elem:
-    date_attr = time_elem.get('datetime')  # "2024-01-15"
-    if date_attr:
-        date = datetime.datetime.strptime(date_attr, "%Y-%m-%d").date()
-```
-
-## Common HTML Patterns
-
-### Pattern 1: ArticleBlock (Senate sites)
-```python
-article_blocks = doc.find_all('div', {'class': 'ArticleBlock'})
-for block in article_blocks:
-    link = block.find('a')
-    date_elem = block.find('time') or block.find('p')
-    # ...
-```
-
-### Pattern 2: Table with Rows (Senate sites)
-```python
-rows = doc.select('table tbody tr')
-for row in rows:
-    link = row.select_one('a')
-    date_cell = row.select_one('td.recordListDate')
-    # ...
-```
-
-### Pattern 3: Article Tags (House sites)
-```python
-articles = doc.find_all('article')
-for article in articles:
-    link = article.find('a')
-    time_elem = article.find('time')
-    # ...
-```
-
-### Pattern 4: Elementor/WordPress (Modern sites)
-```python
-items = doc.select('.jet-listing-grid__item')
-for item in items:
-    link = item.select_one('h3 a')
-    date_elem = item.select_one('span.elementor-icon-list-text')
-    # ...
-```
-
-## Pagination
-
-Most scrapers accept a `page` parameter. URL patterns vary:
-
-```python
-# Style 1: Query parameter
-url = f"https://site.gov/press?page={page}"
-
-# Style 2: Named parameter
-url = f"https://site.gov/press?PageNum_rs={page}"
-
-# Style 3: Path segment
-url = f"https://site.gov/press/pagenum/{page}/"
-
-# Style 4: Complex query string
-url = f"https://site.gov/press?jsf=jet-engine:press-list&pagenum={page}"
-```
-
-Check the site's pagination links to see which pattern they use.
-
-## Generic Scraper Methods
-
-Quick reference for calling generic methods:
-
-### Available Generic Patterns
-
-**1. table_recordlist_date** - Senate sites with table.recordListDate
-```python
-# HTML pattern:
-# <table><tbody><tr>
-#   <td class="recordListDate">01/15/24</td>
-#   <td><a href="/press/123">Title</a></td>
-# </tr></tbody></table>
-
-# Example sites: moran, boozman, thune, barrasso, graham
-```
-
-**2. jet_listing_elementor** - WordPress/Elementor with Jet Engine
-```python
-# HTML pattern:
-# <div class="jet-listing-grid__item">
-#   <h3><a href="/press/123">Title</a></h3>
-#   <span class="elementor-icon-list-text">January 15, 2024</span>
-# </div>
-
-# Example sites: timscott, cassidy, fetterman, lujan, mullin, ossoff
-# Note: Handles multiple pagination patterns (?jsf=, /page/, /pagenum/)
-```
-
-**3. article_block_h2_p_date** - Senate sites with ArticleBlock
-```python
-# HTML pattern:
-# <div class="ArticleBlock">
-#   <h2><a href="/press/123">Title</a></h2>
-#   <p>01.15.24</p>
-# </div>
-
-# Example sites: murphy, markey, cotton, durbin, crapo, hassan
-```
-
-**4. element_post_media** - Sites with .element class
-```python
-# HTML pattern:
-# <div class="element">
-#   <a href="/press/123">
-#     <div class="post-media-list-title">Title</div>
-#     <div class="post-media-list-date">January 15, 2024</div>
-#   </a>
-# </div>
-
-# Example sites: tillis, wicker, blackburn
-```
-
-**5. media_body** - House sites with media-body
-```python
-# HTML pattern:
-# <div class="media-body">
-#   <a href="/press/123">Title</a>
-#   <div class="col-auto">01/15/24</div>
-# </div>
-
-# Example sites: 230+ House members including issa, pelosi, khanna
-```
-
-### How Generic Methods Work
-
-Generic methods automatically pull URLs from `SCRAPER_CONFIG`:
-
-```python
-# When you call the generic method without arguments:
-results = Scraper.media_body()  # Scrapes ALL 230+ media_body sites!
-
-# Or call with specific URLs:
-results = Scraper.media_body(['https://specific-site.house.gov/press'], page=1)
-```
-
-### Adding a Site to a Generic Pattern
-
-1. **Add to SCRAPER_CONFIG:**
-```python
-SCRAPER_CONFIG = {
-    'newmember': {
-        'method': 'jet_listing_elementor',
-        'url_base': 'https://newmember.senate.gov/press/?jsf=jet-engine:press-list'
-    },
-}
-```
-
-2. **Create wrapper method:**
-```python
-@classmethod
-def newmember(cls, page=1):
-    """Scrape Senator NewMember's press releases."""
-    return cls.run_scraper('newmember', page)
-```
-
-3. **Test it:**
-```python
-results = Scraper.newmember()
-print(f"Found {len(results)} results")
-```
-
-That's it! The `run_scraper()` method looks up the config, calls the appropriate generic method, and handles pagination.
-
-## Custom Scrapers (When Generic Patterns Don't Fit)
+For sites where the date is a text node after a marker element (e.g., `<span class="middot">&middot;</span> 01/15/2024`), use `date_from_next_sibling: True`.
 
 ## Required Return Format
 
-Every scraper must return a list of dictionaries with these keys:
+Every scraper returns a list of dicts with these keys:
 
 ```python
 {
-    'source': 'https://site.gov/press',      # The list page URL
+    'source': 'https://site.gov/press',      # List page URL
     'url': 'https://site.gov/press/123',     # Individual release URL
-    'title': 'Press Release Title',          # Release title
-    'date': datetime.date(2024, 1, 15),      # Python date object (or None)
+    'title': 'Press Release Title',          # Title text
+    'date': datetime.date(2024, 1, 15),      # Date object or None
     'domain': 'site.gov'                     # Domain name
 }
 ```
 
-## Fixing Broken Scrapers
+## File Locations
 
-Websites change! Here's how to identify and fix broken scrapers.
-
-### Common Issues
-
-**1. URL Structure Changed**
-
-Symptoms: 404 errors, no results found
-
-```python
-# Test the URL directly
-doc = Scraper.open_html('https://member.senate.gov/press')
-if not doc:
-    print("URL is broken - site may have changed")
-```
-
-Fix: Visit the member's website, find the new press releases page, update the URL in SCRAPER_CONFIG or the scraper method.
-
-**2. HTML Structure Changed**
-
-Symptoms: Scraper runs but returns empty results
-
-```python
-# Debug: Check what selectors return
-doc = Scraper.open_html(url)
-old_selector = doc.select('.old-class-name')
-print(f"Old selector found: {len(old_selector)} items")
-
-# Try finding new structure
-new_selector = doc.select('.new-class-name')
-print(f"New selector found: {len(new_selector)} items")
-```
-
-Fix: Update the selector in the scraper method to match new HTML structure.
-
-**3. Pagination Pattern Changed**
-
-Symptoms: Page 1 works, page 2+ fail
-
-```python
-# Test pagination URLs
-for page in [1, 2]:
-    url = f"https://site.gov/press?page={page}"
-    doc = Scraper.open_html(url)
-    items = doc.select('.press-item')
-    print(f"Page {page}: {len(items)} items")
-```
-
-Fix: Update pagination URL pattern in the scraper.
-
-### Step-by-Step Debugging Process
-
-1. **Test the URL loads:**
-```python
-url = 'https://member.senate.gov/press'
-doc = Scraper.open_html(url)
-print("Loaded" if doc else "Failed to load")
-```
-
-2. **Inspect what selectors work:**
-```python
-# Try various selectors
-selectors = [
-    'div.ArticleBlock',
-    'article',
-    '.media-body',
-    '.jet-listing-grid__item',
-    '.post',
-]
-
-for selector in selectors:
-    items = doc.select(selector)
-    if items:
-        print(f"{selector}: found {len(items)} items")
-```
-
-3. **Check the first item's structure:**
-```python
-items = doc.select('article')  # Whatever selector worked
-if items:
-    first = items[0]
-    print(first.prettify()[:500])  # Print HTML
-    
-    # Find title
-    title = first.select_one('h1, h2, h3, a')
-    print(f"Title: {title.text if title else 'NOT FOUND'}")
-    
-    # Find date
-    date = first.select_one('time, .date, span[class*=date]')
-    print(f"Date: {date.text if date else 'NOT FOUND'}")
-```
-
-4. **Test the full scraper:**
-```python
-results = Scraper.member_name()
-print(f"Results: {len(results)}")
-if results:
-    print(results[0])
-```
-
-### Example: Fixed Scraper (Mullin)
-
-**Problem:** Scraper was only retrieving one result instead of all press releases on the page.
-
-**Root Cause:** The code was finding the wrong container element:
-```python
-# Wrong: Found the parent container (only 1 on page)
-containers = doc.find_all('div', {'class': 'jet-listing-grid__items'})
-```
-
-**Solution:** Changed to find individual item elements:
-```python
-# Correct: Find all individual press release items
-items = doc.select('.jet-listing-grid__item')
-```
-
-**Key Lesson:** When scraping returns fewer results than expected, check if you're selecting the parent container instead of the repeating child elements. Use browser DevTools to inspect the HTML structure and identify the element that repeats for each press release.
-
-### Suggested Starting Points for Fixes
-
-Here are scrapers that likely need updating based on recent testing:
-
-**High Priority - Known Broken:**
-
-1. **rosen** - Site completely changed structure
-   - Old: jet_listing_elementor pattern
-   - Current URL returns 404
-   - New site uses: `https://www.rosen.senate.gov/category/press_release/`
-   - Uses: `article.elementor-post` with different date/title structure
-   - **Action:** Remove from SCRAPER_CONFIG, write custom scraper
-
-2. **padilla** - Pagination not working
-   - Pattern should work but URL structure changed
-   - Test: `https://www.padilla.senate.gov/newsroom/press-releases/`
-   - **Action:** Check pagination pattern, update URL in config
-
-**Medium Priority - May Have Issues:**
-
-Sites using deprecated patterns or old URLs. Test these:
-
-```python
-# Quick test script
-members_to_check = ['hoeven', 'lankford', 'rubio', 'schumer', 'warner']
-
-for member in members_to_check:
-    try:
-        method = getattr(Scraper, member)
-        results = method(page=1)
-        status = f"✓ {len(results)} results" if results else "✗ No results"
-        print(f"{member}: {status}")
-    except Exception as e:
-        print(f"{member}: ✗ ERROR - {str(e)[:50]}")
-```
-
-**Conversion Opportunities:**
-
-Check if these custom scrapers can be simplified to use SCRAPER_CONFIG:
-
-- Any method with `ArticleBlock` → might use `article_block_h2_p_date`
-- Any method with `jet-engine` or `elementor` → might use `jet_listing_elementor`
-- Any method with `table tbody tr` → might use `table_recordlist_date`
-
-Test by calling the generic method directly with the site's URL.
-
-## Next Steps
-
-### For New Scrapers
-
-1. Pick a member without a scraper
-2. Visit their press release page
-3. **Test generic patterns first** (see Step 0 above)
-4. If match found: Add to SCRAPER_CONFIG + create wrapper
-5. If no match: Write custom scraper following the template
-6. Test with multiple pages
-7. Add to `member_methods()` list
-
-### For Fixing Broken Scrapers
-
-1. Pick a scraper from the "Suggested Starting Points" list above
-2. Run the debugging steps to identify the issue
-3. Update URL, selectors, or pagination as needed
-4. Consider converting to SCRAPER_CONFIG if it matches a generic pattern
-5. Test thoroughly with pages 1, 2, and 3
-
-### Quick Win Opportunities
-
-**Convert existing scrapers to config-driven approach:**
-
-Find scrapers that match generic patterns but aren't using them yet:
-
-```python
-# Search for patterns in existing code
-# ArticleBlock pattern candidates:
-grep -n "ArticleBlock" python_statement/statement.py
-
-# Jet/Elementor pattern candidates:
-grep -n "jet-listing\|elementor" python_statement/statement.py
-
-# Table pattern candidates:
-grep -n "tbody tr" python_statement/statement.py
-```
-
-If you find a match, convert it to use `run_scraper()` - you'll reduce 30+ lines to 2 lines!
-
-## Adding Your Scraper to the Library
-
-Once your scraper works:
-
-1. **If using SCRAPER_CONFIG:**
-   - Add entry to `SCRAPER_CONFIG` dict (alphabetically within its pattern section)
-   - Add wrapper method to `Scraper` class (alphabetically)
-   - Add method to `member_methods()` list
-
-2. **If custom scraper:**
-   - Add method to `Scraper` class (alphabetically)
-   - Add method to `member_methods()` list
-   - Write a clear docstring
-
-3. **Test it:**
-```bash
-uv run python -c "from python_statement import Scraper; print(len(Scraper.lastname()))"
-```
-
-4. **Commit with descriptive message:**
-```bash
-git add python_statement/statement.py
-git commit -m "Add scraper for Senator/Rep Lastname"
-```
-
-## Summary
-
-- **Prefer configuration over code**: Use SCRAPER_CONFIG when possible
-- **Generic methods are powerful**: They handle 260+ sites with just config entries
-- **Test before writing**: Check if a generic pattern works first
-- **Websites change**: Fix broken scrapers using the debugging process
-- **Keep it simple**: A 2-line wrapper is better than 30 lines of duplicate code
-
-The library prioritizes maintainability through configuration-driven design. Most complexity comes from inconsistent website designs and date formats - the generic methods handle that complexity so you don't have to.
+| What | Where |
+|------|-------|
+| Scraper config | `python_statement/config.py` — `SCRAPER_CONFIG` dict |
+| Wrapper methods | `python_statement/scraper.py` — `Scraper` class |
+| Generic dispatcher | `python_statement/scraper.py` — `generic_scraper()` |
+| Health checker | `python_statement/health.py` — `HealthChecker` class |
+| Pattern detection | `scripts/detect_pattern.py` |
+| Health check CLI | `scripts/run_health_check.py` |
+| CI workflow | `.github/workflows/scraper-health.yml` |
