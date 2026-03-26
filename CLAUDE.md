@@ -163,7 +163,7 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
 - `run_scraper(scraper_name, page)` — Routes config-driven scrapers to appropriate method
 - `generic_scraper(scraper_name, page)` — Universal dispatcher for `method: 'generic'` configs
 - `member_scrapers()` / `committee_scrapers()` — Run all scrapers
-- `member_methods()` — Returns list of all member scraper method names
+- `member_methods()` — Returns sorted list of all scraper names (strings) from SCRAPER_CONFIG
 
 **HealthChecker class (health.py):**
 - `check_scraper(name)` — Test a single scraper, returns status dict
@@ -182,9 +182,9 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
    ```
    This tries 14 known HTML patterns and recommends a config entry.
 
-2. **If a pattern matches:** Add to `SCRAPER_CONFIG` in `python_statement/config.py` and create a wrapper in `python_statement/scraper.py`:
+2. **If a pattern matches:** Add to `SCRAPER_CONFIG` in `python_statement/config.py`. That's it — the wrapper method is auto-generated at import time:
    ```python
-   # In config.py — SCRAPER_CONFIG dict
+   # In config.py — SCRAPER_CONFIG dict (alphabetically)
    'newmember': {
        'method': 'generic',
        'url_base': 'https://newmember.house.gov/press',
@@ -195,17 +195,10 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
        'date_fmt': ['%Y-%m-%d'],
        'pagination': '?page={page}',
    },
-
-   # In scraper.py — Scraper class (alphabetically)
-   @classmethod
-   def newmember(cls, page=1):
-       """Scrape Representative NewMember's press releases."""
-       return cls.run_scraper('newmember', page)
    ```
+   No need to edit `scraper.py` or `member_methods()`.
 
-3. **If no pattern matches:** Write a custom scraper following the template in SCRAPER_GUIDE.md
-
-4. **Add to member list:** Add method name to `member_methods()` list in scraper.py
+3. **If no pattern matches:** Write a custom scraper method in `scraper.py` following the template in SCRAPER_GUIDE.md
 
 ### Fixing Broken Scrapers
 
@@ -284,7 +277,8 @@ When testing scrapers:
 2. **Not checking for None**: Always check if `doc`, `link`, `date_elem` exist
 3. **Relative URLs**: Many sites use relative URLs — use `url_prefix` config key
 4. **Date parsing failures**: Always wrap in try/except, date can be None
-5. **Editing wrong file**: Config goes in `config.py`, wrapper methods in `scraper.py`
+5. **Editing scraper.py for new config scrapers**: Just add to `config.py` — wrapper methods are auto-generated
+6. **Config typos**: Caught at import time by `validate_config()` — unknown keys, missing required fields, wrong types all raise `ValueError`
 
 ## Dependencies
 

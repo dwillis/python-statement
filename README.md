@@ -122,7 +122,7 @@ There are two configuration approaches:
    ```
    This tests 14 known HTML patterns and recommends a config entry.
 
-2. **If a pattern matches:** Add a config entry to `python_statement/config.py` and a 2-line wrapper to `python_statement/scraper.py`
+2. **If a pattern matches:** Add a config entry to `python_statement/config.py` — that's it, the wrapper method is auto-generated
 
 3. **If no pattern matches:** Write a custom scraper method
 
@@ -169,8 +169,8 @@ Each press release is returned as a dictionary:
 ```
 python_statement/
   __init__.py        # Exports Feed, Scraper, Utils
-  config.py          # SCRAPER_CONFIG dict (390 entries)
-  scraper.py         # Scraper class with generic dispatcher + batch methods
+  config.py          # SCRAPER_CONFIG dict (390 entries) + validation
+  scraper.py         # Scraper class with generic dispatcher + auto-generated wrappers
   feed.py            # Feed class for RSS/Atom parsing
   utils.py           # Utils class for URL handling
   health.py          # HealthChecker class for monitoring
@@ -203,10 +203,9 @@ make clean                # Clean build artifacts
 When contributing a new scraper:
 
 1. Run `scripts/detect_pattern.py` on the target URL first
-2. If it matches a pattern: add config entry + 2-line wrapper
-3. If it doesn't match: write a custom scraper (see SCRAPER_GUIDE.md)
-4. Add the method name to `member_methods()` list in `scraper.py`
-5. Test with pages 1 and 2
+2. If it matches a pattern: add a config entry to `config.py` (wrapper is auto-generated)
+3. If it doesn't match: write a custom scraper method in `scraper.py` (see SCRAPER_GUIDE.md)
+4. Test with pages 1 and 2
 6. Run `make health-quick` to verify nothing broke
 
 ### Fixing Broken Scrapers

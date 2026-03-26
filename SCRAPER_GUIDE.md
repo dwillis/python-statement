@@ -40,20 +40,9 @@ If the site matches one of the batch generic patterns (media_body, article_block
 },
 ```
 
-### Step 3: Add the Wrapper Method
+### Step 3: Test
 
-Edit `python_statement/scraper.py` and add a wrapper method to the Scraper class (alphabetically):
-
-```python
-@classmethod
-def newmember(cls, page=1):
-    """Scrape Representative NewMember's press releases."""
-    return cls.run_scraper('newmember', page)
-```
-
-### Step 4: Register and Test
-
-Add the method name to `member_methods()` in `scraper.py`, then test:
+Wrapper methods are auto-generated from the config — no need to edit `scraper.py` or `member_methods()`. Just test:
 
 ```python
 from python_statement import Scraper
