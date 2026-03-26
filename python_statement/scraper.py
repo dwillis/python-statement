@@ -10,6 +10,7 @@ import json
 import time
 import re
 import os
+import hashlib
 
 from .utils import Utils
 from .config import SCRAPER_CONFIG
@@ -17,11 +18,42 @@ from .config import SCRAPER_CONFIG
 
 class Scraper:
     """Class for scraping HTML pages."""
-    
+
     # Configuration for scrapers that use generic methods
     # Maps scraper_method name -> {method: generic_method_name, url_base: base_url}
     SCRAPER_CONFIG = SCRAPER_CONFIG
-    
+
+    # Opt-in disk cache for HTTP responses (off by default)
+    _cache_enabled = False
+    _cache_dir = os.path.expanduser('~/.cache/python-statement')
+    _cache_ttl = 3600  # seconds
+
+    @classmethod
+    def enable_cache(cls, ttl=3600, cache_dir=None):
+        """Enable disk caching of HTTP responses.
+
+        Args:
+            ttl: Cache time-to-live in seconds (default: 1 hour)
+            cache_dir: Custom cache directory (default: ~/.cache/python-statement)
+        """
+        cls._cache_enabled = True
+        cls._cache_ttl = ttl
+        if cache_dir:
+            cls._cache_dir = cache_dir
+        os.makedirs(cls._cache_dir, exist_ok=True)
+
+    @classmethod
+    def disable_cache(cls):
+        """Disable disk caching (HTTP requests go to the network)."""
+        cls._cache_enabled = False
+
+    @classmethod
+    def clear_cache(cls):
+        """Delete all cached HTTP responses."""
+        import shutil
+        if os.path.exists(cls._cache_dir):
+            shutil.rmtree(cls._cache_dir)
+
     @classmethod
     def run_scraper(cls, scraper_name, page=1, **kwargs):
         """
@@ -187,27 +219,54 @@ class Scraper:
 
         return results
 
-    @staticmethod
-    def open_html(url):
-        """Open an HTML page and return a BeautifulSoup object."""
+    @classmethod
+    def open_html(cls, url):
+        """Open an HTML page and return a BeautifulSoup object.
+
+        If caching is enabled via enable_cache(), checks for a cached
+        response before making an HTTP request. Cached responses are
+        stored as raw bytes in ~/.cache/python-statement/.
+        """
+        # Check cache first
+        cache_path = None
+        if cls._cache_enabled:
+            url_hash = hashlib.sha256(url.encode()).hexdigest()
+            cache_path = os.path.join(cls._cache_dir, url_hash)
+            if os.path.exists(cache_path):
+                age = time.time() - os.path.getmtime(cache_path)
+                if age < cls._cache_ttl:
+                    try:
+                        with open(cache_path, 'rb') as f:
+                            content = f.read()
+                        try:
+                            return BeautifulSoup(content, 'lxml')
+                        except Exception:
+                            return BeautifulSoup(content, 'html.parser')
+                    except OSError:
+                        pass  # Cache read failed, fetch from network
+
+        time.sleep(0.5)  # Rate limit: be polite to congressional servers
         try:
-            # Set a user agent to avoid being blocked by some websites
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
-            
-            # Add timeout to prevent hanging on slow websites
             response = requests.get(url, headers=headers, timeout=30)
-            
-            # Raise an exception for bad status codes
             response.raise_for_status()
-            
-            # Try to use lxml parser first (faster), fall back to html.parser
+
+            # Write to cache before parsing
+            if cache_path is not None:
+                try:
+                    os.makedirs(cls._cache_dir, exist_ok=True)
+                    with open(cache_path, 'wb') as f:
+                        f.write(response.content)
+                except OSError:
+                    pass  # Cache write failed, not critical
+
             try:
                 return BeautifulSoup(response.content, 'lxml')
-            except:
+            except Exception:
                 return BeautifulSoup(response.content, 'html.parser')
-                
+
         except requests.exceptions.RequestException as e:
             print(f"Request error for {url}: {e}")
             return None
