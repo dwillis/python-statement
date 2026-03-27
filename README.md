@@ -38,6 +38,26 @@ pip install -e .
 
 ## Usage
 
+### Scraping HTML Pages
+
+```python
+from python_statement import Scraper
+
+# Scrape individual members using wrapper methods
+results = Scraper.pelosi()     # House member (media_body pattern)
+results = Scraper.grassley()   # Senator (ArticleBlock pattern)
+results = Scraper.bacon()      # House member (generic dispatcher)
+
+# Scrape with pagination
+page2 = Scraper.pelosi(page=2)
+
+# Batch scrape all configured sites for a pattern
+all_media_body = Scraper.media_body()  # Scrapes 230+ House sites
+
+# Scrape all supported members
+all_results = Scraper.member_scrapers()
+```
+
 ### Parsing RSS Feeds
 
 ```python
@@ -51,26 +71,6 @@ print(results[0])
 # Process multiple RSS feeds in batch
 urls = ['https://amo.house.gov/rss.xml', 'https://hageman.house.gov/rss.xml']
 results, failures = Feed.batch(urls)
-```
-
-### Scraping HTML Pages
-
-```python
-from python_statement import Scraper
-
-# Scrape individual members using wrapper methods
-results = Scraper.pelosi()     # House member (media_body pattern)
-results = Scraper.grassley()   # Senator (ArticleBlock pattern)
-results = Scraper.bacon()      # Senator (generic dispatcher)
-
-# Scrape with pagination
-page2 = Scraper.pelosi(page=2)
-
-# Batch scrape all configured sites for a pattern
-all_media_body = Scraper.media_body()  # Scrapes 230+ House sites
-
-# Scrape all supported members
-all_results = Scraper.member_scrapers()
 ```
 
 ### Using with uv

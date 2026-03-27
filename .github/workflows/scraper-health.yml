@@ -45,13 +45,17 @@ jobs:
           fi
         continue-on-error: true
 
-      - name: Commit health history
+      - name: Build dashboard
+        if: always()
+        run: uv run python scripts/build_dashboard.py
+
+      - name: Commit health history and dashboard
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add health_history.jsonl
-          git diff --cached --quiet || git commit -m "Update health history [skip ci]"
+          git add health_history.jsonl docs/index.html
+          git diff --cached --quiet || git commit -m "Update health history and dashboard [skip ci]"
           git push
 
       - name: Upload health results
