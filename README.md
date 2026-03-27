@@ -172,14 +172,13 @@ python_statement/
   config.py          # SCRAPER_CONFIG dict (390 entries) + validation
   scraper.py         # Scraper class with generic dispatcher + auto-generated wrappers
   feed.py            # Feed class for RSS/Atom parsing
-  utils.py           # Utils class for URL handling
+  utils.py           # Utils class for URL handling and date parsing
   health.py          # HealthChecker class for monitoring
 
 scripts/
   detect_pattern.py         # Pattern detection for new sites
   run_health_check.py       # Health check CLI
   generate_legislators.py   # Match legislators to scrapers
-  comprehensive_compare.py  # Compare with Ruby implementation
 
 tests/
   test_statement.py    # Core functionality tests
@@ -194,7 +193,6 @@ make test                  # Run all tests
 make health-quick          # Quick scraper health check
 make health                # Full scraper health check
 make generate-legislators  # Generate legislators_with_scrapers.json
-make compare              # Compare with Ruby implementation
 make clean                # Clean build artifacts
 ```
 
