@@ -140,12 +140,12 @@ def normalize_url(url):
 
 def extract_scraper_urls():
     """
-    Extract URLs from all scraper methods in statement.py.
+    Extract URLs from all scraper methods.
     
     Returns:
         dict: Dictionary mapping normalized domains to scraper method names
     """
-    from python_statement.statement import Scraper
+    from python_statement import Scraper
     from inspect import getmembers, ismethod
     
     scraper_urls = {}

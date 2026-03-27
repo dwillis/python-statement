@@ -3,7 +3,7 @@
 Test script for the react scraper with error tracking.
 """
 
-from python_statement.statement import Scraper
+from python_statement import Scraper
 import time
 from datetime import datetime
 
