@@ -39,7 +39,7 @@ SCRAPER_CONFIG = {
     'garypeters': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.peters.senate.gov/newsroom/press-releases'},
     'jackreed': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.reed.senate.gov/news/releases'},
     'heinrich': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.heinrich.senate.gov/newsroom/press-releases'},
-    'aguilar': {'method': 'article_block_h2_p_date', 'url_base': 'https://aguilar.house.gov/media/press-releases'},
+    'aguilar': {'method': 'generic', 'url_base': 'https://aguilar.house.gov/category/congress_press_release/', 'container': 'div.item', 'title_sel': 'h2 a', 'date_sel': '.date', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
     'bergman': {'method': 'article_block_h2_p_date', 'url_base': 'https://bergman.house.gov/media/press-releases'},
     'cantwell': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cantwell.senate.gov/news/press-releases'},
     'capito': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.capito.senate.gov/news/press-releases'},
