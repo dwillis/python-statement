@@ -20,6 +20,7 @@ from python_statement.config import SCRAPER_CONFIG
 REPO = "dwillis/python-statement"
 RESULTS_FILE = "health_results.json"
 HISTORY_FILE = "health_history.jsonl"
+LEGISLATORS_FILE = "legislators_with_scrapers.json"
 OUTPUT_DIR = "docs"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "index.html")
 
@@ -39,6 +40,17 @@ def load_history(path):
             if line:
                 entries.append(json.loads(line))
     return entries
+
+
+def load_legislators(path):
+    """Load legislators and split into matched/unmatched."""
+    if not os.path.exists(path):
+        return [], []
+    with open(path) as f:
+        data = json.load(f)
+    matched = [l for l in data if l.get("scraper_method")]
+    unmatched = [l for l in data if not l.get("scraper_method")]
+    return matched, unmatched
 
 
 def enrich_results(results):
@@ -69,12 +81,46 @@ def issue_url(name, status, url_base, error):
     return f"https://github.com/{REPO}/issues/new?{params}"
 
 
-def build_html(report, history):
+def build_html(report, history, matched_legislators=None, unmatched_legislators=None):
     summary = report["summary"]
     timestamp = report["timestamp"]
     results = report["results"]
+    matched_legislators = matched_legislators or []
+    unmatched_legislators = unmatched_legislators or []
 
     enrich_results(results)
+
+    # Build missing members table rows
+    missing_rows_html = []
+    for leg in sorted(unmatched_legislators, key=lambda l: (l["type"], l["state"], l["official_full"])):
+        name = html.escape(leg["official_full"])
+        state = html.escape(leg["state"])
+        chamber = "Senate" if leg["type"] == "sen" else "House"
+        party = html.escape(leg.get("party", ""))
+        url = leg.get("url", "")
+        url_cell = (
+            f'<a href="{html.escape(url)}" target="_blank" rel="noopener">'
+            f"{html.escape(url)}</a>"
+            if url
+            else ""
+        )
+        missing_rows_html.append(
+            f"<tr>"
+            f"<td>{name}</td>"
+            f"<td>{chamber}</td>"
+            f"<td>{state}</td>"
+            f"<td>{party}</td>"
+            f'<td class="url-cell">{url_cell}</td>'
+            f"</tr>"
+        )
+    missing_table_rows = "\n".join(missing_rows_html)
+
+    total_legislators = len(matched_legislators) + len(unmatched_legislators)
+    coverage_pct = (
+        round(len(matched_legislators) / total_legislators * 100)
+        if total_legislators
+        else 0
+    )
 
     # Build table rows
     rows_html = []
@@ -144,6 +190,12 @@ def build_html(report, history):
   body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f6fa; color: #2d3436; padding: 24px; }}
   h1 {{ font-size: 1.5rem; margin-bottom: 4px; }}
   .subtitle {{ color: #636e72; font-size: 0.9rem; margin-bottom: 24px; }}
+  .tabs {{ display: flex; gap: 0; margin-bottom: 24px; border-bottom: 2px solid #dfe6e9; }}
+  .tab {{ padding: 10px 24px; cursor: pointer; font-size: 0.95rem; font-weight: 600; color: #636e72; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }}
+  .tab:hover {{ color: #2d3436; }}
+  .tab.active {{ color: #0984e3; border-bottom-color: #0984e3; }}
+  .tab-panel {{ display: none; }}
+  .tab-panel.active {{ display: block; }}
   .summary {{ display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }}
   .stat-card {{ background: #fff; border-radius: 8px; padding: 16px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); min-width: 120px; }}
   .stat-card .label {{ font-size: 0.8rem; color: #636e72; text-transform: uppercase; letter-spacing: 0.5px; }}
@@ -153,6 +205,7 @@ def build_html(report, history):
   .stat-card.nodates .value {{ color: #e17055; }}
   .stat-card.error .value {{ color: #d63031; }}
   .stat-card.rate .value {{ color: #0984e3; }}
+  .stat-card.missing .value {{ color: #6c5ce7; }}
   .chart-container {{ background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 24px; max-width: 800px; }}
   .controls {{ display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }}
   .controls input {{ padding: 8px 12px; border: 1px solid #dfe6e9; border-radius: 6px; font-size: 0.9rem; width: 250px; }}
@@ -167,6 +220,8 @@ def build_html(report, history):
   .badge-empty {{ background: #fdcb6e22; color: #e09a00; }}
   .badge-nodates {{ background: #e1705522; color: #e17055; }}
   .badge-error {{ background: #d6303122; color: #d63031; }}
+  .badge-senate {{ background: #6c5ce722; color: #6c5ce7; }}
+  .badge-house {{ background: #0984e322; color: #0984e3; }}
   .btn-issue {{ display: inline-block; padding: 4px 10px; background: #0984e3; color: #fff; border-radius: 4px; font-size: 0.8rem; text-decoration: none; white-space: nowrap; }}
   .btn-issue:hover {{ background: #0773c5; }}
   .url-cell {{ max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
@@ -180,6 +235,14 @@ def build_html(report, history):
 
 <h1>Scraper Health Dashboard</h1>
 <p class="subtitle">Last updated: {html.escape(timestamp)} &middot; Mode: {html.escape(report["mode"])}</p>
+
+<div class="tabs">
+  <div class="tab active" data-tab="health">Scraper Health</div>
+  <div class="tab" data-tab="missing">Missing Members <span class="badge badge-error">{len(unmatched_legislators)}</span></div>
+</div>
+
+<!-- Health Tab -->
+<div id="tab-health" class="tab-panel active">
 
 <div class="summary">
   <div class="stat-card ok"><div class="label">OK</div><div class="value">{summary["ok"]}</div></div>
@@ -224,8 +287,67 @@ def build_html(report, history):
   </tbody>
 </table>
 
+</div>
+
+<!-- Missing Members Tab -->
+<div id="tab-missing" class="tab-panel">
+
+<div class="summary">
+  <div class="stat-card ok"><div class="label">Covered</div><div class="value">{len(matched_legislators)}</div></div>
+  <div class="stat-card missing"><div class="label">Missing</div><div class="value">{len(unmatched_legislators)}</div></div>
+  <div class="stat-card rate"><div class="label">Coverage</div><div class="value">{coverage_pct}%</div></div>
+</div>
+
+<p style="color: #636e72; margin-bottom: 16px; font-size: 0.9rem;">
+  Current members of Congress without a working scraper.
+  Coverage: {len(matched_legislators)} of {total_legislators} legislators matched.
+</p>
+
+<div class="controls">
+  <input type="text" id="missingSearchInput" placeholder="Search by name or state...">
+  <select id="chamberFilter">
+    <option value="">All chambers</option>
+    <option value="Senate">Senate</option>
+    <option value="House">House</option>
+  </select>
+  <select id="partyFilter">
+    <option value="">All parties</option>
+    <option value="Democrat">Democrat</option>
+    <option value="Republican">Republican</option>
+    <option value="Independent">Independent</option>
+  </select>
+  <span class="count-display" id="missingCountDisplay"></span>
+</div>
+
+<table id="missingTable">
+  <thead>
+    <tr>
+      <th data-col="0">Name</th>
+      <th data-col="1">Chamber</th>
+      <th data-col="2">State</th>
+      <th data-col="3">Party</th>
+      <th>Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    {missing_table_rows}
+  </tbody>
+</table>
+
+</div>
+
 <script>
-// Table sorting
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {{
+  tab.addEventListener('click', () => {{
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  }});
+}});
+
+// Health table sorting
 const table = document.getElementById('scraperTable');
 const tbody = table.querySelector('tbody');
 let sortCol = -1, sortAsc = true;
@@ -246,7 +368,7 @@ table.querySelectorAll('th[data-col]').forEach(th => {{
   }});
 }});
 
-// Filtering
+// Health table filtering
 const searchInput = document.getElementById('searchInput');
 const statusFilter = document.getElementById('statusFilter');
 const countDisplay = document.getElementById('countDisplay');
@@ -270,6 +392,57 @@ function applyFilters() {{
 searchInput.addEventListener('input', applyFilters);
 statusFilter.addEventListener('change', applyFilters);
 applyFilters();
+
+// Missing table sorting
+const missingTable = document.getElementById('missingTable');
+const missingTbody = missingTable.querySelector('tbody');
+let missingSortCol = -1, missingSortAsc = true;
+
+missingTable.querySelectorAll('th[data-col]').forEach(th => {{
+  th.addEventListener('click', () => {{
+    const col = parseInt(th.dataset.col);
+    if (missingSortCol === col) missingSortAsc = !missingSortAsc;
+    else {{ missingSortCol = col; missingSortAsc = true; }}
+    const rows = Array.from(missingTbody.querySelectorAll('tr'));
+    rows.sort((a, b) => {{
+      let va = a.children[col].textContent.trim();
+      let vb = b.children[col].textContent.trim();
+      return missingSortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+    }});
+    rows.forEach(r => missingTbody.appendChild(r));
+  }});
+}});
+
+// Missing table filtering
+const missingSearchInput = document.getElementById('missingSearchInput');
+const chamberFilter = document.getElementById('chamberFilter');
+const partyFilter = document.getElementById('partyFilter');
+const missingCountDisplay = document.getElementById('missingCountDisplay');
+
+function applyMissingFilters() {{
+  const search = missingSearchInput.value.toLowerCase();
+  const chamber = chamberFilter.value;
+  const party = partyFilter.value;
+  const rows = missingTbody.querySelectorAll('tr');
+  let visible = 0;
+  rows.forEach(row => {{
+    const name = row.children[0].textContent.toLowerCase();
+    const rowChamber = row.children[1].textContent.trim();
+    const state = row.children[2].textContent.toLowerCase();
+    const rowParty = row.children[3].textContent.trim();
+    const matchSearch = !search || name.includes(search) || state.includes(search);
+    const matchChamber = !chamber || rowChamber === chamber;
+    const matchParty = !party || rowParty === party;
+    row.classList.toggle('hidden', !(matchSearch && matchChamber && matchParty));
+    if (matchSearch && matchChamber && matchParty) visible++;
+  }});
+  missingCountDisplay.textContent = visible + ' of ' + rows.length + ' missing members';
+}}
+
+missingSearchInput.addEventListener('input', applyMissingFilters);
+chamberFilter.addEventListener('change', applyMissingFilters);
+partyFilter.addEventListener('change', applyMissingFilters);
+applyMissingFilters();
 </script>
 
 {"" if not has_history else f'''
@@ -308,16 +481,21 @@ def main():
 
     report = load_results(RESULTS_FILE)
     history = load_history(HISTORY_FILE)
+    matched_legislators, unmatched_legislators = load_legislators(LEGISLATORS_FILE)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    page_html = build_html(report, history)
+    page_html = build_html(report, history, matched_legislators, unmatched_legislators)
     with open(OUTPUT_FILE, "w") as f:
         f.write(page_html)
 
     print(f"Dashboard generated: {OUTPUT_FILE}")
     print(f"  {report['summary']['total']} scrapers, "
           f"{len(history)} history entries")
+    if matched_legislators or unmatched_legislators:
+        total = len(matched_legislators) + len(unmatched_legislators)
+        print(f"  {len(matched_legislators)}/{total} legislators covered, "
+              f"{len(unmatched_legislators)} missing")
 
 
 if __name__ == "__main__":

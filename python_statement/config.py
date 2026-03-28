@@ -923,7 +923,7 @@ SCRAPER_CONFIG = {
     'massie': {'method': 'generic', 'url_base': 'https://massie.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'mcbath': {'method': 'table_recordlist_date', 'url_base': 'https://mcbath.house.gov/press-releases'},
     'mcclain': {'method': 'table_recordlist_date', 'url_base': 'https://mcclain.house.gov/press-releases'},
-    'menefee': {'method': 'generic', 'url_base': 'https://menefee.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': 'a', 'date_sel': '.evo-card-date', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}'},
+    'menefee': {'method': 'generic', 'url_base': 'https://menefee.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': '.media-body a', 'date_sel': '.media-body .col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'url_prefix': '/media/press-releases/'},
     'messmer': {'method': 'generic', 'url_base': 'https://messmer.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'mikejohnson': {'method': 'generic', 'url_base': 'https://mikejohnson.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'mikerogers': {'method': 'generic', 'url_base': 'https://mikerogers.house.gov/media-center/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
