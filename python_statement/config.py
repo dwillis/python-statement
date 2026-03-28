@@ -43,7 +43,15 @@ SCRAPER_CONFIG = {
     'cantwell': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cantwell.senate.gov/news/press-releases'},
     'capito': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.capito.senate.gov/news/press-releases'},
     'carey': {'method': 'article_block_h2_p_date', 'url_base': 'https://carey.house.gov/media/press-releases'},
-    'cortezmasto': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cortezmasto.senate.gov/news/press-releases'},
+    'cortezmasto': {
+        'method': 'generic',
+        'url_base': 'https://www.cortezmasto.senate.gov/news/press-releases',
+        'container': 'div.ArticleBlock',
+        'title_sel': '.ArticleBlock__title a',
+        'date_sel': 'time',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': '',
+    },
     'cruz': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cruz.senate.gov/newsroom/press-releases'},
     'daines': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.daines.senate.gov/news/press-releases'},
     'duckworth': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.duckworth.senate.gov/news/press-releases'},
@@ -64,7 +72,15 @@ SCRAPER_CONFIG = {
     'ronjohnson': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.ronjohnson.senate.gov/press-releases'},
     'schatz': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.schatz.senate.gov/news/press-releases'},
     'shaheen': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.shaheen.senate.gov/news/press'},
-    'whitehouse': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.whitehouse.senate.gov/news/release'},
+    'whitehouse': {
+        'method': 'generic',
+        'url_base': 'https://www.whitehouse.senate.gov/news/release',
+        'container': 'div.ArticleBlock',
+        'title_sel': '.ArticleBlock__title a',
+        'date_sel': 'h3.elementor-heading-title',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': '',
+    },
     'wyden': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.wyden.senate.gov/news/press-releases'},
 
     # element_post_media pattern - Senate sites with .element class
@@ -435,9 +451,9 @@ SCRAPER_CONFIG = {
         'url_base': 'https://gosar.house.gov/news/documentquery.aspx',
         'container': 'article',
         'title_sel': 'h2 a',
-        'date_sel': 'span.middot',
-        'date_from_next_sibling': True,
-        'date_fmt': ['%m/%d/%Y', '%m/%d/%y'],
+        'date_sel': 'time',
+        'date_attr': 'datetime',
+        'date_fmt': ['%Y-%m-%d'],
         'pagination': '?DocumentTypeID=27&Page={page}',
         'url_prefix': '/news/',
     },
@@ -594,11 +610,12 @@ SCRAPER_CONFIG = {
     'gillibrand': {
         'method': 'generic',
         'url_base': 'https://www.gillibrand.senate.gov/press-releases/page/',
-        'container': '.et_pb_ajax_pagination_container article',
+        'container': 'article',
         'title_sel': 'h2 a',
-        'date_sel': 'p.published',
-        'date_fmt': ['%B %d, %Y'],
+        'date_sel': 'span.published',
+        'date_fmt': ['%b %d, %Y', '%B %d, %Y'],
         'pagination': '{page}/',
+        'skip_first': 1,
     },
     'lummis': {
         'method': 'generic',
@@ -884,7 +901,7 @@ SCRAPER_CONFIG = {
     'comer': {'method': 'table_recordlist_date', 'url_base': 'https://comer.house.gov/media'},
     'crenshaw': {'method': 'table_recordlist_date', 'url_base': 'https://crenshaw.house.gov/press-releases'},
     'cuellar': {'method': 'generic', 'url_base': 'https://cuellar.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
-    'curtis': {'method': 'generic', 'url_base': 'https://www.curtis.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
+    'curtis': {'method': 'generic', 'url_base': 'https://www.curtis.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'span.elementor-post-date', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}'},
     'davidscott': {'method': 'generic', 'url_base': 'https://davidscott.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'davidson': {'method': 'table_recordlist_date', 'url_base': 'https://davidson.house.gov/press-releases'},
     'dean': {'method': 'table_recordlist_date', 'url_base': 'https://dean.house.gov/press-releases'},
@@ -913,8 +930,8 @@ SCRAPER_CONFIG = {
     'hill': {'method': 'generic', 'url_base': 'https://hill.house.gov/media-center/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'jackson': {'method': 'generic', 'url_base': 'https://jackson.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'james': {'method': 'generic', 'url_base': 'https://james.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
-    'justice': {'method': 'generic', 'url_base': 'https://www.justice.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
-    'kim': {'method': 'generic', 'url_base': 'https://www.kim.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
+    'justice': {'method': 'generic', 'url_base': 'https://www.justice.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'span.elementor-post-date', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}'},
+    'kim': {'method': 'generic', 'url_base': 'https://www.kim.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y', '%B %d, %Y'], 'pagination': '', 'skip_first': 1},
     'lahood': {'method': 'table_recordlist_date', 'url_base': 'https://lahood.house.gov/press-releases'},
     'latta': {'method': 'generic', 'url_base': 'https://latta.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'lawler': {'method': 'generic', 'url_base': 'https://lawler.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
@@ -929,7 +946,7 @@ SCRAPER_CONFIG = {
     'mikejohnson': {'method': 'generic', 'url_base': 'https://mikejohnson.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'mikerogers': {'method': 'generic', 'url_base': 'https://mikerogers.house.gov/media-center/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'moody': {'method': 'generic', 'url_base': 'https://www.moody.senate.gov/press-releases', 'container': 'article.et_pb_post', 'title_sel': 'h2 a', 'date_sel': 'p span.published', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}'},
-    'moreno': {'method': 'generic', 'url_base': 'https://www.moreno.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
+    'moreno': {'method': 'generic', 'url_base': 'https://www.moreno.senate.gov/newsroom/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'span.elementor-post-date', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}'},
     'morgangriffith': {'method': 'generic', 'url_base': 'https://morgangriffith.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'nadler': {'method': 'generic', 'url_base': 'https://nadler.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'nathanielmoran': {'method': 'generic', 'url_base': 'https://moran.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
@@ -940,7 +957,7 @@ SCRAPER_CONFIG = {
     'pingree': {'method': 'generic', 'url_base': 'https://pingree.house.gov/media-center/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'plaskett': {'method': 'generic', 'url_base': 'https://plaskett.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'raskin': {'method': 'table_recordlist_date', 'url_base': 'https://raskin.house.gov/press-releases'},
-    'rosen': {'method': 'generic', 'url_base': 'https://www.rosen.senate.gov/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': ''},
+    'rosen': {'method': 'generic', 'url_base': 'https://www.rosen.senate.gov/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'span.elementor-post-date', 'date_fmt': ['%m/%d/%Y', '%B %d, %Y'], 'pagination': ''},
     'ross': {'method': 'table_recordlist_date', 'url_base': 'https://ross.house.gov/press-releases'},
     'rouzer': {'method': 'generic', 'url_base': 'https://rouzer.house.gov/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'schmitt': {'method': 'jet_listing_elementor', 'url_base': 'https://www.schmitt.senate.gov/newsroom/press-releases'},
@@ -1001,6 +1018,19 @@ SCRAPER_CONFIG = {
     # Senate Elementor ArticleBlock with div container, first <a> as title/link
     'alsobrooks': {'method': 'generic', 'url_base': 'https://www.alsobrooks.senate.gov/newsroom/press-releases/', 'container': 'div.ArticleBlock', 'title_sel': 'a', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
     'davemccormick': {'method': 'generic', 'url_base': 'https://www.mccormick.senate.gov/newsroom/press-releases/', 'container': 'div.ArticleBlock', 'title_sel': 'a', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
+    # Senate Elementor ArticleBlock with div container, first <a> as title/link (schiff same pattern)
+    'schiff': {'method': 'generic', 'url_base': 'https://www.schiff.senate.gov/newsroom/press-releases/', 'container': 'div.ArticleBlock', 'title_sel': 'a', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
+    # Senate Elementor ArticleBlock with <a> container (bluntrochester same as sheehy/husted)
+    'bluntrochester': {'method': 'generic', 'url_base': 'https://www.bluntrochester.senate.gov/newsroom/press-releases/', 'container': 'a.ArticleBlock', 'title_sel': 'h4', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
+    # Senate Elementor loop-grid sites
+    'gallego': {'method': 'generic', 'url_base': 'https://www.gallego.senate.gov/newsroom/press-releases/', 'container': '.e-loop-item', 'title_sel': 'h3 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y'], 'pagination': '?e-page-022ac3b={page}'},
+    'banks': {'method': 'generic', 'url_base': 'https://www.banks.senate.gov/news/press-releases/', 'container': '.e-loop-item', 'title_sel': 'h3', 'date_sel': 'time', 'date_fmt': ['%A, %B %d, %Y', '%B %d, %Y'], 'pagination': '?e-page-2ba521a={page}'},
+    # WordPress article-based senate sites
+    'slotkin': {'method': 'generic', 'url_base': 'https://www.slotkin.senate.gov/newsroom/', 'container': 'article', 'title_sel': 'h3 a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y', '%B %d, %Y'], 'pagination': 'page/{page}/'},
+    # Senate Drupal newscontent
+    'warren': {'method': 'senate_drupal_newscontent', 'url_base': 'https://www.warren.senate.gov/newsroom/press-releases'},
+    # WordPress/Divi .et_pb_post (neal)
+    'neal': {'method': 'generic', 'url_base': 'https://neal.house.gov/category/press-releases/', 'container': '.et_pb_post', 'title_sel': 'h3.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y'], 'pagination': 'page/{page}/'},
 }
 
 VALID_METHODS = {
