@@ -917,7 +917,7 @@ SCRAPER_CONFIG = {
     'lahood': {'method': 'table_recordlist_date', 'url_base': 'https://lahood.house.gov/press-releases'},
     'latta': {'method': 'generic', 'url_base': 'https://latta.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'lawler': {'method': 'generic', 'url_base': 'https://lawler.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
-    'loudermilk': {'method': 'generic', 'url_base': 'https://loudermilk.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
+    'loudermilk': {'method': 'generic', 'url_base': 'https://loudermilk.house.gov/news/', 'container': 'article.news-card', 'title_sel': 'h2.news-card__title a', 'date_sel': '.news-card__meta', 'date_fmt': ['%B %d, %Y']},
     'lynch': {'method': 'table_recordlist_date', 'url_base': 'https://lynch.house.gov/press-releases'},
     'maloy': {'method': 'generic', 'url_base': 'https://maloy.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'massie': {'method': 'generic', 'url_base': 'https://massie.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
