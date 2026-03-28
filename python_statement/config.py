@@ -8,14 +8,30 @@ SCRAPER_CONFIG = {
     'moran': {'method': 'table_recordlist_date', 'url_base': 'https://www.moran.senate.gov/public/index.cfm/news-releases'},
     'boozman': {'method': 'table_recordlist_date', 'url_base': 'https://www.boozman.senate.gov/public/index.cfm/press-releases'},
     'thune': {'method': 'table_recordlist_date', 'url_base': 'https://www.thune.senate.gov/public/index.cfm/press-releases'},
-    'barrasso': {'method': 'table_recordlist_date', 'url_base': 'https://www.barrasso.senate.gov/public/index.cfm/news-releases'},
+    'barrasso': {
+        'method': 'generic',
+        'url_base': 'https://www.barrasso.senate.gov/newsroom/news-releases/',
+        'container': 'article.elementor-post',
+        'title_sel': 'h3 a',
+        'date_sel': 'span.elementor-post-date',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': '{page}/',
+    },
     'graham': {'method': 'table_recordlist_date', 'url_base': 'https://www.lgraham.senate.gov/public/index.cfm/press-releases'},
     'klobuchar': {'method': 'table_recordlist_date', 'url_base': 'https://www.klobuchar.senate.gov/public/index.cfm/news-releases'},
     'mcconnell': {'method': 'table_recordlist_date', 'url_base': 'https://www.mcconnell.senate.gov/public/index.cfm/pressreleases'},
     
     # jet_listing_elementor pattern - WordPress/Elementor sites
     'timscott': {'method': 'jet_listing_elementor', 'url_base': 'https://www.scott.senate.gov/media-center/press-releases/jsf/jet-engine:press-list'},
-    'cassidy': {'method': 'jet_listing_elementor', 'url_base': 'https://www.cassidy.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list'},
+    'cassidy': {
+        'method': 'generic',
+        'url_base': 'https://www.cassidy.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list',
+        'container': 'div.ArticleBlock',
+        'title_sel': 'h2 a',
+        'date_sel': 'span.elementor-icon-list-text',
+        'date_fmt': ['%m.%d.%Y'],
+        'pagination': '&pagenum={page}',
+    },
     # fetterman and tester moved to generic pattern below
     'marshall': {'method': 'jet_listing_elementor', 'url_base': 'https://www.marshall.senate.gov/media/press-releases'},
     # britt moved to generic pattern below
@@ -26,23 +42,74 @@ SCRAPER_CONFIG = {
     'ossoff': {'method': 'jet_listing_elementor', 'url_base': 'https://www.ossoff.senate.gov/press-releases/?jsf=jet-engine:press-list'},
     
     # article_block_h2_p_date pattern - Senate sites with ArticleBlock
-    'chrismurphy': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.murphy.senate.gov/newsroom/press-releases'},
+    'chrismurphy': {
+        'method': 'generic',
+        'url_base': 'https://www.murphy.senate.gov/newsroom/press-releases',
+        'container': 'div.ArticleBlock',
+        'title_sel': 'h1 a',
+        'date_sel': 'span.ArticleBlock__date',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': '?PageNum_rs={page}',
+    },
     'markey': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.markey.senate.gov/news/press-releases'},
-    'cotton': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cotton.senate.gov/news/press-releases'},
+    'cotton': {
+        'method': 'generic',
+        'url_base': 'https://www.cotton.senate.gov/news/press-releases',
+        'container': 'div.ArticleBlock',
+        'title_sel': 'a.ArticleTitle__link',
+        'date_sel': 'p.ArticleBlock__date',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': '?PageNum_rs={page}',
+    },
     'rounds': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.rounds.senate.gov/newsroom/press-releases'},
     'kaine': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.kaine.senate.gov/news'},
-    'durbin': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.durbin.senate.gov/newsroom/press-releases'},
-    'crapo': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.crapo.senate.gov/media/newsreleases'},
+    'durbin': {'method': 'senate_drupal_newscontent', 'url_base': 'https://www.durbin.senate.gov/newsroom/press-releases'},
+    'crapo': {
+        'method': 'generic',
+        'url_base': 'https://www.crapo.senate.gov/media/newsreleases',
+        'container': 'div.ArticleBlock',
+        'title_sel': 'h2.ArticleTitle',
+        'link_sel': 'a[href]',
+        'date_sel': 'p.Heading--time',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': '?PageNum_rs={page}',
+    },
     'hirono': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.hirono.senate.gov/news/press-releases'},
     'ernst': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.ernst.senate.gov/news/press-releases'},
     'garypeters': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.peters.senate.gov/newsroom/press-releases'},
     'jackreed': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.reed.senate.gov/news/releases'},
     'heinrich': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.heinrich.senate.gov/newsroom/press-releases'},
     'aguilar': {'method': 'generic', 'url_base': 'https://aguilar.house.gov/category/congress_press_release/', 'container': 'div.item', 'title_sel': 'h2 a', 'date_sel': '.date', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
-    'bergman': {'method': 'article_block_h2_p_date', 'url_base': 'https://bergman.house.gov/media/press-releases'},
-    'cantwell': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cantwell.senate.gov/news/press-releases'},
+    'bergman': {
+        'method': 'generic',
+        'url_base': 'https://bergman.house.gov/news/documentquery.aspx',
+        'container': 'article',
+        'title_sel': 'h2 a',
+        'date_sel': 'time',
+        'date_attr': 'datetime',
+        'date_fmt': ['%Y-%m-%d'],
+        'pagination': '?DocumentTypeID=27&Page={page}',
+        'url_prefix': '/news/',
+    },
+    'cantwell': {
+        'method': 'generic',
+        'url_base': 'https://www.cantwell.senate.gov/news/press-releases',
+        'container': 'table tr',
+        'title_sel': 'td a',
+        'date_sel': 'td',
+        'date_fmt': ['%m/%d/%y'],
+        'pagination': '?PageNum_rs={page}',
+    },
     'capito': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.capito.senate.gov/news/press-releases'},
-    'carey': {'method': 'article_block_h2_p_date', 'url_base': 'https://carey.house.gov/media/press-releases'},
+    'carey': {
+        'method': 'generic',
+        'url_base': 'https://carey.house.gov/press-releases/',
+        'container': 'article.et_pb_post',
+        'title_sel': 'h2 a',
+        'date_sel': 'span.published',
+        'date_fmt': ['%b %d, %Y'],
+        'pagination': 'page/{page}/',
+    },
     'cortezmasto': {
         'method': 'generic',
         'url_base': 'https://www.cortezmasto.senate.gov/news/press-releases',
@@ -52,13 +119,37 @@ SCRAPER_CONFIG = {
         'date_fmt': ['%B %d, %Y'],
         'pagination': '',
     },
-    'cruz': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.cruz.senate.gov/newsroom/press-releases'},
-    'daines': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.daines.senate.gov/news/press-releases'},
-    'duckworth': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.duckworth.senate.gov/news/press-releases'},
+    'cruz': {
+        'method': 'generic',
+        'url_base': 'https://www.cruz.senate.gov/newsroom/press-releases',
+        'container': 'a.ArticleBlock',
+        'title_sel': 'h2',
+        'date_sel': 'p.Heading--overline',
+        'date_fmt': ['%m.%d.%Y'],
+        'pagination': '?PageNum_rs={page}',
+    },
+    'daines': {
+        'method': 'generic',
+        'url_base': 'https://www.daines.senate.gov/news/press-releases/',
+        'container': 'article.elementor-post',
+        'title_sel': 'h3 a',
+        'date_sel': 'span.elementor-post-date',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': 'page/{page}/',
+    },
+    'duckworth': {'method': 'senate_drupal_newscontent', 'url_base': 'https://www.duckworth.senate.gov/news/press-releases'},
     'ellzey': {'method': 'article_block_h2_p_date', 'url_base': 'https://ellzey.house.gov/media/press-releases'},
     'gimenez': {'method': 'article_block_h2_p_date', 'url_base': 'https://gimenez.house.gov/media/press-releases'},
     'hassan': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.hassan.senate.gov/news/press-releases'},
-    'coons': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.coons.senate.gov/news/press-releases'},
+    'coons': {
+        'method': 'generic',
+        'url_base': 'https://www.coons.senate.gov/news/press-releases/',
+        'container': 'div.ArticleBlock',
+        'title_sel': 'a.elementor-button',
+        'date_sel': 'time',
+        'date_fmt': ['%B %d, %Y'],
+        'pagination': '?PageNum_rs={page}',
+    },
     'hydesmith': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.hydesmith.senate.gov/media/press-releases'},
     'lankford': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.lankford.senate.gov/news/press-releases'},
     'lofgren': {'method': 'article_block_h2_p_date', 'url_base': 'https://lofgren.house.gov/media/press-releases'},
@@ -138,7 +229,17 @@ SCRAPER_CONFIG = {
     'benniethompson': {'method': 'media_body', 'url_base': 'https://benniethompson.house.gov/media/press-releases'},
     'walberg': {'method': 'media_body', 'url_base': 'https://walberg.house.gov/media/press-releases'},
     'burchett': {'method': 'media_body', 'url_base': 'https://burchett.house.gov/media/press-releases'},
-    'cline': {'method': 'media_body', 'url_base': 'https://cline.house.gov/media/press-releases'},
+    'cline': {
+        'method': 'generic',
+        'url_base': 'https://cline.house.gov/news/documentquery.aspx?DocumentTypeID=27',
+        'container': 'article',
+        'title_sel': 'h2 a',
+        'date_sel': 'time',
+        'date_attr': 'datetime',
+        'date_fmt': ['%Y-%m-%d'],
+        'pagination': '&Page={page}',
+        'url_prefix': '/news/',
+    },
     'golden': {'method': 'media_body', 'url_base': 'https://golden.house.gov/media/press-releases'},
     'harder': {'method': 'media_body', 'url_base': 'https://harder.house.gov/media/press-releases'},
     'dustyjohnson': {'method': 'media_body', 'url_base': 'https://dustyjohnson.house.gov/media/press-releases'},
@@ -168,7 +269,7 @@ SCRAPER_CONFIG = {
     'chuygarcia': {'method': 'media_body', 'url_base': 'https://chuygarcia.house.gov/media/press-releases'},
     'omar': {'method': 'media_body', 'url_base': 'https://omar.house.gov/media/press-releases'},
     'underwood': {'method': 'media_body', 'url_base': 'https://underwood.house.gov/media/press-releases'},
-    'casten': {'method': 'media_body', 'url_base': 'https://casten.house.gov/media/press-releases'},
+    'casten': {'method': 'senate_drupal_newscontent', 'url_base': 'https://casten.house.gov/media/press-releases'},
     'fleischmann': {'method': 'media_body', 'url_base': 'https://fleischmann.house.gov/media/press-releases'},
     'stevens': {'method': 'media_body', 'url_base': 'https://stevens.house.gov/media/press-releases'},
     'guest': {'method': 'media_body', 'url_base': 'https://guest.house.gov/media/press-releases'},
@@ -198,7 +299,7 @@ SCRAPER_CONFIG = {
     'bentz': {'method': 'media_body', 'url_base': 'https://bentz.house.gov/media/press-releases'},
     'mace': {'method': 'media_body', 'url_base': 'https://mace.house.gov/media/press-releases'},
     'harshbarger': {'method': 'media_body', 'url_base': 'https://harshbarger.house.gov/media/press-releases'},
-    'blakemoore': {'method': 'media_body', 'url_base': 'https://blakemoore.house.gov/media/press-releases'},
+    'blakemoore': {'method': 'senate_drupal_newscontent', 'url_base': 'https://blakemoore.house.gov/media/press-releases'},
     'fitzgerald': {'method': 'media_body', 'url_base': 'https://fitzgerald.house.gov/media/press-releases'},
     'flood': {'method': 'media_body', 'url_base': 'https://flood.house.gov/media/press-releases'},
     'patryan': {'method': 'media_body', 'url_base': 'https://patryan.house.gov/media/press-releases'},
@@ -403,17 +504,7 @@ SCRAPER_CONFIG = {
         'pagination': '?DocumentTypeID=27&Page={page}',
         'url_prefix': '/news/',
     },
-    'bera': {
-        'method': 'generic',
-        'url_base': 'https://bera.house.gov/news/documentquery.aspx',
-        'container': 'article',
-        'title_sel': 'a',
-        'date_sel': 'time',
-        'date_attr': 'datetime',
-        'date_fmt': ['%Y-%m-%d'],
-        'pagination': '?DocumentTypeID=2402&Page={page}',
-        'url_prefix': '/news/',
-    },
+    'bera': {'method': 'media_body', 'url_base': 'https://bera.house.gov/news'},
     'castor': {
         'method': 'generic',
         'url_base': 'https://castor.house.gov/news/documentquery.aspx',
@@ -719,21 +810,21 @@ SCRAPER_CONFIG = {
     'barr': {'method': 'table_recordlist_date', 'url_base': 'https://barr.house.gov/press-releases'},
     'clarke': {
         'method': 'generic',
-        'url_base': 'https://clarke.house.gov/newsroom/press-releases',
-        'container': 'tr',
-        'title_sel': 'a',
-        'date_sel': 'td time',
+        'url_base': 'https://clarke.house.gov/category/press-release/',
+        'container': '.post',
+        'title_sel': 'h2',
+        'link_sel': 'a',
+        'date_sel': 'span.date',
         'date_fmt': ['%m/%d/%y'],
-        'pagination': '?page={page}',
-        'skip_first': 1,
+        'pagination': 'page/{page}/',
     },
     'crawford': {
         'method': 'generic',
-        'url_base': 'https://crawford.house.gov/media-center/press-releases',
-        'container': 'tr',
-        'title_sel': 'td a',
-        'date_sel': 'time',
-        'date_fmt': ['%m/%d/%y'],
+        'url_base': 'https://crawford.house.gov/media/press-releases',
+        'container': '.views-row',
+        'title_sel': '.h3 a',
+        'date_sel': '.col-auto',
+        'date_fmt': ['%B %d, %Y'],
         'pagination': '?page={page}',
         'skip_first': 1,
     },
@@ -771,12 +862,12 @@ SCRAPER_CONFIG = {
     # CFM table pattern - Senate sites with index.cfm
     'bennet': {
         'method': 'generic',
-        'url_base': 'https://www.bennet.senate.gov/public/index.cfm/press-releases',
-        'container': 'table tbody tr',
-        'title_sel': 'a',
-        'date_sel': 'td time',
-        'date_fmt': ['%m/%d/%y'],
-        'pagination': '?page={page}',
+        'url_base': 'https://www.bennet.senate.gov/news/page/',
+        'container': 'article.et_pb_post',
+        'title_sel': 'h3 a',
+        'date_sel': 'p span.published',
+        'date_fmt': ['%B %d, %Y', '%b %d, %Y'],
+        'pagination': '{page}/?et_blog',
     },
     'hoeven': {
         'method': 'generic',
@@ -810,22 +901,22 @@ SCRAPER_CONFIG = {
     },
     'barragan': {
         'method': 'generic',
-        'url_base': 'https://barragan.house.gov/category/news-releases/page/',
+        'url_base': 'https://barragan.house.gov/news',
         'container': '.post',
         'title_sel': 'h2',
-        'link_sel': 'a',
-        'date_sel': 'p',
+        'link_sel': 'a.btn',
+        'date_sel': 'p.date',
         'date_fmt': ['%B %d, %Y'],
-        'pagination': '{page}/',
+        'pagination': '/page/{page}/',
     },
     'clyburn': {
         'method': 'generic',
         'url_base': 'https://clyburn.house.gov/press-releases/',
-        'container': '.elementor-post__card',
-        'title_sel': 'h3 a',
+        'container': 'article.elementor-post',
+        'title_sel': 'h2 a',
         'date_sel': 'span.elementor-post-date',
         'date_fmt': ['%B %d, %Y'],
-        'pagination': '',
+        'pagination': 'page/{page}/',
     },
     'hawley': {
         'method': 'generic',
@@ -1031,12 +1122,115 @@ SCRAPER_CONFIG = {
     'warren': {'method': 'senate_drupal_newscontent', 'url_base': 'https://www.warren.senate.gov/newsroom/press-releases'},
     # WordPress/Divi .et_pb_post (neal)
     'neal': {'method': 'generic', 'url_base': 'https://neal.house.gov/category/press-releases/', 'container': '.et_pb_post', 'title_sel': 'h3.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y'], 'pagination': 'page/{page}/'},
+
+    # article_block pattern - Senate sites with .ArticleBlock and h3 titles
+    'booker': {'method': 'article_block', 'url_base': 'https://www.booker.senate.gov/news/press'},
+    'cramer': {'method': 'article_block', 'url_base': 'https://www.cramer.senate.gov/news/press-releases'},
+
+    # article_block_h2_date pattern - Senate sites with .ArticleBlock and h2 titles
+    'blumenthal': {'method': 'article_block_h2_date', 'url_base': 'https://www.blumenthal.senate.gov/newsroom/press'},
+    'collins': {'method': 'article_block_h2_date', 'url_base': 'https://www.collins.senate.gov/newsroom/press-releases'},
+
+    # article_newsblocker pattern - House documentquery sites with article elements
+    'balderson': {'method': 'article_newsblocker', 'url_base': 'https://balderson.house.gov/news/documentquery.aspx?DocumentTypeID=27'},
+    'case': {'method': 'article_newsblocker', 'url_base': 'https://case.house.gov/news/documentquery.aspx?DocumentTypeID=27'},
+
+    # article_span_published pattern - sites with article and span.published
+    'hickenlooper': {'method': 'article_span_published', 'url_base': 'https://www.hickenlooper.senate.gov/press/page/'},
+
+    # document_query_new pattern - House documentquery with h2 a title (converted to generic)
+    'wassermanschultz': {
+        'method': 'generic',
+        'url_base': 'https://wassermanschultz.house.gov/news/documentquery.aspx',
+        'container': 'article',
+        'title_sel': 'h2 a',
+        'date_sel': 'time',
+        'date_attr': 'datetime',
+        'date_fmt': ['%Y-%m-%d'],
+        'pagination': '?DocumentTypeID=27&Page={page}',
+        'url_prefix': '/news/',
+    },
+    'hern': {
+        'method': 'generic',
+        'url_base': 'https://hern.house.gov/news/documentquery.aspx',
+        'container': 'article',
+        'title_sel': 'h2 a',
+        'date_sel': 'time',
+        'date_attr': 'datetime',
+        'date_fmt': ['%Y-%m-%d'],
+        'pagination': '?DocumentTypeID=27&Page={page}',
+        'url_prefix': '/news/',
+    },
+    'fletcher': {
+        'method': 'generic',
+        'url_base': 'https://fletcher.house.gov/news/documentquery.aspx',
+        'container': 'article',
+        'title_sel': 'h2 a',
+        'date_sel': 'time',
+        'date_attr': 'datetime',
+        'date_fmt': ['%Y-%m-%d'],
+        'pagination': '?DocumentTypeID=27&Page={page}',
+        'url_prefix': '/news/',
+    },
+
+    # elementor_post_date pattern - WordPress/Elementor with .elementor-post-date
+    'sanders': {'method': 'elementor_post_date', 'url_base': 'https://www.sanders.senate.gov/media/press-releases/'},
+
+    # jetlisting_h2 pattern - JetEngine listing grid with h2 titles
+    'ricketts': {'method': 'jetlisting_h2', 'url_base': 'https://www.ricketts.senate.gov/newsroom/press-releases/?jsf=jet-engine:press-list&pagenum='},
+
+    # recordlist pattern - House sites with table.recordList
+    'fitzpatrick': {'method': 'table_recordlist_date', 'url_base': 'https://fitzpatrick.house.gov/press-releases'},
+
+    # senate_drupal pattern - Senate Drupal sites with #newscontent
+    'murkowski': {'method': 'senate_drupal', 'url_base': 'https://www.murkowski.senate.gov/press/press-releases'},
+    'sullivan': {'method': 'senate_drupal', 'url_base': 'https://www.sullivan.senate.gov/newsroom/press-releases'},
+
+    # senate_drupal_newscontent pattern - House/Senate sites with #newscontent
+    'huffman': {'method': 'senate_drupal_newscontent', 'url_base': 'https://huffman.house.gov/media-center/press-releases'},
+    'castro': {'method': 'senate_drupal_newscontent', 'url_base': 'https://castro.house.gov/media-center/press-releases'},
+    'ansari': {'method': 'senate_drupal_newscontent', 'url_base': 'https://ansari.house.gov/media/press-releases'},
+
+    # tokuda - similar to senate_drupal_newscontent but uses #press
+    'tokuda': {'method': 'tokuda', 'url_base': 'https://tokuda.house.gov/media/press-releases'},
+
+    # react pattern - Next.js/React sites with __NEXT_DATA__ JSON
+    'nikemawilliams': {'method': 'react', 'url_base': 'https://nikemawilliams.house.gov/press'},
+    'kiley': {'method': 'react', 'url_base': 'https://kiley.house.gov/press'},
+    'yakym': {'method': 'react', 'url_base': 'https://yakym.house.gov/press'},
+    'ritchietorres': {'method': 'react', 'url_base': 'https://ritchietorres.house.gov/press'},
+    'cloud': {'method': 'react', 'url_base': 'https://cloud.house.gov/press'},
+    'owens': {'method': 'react', 'url_base': 'https://owens.house.gov/press'},
+    'budzinski': {'method': 'react', 'url_base': 'https://budzinski.house.gov/press'},
+    'gluesenkampperez': {'method': 'react', 'url_base': 'https://gluesenkampperez.house.gov/press'},
+    'landsman': {'method': 'react', 'url_base': 'https://landsman.house.gov/press'},
+    'moskowitz': {'method': 'react', 'url_base': 'https://moskowitz.house.gov/press'},
+    'gottheimer': {'method': 'react', 'url_base': 'https://gottheimer.house.gov/press'},
+    'kiggans': {'method': 'react', 'url_base': 'https://kiggans.house.gov/press'},
+    'luna': {'method': 'react', 'url_base': 'https://luna.house.gov/press'},
+    'maxmiller': {'method': 'react', 'url_base': 'https://maxmiller.house.gov/press'},
+
+    # cornyn - AJAX/JSON endpoint
+    'cornyn': {'method': 'cornyn', 'url_base': 'https://www.cornyn.senate.gov/news/'},
+
+    # fischer - Senate table-based
+    'fischer': {'method': 'table_recordlist_date', 'url_base': 'https://www.fischer.senate.gov/public/index.cfm/press-releases'},
+
+    # clark - House table-based
+    'clark': {'method': 'table_recordlist_date', 'url_base': 'https://katherineclark.house.gov/press-releases'},
+
+    # joyce - React/Next.js (same as react pattern)
+    'joyce': {'method': 'joyce', 'url_base': 'https://joyce.house.gov/press'},
 }
 
 VALID_METHODS = {
     'generic', 'media_body', 'article_block_h2_p_date',
     'jet_listing_elementor', 'table_recordlist_date',
     'element_post_media', 'table_time', 'senate_drupal_newscontent',
+    'article_block', 'article_block_h2_date', 'article_newsblocker',
+    'article_span_published', 'document_query_new', 'elementor_post_date',
+    'jetlisting_h2', 'recordlist', 'senate_drupal', 'react',
+    'tokuda', 'cornyn', 'joyce',
 }
 
 VALID_GENERIC_KEYS = {

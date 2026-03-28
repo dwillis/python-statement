@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-03-28T21:05:35.521563",
+  "timestamp": "2026-03-28T18:28:47.106977",
   "mode": "full",
   "summary": {
-    "total": 500,
-    "ok": 421,
-    "empty": 79,
+    "total": 536,
+    "ok": 476,
+    "empty": 60,
     "no_dates": 0,
     "errors": 0,
-    "success_rate": 84.2
+    "success_rate": 88.8
   },
   "results": [
     {
@@ -15,7 +15,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 706,
+      "duration_ms": 716,
       "error": null
     },
     {
@@ -23,7 +23,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 819,
+      "duration_ms": 817,
       "error": null
     },
     {
@@ -31,7 +31,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1509,
+      "duration_ms": 700,
       "error": null
     },
     {
@@ -39,7 +39,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1510,
+      "duration_ms": 607,
       "error": null
     },
     {
@@ -47,7 +47,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1438,
+      "duration_ms": 685,
       "error": null
     },
     {
@@ -55,7 +55,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 2530,
+      "duration_ms": 807,
       "error": null
     },
     {
@@ -63,7 +63,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1488,
+      "duration_ms": 676,
       "error": null
     },
     {
@@ -71,7 +71,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1474,
+      "duration_ms": 796,
       "error": null
     },
     {
@@ -79,7 +79,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 565,
+      "duration_ms": 611,
       "error": null
     },
     {
@@ -87,7 +87,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1507,
+      "duration_ms": 558,
       "error": null
     },
     {
@@ -95,7 +95,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1774,
+      "duration_ms": 711,
       "error": null
     },
     {
@@ -103,7 +103,15 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1016,
+      "duration_ms": 604,
+      "error": null
+    },
+    {
+      "name": "ansari",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 593,
       "error": null
     },
     {
@@ -111,7 +119,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2047,
+      "duration_ms": 1429,
       "error": null
     },
     {
@@ -119,7 +127,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1579,
+      "duration_ms": 556,
       "error": null
     },
     {
@@ -127,7 +135,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 854,
+      "duration_ms": 779,
       "error": null
     },
     {
@@ -135,7 +143,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 859,
+      "duration_ms": 782,
       "error": null
     },
     {
@@ -143,7 +151,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 701,
+      "duration_ms": 786,
       "error": null
     },
     {
@@ -151,7 +159,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1437,
+      "duration_ms": 828,
+      "error": null
+    },
+    {
+      "name": "balderson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 626,
       "error": null
     },
     {
@@ -159,7 +175,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1147,
+      "duration_ms": 617,
       "error": null
     },
     {
@@ -167,7 +183,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 870,
+      "duration_ms": 728,
       "error": null
     },
     {
@@ -175,7 +191,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 3988,
+      "duration_ms": 591,
       "error": null
     },
     {
@@ -183,23 +199,23 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 696,
+      "duration_ms": 852,
       "error": null
     },
     {
       "name": "barragan",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1924,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 970,
       "error": null
     },
     {
       "name": "barrasso",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2599,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1295,
       "error": null
     },
     {
@@ -207,7 +223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 801,
+      "duration_ms": 785,
       "error": null
     },
     {
@@ -215,7 +231,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 715,
+      "duration_ms": 683,
       "error": null
     },
     {
@@ -223,7 +239,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 863,
+      "duration_ms": 834,
       "error": null
     },
     {
@@ -231,7 +247,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1438,
+      "duration_ms": 575,
       "error": null
     },
     {
@@ -239,7 +255,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1568,
+      "duration_ms": 739,
       "error": null
     },
     {
@@ -247,7 +263,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1485,
+      "duration_ms": 580,
       "error": null
     },
     {
@@ -255,15 +271,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 576,
+      "duration_ms": 571,
       "error": null
     },
     {
       "name": "bennet",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 642,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 2140,
       "error": null
     },
     {
@@ -271,7 +287,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 837,
+      "duration_ms": 842,
       "error": null
     },
     {
@@ -279,627 +295,19 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 795,
+      "duration_ms": 798,
       "error": null
     },
     {
       "name": "bera",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1230,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 602,
       "error": null
     },
     {
       "name": "bergman",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1628,
-      "error": null
-    },
-    {
-      "name": "beyer",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 868,
-      "error": null
-    },
-    {
-      "name": "bice",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1141,
-      "error": null
-    },
-    {
-      "name": "biggs",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 715,
-      "error": null
-    },
-    {
-      "name": "bilirakis",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1017,
-      "error": null
-    },
-    {
-      "name": "bishop",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1537,
-      "error": null
-    },
-    {
-      "name": "blackburn",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2627,
-      "error": null
-    },
-    {
-      "name": "blakemoore",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1724,
-      "error": null
-    },
-    {
-      "name": "bluntrochester",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 8832,
-      "error": null
-    },
-    {
-      "name": "bobbyscott",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1517,
-      "error": null
-    },
-    {
-      "name": "boebert",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1497,
-      "error": null
-    },
-    {
-      "name": "bonamici",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 786,
-      "error": null
-    },
-    {
-      "name": "boozman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 861,
-      "error": null
-    },
-    {
-      "name": "bost",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 802,
-      "error": null
-    },
-    {
-      "name": "boyle",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 577,
-      "error": null
-    },
-    {
-      "name": "brecheen",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 857,
-      "error": null
-    },
-    {
-      "name": "bresnahan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 799,
-      "error": null
-    },
-    {
-      "name": "britt",
-      "status": "ok",
-      "count": 6,
-      "has_dates": true,
-      "duration_ms": 3016,
-      "error": null
-    },
-    {
-      "name": "buchanan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1211,
-      "error": null
-    },
-    {
-      "name": "budd",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1377,
-      "error": null
-    },
-    {
-      "name": "buddycarter",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1686,
-      "error": null
-    },
-    {
-      "name": "burchett",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1222,
-      "error": null
-    },
-    {
-      "name": "burlison",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 731,
-      "error": null
-    },
-    {
-      "name": "bynum",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1411,
-      "error": null
-    },
-    {
-      "name": "calvert",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1574,
-      "error": null
-    },
-    {
-      "name": "cammack",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1577,
-      "error": null
-    },
-    {
-      "name": "cantwell",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 635,
-      "error": null
-    },
-    {
-      "name": "capito",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1453,
-      "error": null
-    },
-    {
-      "name": "carbajal",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 907,
-      "error": null
-    },
-    {
-      "name": "carey",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1715,
-      "error": null
-    },
-    {
-      "name": "carson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1439,
-      "error": null
-    },
-    {
-      "name": "carter",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2953,
-      "error": null
-    },
-    {
-      "name": "casar",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1907,
-      "error": null
-    },
-    {
-      "name": "cassidy",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1809,
-      "error": null
-    },
-    {
-      "name": "casten",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1480,
-      "error": null
-    },
-    {
-      "name": "castor",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1320,
-      "error": null
-    },
-    {
-      "name": "cherfilus-mccormick",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 962,
-      "error": null
-    },
-    {
-      "name": "chrismurphy",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1018,
-      "error": null
-    },
-    {
-      "name": "chrissmith",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 933,
-      "error": null
-    },
-    {
-      "name": "chu",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1162,
-      "error": null
-    },
-    {
-      "name": "chuygarcia",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1495,
-      "error": null
-    },
-    {
-      "name": "ciscomani",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 954,
-      "error": null
-    },
-    {
-      "name": "cisneros",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1112,
-      "error": null
-    },
-    {
-      "name": "clarke",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1671,
-      "error": null
-    },
-    {
-      "name": "clayhiggins",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 2255,
-      "error": null
-    },
-    {
-      "name": "cleaver",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1426,
-      "error": null
-    },
-    {
-      "name": "cline",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2273,
-      "error": null
-    },
-    {
-      "name": "clyburn",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2492,
-      "error": null
-    },
-    {
-      "name": "clyde",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2593,
-      "error": null
-    },
-    {
-      "name": "cohen",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 707,
-      "error": null
-    },
-    {
-      "name": "cole",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 740,
-      "error": null
-    },
-    {
-      "name": "collins",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1404,
-      "error": null
-    },
-    {
-      "name": "comer",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1569,
-      "error": null
-    },
-    {
-      "name": "conaway",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1237,
-      "error": null
-    },
-    {
-      "name": "coons",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 595,
-      "error": null
-    },
-    {
-      "name": "correa",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1531,
-      "error": null
-    },
-    {
-      "name": "cortezmasto",
-      "status": "ok",
-      "count": 8,
-      "has_dates": true,
-      "duration_ms": 660,
-      "error": null
-    },
-    {
-      "name": "costa",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1061,
-      "error": null
-    },
-    {
-      "name": "cotton",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 834,
-      "error": null
-    },
-    {
-      "name": "courtney",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1057,
-      "error": null
-    },
-    {
-      "name": "craig",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 938,
-      "error": null
-    },
-    {
-      "name": "craiggoldman",
-      "status": "ok",
-      "count": 4,
-      "has_dates": true,
-      "duration_ms": 942,
-      "error": null
-    },
-    {
-      "name": "crane",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2075,
-      "error": null
-    },
-    {
-      "name": "crank",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1363,
-      "error": null
-    },
-    {
-      "name": "crapo",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1176,
-      "error": null
-    },
-    {
-      "name": "crawford",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1850,
-      "error": null
-    },
-    {
-      "name": "crenshaw",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 617,
-      "error": null
-    },
-    {
-      "name": "crockett",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1528,
-      "error": null
-    },
-    {
-      "name": "crow",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 623,
-      "error": null
-    },
-    {
-      "name": "cruz",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 591,
-      "error": null
-    },
-    {
-      "name": "cuellar",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1411,
-      "error": null
-    },
-    {
-      "name": "curtis",
-      "status": "ok",
-      "count": 3,
-      "has_dates": true,
-      "duration_ms": 2762,
-      "error": null
-    },
-    {
-      "name": "daines",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 583,
-      "error": null
-    },
-    {
-      "name": "davemccormick",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 3208,
-      "error": null
-    },
-    {
-      "name": "davids",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1435,
-      "error": null
-    },
-    {
-      "name": "davidscott",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1241,
-      "error": null
-    },
-    {
-      "name": "davidson",
       "status": "ok",
       "count": 10,
       "has_dates": true,
@@ -907,2463 +315,79 @@
       "error": null
     },
     {
-      "name": "davis",
+      "name": "beyer",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 696,
+      "duration_ms": 870,
       "error": null
     },
     {
-      "name": "dean",
+      "name": "bice",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 877,
+      "duration_ms": 843,
       "error": null
     },
     {
-      "name": "debbiedingell",
+      "name": "biggs",
       "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 921,
-      "error": null
-    },
-    {
-      "name": "degette",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 832,
-      "error": null
-    },
-    {
-      "name": "delacruz",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 4842,
-      "error": null
-    },
-    {
-      "name": "delauro",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1414,
-      "error": null
-    },
-    {
-      "name": "delbene",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 979,
-      "error": null
-    },
-    {
-      "name": "deluzio",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1451,
-      "error": null
-    },
-    {
-      "name": "desaulnier",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 876,
-      "error": null
-    },
-    {
-      "name": "desjarlais",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1476,
-      "error": null
-    },
-    {
-      "name": "dexter",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1502,
-      "error": null
-    },
-    {
-      "name": "doggett",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 641,
-      "error": null
-    },
-    {
-      "name": "donalds",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1523,
-      "error": null
-    },
-    {
-      "name": "dondavis",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 799,
-      "error": null
-    },
-    {
-      "name": "downing",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1772,
-      "error": null
-    },
-    {
-      "name": "duckworth",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1201,
-      "error": null
-    },
-    {
-      "name": "dunn",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1298,
-      "error": null
-    },
-    {
-      "name": "durbin",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 584,
-      "error": null
-    },
-    {
-      "name": "dustyjohnson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1391,
-      "error": null
-    },
-    {
-      "name": "edwards",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1368,
-      "error": null
-    },
-    {
-      "name": "elfreth",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1094,
-      "error": null
-    },
-    {
-      "name": "ellzey",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1276,
-      "error": null
-    },
-    {
-      "name": "emmer",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 658,
-      "error": null
-    },
-    {
-      "name": "ernst",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1205,
-      "error": null
-    },
-    {
-      "name": "escobar",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1555,
-      "error": null
-    },
-    {
-      "name": "espaillat",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 573,
-      "error": null
-    },
-    {
-      "name": "estes",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1034,
-      "error": null
-    },
-    {
-      "name": "evans",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 727,
-      "error": null
-    },
-    {
-      "name": "ezell",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 864,
-      "error": null
-    },
-    {
-      "name": "fallon",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1091,
-      "error": null
-    },
-    {
-      "name": "fedorchak",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1911,
-      "error": null
-    },
-    {
-      "name": "feenstra",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1562,
-      "error": null
-    },
-    {
-      "name": "fernandez",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 2342,
-      "error": null
-    },
-    {
-      "name": "fetterman",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 4135,
-      "error": null
-    },
-    {
-      "name": "fields",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 760,
-      "error": null
-    },
-    {
-      "name": "figures",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1994,
-      "error": null
-    },
-    {
-      "name": "fine",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 877,
-      "error": null
-    },
-    {
-      "name": "finstad",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 4053,
-      "error": null
-    },
-    {
-      "name": "fischbach",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 848,
-      "error": null
-    },
-    {
-      "name": "fitzgerald",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 759,
-      "error": null
-    },
-    {
-      "name": "fleischmann",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1446,
-      "error": null
-    },
-    {
-      "name": "flood",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 735,
-      "error": null
-    },
-    {
-      "name": "fong",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1707,
-      "error": null
-    },
-    {
-      "name": "foster",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 784,
-      "error": null
-    },
-    {
-      "name": "foushee",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 835,
-      "error": null
-    },
-    {
-      "name": "foxx",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 846,
-      "error": null
-    },
-    {
-      "name": "frankel",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1313,
-      "error": null
-    },
-    {
-      "name": "franklin",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 909,
-      "error": null
-    },
-    {
-      "name": "friedman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1340,
-      "error": null
-    },
-    {
-      "name": "frost",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 796,
-      "error": null
-    },
-    {
-      "name": "fry",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 797,
-      "error": null
-    },
-    {
-      "name": "fulcher",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 5871,
-      "error": null
-    },
-    {
-      "name": "gabeevans",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1741,
-      "error": null
-    },
-    {
-      "name": "gallego",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2817,
-      "error": null
-    },
-    {
-      "name": "garamendi",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1443,
-      "error": null
-    },
-    {
-      "name": "garbarino",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 764,
-      "error": null
-    },
-    {
-      "name": "garypeters",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1468,
-      "error": null
-    },
-    {
-      "name": "gill",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 723,
-      "error": null
-    },
-    {
-      "name": "gillen",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1109,
-      "error": null
-    },
-    {
-      "name": "gillibrand",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1215,
-      "error": null
-    },
-    {
-      "name": "gimenez",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 816,
-      "error": null
-    },
-    {
-      "name": "golden",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 807,
-      "error": null
-    },
-    {
-      "name": "goldman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1776,
-      "error": null
-    },
-    {
-      "name": "gomez",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1977,
-      "error": null
-    },
-    {
-      "name": "gonzales",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 828,
-      "error": null
-    },
-    {
-      "name": "gonzalez",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1437,
-      "error": null
-    },
-    {
-      "name": "gooden",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 887,
-      "error": null
-    },
-    {
-      "name": "goodlander",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 4688,
-      "error": null
-    },
-    {
-      "name": "gosar",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 793,
-      "error": null
-    },
-    {
-      "name": "graham",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 570,
-      "error": null
-    },
-    {
-      "name": "grassley",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 2339,
-      "error": null
-    },
-    {
-      "name": "graves",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1415,
-      "error": null
-    },
-    {
-      "name": "gray",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1631,
-      "error": null
-    },
-    {
-      "name": "grijalva",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1103,
-      "error": null
-    },
-    {
-      "name": "grothman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1565,
-      "error": null
-    },
-    {
-      "name": "guest",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 748,
-      "error": null
-    },
-    {
-      "name": "guthrie",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1968,
-      "error": null
-    },
-    {
-      "name": "gwenmoore",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1139,
-      "error": null
-    },
-    {
-      "name": "hageman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1629,
-      "error": null
-    },
-    {
-      "name": "hagerty",
-      "status": "ok",
-      "count": 5,
-      "has_dates": true,
-      "duration_ms": 3620,
-      "error": null
-    },
-    {
-      "name": "halrogers",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1307,
-      "error": null
-    },
-    {
-      "name": "hamadeh",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2952,
-      "error": null
-    },
-    {
-      "name": "hankjohnson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1419,
-      "error": null
-    },
-    {
-      "name": "harder",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 729,
-      "error": null
-    },
-    {
-      "name": "haridopolos",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1340,
-      "error": null
-    },
-    {
-      "name": "harrigan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1677,
-      "error": null
-    },
-    {
-      "name": "harris",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1413,
-      "error": null
-    },
-    {
-      "name": "harshbarger",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 724,
-      "error": null
-    },
-    {
-      "name": "hassan",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 568,
-      "error": null
-    },
-    {
-      "name": "hawley",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2204,
-      "error": null
-    },
-    {
-      "name": "hayes",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1359,
-      "error": null
-    },
-    {
-      "name": "heinrich",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1478,
-      "error": null
-    },
-    {
-      "name": "hernandez",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1625,
-      "error": null
-    },
-    {
-      "name": "hill",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1085,
-      "error": null
-    },
-    {
-      "name": "himes",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 907,
-      "error": null
-    },
-    {
-      "name": "hinson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1431,
-      "error": null
-    },
-    {
-      "name": "hirono",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1080,
-      "error": null
-    },
-    {
-      "name": "hoeven",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 609,
-      "error": null
-    },
-    {
-      "name": "horsford",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1389,
-      "error": null
-    },
-    {
-      "name": "houchin",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 761,
-      "error": null
-    },
-    {
-      "name": "houlahan",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1748,
-      "error": null
-    },
-    {
-      "name": "hoyer",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1436,
-      "error": null
-    },
-    {
-      "name": "hoyle",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1462,
-      "error": null
-    },
-    {
-      "name": "hudson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1476,
-      "error": null
-    },
-    {
-      "name": "huizenga",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1434,
-      "error": null
-    },
-    {
-      "name": "hunt",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 667,
-      "error": null
-    },
-    {
-      "name": "hurd",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1740,
-      "error": null
-    },
-    {
-      "name": "husted",
-      "status": "ok",
-      "count": 12,
-      "has_dates": true,
-      "duration_ms": 591,
-      "error": null
-    },
-    {
-      "name": "hydesmith",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1688,
-      "error": null
-    },
-    {
-      "name": "issa",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 943,
-      "error": null
-    },
-    {
-      "name": "ivey",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 807,
-      "error": null
-    },
-    {
-      "name": "jack",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 808,
-      "error": null
-    },
-    {
-      "name": "jackreed",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1434,
-      "error": null
-    },
-    {
-      "name": "jackson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 907,
-      "error": null
-    },
-    {
-      "name": "james",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 2039,
-      "error": null
-    },
-    {
-      "name": "jasonsmith",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 3016,
-      "error": null
-    },
-    {
-      "name": "jayapal",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2416,
-      "error": null
-    },
-    {
-      "name": "jeffries",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 3221,
-      "error": null
-    },
-    {
-      "name": "joewilson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1664,
-      "error": null
-    },
-    {
-      "name": "johnjoyce",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 822,
-      "error": null
-    },
-    {
-      "name": "johnrose",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 867,
-      "error": null
-    },
-    {
-      "name": "jonathanjackson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 731,
-      "error": null
-    },
-    {
-      "name": "jordan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1353,
-      "error": null
-    },
-    {
-      "name": "juliabrownley",
-      "status": "ok",
-      "count": 18,
-      "has_dates": true,
-      "duration_ms": 2009,
-      "error": null
-    },
-    {
-      "name": "juliejohnson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1509,
-      "error": null
-    },
-    {
-      "name": "justice",
-      "status": "ok",
-      "count": 3,
-      "has_dates": true,
-      "duration_ms": 612,
-      "error": null
-    },
-    {
-      "name": "kaine",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1311,
-      "error": null
-    },
-    {
-      "name": "kamlager-dove",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1526,
-      "error": null
-    },
-    {
-      "name": "kaptur",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1266,
-      "error": null
-    },
-    {
-      "name": "kean",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1364,
-      "error": null
-    },
-    {
-      "name": "keating",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1722,
-      "error": null
-    },
-    {
-      "name": "keithself",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1453,
-      "error": null
-    },
-    {
-      "name": "kelly",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1693,
-      "error": null
-    },
-    {
-      "name": "kennedy",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2121,
-      "error": null
-    },
-    {
-      "name": "kevinmullin",
-      "status": "ok",
-      "count": 9,
-      "has_dates": true,
-      "duration_ms": 2370,
-      "error": null
-    },
-    {
-      "name": "khanna",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1574,
-      "error": null
-    },
-    {
-      "name": "kim",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 569,
-      "error": null
-    },
-    {
-      "name": "king-hinds",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1521,
-      "error": null
-    },
-    {
-      "name": "klobuchar",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 584,
-      "error": null
-    },
-    {
-      "name": "knott",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 852,
-      "error": null
-    },
-    {
-      "name": "krishnamoorthi",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 767,
-      "error": null
-    },
-    {
-      "name": "kustoff",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1421,
-      "error": null
-    },
-    {
-      "name": "lahood",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1628,
-      "error": null
-    },
-    {
-      "name": "lalota",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 847,
-      "error": null
-    },
-    {
-      "name": "langworthy",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 803,
-      "error": null
-    },
-    {
-      "name": "lankford",
-      "status": "ok",
-      "count": 6,
-      "has_dates": true,
-      "duration_ms": 2086,
-      "error": null
-    },
-    {
-      "name": "larsen",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 840,
-      "error": null
-    },
-    {
-      "name": "larson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 769,
-      "error": null
-    },
-    {
-      "name": "latimer",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1417,
-      "error": null
-    },
-    {
-      "name": "latta",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1969,
-      "error": null
-    },
-    {
-      "name": "laurellee",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1449,
-      "error": null
-    },
-    {
-      "name": "lawler",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1189,
-      "error": null
-    },
-    {
-      "name": "letlow",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1103,
-      "error": null
-    },
-    {
-      "name": "levin",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1092,
-      "error": null
-    },
-    {
-      "name": "liccardo",
-      "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2113,
+      "duration_ms": 680,
       "error": null
     },
     {
-      "name": "lieu",
+      "name": "bilirakis",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 939,
-      "error": null
-    },
-    {
-      "name": "lindasanchez",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1307,
-      "error": null
-    },
-    {
-      "name": "lofgren",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
       "duration_ms": 1151,
       "error": null
     },
     {
-      "name": "loudermilk",
-      "status": "ok",
-      "count": 6,
-      "has_dates": true,
-      "duration_ms": 4263,
-      "error": null
-    },
-    {
-      "name": "lucas",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 6801,
-      "error": null
-    },
-    {
-      "name": "lujan",
-      "status": "ok",
-      "count": 6,
-      "has_dates": true,
-      "duration_ms": 6279,
-      "error": null
-    },
-    {
-      "name": "lummis",
-      "status": "ok",
-      "count": 5,
-      "has_dates": true,
-      "duration_ms": 2700,
-      "error": null
-    },
-    {
-      "name": "luttrell",
+      "name": "bishop",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1581,
+      "duration_ms": 608,
       "error": null
     },
     {
-      "name": "lynch",
+      "name": "blackburn",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 862,
+      "duration_ms": 585,
       "error": null
     },
     {
-      "name": "mace",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1539,
-      "error": null
-    },
-    {
-      "name": "mackenzie",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1405,
-      "error": null
-    },
-    {
-      "name": "magaziner",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1355,
-      "error": null
-    },
-    {
-      "name": "malliotakis",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 867,
-      "error": null
-    },
-    {
-      "name": "maloy",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1472,
-      "error": null
-    },
-    {
-      "name": "mann",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 752,
-      "error": null
-    },
-    {
-      "name": "mannion",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1790,
-      "error": null
-    },
-    {
-      "name": "mariodiazbalart",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1207,
-      "error": null
-    },
-    {
-      "name": "markey",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1213,
-      "error": null
-    },
-    {
-      "name": "markharris",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1576,
-      "error": null
-    },
-    {
-      "name": "markkelly",
-      "status": "ok",
-      "count": 6,
-      "has_dates": true,
-      "duration_ms": 567,
-      "error": null
-    },
-    {
-      "name": "marshall",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 959,
-      "error": null
-    },
-    {
-      "name": "marymiller",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1287,
-      "error": null
-    },
-    {
-      "name": "massie",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 849,
-      "error": null
-    },
-    {
-      "name": "mast",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1666,
-      "error": null
-    },
-    {
-      "name": "matsui",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1276,
-      "error": null
-    },
-    {
-      "name": "mcbath",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 899,
-      "error": null
-    },
-    {
-      "name": "mcbride",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 797,
-      "error": null
-    },
-    {
-      "name": "mccaul",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 743,
-      "error": null
-    },
-    {
-      "name": "mcclain",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 769,
-      "error": null
-    },
-    {
-      "name": "mcclaindelaney",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1389,
-      "error": null
-    },
-    {
-      "name": "mcclellan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1476,
-      "error": null
-    },
-    {
-      "name": "mcclintock",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1462,
-      "error": null
-    },
-    {
-      "name": "mccollum",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1216,
-      "error": null
-    },
-    {
-      "name": "mcconnell",
-      "status": "ok",
-      "count": 25,
-      "has_dates": true,
-      "duration_ms": 1872,
-      "error": null
-    },
-    {
-      "name": "mccormick",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 825,
-      "error": null
-    },
-    {
-      "name": "mcdonaldrivet",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1421,
-      "error": null
-    },
-    {
-      "name": "mcdowell",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1438,
-      "error": null
-    },
-    {
-      "name": "mcgarvey",
+      "name": "blakemoore",
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1373,
+      "duration_ms": 575,
       "error": null
     },
     {
-      "name": "mcgovern",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1771,
-      "error": null
-    },
-    {
-      "name": "mcguire",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1125,
-      "error": null
-    },
-    {
-      "name": "mciver",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 835,
-      "error": null
-    },
-    {
-      "name": "meeks",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1492,
-      "error": null
-    },
-    {
-      "name": "menefee",
-      "status": "ok",
-      "count": 5,
-      "has_dates": true,
-      "duration_ms": 1225,
-      "error": null
-    },
-    {
-      "name": "menendez",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1815,
-      "error": null
-    },
-    {
-      "name": "meng",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1238,
-      "error": null
-    },
-    {
-      "name": "merkley",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2327,
-      "error": null
-    },
-    {
-      "name": "messmer",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 861,
-      "error": null
-    },
-    {
-      "name": "meuser",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 946,
-      "error": null
-    },
-    {
-      "name": "mfume",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1810,
-      "error": null
-    },
-    {
-      "name": "mikejohnson",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 980,
-      "error": null
-    },
-    {
-      "name": "mikekennedy",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1454,
-      "error": null
-    },
-    {
-      "name": "mikelee",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1269,
-      "error": null
-    },
-    {
-      "name": "mikerogers",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 2058,
-      "error": null
-    },
-    {
-      "name": "mikethompson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 705,
-      "error": null
-    },
-    {
-      "name": "miller",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1391,
-      "error": null
-    },
-    {
-      "name": "millermeeks",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 954,
-      "error": null
-    },
-    {
-      "name": "mills",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 746,
-      "error": null
-    },
-    {
-      "name": "min",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 820,
-      "error": null
-    },
-    {
-      "name": "moody",
-      "status": "ok",
-      "count": 5,
-      "has_dates": true,
-      "duration_ms": 1606,
-      "error": null
-    },
-    {
-      "name": "moolenaar",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 725,
-      "error": null
-    },
-    {
-      "name": "moran",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2385,
-      "error": null
-    },
-    {
-      "name": "morelle",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1821,
-      "error": null
-    },
-    {
-      "name": "moreno",
-      "status": "ok",
-      "count": 3,
-      "has_dates": true,
-      "duration_ms": 567,
-      "error": null
-    },
-    {
-      "name": "morgangriffith",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1894,
-      "error": null
-    },
-    {
-      "name": "morrison",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1019,
-      "error": null
-    },
-    {
-      "name": "moulton",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1546,
-      "error": null
-    },
-    {
-      "name": "moylan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1449,
-      "error": null
-    },
-    {
-      "name": "mrvan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 677,
-      "error": null
-    },
-    {
-      "name": "murphy",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1546,
-      "error": null
-    },
-    {
-      "name": "murray",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 570,
-      "error": null
-    },
-    {
-      "name": "nadler",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1001,
-      "error": null
-    },
-    {
-      "name": "nathanielmoran",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1954,
-      "error": null
-    },
-    {
-      "name": "neal",
+      "name": "blumenthal",
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 3126,
+      "duration_ms": 1123,
       "error": null
     },
     {
-      "name": "neguse",
+      "name": "bluntrochester",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1553,
+      "duration_ms": 953,
       "error": null
     },
     {
-      "name": "nehls",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 735,
-      "error": null
-    },
-    {
-      "name": "newhouse",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1750,
-      "error": null
-    },
-    {
-      "name": "norcross",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1060,
-      "error": null
-    },
-    {
-      "name": "norman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 729,
-      "error": null
-    },
-    {
-      "name": "norton",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 668,
-      "error": null
-    },
-    {
-      "name": "nunn",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2207,
-      "error": null
-    },
-    {
-      "name": "obernolte",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1393,
-      "error": null
-    },
-    {
-      "name": "ocasio-cortez",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1636,
-      "error": null
-    },
-    {
-      "name": "ogles",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 764,
-      "error": null
-    },
-    {
-      "name": "olszewski",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1466,
-      "error": null
-    },
-    {
-      "name": "omar",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1425,
-      "error": null
-    },
-    {
-      "name": "onder",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 890,
-      "error": null
-    },
-    {
-      "name": "ossoff",
-      "status": "ok",
-      "count": 1,
-      "has_dates": true,
-      "duration_ms": 4381,
-      "error": null
-    },
-    {
-      "name": "padilla",
-      "status": "ok",
-      "count": 6,
-      "has_dates": true,
-      "duration_ms": 632,
-      "error": null
-    },
-    {
-      "name": "pallone",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 737,
-      "error": null
-    },
-    {
-      "name": "palmer",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 822,
-      "error": null
-    },
-    {
-      "name": "panetta",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1423,
-      "error": null
-    },
-    {
-      "name": "pappas",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 707,
-      "error": null
-    },
-    {
-      "name": "patronis",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 797,
-      "error": null
-    },
-    {
-      "name": "patryan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 752,
-      "error": null
-    },
-    {
-      "name": "paul",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1711,
-      "error": null
-    },
-    {
-      "name": "pelosi",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1531,
-      "error": null
-    },
-    {
-      "name": "perry",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1019,
-      "error": null
-    },
-    {
-      "name": "pettersen",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 704,
-      "error": null
-    },
-    {
-      "name": "pfluger",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 931,
-      "error": null
-    },
-    {
-      "name": "pingree",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1541,
-      "error": null
-    },
-    {
-      "name": "plaskett",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1730,
-      "error": null
-    },
-    {
-      "name": "pocan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1795,
-      "error": null
-    },
-    {
-      "name": "pou",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1478,
-      "error": null
-    },
-    {
-      "name": "pressley",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1605,
-      "error": null
-    },
-    {
-      "name": "quigley",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1207,
-      "error": null
-    },
-    {
-      "name": "radewagen",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1499,
-      "error": null
-    },
-    {
-      "name": "ramirez",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1554,
-      "error": null
-    },
-    {
-      "name": "randall",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1163,
-      "error": null
-    },
-    {
-      "name": "raskin",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1219,
-      "error": null
-    },
-    {
-      "name": "reschenthaler",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1078,
-      "error": null
-    },
-    {
-      "name": "rickscott",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1931,
-      "error": null
-    },
-    {
-      "name": "riley",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2108,
-      "error": null
-    },
-    {
-      "name": "rileymoore",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1752,
-      "error": null
-    },
-    {
-      "name": "risch",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 6239,
-      "error": null
-    },
-    {
-      "name": "rivas",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 760,
-      "error": null
-    },
-    {
-      "name": "robertgarcia",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1525,
-      "error": null
-    },
-    {
-      "name": "robinkelly",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 757,
-      "error": null
-    },
-    {
-      "name": "ronjohnson",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 635,
-      "error": null
-    },
-    {
-      "name": "rosen",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 683,
-      "error": null
-    },
-    {
-      "name": "ross",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 827,
-      "error": null
-    },
-    {
-      "name": "rounds",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 646,
-      "error": null
-    },
-    {
-      "name": "rouzer",
-      "status": "ok",
-      "count": 3,
-      "has_dates": true,
-      "duration_ms": 2136,
-      "error": null
-    },
-    {
-      "name": "roy",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1185,
-      "error": null
-    },
-    {
-      "name": "ruiz",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1460,
-      "error": null
-    },
-    {
-      "name": "rulli",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 3165,
-      "error": null
-    },
-    {
-      "name": "rutherford",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 960,
-      "error": null
-    },
-    {
-      "name": "salazar",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 589,
-      "error": null
-    },
-    {
-      "name": "salinas",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1509,
-      "error": null
-    },
-    {
-      "name": "sarajacobs",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1580,
-      "error": null
-    },
-    {
-      "name": "scalise",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 731,
-      "error": null
-    },
-    {
-      "name": "scanlon",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1409,
-      "error": null
-    },
-    {
-      "name": "schakowsky",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1440,
-      "error": null
-    },
-    {
-      "name": "schatz",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 634,
-      "error": null
-    },
-    {
-      "name": "schiff",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 4762,
-      "error": null
-    },
-    {
-      "name": "schmidt",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1597,
-      "error": null
-    },
-    {
-      "name": "schmitt",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1523,
-      "error": null
-    },
-    {
-      "name": "schneider",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 770,
-      "error": null
-    },
-    {
-      "name": "scholten",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 770,
-      "error": null
-    },
-    {
-      "name": "schrier",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1757,
-      "error": null
-    },
-    {
-      "name": "schumer",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1395,
-      "error": null
-    },
-    {
-      "name": "schweikert",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1900,
-      "error": null
-    },
-    {
-      "name": "scottpeters",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1437,
-      "error": null
-    },
-    {
-      "name": "sessions",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 739,
-      "error": null
-    },
-    {
-      "name": "sewell",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1084,
-      "error": null
-    },
-    {
-      "name": "shaheen",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 568,
-      "error": null
-    },
-    {
-      "name": "sheehy",
-      "status": "ok",
-      "count": 12,
-      "has_dates": true,
-      "duration_ms": 557,
-      "error": null
-    },
-    {
-      "name": "sheribiggs",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1510,
-      "error": null
-    },
-    {
-      "name": "sherman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1117,
-      "error": null
-    },
-    {
-      "name": "shontelbrown",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 800,
-      "error": null
-    },
-    {
-      "name": "shreve",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 747,
-      "error": null
-    },
-    {
-      "name": "simon",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 793,
-      "error": null
-    },
-    {
-      "name": "simpson",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 1040,
-      "error": null
-    },
-    {
-      "name": "slotkin",
+      "name": "bobbyscott",
       "status": "ok",
       "count": 10,
       "has_dates": true,
@@ -3371,367 +395,79 @@
       "error": null
     },
     {
-      "name": "smucker",
+      "name": "boebert",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 717,
+      "duration_ms": 712,
       "error": null
     },
     {
-      "name": "sorensen",
+      "name": "bonamici",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1398,
+      "duration_ms": 711,
       "error": null
     },
     {
-      "name": "soto",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1540,
-      "error": null
-    },
-    {
-      "name": "spartz",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1450,
-      "error": null
-    },
-    {
-      "name": "stansbury",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1448,
-      "error": null
-    },
-    {
-      "name": "stanton",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2530,
-      "error": null
-    },
-    {
-      "name": "stauber",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1361,
-      "error": null
-    },
-    {
-      "name": "stefanik",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 541,
-      "error": null
-    },
-    {
-      "name": "steil",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1353,
-      "error": null
-    },
-    {
-      "name": "steube",
-      "status": "ok",
-      "count": 12,
-      "has_dates": true,
-      "duration_ms": 2524,
-      "error": null
-    },
-    {
-      "name": "stevens",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1956,
-      "error": null
-    },
-    {
-      "name": "strickland",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2102,
-      "error": null
-    },
-    {
-      "name": "strong",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1533,
-      "error": null
-    },
-    {
-      "name": "stutzman",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1505,
-      "error": null
-    },
-    {
-      "name": "subramanyam",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1754,
-      "error": null
-    },
-    {
-      "name": "summerlee",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1497,
-      "error": null
-    },
-    {
-      "name": "suozzi",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1583,
-      "error": null
-    },
-    {
-      "name": "susielee",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 841,
-      "error": null
-    },
-    {
-      "name": "swalwell",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 974,
-      "error": null
-    },
-    {
-      "name": "sykes",
+      "name": "booker",
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 733,
+      "duration_ms": 1024,
       "error": null
     },
     {
-      "name": "sylviagarcia",
+      "name": "boozman",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1440,
+      "duration_ms": 600,
       "error": null
     },
     {
-      "name": "takano",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1859,
-      "error": null
-    },
-    {
-      "name": "taylor",
+      "name": "bost",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1700,
+      "duration_ms": 858,
       "error": null
     },
     {
-      "name": "tenney",
+      "name": "boyle",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1090,
-      "error": null
-    },
-    {
-      "name": "thanedar",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1944,
-      "error": null
-    },
-    {
-      "name": "thompson",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 812,
-      "error": null
-    },
-    {
-      "name": "thune",
-      "status": "ok",
-      "count": 25,
-      "has_dates": true,
-      "duration_ms": 558,
-      "error": null
-    },
-    {
-      "name": "tiffany",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 851,
-      "error": null
-    },
-    {
-      "name": "tillis",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1623,
-      "error": null
-    },
-    {
-      "name": "timkennedy",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 797,
-      "error": null
-    },
-    {
-      "name": "timmons",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 2249,
-      "error": null
-    },
-    {
-      "name": "timmoore",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1969,
-      "error": null
-    },
-    {
-      "name": "timscott",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1895,
-      "error": null
-    },
-    {
-      "name": "tinasmith",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 656,
-      "error": null
-    },
-    {
-      "name": "titus",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1484,
-      "error": null
-    },
-    {
-      "name": "tlaib",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1820,
-      "error": null
-    },
-    {
-      "name": "toddyoung",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 656,
-      "error": null
-    },
-    {
-      "name": "tonko",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1068,
-      "error": null
-    },
-    {
-      "name": "torres",
-      "status": "ok",
-      "count": 20,
-      "has_dates": true,
-      "duration_ms": 1501,
-      "error": null
-    },
-    {
-      "name": "trahan",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 871,
-      "error": null
-    },
-    {
-      "name": "tran",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1443,
-      "error": null
-    },
-    {
-      "name": "trentkelly",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 941,
-      "error": null
-    },
-    {
-      "name": "troycarter",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1480,
-      "error": null
-    },
-    {
-      "name": "tuberville",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
       "duration_ms": 574,
       "error": null
     },
     {
-      "name": "turner",
+      "name": "brecheen",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1289,
+      "duration_ms": 765,
       "error": null
     },
     {
-      "name": "underwood",
+      "name": "bresnahan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 790,
+      "error": null
+    },
+    {
+      "name": "britt",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 3482,
+      "error": null
+    },
+    {
+      "name": "buchanan",
       "status": "ok",
       "count": 10,
       "has_dates": true,
@@ -3739,71 +475,103 @@
       "error": null
     },
     {
-      "name": "valadao",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 1188,
-      "error": null
-    },
-    {
-      "name": "vandrew",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "duration_ms": 925,
-      "error": null
-    },
-    {
-      "name": "vanduyne",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 868,
-      "error": null
-    },
-    {
-      "name": "vanepps",
-      "status": "ok",
-      "count": 10,
-      "has_dates": true,
-      "duration_ms": 2193,
-      "error": null
-    },
-    {
-      "name": "vanhollen",
+      "name": "budd",
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1230,
+      "duration_ms": 2255,
       "error": null
     },
     {
-      "name": "vanorden",
+      "name": "buddycarter",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 937,
+      "duration_ms": 794,
       "error": null
     },
     {
-      "name": "vargas",
+      "name": "budzinski",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 583,
+      "error": null
+    },
+    {
+      "name": "burchett",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1405,
+      "duration_ms": 1458,
       "error": null
     },
     {
-      "name": "vasquez",
+      "name": "burlison",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1355,
+      "duration_ms": 967,
       "error": null
     },
     {
-      "name": "veasey",
+      "name": "bynum",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 855,
+      "error": null
+    },
+    {
+      "name": "calvert",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1074,
+      "error": null
+    },
+    {
+      "name": "cammack",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 789,
+      "error": null
+    },
+    {
+      "name": "cantwell",
+      "status": "ok",
+      "count": 8,
+      "has_dates": true,
+      "duration_ms": 574,
+      "error": null
+    },
+    {
+      "name": "capito",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1524,
+      "error": null
+    },
+    {
+      "name": "carbajal",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 876,
+      "error": null
+    },
+    {
+      "name": "carey",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 589,
+      "error": null
+    },
+    {
+      "name": "carson",
       "status": "ok",
       "count": 10,
       "has_dates": true,
@@ -3811,7 +579,103 @@
       "error": null
     },
     {
-      "name": "velazquez",
+      "name": "carter",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 798,
+      "error": null
+    },
+    {
+      "name": "casar",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1077,
+      "error": null
+    },
+    {
+      "name": "case",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 618,
+      "error": null
+    },
+    {
+      "name": "cassidy",
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "duration_ms": 634,
+      "error": null
+    },
+    {
+      "name": "casten",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 583,
+      "error": null
+    },
+    {
+      "name": "castor",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 872,
+      "error": null
+    },
+    {
+      "name": "castro",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 573,
+      "error": null
+    },
+    {
+      "name": "cherfilus-mccormick",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 727,
+      "error": null
+    },
+    {
+      "name": "chrismurphy",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1082,
+      "error": null
+    },
+    {
+      "name": "chrissmith",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 890,
+      "error": null
+    },
+    {
+      "name": "chu",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 683,
+      "error": null
+    },
+    {
+      "name": "chuygarcia",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 849,
+      "error": null
+    },
+    {
+      "name": "ciscomani",
       "status": "ok",
       "count": 10,
       "has_dates": true,
@@ -3819,79 +683,375 @@
       "error": null
     },
     {
-      "name": "vindman",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1928,
-      "error": null
-    },
-    {
-      "name": "wagner",
+      "name": "cisneros",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1472,
+      "duration_ms": 1098,
       "error": null
     },
     {
-      "name": "walberg",
+      "name": "clark",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 566,
+      "error": null
+    },
+    {
+      "name": "clarke",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 580,
+      "error": null
+    },
+    {
+      "name": "clayhiggins",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 2014,
+      "error": null
+    },
+    {
+      "name": "cleaver",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 707,
+      "duration_ms": 792,
       "error": null
     },
     {
-      "name": "walkinshaw",
+      "name": "cline",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 867,
+      "duration_ms": 571,
       "error": null
     },
     {
-      "name": "warner",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 657,
-      "error": null
-    },
-    {
-      "name": "warnock",
+      "name": "cloud",
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 557,
+      "duration_ms": 555,
       "error": null
     },
     {
-      "name": "warren",
+      "name": "clyburn",
       "status": "ok",
-      "count": 20,
+      "count": 6,
       "has_dates": true,
-      "duration_ms": 637,
+      "duration_ms": 635,
       "error": null
     },
     {
-      "name": "waters",
+      "name": "clyde",
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 647,
+      "duration_ms": 2207,
       "error": null
     },
     {
-      "name": "watsoncoleman",
+      "name": "cohen",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 746,
+      "error": null
+    },
+    {
+      "name": "cole",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 642,
+      "error": null
+    },
+    {
+      "name": "collins",
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 986,
+      "duration_ms": 1548,
       "error": null
     },
     {
-      "name": "weber",
+      "name": "comer",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 789,
+      "error": null
+    },
+    {
+      "name": "conaway",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 778,
+      "error": null
+    },
+    {
+      "name": "coons",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 2487,
+      "error": null
+    },
+    {
+      "name": "cornyn",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1497,
+      "error": null
+    },
+    {
+      "name": "correa",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 816,
+      "error": null
+    },
+    {
+      "name": "cortezmasto",
+      "status": "ok",
+      "count": 8,
+      "has_dates": true,
+      "duration_ms": 641,
+      "error": null
+    },
+    {
+      "name": "costa",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 813,
+      "error": null
+    },
+    {
+      "name": "cotton",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 576,
+      "error": null
+    },
+    {
+      "name": "courtney",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 831,
+      "error": null
+    },
+    {
+      "name": "craig",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 835,
+      "error": null
+    },
+    {
+      "name": "craiggoldman",
+      "status": "ok",
+      "count": 4,
+      "has_dates": true,
+      "duration_ms": 834,
+      "error": null
+    },
+    {
+      "name": "cramer",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1337,
+      "error": null
+    },
+    {
+      "name": "crane",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1064,
+      "error": null
+    },
+    {
+      "name": "crank",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 783,
+      "error": null
+    },
+    {
+      "name": "crapo",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 591,
+      "error": null
+    },
+    {
+      "name": "crawford",
+      "status": "ok",
+      "count": 9,
+      "has_dates": true,
+      "duration_ms": 581,
+      "error": null
+    },
+    {
+      "name": "crenshaw",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 900,
+      "error": null
+    },
+    {
+      "name": "crockett",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 695,
+      "error": null
+    },
+    {
+      "name": "crow",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 608,
+      "error": null
+    },
+    {
+      "name": "cruz",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1201,
+      "error": null
+    },
+    {
+      "name": "cuellar",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1108,
+      "error": null
+    },
+    {
+      "name": "curtis",
+      "status": "ok",
+      "count": 3,
+      "has_dates": true,
+      "duration_ms": 1261,
+      "error": null
+    },
+    {
+      "name": "daines",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 2240,
+      "error": null
+    },
+    {
+      "name": "davemccormick",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 734,
+      "error": null
+    },
+    {
+      "name": "davids",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 771,
+      "error": null
+    },
+    {
+      "name": "davidscott",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1216,
+      "error": null
+    },
+    {
+      "name": "davidson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 863,
+      "error": null
+    },
+    {
+      "name": "davis",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 716,
+      "error": null
+    },
+    {
+      "name": "dean",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 943,
+      "error": null
+    },
+    {
+      "name": "debbiedingell",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 865,
+      "error": null
+    },
+    {
+      "name": "degette",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 790,
+      "error": null
+    },
+    {
+      "name": "delacruz",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 4659,
+      "error": null
+    },
+    {
+      "name": "delauro",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 842,
+      "error": null
+    },
+    {
+      "name": "delbene",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 917,
+      "error": null
+    },
+    {
+      "name": "deluzio",
       "status": "ok",
       "count": 10,
       "has_dates": true,
@@ -3899,7 +1059,2479 @@
       "error": null
     },
     {
-      "name": "webster",
+      "name": "desaulnier",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 746,
+      "error": null
+    },
+    {
+      "name": "desjarlais",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 955,
+      "error": null
+    },
+    {
+      "name": "dexter",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 797,
+      "error": null
+    },
+    {
+      "name": "doggett",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 672,
+      "error": null
+    },
+    {
+      "name": "donalds",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 820,
+      "error": null
+    },
+    {
+      "name": "dondavis",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 893,
+      "error": null
+    },
+    {
+      "name": "downing",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 920,
+      "error": null
+    },
+    {
+      "name": "duckworth",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 585,
+      "error": null
+    },
+    {
+      "name": "dunn",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 811,
+      "error": null
+    },
+    {
+      "name": "durbin",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1920,
+      "error": null
+    },
+    {
+      "name": "dustyjohnson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 726,
+      "error": null
+    },
+    {
+      "name": "edwards",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 792,
+      "error": null
+    },
+    {
+      "name": "elfreth",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1026,
+      "error": null
+    },
+    {
+      "name": "ellzey",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 793,
+      "error": null
+    },
+    {
+      "name": "emmer",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 781,
+      "error": null
+    },
+    {
+      "name": "ernst",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 618,
+      "error": null
+    },
+    {
+      "name": "escobar",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1080,
+      "error": null
+    },
+    {
+      "name": "espaillat",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1360,
+      "error": null
+    },
+    {
+      "name": "estes",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 829,
+      "error": null
+    },
+    {
+      "name": "evans",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 778,
+      "error": null
+    },
+    {
+      "name": "ezell",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 926,
+      "error": null
+    },
+    {
+      "name": "fallon",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 805,
+      "error": null
+    },
+    {
+      "name": "fedorchak",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1252,
+      "error": null
+    },
+    {
+      "name": "feenstra",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 687,
+      "error": null
+    },
+    {
+      "name": "fernandez",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1084,
+      "error": null
+    },
+    {
+      "name": "fetterman",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 903,
+      "error": null
+    },
+    {
+      "name": "fields",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1227,
+      "error": null
+    },
+    {
+      "name": "figures",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1130,
+      "error": null
+    },
+    {
+      "name": "fine",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 837,
+      "error": null
+    },
+    {
+      "name": "finstad",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 3058,
+      "error": null
+    },
+    {
+      "name": "fischbach",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 863,
+      "error": null
+    },
+    {
+      "name": "fischer",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 564,
+      "error": null
+    },
+    {
+      "name": "fitzgerald",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 722,
+      "error": null
+    },
+    {
+      "name": "fitzpatrick",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 664,
+      "error": null
+    },
+    {
+      "name": "fleischmann",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 785,
+      "error": null
+    },
+    {
+      "name": "fletcher",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 564,
+      "error": null
+    },
+    {
+      "name": "flood",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 773,
+      "error": null
+    },
+    {
+      "name": "fong",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 779,
+      "error": null
+    },
+    {
+      "name": "foster",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 753,
+      "error": null
+    },
+    {
+      "name": "foushee",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1041,
+      "error": null
+    },
+    {
+      "name": "foxx",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 826,
+      "error": null
+    },
+    {
+      "name": "frankel",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 952,
+      "error": null
+    },
+    {
+      "name": "franklin",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 793,
+      "error": null
+    },
+    {
+      "name": "friedman",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 799,
+      "error": null
+    },
+    {
+      "name": "frost",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 876,
+      "error": null
+    },
+    {
+      "name": "fry",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 859,
+      "error": null
+    },
+    {
+      "name": "fulcher",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1708,
+      "error": null
+    },
+    {
+      "name": "gabeevans",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1264,
+      "error": null
+    },
+    {
+      "name": "gallego",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 3306,
+      "error": null
+    },
+    {
+      "name": "garamendi",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 840,
+      "error": null
+    },
+    {
+      "name": "garbarino",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 846,
+      "error": null
+    },
+    {
+      "name": "garypeters",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 627,
+      "error": null
+    },
+    {
+      "name": "gill",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 866,
+      "error": null
+    },
+    {
+      "name": "gillen",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 805,
+      "error": null
+    },
+    {
+      "name": "gillibrand",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 599,
+      "error": null
+    },
+    {
+      "name": "gimenez",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 979,
+      "error": null
+    },
+    {
+      "name": "gluesenkampperez",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 594,
+      "error": null
+    },
+    {
+      "name": "golden",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 741,
+      "error": null
+    },
+    {
+      "name": "goldman",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 862,
+      "error": null
+    },
+    {
+      "name": "gomez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1185,
+      "error": null
+    },
+    {
+      "name": "gonzales",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 826,
+      "error": null
+    },
+    {
+      "name": "gonzalez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 875,
+      "error": null
+    },
+    {
+      "name": "gooden",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 854,
+      "error": null
+    },
+    {
+      "name": "goodlander",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 2168,
+      "error": null
+    },
+    {
+      "name": "gosar",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 931,
+      "error": null
+    },
+    {
+      "name": "gottheimer",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 572,
+      "error": null
+    },
+    {
+      "name": "graham",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1004,
+      "error": null
+    },
+    {
+      "name": "grassley",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 614,
+      "error": null
+    },
+    {
+      "name": "graves",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 808,
+      "error": null
+    },
+    {
+      "name": "gray",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 874,
+      "error": null
+    },
+    {
+      "name": "grijalva",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1059,
+      "error": null
+    },
+    {
+      "name": "grothman",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 824,
+      "error": null
+    },
+    {
+      "name": "guest",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 725,
+      "error": null
+    },
+    {
+      "name": "guthrie",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1000,
+      "error": null
+    },
+    {
+      "name": "gwenmoore",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 905,
+      "error": null
+    },
+    {
+      "name": "hageman",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1230,
+      "error": null
+    },
+    {
+      "name": "hagerty",
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "duration_ms": 1912,
+      "error": null
+    },
+    {
+      "name": "halrogers",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 947,
+      "error": null
+    },
+    {
+      "name": "hamadeh",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1088,
+      "error": null
+    },
+    {
+      "name": "hankjohnson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 769,
+      "error": null
+    },
+    {
+      "name": "harder",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 750,
+      "error": null
+    },
+    {
+      "name": "haridopolos",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 821,
+      "error": null
+    },
+    {
+      "name": "harrigan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 750,
+      "error": null
+    },
+    {
+      "name": "harris",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 943,
+      "error": null
+    },
+    {
+      "name": "harshbarger",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 809,
+      "error": null
+    },
+    {
+      "name": "hassan",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1165,
+      "error": null
+    },
+    {
+      "name": "hawley",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1613,
+      "error": null
+    },
+    {
+      "name": "hayes",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 922,
+      "error": null
+    },
+    {
+      "name": "heinrich",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 613,
+      "error": null
+    },
+    {
+      "name": "hern",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 560,
+      "error": null
+    },
+    {
+      "name": "hernandez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 914,
+      "error": null
+    },
+    {
+      "name": "hickenlooper",
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "duration_ms": 583,
+      "error": null
+    },
+    {
+      "name": "hill",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1078,
+      "error": null
+    },
+    {
+      "name": "himes",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 892,
+      "error": null
+    },
+    {
+      "name": "hinson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 739,
+      "error": null
+    },
+    {
+      "name": "hirono",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 592,
+      "error": null
+    },
+    {
+      "name": "hoeven",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 758,
+      "error": null
+    },
+    {
+      "name": "horsford",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 902,
+      "error": null
+    },
+    {
+      "name": "houchin",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 771,
+      "error": null
+    },
+    {
+      "name": "houlahan",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1060,
+      "error": null
+    },
+    {
+      "name": "hoyer",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 829,
+      "error": null
+    },
+    {
+      "name": "hoyle",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 900,
+      "error": null
+    },
+    {
+      "name": "hudson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 756,
+      "error": null
+    },
+    {
+      "name": "huffman",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 563,
+      "error": null
+    },
+    {
+      "name": "huizenga",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 693,
+      "error": null
+    },
+    {
+      "name": "hunt",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 715,
+      "error": null
+    },
+    {
+      "name": "hurd",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1142,
+      "error": null
+    },
+    {
+      "name": "husted",
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "duration_ms": 640,
+      "error": null
+    },
+    {
+      "name": "hydesmith",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1349,
+      "error": null
+    },
+    {
+      "name": "issa",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 788,
+      "error": null
+    },
+    {
+      "name": "ivey",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 949,
+      "error": null
+    },
+    {
+      "name": "jack",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 837,
+      "error": null
+    },
+    {
+      "name": "jackreed",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 600,
+      "error": null
+    },
+    {
+      "name": "jackson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 857,
+      "error": null
+    },
+    {
+      "name": "james",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1043,
+      "error": null
+    },
+    {
+      "name": "jasonsmith",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1274,
+      "error": null
+    },
+    {
+      "name": "jayapal",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1568,
+      "error": null
+    },
+    {
+      "name": "jeffries",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 931,
+      "error": null
+    },
+    {
+      "name": "joewilson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 702,
+      "error": null
+    },
+    {
+      "name": "johnjoyce",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 785,
+      "error": null
+    },
+    {
+      "name": "johnrose",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 750,
+      "error": null
+    },
+    {
+      "name": "jonathanjackson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 804,
+      "error": null
+    },
+    {
+      "name": "jordan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 752,
+      "error": null
+    },
+    {
+      "name": "joyce",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 587,
+      "error": null
+    },
+    {
+      "name": "juliabrownley",
+      "status": "ok",
+      "count": 18,
+      "has_dates": true,
+      "duration_ms": 1240,
+      "error": null
+    },
+    {
+      "name": "juliejohnson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 859,
+      "error": null
+    },
+    {
+      "name": "justice",
+      "status": "ok",
+      "count": 3,
+      "has_dates": true,
+      "duration_ms": 1432,
+      "error": null
+    },
+    {
+      "name": "kaine",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 601,
+      "error": null
+    },
+    {
+      "name": "kamlager-dove",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1005,
+      "error": null
+    },
+    {
+      "name": "kaptur",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 596,
+      "error": null
+    },
+    {
+      "name": "kean",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 748,
+      "error": null
+    },
+    {
+      "name": "keating",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1067,
+      "error": null
+    },
+    {
+      "name": "keithself",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 791,
+      "error": null
+    },
+    {
+      "name": "kelly",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1046,
+      "error": null
+    },
+    {
+      "name": "kennedy",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1218,
+      "error": null
+    },
+    {
+      "name": "kevinmullin",
+      "status": "ok",
+      "count": 9,
+      "has_dates": true,
+      "duration_ms": 722,
+      "error": null
+    },
+    {
+      "name": "khanna",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 737,
+      "error": null
+    },
+    {
+      "name": "kiggans",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 650,
+      "error": null
+    },
+    {
+      "name": "kiley",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 603,
+      "error": null
+    },
+    {
+      "name": "kim",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 638,
+      "error": null
+    },
+    {
+      "name": "king-hinds",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 838,
+      "error": null
+    },
+    {
+      "name": "klobuchar",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 586,
+      "error": null
+    },
+    {
+      "name": "knott",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 875,
+      "error": null
+    },
+    {
+      "name": "krishnamoorthi",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 707,
+      "error": null
+    },
+    {
+      "name": "kustoff",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1051,
+      "error": null
+    },
+    {
+      "name": "lahood",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 822,
+      "error": null
+    },
+    {
+      "name": "lalota",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 764,
+      "error": null
+    },
+    {
+      "name": "landsman",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 580,
+      "error": null
+    },
+    {
+      "name": "langworthy",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 761,
+      "error": null
+    },
+    {
+      "name": "lankford",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 2285,
+      "error": null
+    },
+    {
+      "name": "larsen",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 846,
+      "error": null
+    },
+    {
+      "name": "larson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 785,
+      "error": null
+    },
+    {
+      "name": "latimer",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 812,
+      "error": null
+    },
+    {
+      "name": "latta",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 897,
+      "error": null
+    },
+    {
+      "name": "laurellee",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 717,
+      "error": null
+    },
+    {
+      "name": "lawler",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 810,
+      "error": null
+    },
+    {
+      "name": "letlow",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 681,
+      "error": null
+    },
+    {
+      "name": "levin",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 862,
+      "error": null
+    },
+    {
+      "name": "liccardo",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1160,
+      "error": null
+    },
+    {
+      "name": "lieu",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 790,
+      "error": null
+    },
+    {
+      "name": "lindasanchez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 706,
+      "error": null
+    },
+    {
+      "name": "lofgren",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 815,
+      "error": null
+    },
+    {
+      "name": "loudermilk",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 1167,
+      "error": null
+    },
+    {
+      "name": "lucas",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1453,
+      "error": null
+    },
+    {
+      "name": "lujan",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 2138,
+      "error": null
+    },
+    {
+      "name": "lummis",
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "duration_ms": 2372,
+      "error": null
+    },
+    {
+      "name": "luna",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 602,
+      "error": null
+    },
+    {
+      "name": "luttrell",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 799,
+      "error": null
+    },
+    {
+      "name": "lynch",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 917,
+      "error": null
+    },
+    {
+      "name": "mace",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 810,
+      "error": null
+    },
+    {
+      "name": "mackenzie",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 653,
+      "error": null
+    },
+    {
+      "name": "magaziner",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 756,
+      "error": null
+    },
+    {
+      "name": "malliotakis",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 699,
+      "error": null
+    },
+    {
+      "name": "maloy",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 717,
+      "error": null
+    },
+    {
+      "name": "mann",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 681,
+      "error": null
+    },
+    {
+      "name": "mannion",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 807,
+      "error": null
+    },
+    {
+      "name": "mariodiazbalart",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 708,
+      "error": null
+    },
+    {
+      "name": "markey",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 571,
+      "error": null
+    },
+    {
+      "name": "markharris",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 792,
+      "error": null
+    },
+    {
+      "name": "markkelly",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 658,
+      "error": null
+    },
+    {
+      "name": "marshall",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1040,
+      "error": null
+    },
+    {
+      "name": "marymiller",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 762,
+      "error": null
+    },
+    {
+      "name": "massie",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 930,
+      "error": null
+    },
+    {
+      "name": "mast",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 711,
+      "error": null
+    },
+    {
+      "name": "matsui",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 759,
+      "error": null
+    },
+    {
+      "name": "maxmiller",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 586,
+      "error": null
+    },
+    {
+      "name": "mcbath",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 828,
+      "error": null
+    },
+    {
+      "name": "mcbride",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 841,
+      "error": null
+    },
+    {
+      "name": "mccaul",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 738,
+      "error": null
+    },
+    {
+      "name": "mcclain",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 927,
+      "error": null
+    },
+    {
+      "name": "mcclaindelaney",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 809,
+      "error": null
+    },
+    {
+      "name": "mcclellan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 814,
+      "error": null
+    },
+    {
+      "name": "mcclintock",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 797,
+      "error": null
+    },
+    {
+      "name": "mccollum",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 766,
+      "error": null
+    },
+    {
+      "name": "mcconnell",
+      "status": "ok",
+      "count": 25,
+      "has_dates": true,
+      "duration_ms": 2287,
+      "error": null
+    },
+    {
+      "name": "mccormick",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 903,
+      "error": null
+    },
+    {
+      "name": "mcdonaldrivet",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 656,
+      "error": null
+    },
+    {
+      "name": "mcdowell",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 779,
+      "error": null
+    },
+    {
+      "name": "mcgarvey",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1100,
+      "error": null
+    },
+    {
+      "name": "mcgovern",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 793,
+      "error": null
+    },
+    {
+      "name": "mcguire",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 787,
+      "error": null
+    },
+    {
+      "name": "mciver",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 963,
+      "error": null
+    },
+    {
+      "name": "meeks",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 822,
+      "error": null
+    },
+    {
+      "name": "menefee",
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "duration_ms": 767,
+      "error": null
+    },
+    {
+      "name": "menendez",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 772,
+      "error": null
+    },
+    {
+      "name": "meng",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 642,
+      "error": null
+    },
+    {
+      "name": "merkley",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 638,
+      "error": null
+    },
+    {
+      "name": "messmer",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 870,
+      "error": null
+    },
+    {
+      "name": "meuser",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 780,
+      "error": null
+    },
+    {
+      "name": "mfume",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1096,
+      "error": null
+    },
+    {
+      "name": "mikejohnson",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 886,
+      "error": null
+    },
+    {
+      "name": "mikekennedy",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 797,
+      "error": null
+    },
+    {
+      "name": "mikelee",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1613,
+      "error": null
+    },
+    {
+      "name": "mikerogers",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 920,
+      "error": null
+    },
+    {
+      "name": "mikethompson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 767,
+      "error": null
+    },
+    {
+      "name": "miller",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 729,
+      "error": null
+    },
+    {
+      "name": "millermeeks",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 714,
+      "error": null
+    },
+    {
+      "name": "mills",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 691,
+      "error": null
+    },
+    {
+      "name": "min",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 784,
+      "error": null
+    },
+    {
+      "name": "moody",
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "duration_ms": 628,
+      "error": null
+    },
+    {
+      "name": "moolenaar",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 759,
+      "error": null
+    },
+    {
+      "name": "moran",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1422,
+      "error": null
+    },
+    {
+      "name": "morelle",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 784,
+      "error": null
+    },
+    {
+      "name": "moreno",
+      "status": "ok",
+      "count": 3,
+      "has_dates": true,
+      "duration_ms": 612,
+      "error": null
+    },
+    {
+      "name": "morgangriffith",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 839,
+      "error": null
+    },
+    {
+      "name": "morrison",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 880,
+      "error": null
+    },
+    {
+      "name": "moskowitz",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 635,
+      "error": null
+    },
+    {
+      "name": "moulton",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 805,
+      "error": null
+    },
+    {
+      "name": "moylan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 823,
+      "error": null
+    },
+    {
+      "name": "mrvan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 669,
+      "error": null
+    },
+    {
+      "name": "murkowski",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1933,
+      "error": null
+    },
+    {
+      "name": "murphy",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 791,
+      "error": null
+    },
+    {
+      "name": "murray",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 639,
+      "error": null
+    },
+    {
+      "name": "nadler",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 949,
+      "error": null
+    },
+    {
+      "name": "nathanielmoran",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 830,
+      "error": null
+    },
+    {
+      "name": "neal",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1494,
+      "error": null
+    },
+    {
+      "name": "neguse",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 648,
+      "error": null
+    },
+    {
+      "name": "nehls",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 747,
+      "error": null
+    },
+    {
+      "name": "newhouse",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 790,
+      "error": null
+    },
+    {
+      "name": "nikemawilliams",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 547,
+      "error": null
+    },
+    {
+      "name": "norcross",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 767,
+      "error": null
+    },
+    {
+      "name": "norman",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 774,
+      "error": null
+    },
+    {
+      "name": "norton",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 673,
+      "error": null
+    },
+    {
+      "name": "nunn",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1319,
+      "error": null
+    },
+    {
+      "name": "obernolte",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 758,
+      "error": null
+    },
+    {
+      "name": "ocasio-cortez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 798,
+      "error": null
+    },
+    {
+      "name": "ogles",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 862,
+      "error": null
+    },
+    {
+      "name": "olszewski",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 644,
+      "error": null
+    },
+    {
+      "name": "omar",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 747,
+      "error": null
+    },
+    {
+      "name": "onder",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 924,
+      "error": null
+    },
+    {
+      "name": "ossoff",
+      "status": "ok",
+      "count": 1,
+      "has_dates": true,
+      "duration_ms": 874,
+      "error": null
+    },
+    {
+      "name": "owens",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 574,
+      "error": null
+    },
+    {
+      "name": "padilla",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 603,
+      "error": null
+    },
+    {
+      "name": "pallone",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 788,
+      "error": null
+    },
+    {
+      "name": "palmer",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 830,
+      "error": null
+    },
+    {
+      "name": "panetta",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 685,
+      "error": null
+    },
+    {
+      "name": "pappas",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 695,
+      "error": null
+    },
+    {
+      "name": "patronis",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 901,
+      "error": null
+    },
+    {
+      "name": "patryan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1134,
+      "error": null
+    },
+    {
+      "name": "paul",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 2066,
+      "error": null
+    },
+    {
+      "name": "pelosi",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 700,
+      "error": null
+    },
+    {
+      "name": "perry",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 920,
+      "error": null
+    },
+    {
+      "name": "pettersen",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 880,
+      "error": null
+    },
+    {
+      "name": "pfluger",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 988,
+      "error": null
+    },
+    {
+      "name": "pingree",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1082,
+      "error": null
+    },
+    {
+      "name": "plaskett",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1137,
+      "error": null
+    },
+    {
+      "name": "pocan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1089,
+      "error": null
+    },
+    {
+      "name": "pou",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 772,
+      "error": null
+    },
+    {
+      "name": "pressley",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 870,
+      "error": null
+    },
+    {
+      "name": "quigley",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 725,
+      "error": null
+    },
+    {
+      "name": "radewagen",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 719,
+      "error": null
+    },
+    {
+      "name": "ramirez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 827,
+      "error": null
+    },
+    {
+      "name": "randall",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1162,
+      "error": null
+    },
+    {
+      "name": "raskin",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 942,
+      "error": null
+    },
+    {
+      "name": "reschenthaler",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 850,
+      "error": null
+    },
+    {
+      "name": "ricketts",
+      "status": "ok",
+      "count": 8,
+      "has_dates": true,
+      "duration_ms": 595,
+      "error": null
+    },
+    {
+      "name": "rickscott",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 2234,
+      "error": null
+    },
+    {
+      "name": "riley",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 3006,
+      "error": null
+    },
+    {
+      "name": "rileymoore",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1343,
+      "error": null
+    },
+    {
+      "name": "risch",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 5007,
+      "error": null
+    },
+    {
+      "name": "ritchietorres",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 552,
+      "error": null
+    },
+    {
+      "name": "rivas",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 634,
+      "error": null
+    },
+    {
+      "name": "robertgarcia",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 726,
+      "error": null
+    },
+    {
+      "name": "robinkelly",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 661,
+      "error": null
+    },
+    {
+      "name": "ronjohnson",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1925,
+      "error": null
+    },
+    {
+      "name": "rosen",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 624,
+      "error": null
+    },
+    {
+      "name": "ross",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 788,
+      "error": null
+    },
+    {
+      "name": "rounds",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1289,
+      "error": null
+    },
+    {
+      "name": "rouzer",
+      "status": "ok",
+      "count": 3,
+      "has_dates": true,
+      "duration_ms": 1053,
+      "error": null
+    },
+    {
+      "name": "roy",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 742,
+      "error": null
+    },
+    {
+      "name": "ruiz",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 845,
+      "error": null
+    },
+    {
+      "name": "rulli",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1683,
+      "error": null
+    },
+    {
+      "name": "rutherford",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1114,
+      "error": null
+    },
+    {
+      "name": "salazar",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 722,
+      "error": null
+    },
+    {
+      "name": "salinas",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 660,
+      "error": null
+    },
+    {
+      "name": "sanders",
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "duration_ms": 851,
+      "error": null
+    },
+    {
+      "name": "sarajacobs",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 672,
+      "error": null
+    },
+    {
+      "name": "scalise",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 750,
+      "error": null
+    },
+    {
+      "name": "scanlon",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 808,
+      "error": null
+    },
+    {
+      "name": "schakowsky",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 871,
+      "error": null
+    },
+    {
+      "name": "schatz",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1021,
+      "error": null
+    },
+    {
+      "name": "schiff",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 597,
+      "error": null
+    },
+    {
+      "name": "schmidt",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1107,
+      "error": null
+    },
+    {
+      "name": "schmitt",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 2667,
+      "error": null
+    },
+    {
+      "name": "schneider",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 752,
+      "error": null
+    },
+    {
+      "name": "scholten",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 723,
+      "error": null
+    },
+    {
+      "name": "schrier",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1080,
+      "error": null
+    },
+    {
+      "name": "schumer",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1622,
+      "error": null
+    },
+    {
+      "name": "schweikert",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 2371,
+      "error": null
+    },
+    {
+      "name": "scottpeters",
       "status": "ok",
       "count": 10,
       "has_dates": true,
@@ -3907,11 +3539,659 @@
       "error": null
     },
     {
+      "name": "sessions",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 834,
+      "error": null
+    },
+    {
+      "name": "sewell",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 977,
+      "error": null
+    },
+    {
+      "name": "shaheen",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1533,
+      "error": null
+    },
+    {
+      "name": "sheehy",
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "duration_ms": 589,
+      "error": null
+    },
+    {
+      "name": "sheribiggs",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 766,
+      "error": null
+    },
+    {
+      "name": "sherman",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1079,
+      "error": null
+    },
+    {
+      "name": "shontelbrown",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 734,
+      "error": null
+    },
+    {
+      "name": "shreve",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 757,
+      "error": null
+    },
+    {
+      "name": "simon",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 785,
+      "error": null
+    },
+    {
+      "name": "simpson",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 986,
+      "error": null
+    },
+    {
+      "name": "slotkin",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 614,
+      "error": null
+    },
+    {
+      "name": "smucker",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 713,
+      "error": null
+    },
+    {
+      "name": "sorensen",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 714,
+      "error": null
+    },
+    {
+      "name": "soto",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 810,
+      "error": null
+    },
+    {
+      "name": "spartz",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 838,
+      "error": null
+    },
+    {
+      "name": "stansbury",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 719,
+      "error": null
+    },
+    {
+      "name": "stanton",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 850,
+      "error": null
+    },
+    {
+      "name": "stauber",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 707,
+      "error": null
+    },
+    {
+      "name": "stefanik",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1115,
+      "error": null
+    },
+    {
+      "name": "steil",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 741,
+      "error": null
+    },
+    {
+      "name": "steube",
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "duration_ms": 1218,
+      "error": null
+    },
+    {
+      "name": "stevens",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1142,
+      "error": null
+    },
+    {
+      "name": "strickland",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 2115,
+      "error": null
+    },
+    {
+      "name": "strong",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 912,
+      "error": null
+    },
+    {
+      "name": "stutzman",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 786,
+      "error": null
+    },
+    {
+      "name": "subramanyam",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1162,
+      "error": null
+    },
+    {
+      "name": "sullivan",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 844,
+      "error": null
+    },
+    {
+      "name": "summerlee",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 785,
+      "error": null
+    },
+    {
+      "name": "suozzi",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 784,
+      "error": null
+    },
+    {
+      "name": "susielee",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 742,
+      "error": null
+    },
+    {
+      "name": "swalwell",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 785,
+      "error": null
+    },
+    {
+      "name": "sykes",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 786,
+      "error": null
+    },
+    {
+      "name": "sylviagarcia",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 777,
+      "error": null
+    },
+    {
+      "name": "takano",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 966,
+      "error": null
+    },
+    {
+      "name": "taylor",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1105,
+      "error": null
+    },
+    {
+      "name": "tenney",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 804,
+      "error": null
+    },
+    {
+      "name": "thanedar",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 907,
+      "error": null
+    },
+    {
+      "name": "thompson",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 729,
+      "error": null
+    },
+    {
+      "name": "thune",
+      "status": "ok",
+      "count": 25,
+      "has_dates": true,
+      "duration_ms": 611,
+      "error": null
+    },
+    {
+      "name": "tiffany",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 698,
+      "error": null
+    },
+    {
+      "name": "tillis",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1720,
+      "error": null
+    },
+    {
+      "name": "timkennedy",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 811,
+      "error": null
+    },
+    {
+      "name": "timmons",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 905,
+      "error": null
+    },
+    {
+      "name": "timmoore",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 846,
+      "error": null
+    },
+    {
+      "name": "timscott",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 606,
+      "error": null
+    },
+    {
+      "name": "tinasmith",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 634,
+      "error": null
+    },
+    {
+      "name": "titus",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 872,
+      "error": null
+    },
+    {
+      "name": "tlaib",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 1600,
+      "error": null
+    },
+    {
+      "name": "toddyoung",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 613,
+      "error": null
+    },
+    {
+      "name": "tokuda",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 574,
+      "error": null
+    },
+    {
+      "name": "tonko",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 938,
+      "error": null
+    },
+    {
+      "name": "torres",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 940,
+      "error": null
+    },
+    {
+      "name": "trahan",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1012,
+      "error": null
+    },
+    {
+      "name": "tran",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 774,
+      "error": null
+    },
+    {
+      "name": "trentkelly",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 892,
+      "error": null
+    },
+    {
+      "name": "troycarter",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 812,
+      "error": null
+    },
+    {
+      "name": "tuberville",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 634,
+      "error": null
+    },
+    {
+      "name": "turner",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 983,
+      "error": null
+    },
+    {
+      "name": "underwood",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 739,
+      "error": null
+    },
+    {
+      "name": "valadao",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 907,
+      "error": null
+    },
+    {
+      "name": "vandrew",
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 909,
+      "error": null
+    },
+    {
+      "name": "vanduyne",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 786,
+      "error": null
+    },
+    {
+      "name": "vanepps",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 761,
+      "error": null
+    },
+    {
+      "name": "vanhollen",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1136,
+      "error": null
+    },
+    {
+      "name": "vanorden",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 687,
+      "error": null
+    },
+    {
+      "name": "vargas",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 761,
+      "error": null
+    },
+    {
+      "name": "vasquez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 729,
+      "error": null
+    },
+    {
+      "name": "veasey",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 815,
+      "error": null
+    },
+    {
+      "name": "velazquez",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 806,
+      "error": null
+    },
+    {
+      "name": "vindman",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 2598,
+      "error": null
+    },
+    {
+      "name": "wagner",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 779,
+      "error": null
+    },
+    {
+      "name": "walberg",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 732,
+      "error": null
+    },
+    {
+      "name": "walkinshaw",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 832,
+      "error": null
+    },
+    {
+      "name": "warner",
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "duration_ms": 926,
+      "error": null
+    },
+    {
+      "name": "warnock",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 606,
+      "error": null
+    },
+    {
+      "name": "warren",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 579,
+      "error": null
+    },
+    {
+      "name": "wassermanschultz",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 581,
+      "error": null
+    },
+    {
+      "name": "waters",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 672,
+      "error": null
+    },
+    {
+      "name": "watsoncoleman",
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 856,
+      "error": null
+    },
+    {
+      "name": "weber",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 788,
+      "error": null
+    },
+    {
+      "name": "webster",
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 929,
+      "error": null
+    },
+    {
       "name": "welch",
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1144,
+      "duration_ms": 2036,
       "error": null
     },
     {
@@ -3919,7 +4199,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1423,
+      "duration_ms": 746,
       "error": null
     },
     {
@@ -3927,7 +4207,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 568,
+      "duration_ms": 621,
       "error": null
     },
     {
@@ -3935,7 +4215,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 4190,
+      "duration_ms": 1844,
       "error": null
     },
     {
@@ -3943,7 +4223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1572,
+      "duration_ms": 594,
       "error": null
     },
     {
@@ -3951,7 +4231,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1622,
+      "duration_ms": 718,
       "error": null
     },
     {
@@ -3959,7 +4239,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 836,
+      "duration_ms": 776,
       "error": null
     },
     {
@@ -3967,7 +4247,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1982,
+      "duration_ms": 1168,
       "error": null
     },
     {
@@ -3975,7 +4255,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 854,
+      "duration_ms": 838,
       "error": null
     },
     {
@@ -3983,7 +4263,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1311,
+      "duration_ms": 989,
       "error": null
     },
     {
@@ -3991,7 +4271,15 @@
       "status": "empty",
       "count": 0,
       "has_dates": false,
-      "duration_ms": 575,
+      "duration_ms": 593,
+      "error": null
+    },
+    {
+      "name": "yakym",
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 599,
       "error": null
     },
     {
@@ -3999,7 +4287,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 3118,
+      "duration_ms": 1008,
       "error": null
     },
     {
@@ -4007,7 +4295,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 883,
+      "duration_ms": 756,
       "error": null
     }
   ]

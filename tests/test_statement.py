@@ -28,31 +28,28 @@ class TestStatement(unittest.TestCase):
 
     @patch('python_statement.scraper.Scraper.open_html')
     def test_crapo_scraper(self, mock_open_html):
-        """Test the Crapo scraper via article_block_h2_p_date generic method."""
-        mock_soup = MagicMock()
-        article_blocks = []
-
-        def make_block(i):
-            block = MagicMock()
-            link = MagicMock()
-            link.get.return_value = f"/press-release/{i}"
-            link.text = f"  Press Release Title {i}  "
-            link.name = 'a'
-            p_elem = MagicMock(text="04.15.23", name='p')
-            p_elem.get.return_value = None
-            def select_one(sel, _link=link, _p=p_elem):
-                return {'h2 a': _link, 'h3 a': None, 'p': _p, 'time': None}.get(sel)
-            block.select_one = select_one
-            return block
-
-        for i in range(5):
-            article_blocks.append(make_block(i))
-
-        mock_soup.select.return_value = article_blocks
-        mock_open_html.return_value = mock_soup
+        """Test the Crapo scraper via generic method with ArticleBlock + reversed a>h2."""
+        html = """
+        <html><body>
+        <div class="ArticleBlock">
+            <p class="Heading Heading--time">March 26, 2026</p>
+            <a href="https://www.crapo.senate.gov/media/newsreleases/press-release-0">
+                <h2 class="Heading__title ArticleTitle">Press Release Title 0</h2>
+            </a>
+        </div>
+        <div class="ArticleBlock">
+            <p class="Heading Heading--time">March 25, 2026</p>
+            <a href="https://www.crapo.senate.gov/media/newsreleases/press-release-1">
+                <h2 class="Heading__title ArticleTitle">Press Release Title 1</h2>
+            </a>
+        </div>
+        </body></html>
+        """
+        from bs4 import BeautifulSoup
+        mock_open_html.return_value = BeautifulSoup(html, 'lxml')
 
         results = Scraper.crapo()
-        self.assertEqual(len(results), 5)
+        self.assertEqual(len(results), 2)
         self.assertEqual(results[0]['title'], "Press Release Title 0")
         self.assertEqual(results[0]['domain'], 'www.crapo.senate.gov')
         

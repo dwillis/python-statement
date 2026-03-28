@@ -88,8 +88,26 @@ class Scraper:
         # Get the named generic method
         method = getattr(cls, method_name)
 
-        # All generic methods accept urls and page
-        return method([url_base], page)
+        # Inspect the method signature to determine how to call it
+        import inspect
+        sig = inspect.signature(method)
+        params = list(sig.parameters.keys())
+
+        if params and params[0] == 'urls':
+            return method([url_base], page)
+        elif params and params[0] == 'domains':
+            # Extract domain from url_base for domain-based methods
+            domain = urlparse(url_base).netloc or url_base
+            if 'page' in sig.parameters:
+                return method([domain], page)
+            else:
+                return method([domain])
+        else:
+            # Methods with no urls/domains param (e.g., cornyn, fischer, clark)
+            if 'page' in sig.parameters:
+                return method(page=page)
+            else:
+                return method()
 
     @classmethod
     def generic_scraper(cls, scraper_name, page=1):
