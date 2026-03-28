@@ -992,6 +992,15 @@ SCRAPER_CONFIG = {
     'juliabrownley': {'method': 'generic', 'url_base': 'https://juliabrownley.house.gov/category/press-releases/', 'container': 'article.news-item', 'title_sel': 'h2', 'link_sel': 'a', 'date_sel': 'time', 'date_fmt': ['%b %d, %Y'], 'pagination': 'page/{page}/'},
     'kevinmullin': {'method': 'generic', 'url_base': 'https://kevinmullin.house.gov/category/press_release/', 'container': 'a.item', 'title_sel': 'span.title', 'date_sel': 'span.date', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
     'strickland': {'method': 'generic', 'url_base': 'https://strickland.house.gov/category/press_release/', 'container': '.type-post', 'title_sel': '.wp-block-post-title a', 'date_sel': 'time', 'date_attr': 'datetime', 'date_fmt': ['%Y-%m-%dT%H:%M:%S%z', '%b %d, %Y'], 'pagination': 'page/{page}/'},
+    # Senate Elementor sites - jet_listing with h4
+    'padilla': {'method': 'generic', 'url_base': 'https://www.padilla.senate.gov/newsroom/press-releases/', 'container': '.jet-listing-grid__item', 'title_sel': 'h4 a', 'date_sel': 'span.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?jsf=jet-engine:press-list&pagenum={page}'},
+    'warnock': {'method': 'generic', 'url_base': 'https://www.warnock.senate.gov/newsroom/press-releases/', 'container': '.jet-listing-grid__item', 'title_sel': 'h4 a', 'date_sel': 'span.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?jsf=jet-engine:press-list&pagenum={page}'},
+    # Senate Elementor ArticleBlock with <a> container
+    'sheehy': {'method': 'generic', 'url_base': 'https://www.sheehy.senate.gov/newsroom/press-releases/', 'container': 'a.ArticleBlock', 'title_sel': 'h4', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
+    'husted': {'method': 'generic', 'url_base': 'https://www.husted.senate.gov/newsroom/press-releases/', 'container': 'a.ArticleBlock', 'title_sel': 'h4', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%m.%d.%y', '%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
+    # Senate Elementor ArticleBlock with div container, first <a> as title/link
+    'alsobrooks': {'method': 'generic', 'url_base': 'https://www.alsobrooks.senate.gov/newsroom/press-releases/', 'container': 'div.ArticleBlock', 'title_sel': 'a', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
+    'davemccormick': {'method': 'generic', 'url_base': 'https://www.mccormick.senate.gov/newsroom/press-releases/', 'container': 'div.ArticleBlock', 'title_sel': 'a', 'date_sel': '.elementor-icon-list-text', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
 }
 
 VALID_METHODS = {
