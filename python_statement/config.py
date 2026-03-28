@@ -73,7 +73,15 @@ SCRAPER_CONFIG = {
     'blackburn': {'method': 'element_post_media', 'url_base': 'https://www.blackburn.senate.gov/news/cc8c80c1-d564-4bbb-93a4-f1d772346ae0'},
 
     # table_time pattern - House sites with table and <time> elements
-    'buchanan': {'method': 'table_time', 'url_base': 'https://buchanan.house.gov/press-releases'},
+    'buchanan': {
+        'method': 'generic',
+        'url_base': 'https://buchanan.house.gov/press-releases',
+        'container': 'table.recordList tr',
+        'title_sel': 'a',
+        'date_sel': 'td.recordListDate',
+        'date_fmt': ['%m/%d/%y'],
+        'pagination': '?page={page}',
+    },
 
     # media_body pattern - House sites with media-body class (200+ members)
     'adriansmith': {'method': 'media_body', 'url_base': 'https://adriansmith.house.gov/media/press-releases'},
