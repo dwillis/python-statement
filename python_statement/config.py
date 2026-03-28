@@ -962,7 +962,7 @@ SCRAPER_CONFIG = {
     'webster': {'method': 'table_recordlist_date', 'url_base': 'https://webster.house.gov/press-releases'},
     'wittman': {'method': 'generic', 'url_base': 'https://wittman.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'womack': {'method': 'generic', 'url_base': 'https://womack.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
-    'youngkim': {'method': 'generic', 'url_base': 'https://youngkim.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
+    'youngkim': {'method': 'generic', 'url_base': 'https://youngkim.house.gov/media/press-releases/', 'container': '.et_pb_post', 'title_sel': 'h2.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
 }
 
 VALID_METHODS = {
