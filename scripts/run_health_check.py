@@ -41,14 +41,24 @@ def main():
         '--quiet', action='store_true',
         help='Suppress progress output'
     )
+    parser.add_argument(
+        '--failures-only', action='store_true',
+        help='Re-check only scrapers that failed last run (empty/no_dates/error)'
+    )
     args = parser.parse_args()
 
-    mode = 'full' if args.full else 'quick'
-    report = HealthChecker.run(
-        mode=mode,
-        max_workers=args.workers,
-        verbose=not args.quiet,
-    )
+    if args.failures_only:
+        report = HealthChecker.run_failures_only(
+            max_workers=args.workers,
+            verbose=not args.quiet,
+        )
+    else:
+        mode = 'full' if args.full else 'quick'
+        report = HealthChecker.run(
+            mode=mode,
+            max_workers=args.workers,
+            verbose=not args.quiet,
+        )
 
     if args.save:
         HealthChecker.save_report(report)

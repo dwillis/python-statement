@@ -210,6 +210,59 @@ class HealthChecker:
         return report
 
     @classmethod
+    def failures_from_report(cls, path='health_results.json'):
+        """Return list of scraper names that failed in the last saved report."""
+        with open(path) as f:
+            report = json.load(f)
+        return [
+            r['name'] for r in report.get('results', [])
+            if r['status'] in ('error', 'empty', 'no_dates')
+        ]
+
+    @classmethod
+    def run_failures_only(cls, path='health_results.json', max_workers=5, verbose=True):
+        """
+        Re-run health checks only for scrapers that failed in the last report.
+
+        Args:
+            path: Path to previous health_results.json
+            max_workers: Number of concurrent workers
+            verbose: Print progress to stdout
+
+        Returns:
+            dict with keys: results, summary, timestamp
+        """
+        try:
+            scrapers = cls.failures_from_report(path)
+        except FileNotFoundError:
+            print(f"No previous report found at {path}. Run a full check first.")
+            sys.exit(1)
+
+        if not scrapers:
+            if verbose:
+                print("No failures found in previous report. All scrapers OK!")
+            return {
+                'timestamp': datetime.datetime.now().isoformat(),
+                'mode': 'failures-only',
+                'summary': {'total': 0, 'ok': 0, 'empty': 0, 'no_dates': 0, 'errors': 0, 'success_rate': 100.0},
+                'results': [],
+            }
+
+        if verbose:
+            print(f"Re-checking {len(scrapers)} previously failed scrapers...")
+
+        # Use the standard run infrastructure with a custom scraper list
+        original = cls.QUICK_SCRAPERS
+        cls.QUICK_SCRAPERS = scrapers
+        try:
+            report = cls.run(mode='quick', max_workers=max_workers, verbose=verbose)
+        finally:
+            cls.QUICK_SCRAPERS = original
+
+        report['mode'] = 'failures-only'
+        return report
+
+    @classmethod
     def save_report(cls, report, path='health_results.json'):
         """Save health check report to JSON file."""
         # Convert any non-serializable objects
