@@ -956,7 +956,7 @@ SCRAPER_CONFIG = {
     'valadao': {'method': 'generic', 'url_base': 'https://valadao.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'vandrew': {'method': 'generic', 'url_base': 'https://vandrew.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'vanduyne': {'method': 'table_recordlist_date', 'url_base': 'https://vanduyne.house.gov/press-releases'},
-    'vanepps': {'method': 'generic', 'url_base': 'https://vanepps.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': 'a', 'date_sel': '.evo-card-date', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}'},
+    'vanepps': {'method': 'generic', 'url_base': 'https://vanepps.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': '.media-body a', 'date_sel': '.media-body .col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
     'walkinshaw': {'method': 'generic', 'url_base': 'https://walkinshaw.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'weber': {'method': 'generic', 'url_base': 'https://weber.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'webster': {'method': 'table_recordlist_date', 'url_base': 'https://webster.house.gov/press-releases'},
