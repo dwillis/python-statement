@@ -775,16 +775,7 @@ SCRAPER_CONFIG = {
     },
 
     # Table-based pattern - House sites with tr containers
-    'barr': {
-        'method': 'generic',
-        'url_base': 'https://barr.house.gov/media-center/press-releases',
-        'container': 'tr',
-        'title_sel': 'td a',
-        'date_sel': 'time',
-        'date_fmt': ['%m/%d/%y'],
-        'pagination': '?page={page}',
-        'skip_first': 1,
-    },
+    'barr': {'method': 'table_recordlist_date', 'url_base': 'https://barr.house.gov/press-releases'},
     'clarke': {
         'method': 'generic',
         'url_base': 'https://clarke.house.gov/newsroom/press-releases',
