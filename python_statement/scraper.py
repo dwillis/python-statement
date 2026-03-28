@@ -135,6 +135,7 @@ class Scraper:
         date_from_next_sibling = config.get('date_from_next_sibling', False)
         url_prefix = config.get('url_prefix', '')
         page_offset = config.get('page_offset', 0)
+        date_regex = config.get('date_regex')
 
         # Build paginated URL
         if pagination and '{page}' in pagination:
@@ -176,7 +177,11 @@ class Scraper:
                     link_elem = container.select_one('a')
 
             if link_elem is None:
-                continue
+                # Check if the container itself is a link
+                if container.name == 'a':
+                    link_elem = container
+                else:
+                    continue
 
             href = link_elem.get(link_attr, '')
             if not href:
@@ -208,6 +213,11 @@ class Scraper:
 
                     if date_text:
                         date = Utils.parse_date(date_text, date_fmts)
+            elif date_regex:
+                # Extract date from container text using regex
+                m = re.search(date_regex, container.get_text())
+                if m:
+                    date = Utils.parse_date(m.group(1), date_fmts)
 
             result = {
                 'source': url_base,

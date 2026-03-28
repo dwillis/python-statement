@@ -72,19 +72,38 @@ class Utils:
             normalized = text.replace('.', '/')
             for fmt in formats:
                 try:
-                    return datetime.datetime.strptime(normalized, fmt).date()
+                    parsed = datetime.datetime.strptime(normalized, fmt).date()
+                    if parsed.year == 1900 and '%y' not in fmt.lower():
+                        parsed = Utils._infer_year(parsed)
+                    return parsed
                 except ValueError:
                     continue
             # Try original text (unnormalized)
             for fmt in formats:
                 try:
-                    return datetime.datetime.strptime(text, fmt).date()
+                    parsed = datetime.datetime.strptime(text, fmt).date()
+                    if parsed.year == 1900 and '%y' not in fmt.lower():
+                        parsed = Utils._infer_year(parsed)
+                    return parsed
                 except ValueError:
                     continue
 
         # Fallback: dateutil fuzzy parsing
         try:
             from dateutil import parser as dateutil_parser
-            return dateutil_parser.parse(text, fuzzy=True).date()
+            parsed = dateutil_parser.parse(text, fuzzy=True).date()
+            # dateutil defaults missing year to 1900; infer correct year
+            if parsed.year == 1900:
+                parsed = Utils._infer_year(parsed)
+            return parsed
         except (ValueError, OverflowError, TypeError):
             return None
+
+    @staticmethod
+    def _infer_year(parsed):
+        """Replace 1900 year with current year, or previous year if the date is in the future."""
+        today = datetime.date.today()
+        parsed = parsed.replace(year=today.year)
+        if parsed > today:
+            parsed = parsed.replace(year=today.year - 1)
+        return parsed
