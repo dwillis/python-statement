@@ -140,43 +140,52 @@ def normalize_url(url):
 
 def extract_scraper_urls():
     """
-    Extract URLs from all scraper methods.
-    
+    Extract URLs from all scraper configurations and methods.
+
     Returns:
         dict: Dictionary mapping normalized domains to scraper method names
     """
+    from python_statement.config import SCRAPER_CONFIG
     from python_statement import Scraper
-    from inspect import getmembers, ismethod
-    
+    from inspect import getmembers, getsource
+
     scraper_urls = {}
-    
-    # Get all class methods
+
+    # Phase 1: Extract domains from SCRAPER_CONFIG (primary source, ~390 entries)
+    for name, config in SCRAPER_CONFIG.items():
+        url_base = config.get('url_base', '')
+        if url_base:
+            domain = normalize_url(url_base)
+            if domain:
+                scraper_urls[domain] = name
+
+    # Phase 2: Extract domains from hardcoded method source code
+    # (catches react, document_query_new, article_newsblocker, etc.)
     methods = getmembers(Scraper, predicate=lambda x: callable(x))
-    
+    skip_methods = {'open_html', 'current_year', 'current_month', 'member_methods',
+                    'committee_methods', 'member_scrapers', 'committee_scrapers',
+                    'run_scraper', 'generic_scraper', 'enable_cache', 'clear_cache'}
+
     for method_name, method_obj in methods:
-        # Skip private methods and non-scraper methods
-        if method_name.startswith('_') or method_name in ['open_html', 'current_year', 
-                                                            'current_month', 'member_methods', 
-                                                            'committee_methods', 'member_scrapers']:
+        if method_name.startswith('_') or method_name in skip_methods:
             continue
-        
+
         try:
-            # Get the source code of the method
-            from inspect import getsource
             source = getsource(method_obj)
-            
-            # Extract URLs using regex
-            url_pattern = r'https?://([a-zA-Z0-9\-\.]+(?:house|senate)\.gov)'
-            matches = re.findall(url_pattern, source)
-            
-            for domain in matches:
+
+            # Match full URLs and bare domain strings
+            url_pattern = r'https?://(?:www\.)?([a-zA-Z0-9\-\.]+\.(?:house|senate)\.gov)'
+            bare_pattern = r'["\']([a-zA-Z0-9\-]+\.(?:house|senate)\.gov)["\']'
+
+            domains = set(re.findall(url_pattern, source) + re.findall(bare_pattern, source))
+
+            for domain in domains:
                 normalized = normalize_url(f"https://{domain}")
                 if normalized and normalized not in scraper_urls:
                     scraper_urls[normalized] = method_name
         except (TypeError, OSError):
-            # Some methods might not have source available
             continue
-    
+
     return scraper_urls
 
 
