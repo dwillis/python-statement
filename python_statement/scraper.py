@@ -134,10 +134,11 @@ class Scraper:
         skip_first = config.get('skip_first', 0)
         date_from_next_sibling = config.get('date_from_next_sibling', False)
         url_prefix = config.get('url_prefix', '')
+        page_offset = config.get('page_offset', 0)
 
         # Build paginated URL
         if pagination and '{page}' in pagination:
-            url = url_base + pagination.format(page=page)
+            url = url_base + pagination.format(page=page + page_offset)
         elif pagination:
             url = url_base + pagination
         else:

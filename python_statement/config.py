@@ -923,7 +923,7 @@ SCRAPER_CONFIG = {
     'massie': {'method': 'generic', 'url_base': 'https://massie.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'mcbath': {'method': 'table_recordlist_date', 'url_base': 'https://mcbath.house.gov/press-releases'},
     'mcclain': {'method': 'table_recordlist_date', 'url_base': 'https://mcclain.house.gov/press-releases'},
-    'menefee': {'method': 'generic', 'url_base': 'https://menefee.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': '.media-body a', 'date_sel': '.media-body .col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'url_prefix': '/media/press-releases/'},
+    'menefee': {'method': 'generic', 'url_base': 'https://menefee.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': '.media-body a', 'date_sel': '.media-body .col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
     'messmer': {'method': 'generic', 'url_base': 'https://messmer.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'mikejohnson': {'method': 'generic', 'url_base': 'https://mikejohnson.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'mikerogers': {'method': 'generic', 'url_base': 'https://mikerogers.house.gov/media-center/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
@@ -975,7 +975,7 @@ VALID_GENERIC_KEYS = {
     'method', 'url_base', 'container', 'title_sel', 'date_sel',
     'date_fmt', 'date_attr', 'date_from_next_sibling', 'pagination',
     'url_prefix', 'skip_first', 'link_sel', 'link_attr', 'base_domain',
-    'max_results',
+    'max_results', 'page_offset',
 }
 
 VALID_BATCH_KEYS = {'method', 'url_base'}
