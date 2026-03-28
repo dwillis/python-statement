@@ -536,6 +536,7 @@ class Scraper:
         results = []
         if urls is None:
             urls = [
+                "https://ansari.house.gov/media/press-releases",
                 "https://huffman.house.gov/media-center/press-releases",
                 "https://castro.house.gov/media-center/press-releases",
                 "https://mikelevin.house.gov/media/press-releases",

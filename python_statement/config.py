@@ -294,7 +294,6 @@ SCRAPER_CONFIG = {
     'hageman': {'method': 'media_body', 'url_base': 'https://hageman.house.gov/media/press-releases'},
     'figures': {'method': 'media_body', 'url_base': 'https://figures.house.gov/media'},
     'begich': {'method': 'media_body', 'url_base': 'https://begich.house.gov/media/press-releases'},
-    'ansari': {'method': 'media_body', 'url_base': 'https://ansari.house.gov/media/press-releases'},
     'simon': {'method': 'media_body', 'url_base': 'https://simon.house.gov/media/press-releases'},
     'gray': {'method': 'media_body', 'url_base': 'https://gray.house.gov/media/press-releases'},
     'liccardo': {'method': 'media_body', 'url_base': 'https://liccardo.house.gov/media/press-releases'},
