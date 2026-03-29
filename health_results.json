@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-03-28T22:39:17.396787",
+  "timestamp": "2026-03-29T02:02:17.739931",
   "mode": "full",
   "summary": {
     "total": 536,
-    "ok": 479,
-    "empty": 57,
-    "no_dates": 0,
+    "ok": 527,
+    "empty": 3,
+    "no_dates": 6,
     "errors": 0,
-    "success_rate": 89.4
+    "success_rate": 98.3
   },
   "results": [
     {
@@ -15,7 +15,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1040,
+      "duration_ms": 745,
       "error": null
     },
     {
@@ -23,7 +23,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1027,
+      "duration_ms": 878,
       "error": null
     },
     {
@@ -31,7 +31,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1106,
+      "duration_ms": 813,
       "error": null
     },
     {
@@ -39,7 +39,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1142,
+      "duration_ms": 802,
       "error": null
     },
     {
@@ -47,7 +47,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1505,
+      "duration_ms": 1328,
       "error": null
     },
     {
@@ -55,7 +55,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1455,
+      "duration_ms": 1184,
       "error": null
     },
     {
@@ -63,7 +63,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 939,
+      "duration_ms": 1002,
       "error": null
     },
     {
@@ -71,7 +71,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1044,
+      "duration_ms": 989,
       "error": null
     },
     {
@@ -79,7 +79,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2272,
+      "duration_ms": 4799,
       "error": null
     },
     {
@@ -87,7 +87,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 937,
+      "duration_ms": 869,
       "error": null
     },
     {
@@ -95,7 +95,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1119,
+      "duration_ms": 974,
       "error": null
     },
     {
@@ -103,7 +103,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1403,
+      "duration_ms": 717,
       "error": null
     },
     {
@@ -111,7 +111,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1166,
+      "duration_ms": 900,
       "error": null
     },
     {
@@ -119,7 +119,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1207,
+      "duration_ms": 1048,
       "error": null
     },
     {
@@ -127,7 +127,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1310,
+      "duration_ms": 898,
       "error": null
     },
     {
@@ -135,7 +135,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1182,
+      "duration_ms": 828,
       "error": null
     },
     {
@@ -143,7 +143,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1094,
+      "duration_ms": 904,
       "error": null
     },
     {
@@ -151,7 +151,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 869,
+      "duration_ms": 1068,
       "error": null
     },
     {
@@ -159,7 +159,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1097,
+      "duration_ms": 1048,
       "error": null
     },
     {
@@ -167,7 +167,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1126,
+      "duration_ms": 913,
       "error": null
     },
     {
@@ -175,7 +175,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1566,
+      "duration_ms": 1622,
       "error": null
     },
     {
@@ -183,7 +183,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1134,
+      "duration_ms": 1137,
       "error": null
     },
     {
@@ -191,7 +191,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 669,
+      "duration_ms": 870,
       "error": null
     },
     {
@@ -199,7 +199,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1175,
+      "duration_ms": 907,
       "error": null
     },
     {
@@ -207,7 +207,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1651,
+      "duration_ms": 1488,
       "error": null
     },
     {
@@ -215,7 +215,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2695,
+      "duration_ms": 1108,
       "error": null
     },
     {
@@ -223,7 +223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 850,
+      "duration_ms": 866,
       "error": null
     },
     {
@@ -231,7 +231,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 974,
+      "duration_ms": 806,
       "error": null
     },
     {
@@ -239,7 +239,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 574,
+      "duration_ms": 1594,
       "error": null
     },
     {
@@ -247,7 +247,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1014,
+      "duration_ms": 756,
       "error": null
     },
     {
@@ -255,7 +255,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 948,
+      "duration_ms": 787,
       "error": null
     },
     {
@@ -263,15 +263,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1042,
+      "duration_ms": 1491,
       "error": null
     },
     {
       "name": "bell",
       "status": "ok",
-      "count": 10,
+      "count": 1,
       "has_dates": true,
-      "duration_ms": 995,
+      "duration_ms": 881,
       "error": null
     },
     {
@@ -279,7 +279,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 3389,
+      "duration_ms": 821,
       "error": null
     },
     {
@@ -287,7 +287,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 941,
+      "duration_ms": 767,
       "error": null
     },
     {
@@ -295,7 +295,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 931,
+      "duration_ms": 811,
       "error": null
     },
     {
@@ -303,7 +303,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 999,
+      "duration_ms": 1356,
       "error": null
     },
     {
@@ -311,7 +311,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1063,
+      "duration_ms": 890,
       "error": null
     },
     {
@@ -319,7 +319,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 865,
+      "duration_ms": 777,
       "error": null
     },
     {
@@ -327,7 +327,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1090,
+      "duration_ms": 765,
       "error": null
     },
     {
@@ -335,7 +335,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1129,
+      "duration_ms": 742,
       "error": null
     },
     {
@@ -343,7 +343,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1251,
+      "duration_ms": 1190,
       "error": null
     },
     {
@@ -351,7 +351,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1088,
+      "duration_ms": 795,
       "error": null
     },
     {
@@ -359,7 +359,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2081,
+      "duration_ms": 706,
       "error": null
     },
     {
@@ -367,7 +367,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 891,
+      "duration_ms": 1118,
       "error": null
     },
     {
@@ -375,7 +375,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1488,
+      "duration_ms": 1362,
       "error": null
     },
     {
@@ -383,7 +383,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 10180,
+      "duration_ms": 898,
       "error": null
     },
     {
@@ -391,7 +391,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 948,
+      "duration_ms": 771,
       "error": null
     },
     {
@@ -399,7 +399,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 832,
+      "duration_ms": 747,
       "error": null
     },
     {
@@ -407,7 +407,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 976,
+      "duration_ms": 822,
       "error": null
     },
     {
@@ -415,7 +415,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1351,
+      "duration_ms": 1310,
       "error": null
     },
     {
@@ -423,7 +423,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1535,
+      "duration_ms": 1064,
       "error": null
     },
     {
@@ -431,7 +431,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1040,
+      "duration_ms": 955,
       "error": null
     },
     {
@@ -439,7 +439,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1343,
+      "duration_ms": 1137,
       "error": null
     },
     {
@@ -447,7 +447,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 936,
+      "duration_ms": 897,
       "error": null
     },
     {
@@ -455,7 +455,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 969,
+      "duration_ms": 1341,
       "error": null
     },
     {
@@ -463,7 +463,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 8042,
+      "duration_ms": 2240,
       "error": null
     },
     {
@@ -471,7 +471,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 897,
+      "duration_ms": 939,
       "error": null
     },
     {
@@ -479,7 +479,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 3643,
+      "duration_ms": 3308,
       "error": null
     },
     {
@@ -487,7 +487,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1177,
+      "duration_ms": 866,
       "error": null
     },
     {
@@ -495,7 +495,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 3616,
+      "duration_ms": 708,
       "error": null
     },
     {
@@ -503,7 +503,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 968,
+      "duration_ms": 754,
       "error": null
     },
     {
@@ -511,7 +511,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 911,
+      "duration_ms": 773,
       "error": null
     },
     {
@@ -519,7 +519,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 947,
+      "duration_ms": 1493,
       "error": null
     },
     {
@@ -527,7 +527,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 620,
+      "duration_ms": 804,
       "error": null
     },
     {
@@ -535,7 +535,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 963,
+      "duration_ms": 754,
       "error": null
     },
     {
@@ -543,7 +543,7 @@
       "status": "ok",
       "count": 8,
       "has_dates": true,
-      "duration_ms": 2132,
+      "duration_ms": 1888,
       "error": null
     },
     {
@@ -551,7 +551,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1727,
+      "duration_ms": 1693,
       "error": null
     },
     {
@@ -559,7 +559,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1009,
+      "duration_ms": 1074,
       "error": null
     },
     {
@@ -567,7 +567,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 2970,
+      "duration_ms": 2663,
       "error": null
     },
     {
@@ -575,7 +575,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 985,
+      "duration_ms": 764,
       "error": null
     },
     {
@@ -583,7 +583,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1142,
+      "duration_ms": 876,
       "error": null
     },
     {
@@ -591,7 +591,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1403,
+      "duration_ms": 1274,
       "error": null
     },
     {
@@ -599,7 +599,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 801,
+      "duration_ms": 876,
       "error": null
     },
     {
@@ -607,7 +607,7 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "duration_ms": 2689,
+      "duration_ms": 1816,
       "error": null
     },
     {
@@ -615,7 +615,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1193,
+      "duration_ms": 947,
       "error": null
     },
     {
@@ -623,7 +623,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1469,
+      "duration_ms": 905,
       "error": null
     },
     {
@@ -631,7 +631,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 892,
+      "duration_ms": 994,
       "error": null
     },
     {
@@ -639,7 +639,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1177,
+      "duration_ms": 842,
       "error": null
     },
     {
@@ -647,7 +647,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1429,
+      "duration_ms": 737,
       "error": null
     },
     {
@@ -655,7 +655,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 929,
+      "duration_ms": 1054,
       "error": null
     },
     {
@@ -663,7 +663,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 962,
+      "duration_ms": 901,
       "error": null
     },
     {
@@ -671,7 +671,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 969,
+      "duration_ms": 794,
       "error": null
     },
     {
@@ -679,7 +679,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 602,
+      "duration_ms": 735,
       "error": null
     },
     {
@@ -687,7 +687,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1272,
+      "duration_ms": 1311,
       "error": null
     },
     {
@@ -695,7 +695,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1107,
+      "duration_ms": 916,
       "error": null
     },
     {
@@ -703,7 +703,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 2536,
+      "duration_ms": 1468,
       "error": null
     },
     {
@@ -711,7 +711,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 3596,
+      "duration_ms": 1933,
       "error": null
     },
     {
@@ -719,7 +719,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 949,
+      "duration_ms": 736,
       "error": null
     },
     {
@@ -727,7 +727,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1266,
+      "duration_ms": 1007,
       "error": null
     },
     {
@@ -735,7 +735,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1078,
+      "duration_ms": 887,
       "error": null
     },
     {
@@ -743,7 +743,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1224,
+      "duration_ms": 972,
       "error": null
     },
     {
@@ -751,7 +751,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2599,
+      "duration_ms": 2123,
       "error": null
     },
     {
@@ -759,7 +759,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 925,
+      "duration_ms": 889,
       "error": null
     },
     {
@@ -767,7 +767,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 788,
+      "duration_ms": 767,
       "error": null
     },
     {
@@ -775,7 +775,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1482,
+      "duration_ms": 1648,
       "error": null
     },
     {
@@ -783,7 +783,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1105,
+      "duration_ms": 931,
       "error": null
     },
     {
@@ -791,7 +791,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1062,
+      "duration_ms": 1883,
       "error": null
     },
     {
@@ -799,7 +799,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2705,
+      "duration_ms": 2259,
       "error": null
     },
     {
@@ -807,7 +807,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1234,
+      "duration_ms": 1639,
       "error": null
     },
     {
@@ -815,7 +815,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1299,
+      "duration_ms": 1018,
       "error": null
     },
     {
@@ -823,7 +823,7 @@
       "status": "ok",
       "count": 8,
       "has_dates": true,
-      "duration_ms": 677,
+      "duration_ms": 1069,
       "error": null
     },
     {
@@ -831,7 +831,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1027,
+      "duration_ms": 1013,
       "error": null
     },
     {
@@ -839,7 +839,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1289,
+      "duration_ms": 693,
       "error": null
     },
     {
@@ -847,7 +847,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 987,
+      "duration_ms": 825,
       "error": null
     },
     {
@@ -855,7 +855,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 916,
+      "duration_ms": 933,
       "error": null
     },
     {
@@ -863,7 +863,7 @@
       "status": "ok",
       "count": 4,
       "has_dates": true,
-      "duration_ms": 1030,
+      "duration_ms": 1532,
       "error": null
     },
     {
@@ -871,7 +871,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 578,
+      "duration_ms": 782,
       "error": null
     },
     {
@@ -879,7 +879,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2812,
+      "duration_ms": 2092,
       "error": null
     },
     {
@@ -887,7 +887,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 583,
+      "duration_ms": 1569,
       "error": null
     },
     {
@@ -895,7 +895,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1489,
+      "duration_ms": 960,
       "error": null
     },
     {
@@ -903,7 +903,7 @@
       "status": "ok",
       "count": 9,
       "has_dates": true,
-      "duration_ms": 1346,
+      "duration_ms": 1534,
       "error": null
     },
     {
@@ -911,7 +911,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 821,
+      "duration_ms": 1268,
       "error": null
     },
     {
@@ -919,7 +919,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 957,
+      "duration_ms": 807,
       "error": null
     },
     {
@@ -927,7 +927,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 971,
+      "duration_ms": 849,
       "error": null
     },
     {
@@ -935,7 +935,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1586,
+      "duration_ms": 762,
       "error": null
     },
     {
@@ -943,7 +943,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1175,
+      "duration_ms": 983,
       "error": null
     },
     {
@@ -951,7 +951,7 @@
       "status": "ok",
       "count": 3,
       "has_dates": true,
-      "duration_ms": 1417,
+      "duration_ms": 676,
       "error": null
     },
     {
@@ -959,7 +959,7 @@
       "status": "ok",
       "count": 9,
       "has_dates": true,
-      "duration_ms": 1356,
+      "duration_ms": 1097,
       "error": null
     },
     {
@@ -967,7 +967,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 6601,
+      "duration_ms": 3038,
       "error": null
     },
     {
@@ -975,7 +975,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 934,
+      "duration_ms": 744,
       "error": null
     },
     {
@@ -983,7 +983,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1234,
+      "duration_ms": 979,
       "error": null
     },
     {
@@ -991,7 +991,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1150,
+      "duration_ms": 1126,
       "error": null
     },
     {
@@ -999,7 +999,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1062,
+      "duration_ms": 760,
       "error": null
     },
     {
@@ -1007,7 +1007,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 963,
+      "duration_ms": 618,
       "error": null
     },
     {
@@ -1015,7 +1015,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1573,
+      "duration_ms": 1274,
       "error": null
     },
     {
@@ -1023,7 +1023,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 974,
+      "duration_ms": 930,
       "error": null
     },
     {
@@ -1031,7 +1031,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 5218,
+      "duration_ms": 4897,
       "error": null
     },
     {
@@ -1039,7 +1039,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1297,
+      "duration_ms": 895,
       "error": null
     },
     {
@@ -1047,7 +1047,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 900,
+      "duration_ms": 926,
       "error": null
     },
     {
@@ -1055,7 +1055,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 973,
+      "duration_ms": 888,
       "error": null
     },
     {
@@ -1063,7 +1063,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 919,
+      "duration_ms": 788,
       "error": null
     },
     {
@@ -1071,7 +1071,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1147,
+      "duration_ms": 1195,
       "error": null
     },
     {
@@ -1079,7 +1079,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 602,
+      "duration_ms": 1355,
       "error": null
     },
     {
@@ -1087,7 +1087,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 900,
+      "duration_ms": 779,
       "error": null
     },
     {
@@ -1095,7 +1095,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 855,
+      "duration_ms": 986,
       "error": null
     },
     {
@@ -1103,7 +1103,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 965,
+      "duration_ms": 752,
       "error": null
     },
     {
@@ -1111,7 +1111,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 948,
+      "duration_ms": 898,
       "error": null
     },
     {
@@ -1119,7 +1119,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1569,
+      "duration_ms": 1892,
       "error": null
     },
     {
@@ -1127,7 +1127,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 823,
+      "duration_ms": 902,
       "error": null
     },
     {
@@ -1135,7 +1135,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 2336,
+      "duration_ms": 2060,
       "error": null
     },
     {
@@ -1143,7 +1143,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 893,
+      "duration_ms": 772,
       "error": null
     },
     {
@@ -1151,7 +1151,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 601,
+      "duration_ms": 904,
       "error": null
     },
     {
@@ -1159,31 +1159,31 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1281,
+      "duration_ms": 1695,
       "error": null
     },
     {
       "name": "ellzey",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 940,
+      "status": "ok",
+      "count": 4,
+      "has_dates": true,
+      "duration_ms": 975,
       "error": null
     },
     {
       "name": "emmer",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 788,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 1230,
       "error": null
     },
     {
       "name": "ernst",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1273,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 820,
       "error": null
     },
     {
@@ -1191,7 +1191,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 790,
+      "duration_ms": 989,
       "error": null
     },
     {
@@ -1199,7 +1199,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1229,
+      "duration_ms": 753,
       "error": null
     },
     {
@@ -1207,7 +1207,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1148,
+      "duration_ms": 932,
       "error": null
     },
     {
@@ -1215,7 +1215,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 908,
+      "duration_ms": 831,
       "error": null
     },
     {
@@ -1223,7 +1223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1002,
+      "duration_ms": 1085,
       "error": null
     },
     {
@@ -1231,7 +1231,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1418,
+      "duration_ms": 1206,
       "error": null
     },
     {
@@ -1239,7 +1239,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1377,
+      "duration_ms": 1553,
       "error": null
     },
     {
@@ -1247,7 +1247,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 903,
+      "duration_ms": 893,
       "error": null
     },
     {
@@ -1255,15 +1255,15 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1384,
+      "duration_ms": 883,
       "error": null
     },
     {
       "name": "fetterman",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 4,
       "has_dates": false,
-      "duration_ms": 3122,
+      "duration_ms": 3761,
       "error": null
     },
     {
@@ -1271,7 +1271,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1078,
+      "duration_ms": 1441,
       "error": null
     },
     {
@@ -1279,7 +1279,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1287,
+      "duration_ms": 1206,
       "error": null
     },
     {
@@ -1287,7 +1287,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 826,
+      "duration_ms": 1223,
       "error": null
     },
     {
@@ -1295,7 +1295,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 3781,
+      "duration_ms": 1860,
       "error": null
     },
     {
@@ -1303,7 +1303,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 575,
+      "duration_ms": 900,
       "error": null
     },
     {
@@ -1311,7 +1311,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1574,
+      "duration_ms": 1314,
       "error": null
     },
     {
@@ -1319,7 +1319,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 949,
+      "duration_ms": 739,
       "error": null
     },
     {
@@ -1327,7 +1327,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 993,
+      "duration_ms": 947,
       "error": null
     },
     {
@@ -1335,7 +1335,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 935,
+      "duration_ms": 872,
       "error": null
     },
     {
@@ -1343,7 +1343,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 814,
+      "duration_ms": 987,
       "error": null
     },
     {
@@ -1351,7 +1351,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 980,
+      "duration_ms": 880,
       "error": null
     },
     {
@@ -1359,7 +1359,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1032,
+      "duration_ms": 871,
       "error": null
     },
     {
@@ -1367,7 +1367,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 962,
+      "duration_ms": 895,
       "error": null
     },
     {
@@ -1375,15 +1375,15 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1334,
+      "duration_ms": 948,
       "error": null
     },
     {
       "name": "foxx",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 764,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 968,
       "error": null
     },
     {
@@ -1391,7 +1391,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 851,
+      "duration_ms": 1263,
       "error": null
     },
     {
@@ -1399,7 +1399,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1153,
+      "duration_ms": 952,
       "error": null
     },
     {
@@ -1407,7 +1407,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1071,
+      "duration_ms": 739,
       "error": null
     },
     {
@@ -1415,7 +1415,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1113,
+      "duration_ms": 976,
       "error": null
     },
     {
@@ -1423,7 +1423,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1070,
+      "duration_ms": 885,
       "error": null
     },
     {
@@ -1431,7 +1431,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 4915,
+      "duration_ms": 2267,
       "error": null
     },
     {
@@ -1439,7 +1439,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1290,
+      "duration_ms": 1553,
       "error": null
     },
     {
@@ -1447,7 +1447,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 6932,
+      "duration_ms": 917,
       "error": null
     },
     {
@@ -1455,7 +1455,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 951,
+      "duration_ms": 849,
       "error": null
     },
     {
@@ -1463,15 +1463,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1000,
+      "duration_ms": 650,
       "error": null
     },
     {
       "name": "garypeters",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1531,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1456,
       "error": null
     },
     {
@@ -1479,7 +1479,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1062,
+      "duration_ms": 836,
       "error": null
     },
     {
@@ -1487,7 +1487,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1002,
+      "duration_ms": 1431,
       "error": null
     },
     {
@@ -1495,15 +1495,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 595,
+      "duration_ms": 1284,
       "error": null
     },
     {
       "name": "gimenez",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 4,
       "has_dates": false,
-      "duration_ms": 1041,
+      "duration_ms": 1046,
       "error": null
     },
     {
@@ -1511,7 +1511,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 609,
+      "duration_ms": 2909,
       "error": null
     },
     {
@@ -1519,7 +1519,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 922,
+      "duration_ms": 823,
       "error": null
     },
     {
@@ -1527,7 +1527,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 991,
+      "duration_ms": 828,
       "error": null
     },
     {
@@ -1535,7 +1535,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 961,
+      "duration_ms": 1063,
       "error": null
     },
     {
@@ -1543,7 +1543,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 994,
+      "duration_ms": 924,
       "error": null
     },
     {
@@ -1551,7 +1551,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 912,
+      "duration_ms": 661,
       "error": null
     },
     {
@@ -1559,15 +1559,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 596,
+      "duration_ms": 847,
       "error": null
     },
     {
       "name": "goodlander",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2639,
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 3034,
       "error": null
     },
     {
@@ -1575,7 +1575,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 861,
+      "duration_ms": 851,
       "error": null
     },
     {
@@ -1583,7 +1583,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1549,
+      "duration_ms": 848,
       "error": null
     },
     {
@@ -1591,7 +1591,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1383,
+      "duration_ms": 1268,
       "error": null
     },
     {
@@ -1599,7 +1599,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 2221,
+      "duration_ms": 689,
       "error": null
     },
     {
@@ -1607,7 +1607,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 971,
+      "duration_ms": 766,
       "error": null
     },
     {
@@ -1615,15 +1615,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 973,
+      "duration_ms": 946,
       "error": null
     },
     {
       "name": "grijalva",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1353,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 809,
       "error": null
     },
     {
@@ -1631,7 +1631,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1145,
+      "duration_ms": 930,
       "error": null
     },
     {
@@ -1639,7 +1639,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1114,
+      "duration_ms": 784,
       "error": null
     },
     {
@@ -1647,7 +1647,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 941,
+      "duration_ms": 1203,
       "error": null
     },
     {
@@ -1655,7 +1655,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1159,
+      "duration_ms": 793,
       "error": null
     },
     {
@@ -1663,7 +1663,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1274,
+      "duration_ms": 1224,
       "error": null
     },
     {
@@ -1671,7 +1671,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 4156,
+      "duration_ms": 2649,
       "error": null
     },
     {
@@ -1679,15 +1679,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 896,
+      "duration_ms": 1007,
       "error": null
     },
     {
       "name": "hamadeh",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1767,
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 1009,
       "error": null
     },
     {
@@ -1695,7 +1695,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 914,
+      "duration_ms": 1078,
       "error": null
     },
     {
@@ -1703,7 +1703,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1113,
+      "duration_ms": 756,
       "error": null
     },
     {
@@ -1711,7 +1711,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 945,
+      "duration_ms": 1619,
       "error": null
     },
     {
@@ -1719,7 +1719,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1021,
+      "duration_ms": 1369,
       "error": null
     },
     {
@@ -1727,7 +1727,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1013,
+      "duration_ms": 848,
       "error": null
     },
     {
@@ -1735,15 +1735,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 977,
+      "duration_ms": 786,
       "error": null
     },
     {
       "name": "hassan",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1707,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1117,
       "error": null
     },
     {
@@ -1751,7 +1751,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1690,
+      "duration_ms": 719,
       "error": null
     },
     {
@@ -1759,15 +1759,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 873,
+      "duration_ms": 1104,
       "error": null
     },
     {
       "name": "heinrich",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1569,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1416,
       "error": null
     },
     {
@@ -1775,7 +1775,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1233,
+      "duration_ms": 836,
       "error": null
     },
     {
@@ -1783,7 +1783,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 972,
+      "duration_ms": 1471,
       "error": null
     },
     {
@@ -1791,7 +1791,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 1873,
+      "duration_ms": 2199,
       "error": null
     },
     {
@@ -1799,7 +1799,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1191,
+      "duration_ms": 998,
       "error": null
     },
     {
@@ -1807,7 +1807,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1161,
+      "duration_ms": 890,
       "error": null
     },
     {
@@ -1815,23 +1815,23 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 945,
+      "duration_ms": 886,
       "error": null
     },
     {
       "name": "hirono",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1530,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1280,
       "error": null
     },
     {
       "name": "hoeven",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2022,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1128,
       "error": null
     },
     {
@@ -1839,7 +1839,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1028,
+      "duration_ms": 713,
       "error": null
     },
     {
@@ -1847,15 +1847,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1012,
+      "duration_ms": 787,
       "error": null
     },
     {
       "name": "houlahan",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 840,
+      "status": "ok",
+      "count": 11,
+      "has_dates": true,
+      "duration_ms": 799,
       "error": null
     },
     {
@@ -1863,7 +1863,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1015,
+      "duration_ms": 811,
       "error": null
     },
     {
@@ -1871,7 +1871,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1124,
+      "duration_ms": 849,
       "error": null
     },
     {
@@ -1879,7 +1879,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 920,
+      "duration_ms": 775,
       "error": null
     },
     {
@@ -1887,15 +1887,15 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1083,
+      "duration_ms": 1047,
       "error": null
     },
     {
       "name": "huizenga",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 928,
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 896,
       "error": null
     },
     {
@@ -1903,7 +1903,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 976,
+      "duration_ms": 758,
       "error": null
     },
     {
@@ -1911,7 +1911,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1332,
+      "duration_ms": 1096,
       "error": null
     },
     {
@@ -1919,15 +1919,15 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "duration_ms": 2669,
+      "duration_ms": 3120,
       "error": null
     },
     {
       "name": "hydesmith",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1651,
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 847,
       "error": null
     },
     {
@@ -1935,7 +1935,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1016,
+      "duration_ms": 812,
       "error": null
     },
     {
@@ -1943,7 +1943,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 949,
+      "duration_ms": 782,
       "error": null
     },
     {
@@ -1951,15 +1951,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1049,
+      "duration_ms": 1633,
       "error": null
     },
     {
       "name": "jackreed",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1541,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1488,
       "error": null
     },
     {
@@ -1967,7 +1967,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1038,
+      "duration_ms": 838,
       "error": null
     },
     {
@@ -1975,23 +1975,23 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1247,
+      "duration_ms": 861,
       "error": null
     },
     {
       "name": "jasonsmith",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1082,
+      "status": "ok",
+      "count": 9,
+      "has_dates": true,
+      "duration_ms": 1148,
       "error": null
     },
     {
       "name": "jayapal",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1579,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 1688,
       "error": null
     },
     {
@@ -1999,7 +1999,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 813,
+      "duration_ms": 839,
       "error": null
     },
     {
@@ -2007,7 +2007,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1038,
+      "duration_ms": 1009,
       "error": null
     },
     {
@@ -2015,7 +2015,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 914,
+      "duration_ms": 785,
       "error": null
     },
     {
@@ -2023,7 +2023,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 900,
+      "duration_ms": 739,
       "error": null
     },
     {
@@ -2031,7 +2031,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 966,
+      "duration_ms": 931,
       "error": null
     },
     {
@@ -2039,7 +2039,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 992,
+      "duration_ms": 765,
       "error": null
     },
     {
@@ -2047,7 +2047,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 2517,
+      "duration_ms": 710,
       "error": null
     },
     {
@@ -2055,7 +2055,7 @@
       "status": "ok",
       "count": 18,
       "has_dates": true,
-      "duration_ms": 2166,
+      "duration_ms": 1193,
       "error": null
     },
     {
@@ -2063,7 +2063,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 976,
+      "duration_ms": 1604,
       "error": null
     },
     {
@@ -2071,15 +2071,15 @@
       "status": "ok",
       "count": 3,
       "has_dates": true,
-      "duration_ms": 4878,
+      "duration_ms": 3091,
       "error": null
     },
     {
       "name": "kaine",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1580,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1837,
       "error": null
     },
     {
@@ -2087,7 +2087,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 945,
+      "duration_ms": 749,
       "error": null
     },
     {
@@ -2095,7 +2095,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1058,
+      "duration_ms": 887,
       "error": null
     },
     {
@@ -2103,7 +2103,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 851,
+      "duration_ms": 842,
       "error": null
     },
     {
@@ -2111,7 +2111,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1259,
+      "duration_ms": 1081,
       "error": null
     },
     {
@@ -2119,7 +2119,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 818,
+      "duration_ms": 710,
       "error": null
     },
     {
@@ -2127,7 +2127,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1267,
+      "duration_ms": 1232,
       "error": null
     },
     {
@@ -2135,7 +2135,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1382,
+      "duration_ms": 1506,
       "error": null
     },
     {
@@ -2143,7 +2143,7 @@
       "status": "ok",
       "count": 9,
       "has_dates": true,
-      "duration_ms": 1103,
+      "duration_ms": 944,
       "error": null
     },
     {
@@ -2151,7 +2151,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1115,
+      "duration_ms": 861,
       "error": null
     },
     {
@@ -2159,7 +2159,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 579,
+      "duration_ms": 658,
       "error": null
     },
     {
@@ -2167,7 +2167,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 585,
+      "duration_ms": 764,
       "error": null
     },
     {
@@ -2175,7 +2175,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2953,
+      "duration_ms": 2841,
       "error": null
     },
     {
@@ -2183,7 +2183,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 951,
+      "duration_ms": 818,
       "error": null
     },
     {
@@ -2191,7 +2191,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1654,
+      "duration_ms": 2430,
       "error": null
     },
     {
@@ -2199,7 +2199,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 957,
+      "duration_ms": 1696,
       "error": null
     },
     {
@@ -2207,7 +2207,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 946,
+      "duration_ms": 649,
       "error": null
     },
     {
@@ -2215,7 +2215,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 955,
+      "duration_ms": 730,
       "error": null
     },
     {
@@ -2223,7 +2223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1207,
+      "duration_ms": 1557,
       "error": null
     },
     {
@@ -2231,7 +2231,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 994,
+      "duration_ms": 1054,
       "error": null
     },
     {
@@ -2239,7 +2239,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 2676,
+      "duration_ms": 758,
       "error": null
     },
     {
@@ -2247,7 +2247,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 926,
+      "duration_ms": 760,
       "error": null
     },
     {
@@ -2255,7 +2255,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 2312,
+      "duration_ms": 4973,
       "error": null
     },
     {
@@ -2263,7 +2263,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 902,
+      "duration_ms": 1017,
       "error": null
     },
     {
@@ -2271,7 +2271,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1028,
+      "duration_ms": 720,
       "error": null
     },
     {
@@ -2279,7 +2279,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1004,
+      "duration_ms": 1552,
       "error": null
     },
     {
@@ -2287,7 +2287,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1232,
+      "duration_ms": 1331,
       "error": null
     },
     {
@@ -2295,7 +2295,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1077,
+      "duration_ms": 826,
       "error": null
     },
     {
@@ -2303,7 +2303,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 959,
+      "duration_ms": 896,
       "error": null
     },
     {
@@ -2311,7 +2311,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 896,
+      "duration_ms": 730,
       "error": null
     },
     {
@@ -2319,7 +2319,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1232,
+      "duration_ms": 1036,
       "error": null
     },
     {
@@ -2327,7 +2327,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1253,
+      "duration_ms": 1624,
       "error": null
     },
     {
@@ -2335,7 +2335,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 826,
+      "duration_ms": 788,
       "error": null
     },
     {
@@ -2343,15 +2343,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 889,
+      "duration_ms": 848,
       "error": null
     },
     {
       "name": "lofgren",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 10,
       "has_dates": false,
-      "duration_ms": 947,
+      "duration_ms": 875,
       "error": null
     },
     {
@@ -2359,15 +2359,15 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 2184,
+      "duration_ms": 1553,
       "error": null
     },
     {
       "name": "lucas",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1691,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 738,
       "error": null
     },
     {
@@ -2375,7 +2375,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 5646,
+      "duration_ms": 2245,
       "error": null
     },
     {
@@ -2383,7 +2383,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 2825,
+      "duration_ms": 631,
       "error": null
     },
     {
@@ -2391,7 +2391,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1463,
+      "duration_ms": 669,
       "error": null
     },
     {
@@ -2399,7 +2399,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1037,
+      "duration_ms": 786,
       "error": null
     },
     {
@@ -2407,7 +2407,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 890,
+      "duration_ms": 1049,
       "error": null
     },
     {
@@ -2415,7 +2415,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1036,
+      "duration_ms": 847,
       "error": null
     },
     {
@@ -2423,7 +2423,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 940,
+      "duration_ms": 1970,
       "error": null
     },
     {
@@ -2431,7 +2431,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 887,
+      "duration_ms": 886,
       "error": null
     },
     {
@@ -2439,7 +2439,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1075,
+      "duration_ms": 884,
       "error": null
     },
     {
@@ -2447,7 +2447,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 739,
+      "duration_ms": 953,
       "error": null
     },
     {
@@ -2455,7 +2455,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 828,
+      "duration_ms": 833,
       "error": null
     },
     {
@@ -2463,7 +2463,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 933,
+      "duration_ms": 1502,
       "error": null
     },
     {
@@ -2471,15 +2471,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 896,
+      "duration_ms": 804,
       "error": null
     },
     {
       "name": "markey",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1690,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1387,
       "error": null
     },
     {
@@ -2487,7 +2487,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1045,
+      "duration_ms": 1624,
       "error": null
     },
     {
@@ -2495,15 +2495,15 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 3307,
+      "duration_ms": 659,
       "error": null
     },
     {
       "name": "marshall",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 3817,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 765,
       "error": null
     },
     {
@@ -2511,7 +2511,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 894,
+      "duration_ms": 1098,
       "error": null
     },
     {
@@ -2519,15 +2519,15 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1272,
+      "duration_ms": 1122,
       "error": null
     },
     {
       "name": "mast",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1115,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 896,
       "error": null
     },
     {
@@ -2535,7 +2535,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 974,
+      "duration_ms": 1336,
       "error": null
     },
     {
@@ -2543,7 +2543,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 625,
+      "duration_ms": 1728,
       "error": null
     },
     {
@@ -2551,7 +2551,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 844,
+      "duration_ms": 862,
       "error": null
     },
     {
@@ -2559,7 +2559,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1123,
+      "duration_ms": 779,
       "error": null
     },
     {
@@ -2567,7 +2567,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 561,
+      "duration_ms": 768,
       "error": null
     },
     {
@@ -2575,7 +2575,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1353,
+      "duration_ms": 946,
       "error": null
     },
     {
@@ -2583,7 +2583,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1017,
+      "duration_ms": 831,
       "error": null
     },
     {
@@ -2591,7 +2591,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1014,
+      "duration_ms": 1376,
       "error": null
     },
     {
@@ -2599,7 +2599,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 968,
+      "duration_ms": 1064,
       "error": null
     },
     {
@@ -2607,7 +2607,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 918,
+      "duration_ms": 955,
       "error": null
     },
     {
@@ -2615,7 +2615,7 @@
       "status": "ok",
       "count": 25,
       "has_dates": true,
-      "duration_ms": 4073,
+      "duration_ms": 3569,
       "error": null
     },
     {
@@ -2623,7 +2623,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1000,
+      "duration_ms": 757,
       "error": null
     },
     {
@@ -2631,7 +2631,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 995,
+      "duration_ms": 644,
       "error": null
     },
     {
@@ -2639,7 +2639,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 979,
+      "duration_ms": 1677,
       "error": null
     },
     {
@@ -2647,15 +2647,15 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 875,
+      "duration_ms": 1115,
       "error": null
     },
     {
       "name": "mcgovern",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 802,
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 985,
       "error": null
     },
     {
@@ -2663,15 +2663,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1028,
+      "duration_ms": 1485,
       "error": null
     },
     {
       "name": "mciver",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1087,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 704,
       "error": null
     },
     {
@@ -2679,7 +2679,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 971,
+      "duration_ms": 1253,
       "error": null
     },
     {
@@ -2687,15 +2687,15 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 973,
+      "duration_ms": 1316,
       "error": null
     },
     {
       "name": "menendez",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1066,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 675,
       "error": null
     },
     {
@@ -2703,15 +2703,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 877,
+      "duration_ms": 855,
       "error": null
     },
     {
       "name": "merkley",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 9,
       "has_dates": false,
-      "duration_ms": 2751,
+      "duration_ms": 2667,
       "error": null
     },
     {
@@ -2719,7 +2719,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1155,
+      "duration_ms": 960,
       "error": null
     },
     {
@@ -2727,7 +2727,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1054,
+      "duration_ms": 1210,
       "error": null
     },
     {
@@ -2735,7 +2735,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 572,
+      "duration_ms": 1348,
       "error": null
     },
     {
@@ -2743,7 +2743,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 2467,
+      "duration_ms": 1319,
       "error": null
     },
     {
@@ -2751,15 +2751,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 974,
+      "duration_ms": 1262,
       "error": null
     },
     {
       "name": "mikelee",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 5,
       "has_dates": false,
-      "duration_ms": 1973,
+      "duration_ms": 2860,
       "error": null
     },
     {
@@ -2767,7 +2767,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1453,
+      "duration_ms": 1059,
       "error": null
     },
     {
@@ -2775,7 +2775,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 918,
+      "duration_ms": 817,
       "error": null
     },
     {
@@ -2783,7 +2783,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 924,
+      "duration_ms": 896,
       "error": null
     },
     {
@@ -2791,7 +2791,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 896,
+      "duration_ms": 798,
       "error": null
     },
     {
@@ -2799,7 +2799,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 934,
+      "duration_ms": 955,
       "error": null
     },
     {
@@ -2807,7 +2807,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 964,
+      "duration_ms": 1611,
       "error": null
     },
     {
@@ -2815,7 +2815,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 1882,
+      "duration_ms": 692,
       "error": null
     },
     {
@@ -2823,7 +2823,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 968,
+      "duration_ms": 742,
       "error": null
     },
     {
@@ -2831,7 +2831,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1728,
+      "duration_ms": 2208,
       "error": null
     },
     {
@@ -2839,7 +2839,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 978,
+      "duration_ms": 1039,
       "error": null
     },
     {
@@ -2847,7 +2847,7 @@
       "status": "ok",
       "count": 3,
       "has_dates": true,
-      "duration_ms": 1248,
+      "duration_ms": 788,
       "error": null
     },
     {
@@ -2855,7 +2855,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1551,
+      "duration_ms": 1719,
       "error": null
     },
     {
@@ -2863,7 +2863,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 603,
+      "duration_ms": 1578,
       "error": null
     },
     {
@@ -2871,7 +2871,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 3014,
+      "duration_ms": 682,
       "error": null
     },
     {
@@ -2879,7 +2879,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1032,
+      "duration_ms": 890,
       "error": null
     },
     {
@@ -2887,7 +2887,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1003,
+      "duration_ms": 822,
       "error": null
     },
     {
@@ -2895,7 +2895,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 987,
+      "duration_ms": 756,
       "error": null
     },
     {
@@ -2903,7 +2903,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1277,
+      "duration_ms": 1371,
       "error": null
     },
     {
@@ -2911,15 +2911,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1021,
+      "duration_ms": 742,
       "error": null
     },
     {
       "name": "murray",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 5,
       "has_dates": false,
-      "duration_ms": 1990,
+      "duration_ms": 712,
       "error": null
     },
     {
@@ -2927,7 +2927,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1023,
+      "duration_ms": 1202,
       "error": null
     },
     {
@@ -2935,7 +2935,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1444,
+      "duration_ms": 1213,
       "error": null
     },
     {
@@ -2943,7 +2943,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 2338,
+      "duration_ms": 1492,
       "error": null
     },
     {
@@ -2951,7 +2951,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 970,
+      "duration_ms": 764,
       "error": null
     },
     {
@@ -2959,7 +2959,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 955,
+      "duration_ms": 1552,
       "error": null
     },
     {
@@ -2967,7 +2967,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1019,
+      "duration_ms": 940,
       "error": null
     },
     {
@@ -2975,15 +2975,15 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 2395,
+      "duration_ms": 672,
       "error": null
     },
     {
       "name": "norcross",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 995,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 649,
       "error": null
     },
     {
@@ -2991,7 +2991,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1016,
+      "duration_ms": 925,
       "error": null
     },
     {
@@ -2999,15 +2999,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1227,
+      "duration_ms": 789,
       "error": null
     },
     {
       "name": "nunn",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 4285,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1172,
       "error": null
     },
     {
@@ -3015,7 +3015,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1153,
+      "duration_ms": 805,
       "error": null
     },
     {
@@ -3023,7 +3023,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1059,
+      "duration_ms": 769,
       "error": null
     },
     {
@@ -3031,7 +3031,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 905,
+      "duration_ms": 769,
       "error": null
     },
     {
@@ -3039,7 +3039,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1003,
+      "duration_ms": 1415,
       "error": null
     },
     {
@@ -3047,7 +3047,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 957,
+      "duration_ms": 861,
       "error": null
     },
     {
@@ -3055,7 +3055,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 587,
+      "duration_ms": 901,
       "error": null
     },
     {
@@ -3063,7 +3063,7 @@
       "status": "ok",
       "count": 1,
       "has_dates": true,
-      "duration_ms": 4630,
+      "duration_ms": 4333,
       "error": null
     },
     {
@@ -3071,7 +3071,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1337,
+      "duration_ms": 739,
       "error": null
     },
     {
@@ -3079,7 +3079,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 613,
+      "duration_ms": 2057,
       "error": null
     },
     {
@@ -3087,7 +3087,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 782,
+      "duration_ms": 798,
       "error": null
     },
     {
@@ -3095,7 +3095,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 969,
+      "duration_ms": 825,
       "error": null
     },
     {
@@ -3103,7 +3103,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 963,
+      "duration_ms": 821,
       "error": null
     },
     {
@@ -3111,7 +3111,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1080,
+      "duration_ms": 770,
       "error": null
     },
     {
@@ -3119,7 +3119,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 979,
+      "duration_ms": 848,
       "error": null
     },
     {
@@ -3127,15 +3127,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1039,
+      "duration_ms": 850,
       "error": null
     },
     {
       "name": "paul",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1821,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 653,
       "error": null
     },
     {
@@ -3143,7 +3143,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 881,
+      "duration_ms": 729,
       "error": null
     },
     {
@@ -3151,7 +3151,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1145,
+      "duration_ms": 906,
       "error": null
     },
     {
@@ -3159,7 +3159,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 956,
+      "duration_ms": 774,
       "error": null
     },
     {
@@ -3167,7 +3167,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 8019,
+      "duration_ms": 8039,
       "error": null
     },
     {
@@ -3175,7 +3175,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1523,
+      "duration_ms": 1223,
       "error": null
     },
     {
@@ -3183,7 +3183,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1113,
+      "duration_ms": 931,
       "error": null
     },
     {
@@ -3191,7 +3191,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1285,
+      "duration_ms": 842,
       "error": null
     },
     {
@@ -3199,15 +3199,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 971,
+      "duration_ms": 1788,
       "error": null
     },
     {
       "name": "pressley",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 957,
+      "status": "ok",
+      "count": 8,
+      "has_dates": true,
+      "duration_ms": 912,
       "error": null
     },
     {
@@ -3215,7 +3215,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1047,
+      "duration_ms": 741,
       "error": null
     },
     {
@@ -3223,7 +3223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 817,
+      "duration_ms": 858,
       "error": null
     },
     {
@@ -3231,7 +3231,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1000,
+      "duration_ms": 869,
       "error": null
     },
     {
@@ -3239,7 +3239,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1248,
+      "duration_ms": 1480,
       "error": null
     },
     {
@@ -3247,15 +3247,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1014,
+      "duration_ms": 1210,
       "error": null
     },
     {
       "name": "reschenthaler",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1137,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 632,
       "error": null
     },
     {
@@ -3263,23 +3263,23 @@
       "status": "ok",
       "count": 8,
       "has_dates": true,
-      "duration_ms": 4364,
+      "duration_ms": 5971,
       "error": null
     },
     {
       "name": "rickscott",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2515,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 745,
       "error": null
     },
     {
       "name": "riley",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2647,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1046,
       "error": null
     },
     {
@@ -3287,15 +3287,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1304,
+      "duration_ms": 1567,
       "error": null
     },
     {
       "name": "risch",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 4432,
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "duration_ms": 855,
       "error": null
     },
     {
@@ -3303,7 +3303,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1711,
+      "duration_ms": 862,
       "error": null
     },
     {
@@ -3311,7 +3311,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 604,
+      "duration_ms": 1363,
       "error": null
     },
     {
@@ -3319,7 +3319,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 914,
+      "duration_ms": 760,
       "error": null
     },
     {
@@ -3327,15 +3327,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 795,
+      "duration_ms": 728,
       "error": null
     },
     {
       "name": "ronjohnson",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2277,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 735,
       "error": null
     },
     {
@@ -3343,7 +3343,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 592,
+      "duration_ms": 823,
       "error": null
     },
     {
@@ -3351,15 +3351,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1243,
+      "duration_ms": 1310,
       "error": null
     },
     {
       "name": "rounds",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1665,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 667,
       "error": null
     },
     {
@@ -3367,7 +3367,7 @@
       "status": "ok",
       "count": 3,
       "has_dates": true,
-      "duration_ms": 1413,
+      "duration_ms": 1184,
       "error": null
     },
     {
@@ -3375,7 +3375,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 894,
+      "duration_ms": 845,
       "error": null
     },
     {
@@ -3383,15 +3383,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 960,
+      "duration_ms": 1062,
       "error": null
     },
     {
       "name": "rulli",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2751,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 799,
       "error": null
     },
     {
@@ -3399,7 +3399,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1265,
+      "duration_ms": 1334,
       "error": null
     },
     {
@@ -3407,7 +3407,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 954,
+      "duration_ms": 948,
       "error": null
     },
     {
@@ -3415,7 +3415,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 954,
+      "duration_ms": 777,
       "error": null
     },
     {
@@ -3423,7 +3423,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 1694,
+      "duration_ms": 1017,
       "error": null
     },
     {
@@ -3431,7 +3431,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1187,
+      "duration_ms": 966,
       "error": null
     },
     {
@@ -3439,15 +3439,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 827,
+      "duration_ms": 700,
       "error": null
     },
     {
       "name": "scanlon",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1018,
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 688,
       "error": null
     },
     {
@@ -3455,15 +3455,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 973,
+      "duration_ms": 1447,
       "error": null
     },
     {
       "name": "schatz",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1244,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 757,
       "error": null
     },
     {
@@ -3471,7 +3471,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2041,
+      "duration_ms": 641,
       "error": null
     },
     {
@@ -3479,15 +3479,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1264,
+      "duration_ms": 3212,
       "error": null
     },
     {
       "name": "schmitt",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 5283,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 830,
       "error": null
     },
     {
@@ -3495,7 +3495,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 943,
+      "duration_ms": 910,
       "error": null
     },
     {
@@ -3503,7 +3503,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 965,
+      "duration_ms": 810,
       "error": null
     },
     {
@@ -3511,7 +3511,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1351,
+      "duration_ms": 1306,
       "error": null
     },
     {
@@ -3519,15 +3519,15 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1677,
+      "duration_ms": 687,
       "error": null
     },
     {
       "name": "schweikert",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1576,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 816,
       "error": null
     },
     {
@@ -3535,7 +3535,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1035,
+      "duration_ms": 841,
       "error": null
     },
     {
@@ -3543,7 +3543,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1035,
+      "duration_ms": 899,
       "error": null
     },
     {
@@ -3551,15 +3551,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1220,
+      "duration_ms": 1003,
       "error": null
     },
     {
       "name": "shaheen",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1751,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 768,
       "error": null
     },
     {
@@ -3567,7 +3567,7 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "duration_ms": 2544,
+      "duration_ms": 5216,
       "error": null
     },
     {
@@ -3575,7 +3575,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1028,
+      "duration_ms": 960,
       "error": null
     },
     {
@@ -3583,7 +3583,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1250,
+      "duration_ms": 1065,
       "error": null
     },
     {
@@ -3591,7 +3591,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 987,
+      "duration_ms": 734,
       "error": null
     },
     {
@@ -3599,7 +3599,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1016,
+      "duration_ms": 1501,
       "error": null
     },
     {
@@ -3607,7 +3607,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 594,
+      "duration_ms": 1645,
       "error": null
     },
     {
@@ -3615,7 +3615,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1057,
+      "duration_ms": 1220,
       "error": null
     },
     {
@@ -3623,7 +3623,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2852,
+      "duration_ms": 2750,
       "error": null
     },
     {
@@ -3631,7 +3631,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1042,
+      "duration_ms": 810,
       "error": null
     },
     {
@@ -3639,7 +3639,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 894,
+      "duration_ms": 737,
       "error": null
     },
     {
@@ -3647,7 +3647,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 957,
+      "duration_ms": 831,
       "error": null
     },
     {
@@ -3655,7 +3655,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 958,
+      "duration_ms": 833,
       "error": null
     },
     {
@@ -3663,7 +3663,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 896,
+      "duration_ms": 752,
       "error": null
     },
     {
@@ -3671,7 +3671,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 575,
+      "duration_ms": 1143,
       "error": null
     },
     {
@@ -3679,7 +3679,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 899,
+      "duration_ms": 847,
       "error": null
     },
     {
@@ -3687,7 +3687,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1509,
+      "duration_ms": 1159,
       "error": null
     },
     {
@@ -3695,7 +3695,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 951,
+      "duration_ms": 785,
       "error": null
     },
     {
@@ -3703,7 +3703,7 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "duration_ms": 1814,
+      "duration_ms": 2300,
       "error": null
     },
     {
@@ -3711,7 +3711,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1369,
+      "duration_ms": 1120,
       "error": null
     },
     {
@@ -3719,7 +3719,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2557,
+      "duration_ms": 2254,
       "error": null
     },
     {
@@ -3727,7 +3727,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1049,
+      "duration_ms": 1138,
       "error": null
     },
     {
@@ -3735,7 +3735,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1058,
+      "duration_ms": 1495,
       "error": null
     },
     {
@@ -3743,7 +3743,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1205,
+      "duration_ms": 1340,
       "error": null
     },
     {
@@ -3751,7 +3751,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1355,
+      "duration_ms": 1874,
       "error": null
     },
     {
@@ -3759,7 +3759,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 952,
+      "duration_ms": 1383,
       "error": null
     },
     {
@@ -3767,7 +3767,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 965,
+      "duration_ms": 1014,
       "error": null
     },
     {
@@ -3775,7 +3775,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1004,
+      "duration_ms": 874,
       "error": null
     },
     {
@@ -3783,7 +3783,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1037,
+      "duration_ms": 781,
       "error": null
     },
     {
@@ -3791,7 +3791,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1303,
+      "duration_ms": 817,
       "error": null
     },
     {
@@ -3799,15 +3799,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1024,
+      "duration_ms": 779,
       "error": null
     },
     {
       "name": "takano",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 838,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 1123,
       "error": null
     },
     {
@@ -3815,7 +3815,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1244,
+      "duration_ms": 1913,
       "error": null
     },
     {
@@ -3823,7 +3823,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1272,
+      "duration_ms": 1080,
       "error": null
     },
     {
@@ -3831,7 +3831,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1155,
+      "duration_ms": 814,
       "error": null
     },
     {
@@ -3839,7 +3839,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 989,
+      "duration_ms": 712,
       "error": null
     },
     {
@@ -3847,7 +3847,7 @@
       "status": "ok",
       "count": 25,
       "has_dates": true,
-      "duration_ms": 1714,
+      "duration_ms": 2027,
       "error": null
     },
     {
@@ -3855,7 +3855,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 829,
+      "duration_ms": 744,
       "error": null
     },
     {
@@ -3863,7 +3863,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 587,
+      "duration_ms": 932,
       "error": null
     },
     {
@@ -3871,7 +3871,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1040,
+      "duration_ms": 828,
       "error": null
     },
     {
@@ -3879,7 +3879,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1219,
+      "duration_ms": 1125,
       "error": null
     },
     {
@@ -3887,7 +3887,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 977,
+      "duration_ms": 2013,
       "error": null
     },
     {
@@ -3895,39 +3895,39 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 2024,
+      "duration_ms": 3148,
       "error": null
     },
     {
       "name": "tinasmith",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2388,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 983,
       "error": null
     },
     {
       "name": "titus",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1109,
+      "status": "ok",
+      "count": 15,
+      "has_dates": true,
+      "duration_ms": 720,
       "error": null
     },
     {
       "name": "tlaib",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 1574,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "duration_ms": 1416,
       "error": null
     },
     {
       "name": "toddyoung",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2853,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "duration_ms": 797,
       "error": null
     },
     {
@@ -3935,7 +3935,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1212,
+      "duration_ms": 934,
       "error": null
     },
     {
@@ -3943,7 +3943,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1197,
+      "duration_ms": 1004,
       "error": null
     },
     {
@@ -3951,7 +3951,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1180,
+      "duration_ms": 1160,
       "error": null
     },
     {
@@ -3959,7 +3959,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1079,
+      "duration_ms": 842,
       "error": null
     },
     {
@@ -3967,7 +3967,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1095,
+      "duration_ms": 1532,
       "error": null
     },
     {
@@ -3975,7 +3975,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1084,
+      "duration_ms": 902,
       "error": null
     },
     {
@@ -3983,15 +3983,15 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 892,
+      "duration_ms": 779,
       "error": null
     },
     {
       "name": "tuberville",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "duration_ms": 2780,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "duration_ms": 6110,
       "error": null
     },
     {
@@ -3999,7 +3999,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 592,
+      "duration_ms": 1039,
       "error": null
     },
     {
@@ -4007,7 +4007,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 931,
+      "duration_ms": 811,
       "error": null
     },
     {
@@ -4015,7 +4015,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 814,
+      "duration_ms": 1010,
       "error": null
     },
     {
@@ -4023,7 +4023,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1958,
+      "duration_ms": 1390,
       "error": null
     },
     {
@@ -4031,7 +4031,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1009,
+      "duration_ms": 1068,
       "error": null
     },
     {
@@ -4039,7 +4039,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 985,
+      "duration_ms": 1317,
       "error": null
     },
     {
@@ -4047,7 +4047,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1412,
+      "duration_ms": 825,
       "error": null
     },
     {
@@ -4055,7 +4055,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 886,
+      "duration_ms": 892,
       "error": null
     },
     {
@@ -4063,7 +4063,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 977,
+      "duration_ms": 1438,
       "error": null
     },
     {
@@ -4071,7 +4071,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 906,
+      "duration_ms": 754,
       "error": null
     },
     {
@@ -4079,7 +4079,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 589,
+      "duration_ms": 854,
       "error": null
     },
     {
@@ -4087,7 +4087,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1070,
+      "duration_ms": 938,
       "error": null
     },
     {
@@ -4095,7 +4095,7 @@
       "status": "empty",
       "count": 0,
       "has_dates": false,
-      "duration_ms": 1860,
+      "duration_ms": 1645,
       "error": null
     },
     {
@@ -4103,7 +4103,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 974,
+      "duration_ms": 787,
       "error": null
     },
     {
@@ -4111,7 +4111,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 703,
+      "duration_ms": 760,
       "error": null
     },
     {
@@ -4119,7 +4119,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 762,
+      "duration_ms": 844,
       "error": null
     },
     {
@@ -4127,7 +4127,7 @@
       "status": "empty",
       "count": 0,
       "has_dates": false,
-      "duration_ms": 1247,
+      "duration_ms": 1805,
       "error": null
     },
     {
@@ -4135,7 +4135,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 3063,
+      "duration_ms": 1924,
       "error": null
     },
     {
@@ -4143,7 +4143,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1975,
+      "duration_ms": 1070,
       "error": null
     },
     {
@@ -4151,7 +4151,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 889,
+      "duration_ms": 910,
       "error": null
     },
     {
@@ -4159,7 +4159,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1011,
+      "duration_ms": 950,
       "error": null
     },
     {
@@ -4167,7 +4167,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1203,
+      "duration_ms": 1014,
       "error": null
     },
     {
@@ -4175,7 +4175,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 893,
+      "duration_ms": 713,
       "error": null
     },
     {
@@ -4183,7 +4183,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 955,
+      "duration_ms": 856,
       "error": null
     },
     {
@@ -4191,7 +4191,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1396,
+      "duration_ms": 2431,
       "error": null
     },
     {
@@ -4199,7 +4199,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 876,
+      "duration_ms": 786,
       "error": null
     },
     {
@@ -4207,7 +4207,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 621,
+      "duration_ms": 1087,
       "error": null
     },
     {
@@ -4215,7 +4215,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 3692,
+      "duration_ms": 2724,
       "error": null
     },
     {
@@ -4223,7 +4223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 712,
+      "duration_ms": 762,
       "error": null
     },
     {
@@ -4231,7 +4231,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1105,
+      "duration_ms": 1816,
       "error": null
     },
     {
@@ -4239,7 +4239,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 997,
+      "duration_ms": 908,
       "error": null
     },
     {
@@ -4247,7 +4247,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1352,
+      "duration_ms": 1466,
       "error": null
     },
     {
@@ -4255,7 +4255,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1183,
+      "duration_ms": 1076,
       "error": null
     },
     {
@@ -4263,7 +4263,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1498,
+      "duration_ms": 1342,
       "error": null
     },
     {
@@ -4271,7 +4271,7 @@
       "status": "empty",
       "count": 0,
       "has_dates": false,
-      "duration_ms": 1503,
+      "duration_ms": 1361,
       "error": null
     },
     {
@@ -4279,7 +4279,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 1507,
+      "duration_ms": 627,
       "error": null
     },
     {
@@ -4287,7 +4287,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1804,
+      "duration_ms": 1302,
       "error": null
     },
     {
@@ -4295,7 +4295,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 965,
+      "duration_ms": 783,
       "error": null
     }
   ]
