@@ -201,7 +201,7 @@ class Scraper:
                 else:
                     continue
 
-            href = link_elem.get(link_attr, '')
+            href = link_elem.get(link_attr, '').strip()
             if not href:
                 continue
 
