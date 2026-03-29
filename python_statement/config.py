@@ -270,6 +270,8 @@ SCRAPER_CONFIG = {
         'url_base': 'https://www.merkley.senate.gov/news/press-releases/',
         'container': 'article.elementor-post',
         'title_sel': 'h2.elementor-post__title a',
+        'date_sel': 'span.elementor-post-date',
+        'date_fmt': ['%B %d, %Y'],
         'pagination': 'page/{page}/',
     },
     'mikelee': {
