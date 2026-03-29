@@ -14,9 +14,6 @@ uv.lock
 tests/test_results.txt
 test_results.txt
 
-# Generated data
-legislators_with_scrapers.json
-
 # Health check transient output
 health_output.txt
 
