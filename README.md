@@ -6,7 +6,7 @@ A Python 3 port of the Ruby gem 'Statement' for parsing RSS feeds and HTML pages
 
 Statement Python provides tools to parse press releases from:
 - RSS feeds of members of Congress
-- HTML pages using configuration-driven generic scrapers (390+ sites)
+- HTML pages using configuration-driven generic scrapers (530+ sites)
 - HTML pages requiring custom scraping logic
 - Committee websites
 
@@ -43,16 +43,20 @@ pip install -e .
 ```python
 from python_statement import Scraper
 
-# Scrape individual members using wrapper methods
-results = Scraper.pelosi()     # House member (media_body pattern)
-results = Scraper.grassley()   # Senator (ArticleBlock pattern)
-results = Scraper.bacon()      # House member (generic dispatcher)
+# Scrape individual members by name
+results = Scraper.run_scraper('pelosi')     # House member (media_body pattern)
+results = Scraper.run_scraper('grassley')   # Senator (generic dispatcher)
+results = Scraper.run_scraper('bacon')      # House member (generic dispatcher)
 
 # Scrape with pagination
-page2 = Scraper.pelosi(page=2)
+page2 = Scraper.run_scraper('pelosi', page=2)
+
+# Auto-generated wrapper methods also work
+results = Scraper.pelosi()
+results = Scraper.pelosi(page=2)
 
 # Batch scrape all configured sites for a pattern
-all_media_body = Scraper.media_body()  # Scrapes 230+ House sites
+all_media_body = Scraper.media_body()  # Scrapes 240+ House sites
 
 # Scrape all supported members
 all_results = Scraper.member_scrapers()
@@ -88,11 +92,11 @@ make help                  # Show all available commands
 
 ## How It Works
 
-Most scrapers are 2-line wrapper methods that call `run_scraper()`, which looks up the site's configuration and routes to the appropriate generic method. Configuration lives in `SCRAPER_CONFIG` (`python_statement/config.py`).
+Most scrapers are configuration entries in `SCRAPER_CONFIG` (`python_statement/config.py`). At import time, each config entry gets an auto-generated wrapper method on the `Scraper` class, so `Scraper.pelosi()` and `Scraper.run_scraper('pelosi')` both work. The `run_scraper()` dispatcher looks up the configuration and routes to the appropriate generic method.
 
 There are two configuration approaches:
 
-**Batch generic methods** — for sites with identical HTML patterns (e.g., 230+ House sites using `.media-body`):
+**Batch generic methods** — for sites with identical HTML patterns (e.g., 240+ House sites using `.media-body`):
 ```python
 'pelosi': {
     'method': 'media_body',
@@ -100,7 +104,7 @@ There are two configuration approaches:
 }
 ```
 
-**Universal generic dispatcher** — for sites needing site-specific CSS selectors:
+**Universal generic dispatcher** — for sites needing site-specific CSS selectors (190+ sites):
 ```python
 'bacon': {
     'method': 'generic',
@@ -122,7 +126,7 @@ There are two configuration approaches:
    ```
    This tests 14 known HTML patterns and recommends a config entry.
 
-2. **If a pattern matches:** Add a config entry to `python_statement/config.py` — that's it, the wrapper method is auto-generated
+2. **If a pattern matches:** Add a config entry to `python_statement/config.py` — that's it, the wrapper method is auto-generated at import time
 
 3. **If no pattern matches:** Write a custom scraper method
 
@@ -150,7 +154,15 @@ uv run python scripts/health_trend.py --failures   # Current failures
 
 Health checks test HTTP connectivity, result count, and date parsing for each scraper. Results are saved to `health_results.json`. Use `--history` to also append a summary line to `health_history.jsonl` for trend tracking.
 
-A GitHub Actions workflow (`.github/workflows/scraper-health.yml`) runs weekly, creates an issue when failures are detected, and commits the history file for long-term tracking.
+### Dashboard
+
+A static HTML dashboard at `docs/index.html` visualizes health check results, showing scraper status, method distribution, and trend history. Build it locally:
+
+```bash
+make dashboard
+```
+
+The dashboard is also built and deployed automatically by the GitHub Actions workflow. A weekly CI run (`.github/workflows/scraper-health.yml`) executes health checks, builds the dashboard, creates an issue when failures are detected, and commits updated results for long-term tracking.
 
 ## Data Structure
 
@@ -169,7 +181,7 @@ Each press release is returned as a dictionary:
 ```
 python_statement/
   __init__.py        # Exports Feed, Scraper, Utils
-  config.py          # SCRAPER_CONFIG dict (390 entries) + validation
+  config.py          # SCRAPER_CONFIG dict (530+ entries) + validation
   scraper.py         # Scraper class with generic dispatcher + auto-generated wrappers
   feed.py            # Feed class for RSS/Atom parsing
   utils.py           # Utils class for URL handling and date parsing
@@ -178,12 +190,17 @@ python_statement/
 scripts/
   detect_pattern.py         # Pattern detection for new sites
   run_health_check.py       # Health check CLI
+  build_dashboard.py        # Generate static HTML dashboard
   generate_legislators.py   # Match legislators to scrapers
+  health_trend.py           # View health trends over time
 
 tests/
   test_statement.py    # Core functionality tests
   test_media_body.py   # Tests for media_body method
   test_react.py        # Tests for React-based sites
+
+docs/
+  index.html           # Health dashboard (generated)
 ```
 
 ## Development Tools
@@ -192,6 +209,8 @@ tests/
 make test                  # Run all tests
 make health-quick          # Quick scraper health check
 make health                # Full scraper health check
+make dashboard             # Build static health dashboard
+make trend                 # View health trends over time
 make generate-legislators  # Generate legislators_with_scrapers.json
 make clean                # Clean build artifacts
 ```

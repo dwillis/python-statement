@@ -1,4 +1,4 @@
-.PHONY: test install clean generate-legislators health health-quick trend help
+.PHONY: test install clean generate-legislators health health-quick trend dashboard help
 
 help:
 	@echo "Available commands:"
@@ -8,6 +8,8 @@ help:
 	@echo "  make generate-legislators - Generate legislators_with_scrapers.json"
 	@echo "  make health               - Run full scraper health check (all scrapers)"
 	@echo "  make health-quick         - Run quick scraper health check (~50 scrapers)"
+	@echo "  make dashboard            - Build static health dashboard (docs/index.html)"
+	@echo "  make trend                - View health trends over time"
 
 install:
 	uv sync
@@ -31,3 +33,6 @@ health-quick:
 
 trend:
 	uv run python scripts/health_trend.py
+
+dashboard:
+	uv run python scripts/build_dashboard.py
