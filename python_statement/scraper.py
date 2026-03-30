@@ -1269,20 +1269,36 @@ class Scraper:
                     continue
 
                 # Try multiple selectors for date
-                date_elem = (
-                    row.select_one("span.elementor-icon-list-text") or
-                    row.select_one("li span.elementor-icon-list-text") or
-                    row.select_one(".elementor-post-date")
-                )
-
+                # Some sites split date across multiple spans (e.g., "Jan.", "22", "2026")
                 date = None
-                if date_elem:
-                    date_text = date_elem.text.strip()
-                    date = Utils.parse_date(date_text, [
-                        "%B %d, %Y",     # January 15, 2024
-                        "%m/%d/%Y",      # 01/15/2024
-                        "%m/%d/%y",      # 01/15/24
-                    ])
+                date_spans = row.select("span.elementor-icon-list-text")
+                if date_spans:
+                    # Filter out non-date spans like "Continue Reading"
+                    date_parts = [
+                        s.get_text(strip=True) for s in date_spans
+                        if s.get_text(strip=True) and not s.get_text(strip=True).isalpha()
+                        or len(s.get_text(strip=True)) <= 4  # month abbreviations
+                    ]
+                    # Try joining all parts as a single date string
+                    date_text = " ".join(date_parts)
+                    if date_text:
+                        date = Utils.parse_date(date_text, [
+                            "%b. %d %Y",     # Jan. 22 2026
+                            "%B %d, %Y",     # January 15, 2024
+                            "%B %d %Y",      # January 15 2024
+                            "%m/%d/%Y",      # 01/15/2024
+                            "%m/%d/%y",      # 01/15/24
+                        ])
+
+                if date is None:
+                    date_elem = row.select_one(".elementor-post-date")
+                    if date_elem:
+                        date_text = date_elem.text.strip()
+                        date = Utils.parse_date(date_text, [
+                            "%B %d, %Y",
+                            "%m/%d/%Y",
+                            "%m/%d/%y",
+                        ])
 
                 result = {
                     'source': url,
