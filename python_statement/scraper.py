@@ -210,7 +210,8 @@ class Scraper:
                 if href.startswith('/'):
                     href = f"https://{domain}{href}"
                 else:
-                    href = f"https://{domain}{url_prefix}{href}"
+                    prefix = url_prefix if url_prefix else "/"
+                    href = f"https://{domain}{prefix}{href}"
 
             # Extract date
             date = None
