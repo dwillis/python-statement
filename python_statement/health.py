@@ -24,32 +24,34 @@ class HealthChecker:
 
     # Representative scrapers for quick mode (mix of patterns)
     QUICK_SCRAPERS = [
-        # media_body pattern
+        # media_body (248 scrapers)
         'pelosi', 'scalise', 'jordan', 'neguse', 'waters',
-        # article_block_h2_p_date pattern
-        'murphy', 'durbin', 'cotton', 'ernst', 'hirono',
-        # generic (ArticleBlock)
-        'baldwin', 'schumer', 'grassley',
-        # generic (documentquery)
-        'bacon', 'foxx', 'gosar', 'connolly',
-        # generic (et_pb_post)
-        'budd', 'hagerty', 'lummis',
-        # generic (WordPress)
-        'murray', 'rickscott', 'welch',
-        # generic (jet_listing)
-        'britt', 'fetterman', 'tester', 'tuberville',
-        # generic (table)
-        'barr', 'clarke', 'takano',
-        # generic (CFM table)
-        'bennet', 'hoeven',
-        # table_recordlist_date
-        'moran', 'thune', 'graham',
-        # jet_listing_elementor
-        'timscott', 'cassidy',
-        # element_post_media
+        # generic — article container (82)
+        'bacon', 'gosar', 'slotkin', 'welch',
+        # generic — div.ArticleBlock (23)
+        'baldwin', 'schumer', 'cotton', 'hirono', 'cassidy',
+        # generic — article.et_pb_post (12)
+        'budd', 'hagerty', 'lummis', 'bennet',
+        # generic — .jet-listing-grid__item (7)
+        'britt', 'tuberville',
+        # generic — article.elementor-post (7)
+        'murray', 'fetterman',
+        # generic — article.newsblocker (7)
+        'foxx', 'scanlon',
+        # generic — .views-row (6)
+        'meeks', 'crawford',
+        # generic — other containers
+        'grassley', 'hawley', 'angusking', 'sykes', 'rickscott', 'warner',
+        # table_recordlist_date (32)
+        'moran', 'thune', 'barr', 'graham',
+        # senate_drupal_newscontent (25)
+        'durbin', 'wyden', 'takano',
+        # react (16)
+        'lucas', 'gottheimer',
+        # jet_listing_elementor (3)
+        'timscott',
+        # element_post_media (3)
         'tillis', 'wicker',
-        # Other patterns
-        'angusking', 'sykes', 'meeks', 'hawley', 'vance',
         # Custom methods
         'tokuda', 'joyce', 'cornyn',
     ]
