@@ -1,0 +1,36 @@
+name: Generate Legislators
+
+on:
+  schedule:
+    # Nightly at 2am UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Generate legislators files
+        run: uv run python scripts/generate_legislators.py
+
+      - name: Commit updated legislators files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add legislators_with_scrapers.json legislators_without_scrapers.json
+          git diff --cached --quiet || git commit -m "Update legislators JSON files [skip ci]"
+          git push

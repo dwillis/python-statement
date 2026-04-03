@@ -299,13 +299,19 @@ def print_legislator_summary():
 if __name__ == "__main__":
     # Run summary when executed directly
     print_legislator_summary()
-    
-    # Optionally save to file
+
     import json
     legislators = match_legislators_to_scrapers()
-    
-    output_file = "legislators_with_scrapers.json"
-    with open(output_file, 'w') as f:
-        json.dump(legislators, f, indent=2)
-    
-    print(f"\n✓ Saved {len(legislators)} legislators to {output_file}")
+
+    matched = [leg for leg in legislators if leg.get('scraper_method')]
+    unmatched = [leg for leg in legislators if not leg.get('scraper_method')]
+
+    with_file = "legislators_with_scrapers.json"
+    with open(with_file, 'w') as f:
+        json.dump(matched, f, indent=2)
+    print(f"\n✓ Saved {len(matched)} matched legislators to {with_file}")
+
+    without_file = "legislators_without_scrapers.json"
+    with open(without_file, 'w') as f:
+        json.dump(unmatched, f, indent=2)
+    print(f"✓ Saved {len(unmatched)} unmatched legislators to {without_file}")
