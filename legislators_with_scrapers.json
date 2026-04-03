@@ -30,7 +30,7 @@
     "party": "Independent",
     "url": "https://www.sanders.senate.gov",
     "type": "sen",
-    "scraper_method": "elementor_post_date"
+    "scraper_method": "sanders"
   },
   {
     "bioguide": "W000802",
@@ -74,7 +74,7 @@
     "party": "Republican",
     "url": "https://www.collins.senate.gov",
     "type": "sen",
-    "scraper_method": "article_block_h2_date"
+    "scraper_method": "collins"
   },
   {
     "bioguide": "C001056",
@@ -272,7 +272,7 @@
     "party": "Democrat",
     "url": "https://www.blumenthal.senate.gov",
     "type": "sen",
-    "scraper_method": "article_block_h2_date"
+    "scraper_method": "blumenthal"
   },
   {
     "bioguide": "B001236",
@@ -858,17 +858,6 @@
     "scraper_method": "lofgren"
   },
   {
-    "bioguide": "L000491",
-    "official_full": "Frank D. Lucas",
-    "gender": "M",
-    "state": "OK",
-    "district": 3,
-    "party": "Republican",
-    "url": "https://lucas.house.gov",
-    "type": "rep",
-    "scraper_method": "lucas"
-  },
-  {
     "bioguide": "L000570",
     "official_full": "Ben Ray Luj\u00e1n",
     "gender": "M",
@@ -998,7 +987,7 @@
     "party": "Republican",
     "url": "https://www.murkowski.senate.gov",
     "type": "sen",
-    "scraper_method": "senate_drupal"
+    "scraper_method": "murkowski"
   },
   {
     "bioguide": "M001169",
@@ -1427,7 +1416,7 @@
     "party": "Democrat",
     "url": "https://wassermanschultz.house.gov",
     "type": "rep",
-    "scraper_method": "document_query_new"
+    "scraper_method": "wassermanschultz"
   },
   {
     "bioguide": "W000187",
@@ -1625,7 +1614,7 @@
     "party": "Democrat",
     "url": "https://huffman.house.gov",
     "type": "rep",
-    "scraper_method": "senate_drupal_newscontent"
+    "scraper_method": "huffman"
   },
   {
     "bioguide": "B001287",
@@ -1801,7 +1790,7 @@
     "party": "Republican",
     "url": "https://www.cramer.senate.gov",
     "type": "sen",
-    "scraper_method": "article_block"
+    "scraper_method": "cramer"
   },
   {
     "bioguide": "F000463",
@@ -1900,7 +1889,7 @@
     "party": "Democrat",
     "url": "https://castro.house.gov",
     "type": "rep",
-    "scraper_method": "senate_drupal_newscontent"
+    "scraper_method": "castro"
   },
   {
     "bioguide": "W000816",
@@ -1977,7 +1966,7 @@
     "party": "Democrat",
     "url": "https://www.booker.senate.gov",
     "type": "sen",
-    "scraper_method": "article_block"
+    "scraper_method": "booker"
   },
   {
     "bioguide": "C001101",
@@ -2307,7 +2296,7 @@
     "party": "Republican",
     "url": "https://www.sullivan.senate.gov",
     "type": "sen",
-    "scraper_method": "senate_drupal"
+    "scraper_method": "sullivan"
   },
   {
     "bioguide": "E000295",
@@ -2670,7 +2659,7 @@
     "party": "Democrat",
     "url": "https://gottheimer.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "gottheimer"
   },
   {
     "bioguide": "R000608",
@@ -2703,7 +2692,7 @@
     "party": "Republican",
     "url": "https://fitzpatrick.house.gov",
     "type": "rep",
-    "scraper_method": "recordlist"
+    "scraper_method": "fitzpatrick"
   },
   {
     "bioguide": "S001199",
@@ -2835,7 +2824,7 @@
     "party": "Republican",
     "url": "https://cloud.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "cloud"
   },
   {
     "bioguide": "B001306",
@@ -2846,7 +2835,7 @@
     "party": "Republican",
     "url": "https://balderson.house.gov",
     "type": "rep",
-    "scraper_method": "article_newsblocker"
+    "scraper_method": "balderson"
   },
   {
     "bioguide": "H001082",
@@ -2857,7 +2846,7 @@
     "party": "Republican",
     "url": "https://hern.house.gov",
     "type": "rep",
-    "scraper_method": "document_query_new"
+    "scraper_method": "hern"
   },
   {
     "bioguide": "M001206",
@@ -2890,7 +2879,7 @@
     "party": "Democrat",
     "url": "https://case.house.gov",
     "type": "rep",
-    "scraper_method": "article_newsblocker"
+    "scraper_method": "case"
   },
   {
     "bioguide": "H001066",
@@ -3100,17 +3089,6 @@
     "url": "https://stevens.house.gov",
     "type": "rep",
     "scraper_method": "stevens"
-  },
-  {
-    "bioguide": "T000481",
-    "official_full": "Rashida Tlaib",
-    "gender": "F",
-    "state": "MI",
-    "district": 12,
-    "party": "Democrat",
-    "url": "https://tlaib.house.gov",
-    "type": "rep",
-    "scraper_method": "tlaib"
   },
   {
     "bioguide": "C001119",
@@ -3341,7 +3319,7 @@
     "party": "Democrat",
     "url": "https://fletcher.house.gov",
     "type": "rep",
-    "scraper_method": "document_query_new"
+    "scraper_method": "fletcher"
   },
   {
     "bioguide": "E000299",
@@ -3561,7 +3539,7 @@
     "party": "Democrat",
     "url": "https://www.hickenlooper.senate.gov",
     "type": "sen",
-    "scraper_method": "article_span_published"
+    "scraper_method": "hickenlooper"
   },
   {
     "bioguide": "H000601",
@@ -3693,7 +3671,7 @@
     "party": "Democrat",
     "url": "https://nikemawilliams.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "nikemawilliams"
   },
   {
     "bioguide": "C001116",
@@ -3869,7 +3847,7 @@
     "party": "Democrat",
     "url": "https://ritchietorres.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "ritchietorres"
   },
   {
     "bioguide": "B000740",
@@ -4001,7 +3979,7 @@
     "party": "Republican",
     "url": "https://owens.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "owens"
   },
   {
     "bioguide": "S001159",
@@ -4188,7 +4166,7 @@
     "party": "Republican",
     "url": "https://yakym.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "yakym"
   },
   {
     "bioguide": "Z000018",
@@ -4276,7 +4254,7 @@
     "party": "Independent",
     "url": "https://kiley.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "kiley"
   },
   {
     "bioguide": "M001225",
@@ -4364,7 +4342,7 @@
     "party": "Republican",
     "url": "https://luna.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "luna"
   },
   {
     "bioguide": "L000597",
@@ -4386,7 +4364,7 @@
     "party": "Democrat",
     "url": "https://moskowitz.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "moskowitz"
   },
   {
     "bioguide": "M001218",
@@ -4398,17 +4376,6 @@
     "url": "https://mccormick.house.gov",
     "type": "rep",
     "scraper_method": "mccormick"
-  },
-  {
-    "bioguide": "C001129",
-    "official_full": "Mike Collins",
-    "gender": "M",
-    "state": "GA",
-    "district": 10,
-    "party": "Republican",
-    "url": "https://collins.house.gov",
-    "type": "rep",
-    "scraper_method": "collins"
   },
   {
     "bioguide": "M001219",
@@ -4474,7 +4441,7 @@
     "party": "Democrat",
     "url": "https://budzinski.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "budzinski"
   },
   {
     "bioguide": "S001225",
@@ -4705,7 +4672,7 @@
     "party": "Democrat",
     "url": "https://landsman.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "landsman"
   },
   {
     "bioguide": "M001222",
@@ -4716,7 +4683,7 @@
     "party": "Republican",
     "url": "https://maxmiller.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "maxmiller"
   },
   {
     "bioguide": "S001223",
@@ -4903,7 +4870,7 @@
     "party": "Republican",
     "url": "https://kiggans.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "kiggans"
   },
   {
     "bioguide": "B001318",
@@ -4925,7 +4892,7 @@
     "party": "Democrat",
     "url": "https://gluesenkampperez.house.gov",
     "type": "rep",
-    "scraper_method": "react"
+    "scraper_method": "gluesenkampperez"
   },
   {
     "bioguide": "V000135",
@@ -4958,7 +4925,7 @@
     "party": "Republican",
     "url": "https://www.ricketts.senate.gov",
     "type": "sen",
-    "scraper_method": "jetlisting_h2"
+    "scraper_method": "ricketts"
   },
   {
     "bioguide": "M001227",
@@ -5167,7 +5134,7 @@
     "party": "Democrat",
     "url": "https://ansari.house.gov",
     "type": "rep",
-    "scraper_method": "senate_drupal_newscontent"
+    "scraper_method": "ansari"
   },
   {
     "bioguide": "H001098",
@@ -5905,16 +5872,5 @@
     "url": "https://menefee.house.gov/",
     "type": "rep",
     "scraper_method": "menefee"
-  },
-  {
-    "bioguide": "A000383",
-    "official_full": "Alan Armstrong",
-    "gender": "M",
-    "state": "OK",
-    "district": null,
-    "party": "Republican",
-    "url": "https://www.armstrong.senate.gov",
-    "type": "sen",
-    "scraper_method": null
   }
 ]
