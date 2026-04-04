@@ -22,17 +22,6 @@
     "scraper_method": null
   },
   {
-    "bioguide": "C001129",
-    "official_full": "Mike Collins",
-    "gender": "M",
-    "state": "GA",
-    "district": 10,
-    "party": "Republican",
-    "url": "https://collins.house.gov",
-    "type": "rep",
-    "scraper_method": null
-  },
-  {
     "bioguide": "A000383",
     "official_full": "Alan Armstrong",
     "gender": "M",

@@ -4378,6 +4378,17 @@
     "scraper_method": "mccormick"
   },
   {
+    "bioguide": "C001129",
+    "official_full": "Mike Collins",
+    "gender": "M",
+    "state": "GA",
+    "district": 10,
+    "party": "Republican",
+    "url": "https://collins.house.gov",
+    "type": "rep",
+    "scraper_method": "mikecollins"
+  },
+  {
     "bioguide": "M001219",
     "official_full": "James C. Moylan",
     "gender": "M",
