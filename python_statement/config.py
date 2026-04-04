@@ -182,7 +182,7 @@ SCRAPER_CONFIG = {
     'robertgarcia': {'method': 'media_body', 'url_base': 'https://robertgarcia.house.gov/media/press-releases'},
     'bean': {'method': 'media_body', 'url_base': 'https://bean.house.gov/media/press-releases'},
     'mccormick': {'method': 'media_body', 'url_base': 'https://mccormick.house.gov/media/press-releases'},
-    'collins': {'method': 'media_body', 'url_base': 'https://collins.house.gov/media/press-releases'},
+    'mikecollins': {'method': 'media_body', 'url_base': 'https://collins.house.gov/media/press-releases'},
     'edwards': {'method': 'media_body', 'url_base': 'https://edwards.house.gov/media/press-releases'},
     'kean': {'method': 'media_body', 'url_base': 'https://kean.house.gov/media/press-releases'},
     'goldman': {'method': 'media_body', 'url_base': 'https://goldman.house.gov/media/press-releases'},
