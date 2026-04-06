@@ -207,11 +207,7 @@ class Scraper:
 
             # Make URL absolute
             if not href.startswith('http'):
-                if href.startswith('/'):
-                    href = f"https://{domain}{href}"
-                else:
-                    prefix = url_prefix if url_prefix else "/"
-                    href = f"https://{domain}{prefix}{href}"
+                href = urljoin(url, href)
 
             # Extract date
             date = None
@@ -1182,10 +1178,7 @@ class Scraper:
 
                 # Handle relative URL
                 href = link.get('href')
-                if href.startswith('http'):
-                    full_url = href
-                else:
-                    full_url = f"https://{domain}{href}"
+                full_url = urljoin(url, href)
 
                 result = {
                     'source': url,
@@ -1456,10 +1449,7 @@ class Scraper:
 
                 # Handle relative URL
                 href = link.get('href')
-                if href.startswith('http'):
-                    full_url = href
-                else:
-                    full_url = f"https://{domain}{href}"
+                full_url = urljoin(url, href)
 
                 result = {
                     'source': url,
