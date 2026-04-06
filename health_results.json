@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-31T00:26:24.788915",
+  "timestamp": "2026-04-06T09:36:33.411466",
   "mode": "quick",
   "summary": {
     "total": 47,
@@ -15,7 +15,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1148,
+      "duration_ms": 1494,
       "error": null
     },
     {
@@ -23,7 +23,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 704,
+      "duration_ms": 1033,
       "error": null
     },
     {
@@ -31,7 +31,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1150,
+      "duration_ms": 1486,
       "error": null
     },
     {
@@ -39,7 +39,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 706,
+      "duration_ms": 1122,
       "error": null
     },
     {
@@ -47,7 +47,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 609,
+      "duration_ms": 2171,
       "error": null
     },
     {
@@ -55,7 +55,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 2290,
+      "duration_ms": 5028,
       "error": null
     },
     {
@@ -63,7 +63,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1609,
+      "duration_ms": 1815,
       "error": null
     },
     {
@@ -71,7 +71,7 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "duration_ms": 611,
+      "duration_ms": 2837,
       "error": null
     },
     {
@@ -79,7 +79,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1454,
+      "duration_ms": 1810,
       "error": null
     },
     {
@@ -87,7 +87,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1032,
+      "duration_ms": 1234,
       "error": null
     },
     {
@@ -95,7 +95,7 @@
       "status": "ok",
       "count": 9,
       "has_dates": true,
-      "duration_ms": 1419,
+      "duration_ms": 1174,
       "error": null
     },
     {
@@ -103,7 +103,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1964,
+      "duration_ms": 2450,
       "error": null
     },
     {
@@ -111,7 +111,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 3923,
+      "duration_ms": 3418,
       "error": null
     },
     {
@@ -119,7 +119,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 855,
+      "duration_ms": 1151,
       "error": null
     },
     {
@@ -127,7 +127,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 748,
+      "duration_ms": 832,
       "error": null
     },
     {
@@ -135,7 +135,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 546,
+      "duration_ms": 2884,
       "error": null
     },
     {
@@ -143,7 +143,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 556,
+      "duration_ms": 2795,
       "error": null
     },
     {
@@ -151,7 +151,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 2259,
+      "duration_ms": 2201,
       "error": null
     },
     {
@@ -159,7 +159,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 2439,
+      "duration_ms": 3147,
       "error": null
     },
     {
@@ -167,7 +167,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1206,
+      "duration_ms": 1491,
       "error": null
     },
     {
@@ -175,7 +175,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1123,
+      "duration_ms": 1180,
       "error": null
     },
     {
@@ -183,7 +183,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 768,
+      "duration_ms": 794,
       "error": null
     },
     {
@@ -191,7 +191,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 682,
+      "duration_ms": 2614,
       "error": null
     },
     {
@@ -199,7 +199,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 569,
+      "duration_ms": 584,
       "error": null
     },
     {
@@ -207,7 +207,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 3221,
+      "duration_ms": 3218,
       "error": null
     },
     {
@@ -215,7 +215,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 837,
+      "duration_ms": 773,
       "error": null
     },
     {
@@ -223,7 +223,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 550,
+      "duration_ms": 1368,
       "error": null
     },
     {
@@ -231,7 +231,7 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "duration_ms": 600,
+      "duration_ms": 937,
       "error": null
     },
     {
@@ -239,7 +239,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 747,
+      "duration_ms": 806,
       "error": null
     },
     {
@@ -247,7 +247,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 779,
+      "duration_ms": 823,
       "error": null
     },
     {
@@ -255,7 +255,7 @@
       "status": "no_dates",
       "count": 10,
       "has_dates": false,
-      "duration_ms": 2828,
+      "duration_ms": 2458,
       "error": null
     },
     {
@@ -263,7 +263,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 787,
+      "duration_ms": 779,
       "error": null
     },
     {
@@ -271,7 +271,7 @@
       "status": "ok",
       "count": 15,
       "has_dates": true,
-      "duration_ms": 1410,
+      "duration_ms": 1706,
       "error": null
     },
     {
@@ -279,7 +279,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1166,
+      "duration_ms": 1736,
       "error": null
     },
     {
@@ -287,7 +287,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2513,
+      "duration_ms": 2887,
       "error": null
     },
     {
@@ -295,7 +295,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 890,
+      "duration_ms": 1127,
       "error": null
     },
     {
@@ -303,7 +303,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 823,
+      "duration_ms": 897,
       "error": null
     },
     {
@@ -311,7 +311,7 @@
       "status": "ok",
       "count": 25,
       "has_dates": true,
-      "duration_ms": 1562,
+      "duration_ms": 1418,
       "error": null
     },
     {
@@ -319,7 +319,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1985,
+      "duration_ms": 1639,
       "error": null
     },
     {
@@ -327,7 +327,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 3160,
+      "duration_ms": 625,
       "error": null
     },
     {
@@ -335,7 +335,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 957,
+      "duration_ms": 838,
       "error": null
     },
     {
@@ -343,7 +343,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 2361,
+      "duration_ms": 2840,
       "error": null
     },
     {
@@ -351,7 +351,7 @@
       "status": "ok",
       "count": 25,
       "has_dates": true,
-      "duration_ms": 1097,
+      "duration_ms": 1349,
       "error": null
     },
     {
@@ -359,7 +359,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 660,
+      "duration_ms": 797,
       "error": null
     },
     {
@@ -367,7 +367,7 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "duration_ms": 2293,
+      "duration_ms": 2297,
       "error": null
     },
     {
@@ -375,7 +375,7 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "duration_ms": 1650,
+      "duration_ms": 589,
       "error": null
     },
     {
@@ -383,7 +383,7 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "duration_ms": 1998,
+      "duration_ms": 1614,
       "error": null
     }
   ]
