@@ -207,7 +207,10 @@ class Scraper:
 
             # Make URL absolute
             if not href.startswith('http'):
-                href = urljoin(url, href)
+                if url_prefix and not href.startswith('/'):
+                    href = f"https://{domain}{url_prefix}{href}"
+                else:
+                    href = urljoin(url, href)
 
             # Extract date
             date = None
