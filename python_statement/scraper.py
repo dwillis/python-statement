@@ -81,6 +81,11 @@ class Scraper:
         method_name = config['method']
         url_base = config['url_base']
 
+        # Route 'rss' to Feed.from_rss
+        if method_name == 'rss':
+            from .feed import Feed
+            return Feed.from_rss(url_base)
+
         # Route 'generic' to the universal dispatcher
         if method_name == 'generic':
             return cls.generic_scraper(scraper_name, page)

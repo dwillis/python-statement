@@ -348,7 +348,7 @@ SCRAPER_CONFIG = {
     'emmer': {'method': 'generic', 'url_base': 'https://emmer.house.gov/media-center/press-releases', 'container': '.media-body', 'title_sel': 'div.h3 a', 'date_sel': '.col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
     'foxx': {'method': 'generic', 'url_base': 'https://foxx.house.gov/news/documentquery.aspx', 'container': 'article.newsblocker', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_attr': 'datetime', 'date_fmt': ['%Y-%m-%d'], 'pagination': '?DocumentTypeID=2367&Page={page}', 'url_prefix': '/news/'},
     'gosar': {'method': 'generic', 'url_base': 'https://gosar.house.gov/news/documentquery.aspx', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_attr': 'datetime', 'date_fmt': ['%Y-%m-%d'], 'pagination': '?DocumentTypeID=27&Page={page}', 'url_prefix': '/news/'},
-    'houlahan': {'method': 'generic', 'url_base': 'https://houlahan.house.gov/press/documentquery.aspx', 'container': 'article.newsblocker', 'title_sel': 'strong.title a', 'date_sel': 'span.date', 'pagination': '?Page={page}'},
+    'houlahan': {'method': 'rss', 'url_base': 'https://houlahan.house.gov/news/rss.aspx'},
     'huizenga': {'method': 'generic', 'url_base': 'https://huizenga.house.gov/news/', 'container': 'article.newsblocker', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_attr': 'datetime', 'date_fmt': ['%Y-%m-%d'], 'url_prefix': '/news/'},
     'jasonsmith': {'method': 'generic', 'url_base': 'https://jasonsmith.house.gov/category/press_release/', 'container': 'a.item', 'title_sel': 'h3', 'date_sel': 'span.date', 'date_fmt': ['%B %d, %Y']},
     'larsen': {'method': 'generic', 'url_base': 'https://larsen.house.gov/news/documentquery.aspx', 'container': '.news-texthold', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y'], 'pagination': '?DocumentTypeID=27&Page={page}', 'url_prefix': '/news/'},
@@ -623,7 +623,7 @@ SCRAPER_CONFIG = {
 }
 
 VALID_METHODS = {
-    'generic', 'media_body', 'article_block_h2_p_date',
+    'generic', 'rss', 'media_body', 'article_block_h2_p_date',
     'jet_listing_elementor', 'table_recordlist_date',
     'element_post_media', 'table_time', 'senate_drupal_newscontent',
     'article_block', 'article_block_h2_date', 'article_newsblocker',
