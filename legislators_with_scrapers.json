@@ -1628,17 +1628,6 @@
     "scraper_method": "bera"
   },
   {
-    "bioguide": "S001193",
-    "official_full": "Eric Swalwell",
-    "gender": "M",
-    "state": "CA",
-    "district": 14,
-    "party": "Democrat",
-    "url": "https://swalwell.house.gov",
-    "type": "rep",
-    "scraper_method": "swalwell"
-  },
-  {
     "bioguide": "B001285",
     "official_full": "Julia Brownley",
     "gender": "F",
