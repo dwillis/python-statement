@@ -3927,17 +3927,6 @@
     "scraper_method": "nehls"
   },
   {
-    "bioguide": "G000594",
-    "official_full": "Tony Gonzales",
-    "gender": "M",
-    "state": "TX",
-    "district": 23,
-    "party": "Republican",
-    "url": "https://gonzales.house.gov",
-    "type": "rep",
-    "scraper_method": "gonzales"
-  },
-  {
     "bioguide": "V000134",
     "official_full": "Beth Van Duyne",
     "gender": "F",

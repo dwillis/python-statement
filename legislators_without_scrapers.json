@@ -31,5 +31,16 @@
     "url": "https://www.armstrong.senate.gov",
     "type": "sen",
     "scraper_method": null
+  },
+  {
+    "bioguide": "F000485",
+    "official_full": "Clay Fuller",
+    "gender": "M",
+    "state": "GA",
+    "district": 14,
+    "party": "Republican",
+    "url": "",
+    "type": "rep",
+    "scraper_method": null
   }
 ]
