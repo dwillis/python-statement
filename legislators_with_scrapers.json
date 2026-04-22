@@ -5825,7 +5825,7 @@
     "state": "VA",
     "district": 11,
     "party": "Democrat",
-    "url": "https://walkinshaw.house.gov/",
+    "url": "https://walkinshaw.house.gov",
     "type": "rep",
     "scraper_method": "walkinshaw"
   },
@@ -5836,7 +5836,7 @@
     "state": "AZ",
     "district": 7,
     "party": "Democrat",
-    "url": "https://grijalva.house.gov/",
+    "url": "https://grijalva.house.gov",
     "type": "rep",
     "scraper_method": "grijalva"
   },
@@ -5847,7 +5847,7 @@
     "state": "TN",
     "district": 7,
     "party": "Republican",
-    "url": "https://vanepps.house.gov/",
+    "url": "https://vanepps.house.gov",
     "type": "rep",
     "scraper_method": "vanepps"
   },
@@ -5858,7 +5858,7 @@
     "state": "TX",
     "district": 18,
     "party": "Democrat",
-    "url": "https://menefee.house.gov/",
+    "url": "https://menefee.house.gov",
     "type": "rep",
     "scraper_method": "menefee"
   }
