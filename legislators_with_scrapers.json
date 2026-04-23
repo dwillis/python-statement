@@ -1199,17 +1199,6 @@
     "scraper_method": "austinscott"
   },
   {
-    "bioguide": "S001157",
-    "official_full": "David Scott",
-    "gender": "M",
-    "state": "GA",
-    "district": 13,
-    "party": "Democrat",
-    "url": "https://davidscott.house.gov",
-    "type": "rep",
-    "scraper_method": "davidscott"
-  },
-  {
     "bioguide": "S000185",
     "official_full": "Robert C. \"Bobby\" Scott",
     "gender": "M",
@@ -4090,17 +4079,6 @@
     "url": "https://carey.house.gov",
     "type": "rep",
     "scraper_method": "carey"
-  },
-  {
-    "bioguide": "C001127",
-    "official_full": "Sheila Cherfilus-McCormick",
-    "gender": "F",
-    "state": "FL",
-    "district": 20,
-    "party": "Democrat",
-    "url": "https://cherfilus-mccormick.house.gov",
-    "type": "rep",
-    "scraper_method": "cherfilus-mccormick"
   },
   {
     "bioguide": "F000474",
