@@ -16,3 +16,4 @@
 {"timestamp": "2026-04-23T14:29:29.153845", "mode": "full", "total": 537, "ok": 527, "empty": 5, "no_dates": 5, "errors": 0, "failures": ["baumgartner", "gonzales", "kiggans", "swalwell", "warner"]}
 {"timestamp": "2026-04-27T09:53:15.158019", "mode": "quick", "total": 47, "ok": 45, "empty": 1, "no_dates": 1, "errors": 0, "failures": ["warner"]}
 {"timestamp": "2026-05-04T09:53:57.300227", "mode": "quick", "total": 47, "ok": 45, "empty": 1, "no_dates": 1, "errors": 0, "failures": ["warner"]}
+{"timestamp": "2026-05-06T18:36:13.870307", "mode": "full", "total": 536, "ok": 525, "empty": 6, "no_dates": 5, "errors": 0, "failures": ["cherfilus-mccormick", "davidscott", "gonzales", "justice", "kiggans", "warner"]}
