@@ -73,7 +73,7 @@ SCRAPER_CONFIG = {
     'blackburn': {'method': 'element_post_media', 'url_base': 'https://www.blackburn.senate.gov/news/cc8c80c1-d564-4bbb-93a4-f1d772346ae0'},
 
     # table_time pattern - House sites with table and <time> elements
-    'buchanan': {'method': 'generic', 'url_base': 'https://buchanan.house.gov/press-releases', 'container': 'table.recordList tr', 'title_sel': 'a', 'date_sel': 'td.recordListDate', 'date_fmt': ['%m/%d/%y'], 'pagination': '?page={page}'},
+    'buchanan': {'method': 'generic', 'url_base': 'https://buchanan.house.gov/media/', 'container': 'article', 'title_sel': 'h3 a', 'date_sel': '.post-meta', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
 
     # media_body pattern - House sites with media-body class (200+ members)
     'adriansmith': {'method': 'media_body', 'url_base': 'https://adriansmith.house.gov/media/press-releases'},
@@ -225,7 +225,6 @@ SCRAPER_CONFIG = {
     'ruiz': {'method': 'media_body', 'url_base': 'https://ruiz.house.gov/media-center/press-releases'},
     'sherman': {'method': 'media_body', 'url_base': 'https://sherman.house.gov/media-center/press-releases'},
     'quigley': {'method': 'media_body', 'url_base': 'https://quigley.house.gov/media-center/press-releases'},
-    'swalwell': {'method': 'media_body', 'url_base': 'https://swalwell.house.gov/media-center/press-releases'},
     'panetta': {'method': 'media_body', 'url_base': 'https://panetta.house.gov/media/press-releases'},
     'schneider': {'method': 'media_body', 'url_base': 'https://schneider.house.gov/media/press-releases'},
     'sylviagarcia': {'method': 'media_body', 'url_base': 'https://sylviagarcia.house.gov/media/press-releases'},
@@ -331,7 +330,7 @@ SCRAPER_CONFIG = {
     'mcguire': {'method': 'media_body', 'url_base': 'https://mcguire.house.gov/media/press-releases'},
     'vindman': {'method': 'generic', 'url_base': 'https://vindman.house.gov/category/press-releases/', 'container': 'article.et_pb_post', 'title_sel': 'h3.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y'], 'pagination': 'page/{page}/'},
     'subramanyam': {'method': 'media_body', 'url_base': 'https://subramanyam.house.gov/media/press-releases'},
-    'baumgartner': {'method': 'media_body', 'url_base': 'https://baumgartner.house.gov/media/press-releases'},
+    'baumgartner': {'method': 'generic', 'url_base': 'https://baumgartner.house.gov/category/press-releases/', 'container': 'div.post-list a.item', 'title_sel': '.title', 'date_sel': '.date', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
     'randall': {'method': 'media_body', 'url_base': 'https://randall.house.gov/media/press-releases'},
     'rileymoore': {'method': 'media_body', 'url_base': 'https://rileymoore.house.gov/media/press-releases'},
 
@@ -390,7 +389,7 @@ SCRAPER_CONFIG = {
 
     # CFM table pattern - Senate sites with index.cfm
     'bennet': {'method': 'generic', 'url_base': 'https://www.bennet.senate.gov/news/page/', 'container': 'article.et_pb_post', 'title_sel': 'h3 a', 'date_sel': 'p span.published', 'date_fmt': ['%B %d, %Y', '%b %d, %Y'], 'pagination': '{page}/?et_blog'},
-    'hoeven': {'method': 'senate_drupal_newscontent', 'url_base': 'https://www.hoeven.senate.gov/news/news-releases'},
+    'hoeven': {'method': 'generic', 'url_base': 'https://www.hoeven.senate.gov/newsroom/press-releases', 'container': '.ArticleBlock', 'title_sel': 'h3', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
     'warner': {'method': 'generic', 'url_base': 'https://www.warner.senate.gov/public/index.cfm/pressreleases', 'container': 'article', 'title_sel': 'h1.title a', 'date_sel': 'span.date', 'date_fmt': ['%b %d %Y'], 'pagination': '?page={page}'},
 
     # Other convertible patterns
