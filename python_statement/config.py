@@ -54,7 +54,7 @@ SCRAPER_CONFIG = {
     'hydesmith': {'method': 'generic', 'url_base': 'https://www.hydesmith.senate.gov/newsroom', 'container': '.views-row', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_attr': 'datetime', 'date_fmt': ['%Y-%m-%dT%H:%M:%SZ']},
     'lankford': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.lankford.senate.gov/news/press-releases'},
     'lofgren': {'method': 'generic', 'url_base': 'https://lofgren.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': 'a[rel="bookmark"]', 'pagination': '?page={page}'},
-    'lucas': {'method': 'react', 'url_base': 'lucas.house.gov'},
+    'lucas': {'method': 'react', 'url_base': 'https://lucas.house.gov/press'},
     'merkley': {'method': 'generic', 'url_base': 'https://www.merkley.senate.gov/news/press-releases/', 'container': 'article.elementor-post', 'title_sel': 'h2.elementor-post__title a', 'date_sel': 'span.elementor-post-date', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
     'mikelee': {'method': 'generic', 'url_base': 'https://www.lee.senate.gov/press-releases', 'container': 'div.element', 'title_sel': 'h2.element-title a', 'date_sel': 'h3.element-date', 'date_fmt': ['%b %d, %Y'], 'pagination': '?page={page}'},
     'paul': {'method': 'generic', 'url_base': 'https://www.paul.senate.gov/news/', 'container': 'article.et_pb_post', 'title_sel': 'h2.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y'], 'pagination': 'page/{page}/'},
@@ -357,7 +357,7 @@ SCRAPER_CONFIG = {
     'norcross': {'method': 'generic', 'url_base': 'https://norcross.house.gov/press-releases', 'container': 'div.media-digest-body', 'title_sel': 'a.media-digest-body-link', 'date_sel': 'div.media-digest-header', 'base_domain': 'norcross.house.gov'},
     'schweikert': {'method': 'generic', 'url_base': 'https://schweikert.house.gov/category/congress_press_release/', 'container': 'div.post-content', 'title_sel': 'h2 a', 'date_sel': 'span.date', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
     'titus': {'method': 'generic', 'url_base': 'https://titus.house.gov/news/', 'container': 'article.newsblocker', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_attr': 'datetime', 'date_fmt': ['%Y-%m-%d'], 'url_prefix': '/news/'},
-    'tlaib': {'method': 'react', 'url_base': 'tlaib.house.gov'},
+    'tlaib': {'method': 'react', 'url_base': 'https://tlaib.house.gov/resources/press'},
     'tonko': {'method': 'generic', 'url_base': 'https://tonko.house.gov/news/documentquery.aspx', 'container': '.news-texthold', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y'], 'pagination': '?DocumentTypeID=27&Page={page}', 'url_prefix': '/news/'},
     'trentkelly': {'method': 'generic', 'url_base': 'https://trentkelly.house.gov/newsroom/documentquery.aspx', 'container': 'article', 'title_sel': 'h3', 'link_sel': 'a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y'], 'pagination': '?DocumentTypeID=27&Page={page}', 'url_prefix': '/newsroom/'},
 
