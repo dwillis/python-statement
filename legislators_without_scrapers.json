@@ -1,27 +1,5 @@
 [
   {
-    "bioguide": "L000491",
-    "official_full": "Frank D. Lucas",
-    "gender": "M",
-    "state": "OK",
-    "district": 3,
-    "party": "Republican",
-    "url": "https://lucas.house.gov",
-    "type": "rep",
-    "scraper_method": null
-  },
-  {
-    "bioguide": "T000481",
-    "official_full": "Rashida Tlaib",
-    "gender": "F",
-    "state": "MI",
-    "district": 12,
-    "party": "Democrat",
-    "url": "https://tlaib.house.gov",
-    "type": "rep",
-    "scraper_method": null
-  },
-  {
     "bioguide": "A000383",
     "official_full": "Alan Armstrong",
     "gender": "M",

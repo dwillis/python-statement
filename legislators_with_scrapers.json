@@ -858,6 +858,17 @@
     "scraper_method": "lofgren"
   },
   {
+    "bioguide": "L000491",
+    "official_full": "Frank D. Lucas",
+    "gender": "M",
+    "state": "OK",
+    "district": 3,
+    "party": "Republican",
+    "url": "https://lucas.house.gov",
+    "type": "rep",
+    "scraper_method": "lucas"
+  },
+  {
     "bioguide": "L000570",
     "official_full": "Ben Ray Luj\u00e1n",
     "gender": "M",
@@ -3067,6 +3078,17 @@
     "url": "https://stevens.house.gov",
     "type": "rep",
     "scraper_method": "stevens"
+  },
+  {
+    "bioguide": "T000481",
+    "official_full": "Rashida Tlaib",
+    "gender": "F",
+    "state": "MI",
+    "district": 12,
+    "party": "Democrat",
+    "url": "https://tlaib.house.gov",
+    "type": "rep",
+    "scraper_method": "tlaib"
   },
   {
     "bioguide": "C001119",
