@@ -19,3 +19,4 @@
 {"timestamp": "2026-05-06T18:36:13.870307", "mode": "full", "total": 536, "ok": 525, "empty": 6, "no_dates": 5, "errors": 0, "failures": ["cherfilus-mccormick", "davidscott", "gonzales", "justice", "kiggans", "warner"]}
 {"timestamp": "2026-05-11T10:22:02.770388", "mode": "quick", "total": 47, "ok": 45, "empty": 1, "no_dates": 1, "errors": 0, "failures": ["warner"]}
 {"timestamp": "2026-05-18T10:36:08.569624", "mode": "quick", "total": 47, "ok": 45, "empty": 1, "no_dates": 1, "errors": 0, "failures": ["warner"]}
+{"timestamp": "2026-05-25T10:39:29.589532", "mode": "quick", "total": 47, "ok": 45, "empty": 1, "no_dates": 1, "errors": 0, "failures": ["warner"]}
