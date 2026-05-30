@@ -9,27 +9,5 @@
     "url": "https://www.armstrong.senate.gov",
     "type": "sen",
     "scraper_method": null
-  },
-  {
-    "bioguide": "F000485",
-    "official_full": "Clay Fuller",
-    "gender": "M",
-    "state": "GA",
-    "district": 14,
-    "party": "Republican",
-    "url": "https://fuller.house.gov",
-    "type": "rep",
-    "scraper_method": null
-  },
-  {
-    "bioguide": "M001246",
-    "official_full": "Analilia Mejia",
-    "gender": "F",
-    "state": "NJ",
-    "district": 11,
-    "party": "Democrat",
-    "url": "https://mejia.house.gov",
-    "type": "rep",
-    "scraper_method": null
   }
 ]
