@@ -619,6 +619,10 @@ SCRAPER_CONFIG = {
 
     # joyce - React/Next.js (same as react pattern)
     'joyce': {'method': 'joyce', 'url_base': 'https://joyce.house.gov/press'},
+
+    # New members (2026) - media_body pattern
+    'fuller': {'method': 'media_body', 'url_base': 'https://fuller.house.gov/media/press-releases'},
+    'mejia': {'method': 'media_body', 'url_base': 'https://mejia.house.gov/media/press-releases'},
 }
 
 VALID_METHODS = {
