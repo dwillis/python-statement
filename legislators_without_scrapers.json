@@ -9,5 +9,16 @@
     "url": "https://www.armstrong.senate.gov",
     "type": "sen",
     "scraper_method": null
+  },
+  {
+    "bioguide": "G000607",
+    "official_full": "James Gallagher",
+    "gender": "M",
+    "state": "CA",
+    "district": 1,
+    "party": "Republican",
+    "url": "",
+    "type": "rep",
+    "scraper_method": null
   }
 ]
