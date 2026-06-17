@@ -156,6 +156,7 @@ class Scraper:
         max_results = config.get('max_results')
         skip_first = config.get('skip_first', 0)
         date_from_next_sibling = config.get('date_from_next_sibling', False)
+        date_sel_join = config.get('date_sel_join', False)
         url_prefix = config.get('url_prefix', '')
         page_offset = config.get('page_offset', 0)
         date_regex = config.get('date_regex')
@@ -219,7 +220,17 @@ class Scraper:
 
             # Extract date
             date = None
-            if date_sel:
+            if date_sel and date_sel_join:
+                date_elems = container.select(date_sel)
+                if date_elems:
+                    date_text = ' '.join(el.text.strip() for el in date_elems)
+                    if date_text:
+                        date = Utils.parse_date(date_text, date_fmts)
+                        if date is None and date_fmts:
+                            date_text_with_year = date_text + ', ' + str(datetime.date.today().year)
+                            fmts_with_year = [f + ', %Y' for f in date_fmts]
+                            date = Utils.parse_date(date_text_with_year, fmts_with_year)
+            elif date_sel:
                 date_elem = container.select_one(date_sel)
                 if date_elem:
                     date_text = None

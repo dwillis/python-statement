@@ -7,7 +7,7 @@ SCRAPER_CONFIG = {
     # table_recordlist_date pattern - Senate sites with table.recordListDate
     'moran': {'method': 'table_recordlist_date', 'url_base': 'https://www.moran.senate.gov/public/index.cfm/news-releases'},
     'boozman': {'method': 'table_recordlist_date', 'url_base': 'https://www.boozman.senate.gov/public/index.cfm/press-releases'},
-    'thune': {'method': 'table_recordlist_date', 'url_base': 'https://www.thune.senate.gov/public/index.cfm/press-releases'},
+    'thune': {'method': 'generic', 'url_base': 'https://www.thune.senate.gov/news/press-releases/', 'container': 'a.news-item', 'title_sel': 'h3', 'date_sel': 'time', 'date_sel_join': True, 'date_fmt': ['%b %d'], 'pagination': '?e-page-b9709a3={page}'},
     'barrasso': {'method': 'generic', 'url_base': 'https://www.barrasso.senate.gov/newsroom/news-releases/', 'container': 'article.elementor-post', 'title_sel': 'h3 a', 'date_sel': 'span.elementor-post-date', 'date_fmt': ['%B %d, %Y'], 'pagination': '{page}/'},
     'graham': {'method': 'table_recordlist_date', 'url_base': 'https://www.lgraham.senate.gov/public/index.cfm/press-releases'},
     'klobuchar': {'method': 'table_recordlist_date', 'url_base': 'https://www.klobuchar.senate.gov/public/index.cfm/news-releases'},
@@ -455,7 +455,7 @@ SCRAPER_CONFIG = {
     'lynch': {'method': 'table_recordlist_date', 'url_base': 'https://lynch.house.gov/press-releases'},
     'maloy': {'method': 'generic', 'url_base': 'https://maloy.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'massie': {'method': 'generic', 'url_base': 'https://massie.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
-    'mcbath': {'method': 'table_recordlist_date', 'url_base': 'https://mcbath.house.gov/press-releases'},
+    'mcbath': {'method': 'generic', 'url_base': 'https://mcbath.house.gov/category/press-releases/', 'container': 'article.et_pb_post', 'title_sel': 'h3.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/?et_blog'},
     'mcclain': {'method': 'table_recordlist_date', 'url_base': 'https://mcclain.house.gov/press-releases'},
     'menefee': {'method': 'generic', 'url_base': 'https://menefee.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': '.media-body a', 'date_sel': '.media-body .col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
     'messmer': {'method': 'generic', 'url_base': 'https://messmer.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
@@ -486,7 +486,7 @@ SCRAPER_CONFIG = {
     'timkennedy': {'method': 'generic', 'url_base': 'https://kennedy.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'timmons': {'method': 'generic', 'url_base': 'https://timmons.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'trahan': {'method': 'generic', 'url_base': 'https://trahan.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
-    'turner': {'method': 'table_recordlist_date', 'url_base': 'https://turner.house.gov/press-releases'},
+    'turner': {'method': 'media_body', 'url_base': 'https://turner.house.gov/media-center/press-releases'},
     'valadao': {'method': 'generic', 'url_base': 'https://valadao.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'vandrew': {'method': 'generic', 'url_base': 'https://vandrew.house.gov/media/press-releases', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'vanduyne': {'method': 'table_recordlist_date', 'url_base': 'https://vanduyne.house.gov/press-releases'},
@@ -611,8 +611,7 @@ SCRAPER_CONFIG = {
     # fischer - Senate table-based
     'fischer': {'method': 'table_recordlist_date', 'url_base': 'https://www.fischer.senate.gov/public/index.cfm/press-releases'},
 
-    # clark - House table-based
-    'clark': {'method': 'table_recordlist_date', 'url_base': 'https://katherineclark.house.gov/press-releases'},
+    'clark': {'method': 'generic', 'url_base': 'https://katherineclark.house.gov/newsroom/', 'container': 'article.et_pb_post', 'title_sel': '.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y'], 'pagination': 'page/{page}/'},
 
     # joyce - React/Next.js (same as react pattern)
     'joyce': {'method': 'joyce', 'url_base': 'https://joyce.house.gov/press'},
@@ -634,9 +633,9 @@ VALID_METHODS = {
 
 VALID_GENERIC_KEYS = {
     'method', 'url_base', 'container', 'title_sel', 'date_sel',
-    'date_fmt', 'date_attr', 'date_from_next_sibling', 'pagination',
-    'url_prefix', 'skip_first', 'link_sel', 'link_attr', 'base_domain',
-    'max_results', 'page_offset', 'date_regex',
+    'date_fmt', 'date_attr', 'date_from_next_sibling', 'date_sel_join',
+    'pagination', 'url_prefix', 'skip_first', 'link_sel', 'link_attr',
+    'base_domain', 'max_results', 'page_offset', 'date_regex',
 }
 
 VALID_BATCH_KEYS = {'method', 'url_base'}
