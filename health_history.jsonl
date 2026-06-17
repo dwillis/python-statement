@@ -23,3 +23,4 @@
 {"timestamp": "2026-06-01T10:51:50.081398", "mode": "quick", "total": 47, "ok": 45, "empty": 1, "no_dates": 1, "errors": 0, "failures": ["warner"]}
 {"timestamp": "2026-06-08T10:42:18.863449", "mode": "quick", "total": 47, "ok": 45, "empty": 1, "no_dates": 1, "errors": 0, "failures": ["warner"]}
 {"timestamp": "2026-06-15T11:13:50.750088", "mode": "quick", "total": 47, "ok": 44, "empty": 2, "no_dates": 1, "errors": 0, "failures": ["thune", "warner"]}
+{"timestamp": "2026-06-17T15:49:38.229668", "mode": "full", "total": 535, "ok": 518, "empty": 13, "no_dates": 4, "errors": 0, "failures": ["clark", "crow", "fuller", "himes", "justice", "kiggans", "loudermilk", "mcbath", "mejia", "ronjohnson", "thune", "turner", "warner"]}
