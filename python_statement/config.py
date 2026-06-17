@@ -139,7 +139,7 @@ SCRAPER_CONFIG = {
     'harris': {'method': 'media_body', 'url_base': 'https://harris.house.gov/media/press-releases'},
     'wagner': {'method': 'media_body', 'url_base': 'https://wagner.house.gov/media-center/press-releases'},
     'pappas': {'method': 'media_body', 'url_base': 'https://pappas.house.gov/media/press-releases'},
-    'crow': {'method': 'media_body', 'url_base': 'https://crow.house.gov/media/press-releases'},
+    'crow': {'method': 'media_body', 'url_base': 'https://crow.house.gov/news'},
     'chuygarcia': {'method': 'media_body', 'url_base': 'https://chuygarcia.house.gov/media/press-releases'},
     'omar': {'method': 'media_body', 'url_base': 'https://omar.house.gov/media/press-releases'},
     'underwood': {'method': 'media_body', 'url_base': 'https://underwood.house.gov/media/press-releases'},
@@ -617,8 +617,8 @@ SCRAPER_CONFIG = {
     'joyce': {'method': 'joyce', 'url_base': 'https://joyce.house.gov/press'},
 
     # New members (2026) - media_body pattern
-    'fuller': {'method': 'media_body', 'url_base': 'https://fuller.house.gov/media/press-releases'},
-    'mejia': {'method': 'media_body', 'url_base': 'https://mejia.house.gov/media/press-releases'},
+    'fuller': {'method': 'generic', 'url_base': 'https://fuller.house.gov/media/press-releases', 'container': '.media-body', 'title_sel': 'a', 'date_sel': '.row .col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
+    'mejia': {'method': 'generic', 'url_base': 'https://mejia.house.gov/media/press-releases', 'container': '.media-body', 'title_sel': 'a', 'date_sel': '.row .col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
 }
 
 VALID_METHODS = {
