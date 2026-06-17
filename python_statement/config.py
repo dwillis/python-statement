@@ -601,7 +601,7 @@ SCRAPER_CONFIG = {
     'landsman': {'method': 'react', 'url_base': 'https://landsman.house.gov/press'},
     'moskowitz': {'method': 'react', 'url_base': 'https://moskowitz.house.gov/press'},
     'gottheimer': {'method': 'react', 'url_base': 'https://gottheimer.house.gov/press'},
-    'kiggans': {'method': 'react', 'url_base': 'https://kiggans.house.gov/press'},
+    'kiggans': {'method': 'rss', 'url_base': 'https://kiggans.house.gov/feed/'},
     'luna': {'method': 'react', 'url_base': 'https://luna.house.gov/press'},
     'maxmiller': {'method': 'react', 'url_base': 'https://maxmiller.house.gov/press'},
 
