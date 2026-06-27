@@ -40,7 +40,7 @@ def test_media_body_scraper():
         print(f"[{idx}/{len(all_urls)}] Processing: {url}")
         try:
             # Try to scrape the URL
-            results = Scraper.media_body(urls=[url], page=0)
+            results = Scraper.media_body(urls=[url], page=1)
             
             if results:
                 num_results = len(results)

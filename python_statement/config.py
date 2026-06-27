@@ -624,10 +624,10 @@ SCRAPER_CONFIG = {
 VALID_METHODS = {
     'generic', 'rss', 'media_body', 'article_block_h2_p_date',
     'jet_listing_elementor', 'table_recordlist_date',
-    'element_post_media', 'table_time', 'senate_drupal_newscontent',
+    'element_post_media', 'senate_drupal_newscontent',
     'article_block', 'article_block_h2_date', 'article_newsblocker',
     'article_span_published', 'document_query_new', 'elementor_post_date',
-    'jetlisting_h2', 'recordlist', 'senate_drupal', 'react',
+    'jetlisting_h2', 'senate_drupal', 'react',
     'tokuda', 'cornyn', 'joyce',
 }
 

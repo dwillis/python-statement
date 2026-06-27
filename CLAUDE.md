@@ -123,7 +123,6 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
 3. **jet_listing_elementor** (scraper.py:1294) — 13 Senate sites using WordPress/Elementor
 4. **table_recordlist_date** (scraper.py:1208) — 5 Senate sites with table/`td.recordListDate`
 5. **element_post_media** (scraper.py:1581) — 3 Senate sites with custom element layout
-6. **table_time** (scraper.py:1503) — House sites with table and `<time>` elements
 
 ### Data Flow
 

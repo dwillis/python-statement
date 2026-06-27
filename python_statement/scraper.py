@@ -108,7 +108,7 @@ class Scraper:
             else:
                 return method([domain])
         else:
-            # Methods with no urls/domains param (e.g., cornyn, fischer, clark)
+            # Methods with no urls/domains param (e.g., cornyn, joyce)
             if 'page' in sig.parameters:
                 return method(page=page)
             else:
@@ -444,7 +444,7 @@ class Scraper:
         return results
 
     @classmethod
-    def media_body(cls, urls=None, page=0):
+    def media_body(cls, urls=None, page=1):
         """
         Scrape press releases from websites with media-body class.
         
@@ -461,10 +461,11 @@ class Scraper:
             ]
         
         for url in urls:
-            print(url)
             parsed_url = urlparse(url)
             domain = parsed_url.netloc
-            source_url = f"{url}?page={page}"
+            # These sites are 0-indexed (?page=0 is the latest page), but the
+            # project convention is page=1 for the first page. Map accordingly.
+            source_url = f"{url}?page={page - 1}"
             doc = cls.open_html(source_url)
             if not doc:
                 continue
@@ -706,59 +707,6 @@ class Scraper:
                 'party': "majority"
             }
             results.append(result)
-        
-        return results
-    
-    @classmethod
-    def recordlist(cls, urls=None, page=1):
-        """Scrape press releases from websites with recordList table."""
-        results = []
-        if urls is None:
-            urls = [
-                "https://emmer.house.gov/press-releases",
-                "https://fitzpatrick.house.gov/press-releases",
-                # ... other URLs
-            ]
-        
-        for url in urls:
-            print(url)
-            parsed_url = urlparse(url)
-            domain = parsed_url.netloc
-            source_url = f"{url}?page={page}"
-            
-            doc = cls.open_html(source_url)
-            if not doc:
-                continue
-                
-            rows = doc.select("table.table.recordList tr")[1:]  # Skip header row
-            for row in rows:
-                # Skip if it's a header row
-                if row.select_one('td') and row.select_one('td').text.strip() == 'Title':
-                    continue
-                
-                # Find title cell and link
-                title_cell = row.find_all('td')[2] if len(row.find_all('td')) > 2 else None
-                if not title_cell:
-                    continue
-                    
-                link = title_cell.select_one('a')
-                if not link:
-                    continue
-                    
-                # Find date cell
-                date_cell = row.find_all('td')[0] if len(row.find_all('td')) > 0 else None
-                date = None
-                if date_cell:
-                    date = Utils.parse_date(date_cell.text.strip(), ["%m/%d/%y", "%B %d, %Y"])
-                
-                result = {
-                    'source': url,
-                    'url': f"https://{domain}{link.get('href')}",
-                    'title': title_cell.text.strip(),
-                    'date': date,
-                    'domain': domain
-                }
-                results.append(result)
         
         return results
     
@@ -1414,74 +1362,6 @@ class Scraper:
         return results
 
     @classmethod
-    def table_time(cls, urls=None, page=1):
-        """
-        Scrape press releases from websites with simple table tr structure and time element.
-
-        This pattern is used by House sites that display press releases in a table
-        with a time element for dates.
-
-        Args:
-            urls: List of URLs to scrape (default: None)
-            page: Page number for pagination (default: 1)
-
-        Returns:
-            List of dictionaries with keys: source, url, title, date, domain
-
-        Example URLs:
-            - https://barr.house.gov/media-center/press-releases (barr)
-        """
-        results = []
-        if urls is None:
-            urls = []
-
-        for url in urls:
-            parsed_url = urlparse(url)
-            domain = parsed_url.netloc
-            source_url = f"{url}{'&' if '?' in url else '?'}page={page}"
-
-            doc = cls.open_html(source_url)
-            if not doc:
-                continue
-
-            # Skip first row (header)
-            rows = doc.select("table tr")[1:]
-
-            for row in rows:
-                link = row.select_one("td a") or row.select_one("a")
-                if not link:
-                    continue
-
-                time_elem = row.select_one("time")
-                date = None
-
-                if time_elem:
-                    # Try datetime attribute first
-                    date_text = time_elem.get('datetime') or time_elem.text.strip()
-
-                    date = Utils.parse_date(date_text, [
-                        "%m/%d/%y",      # 01/15/24
-                        "%m/%d/%Y",      # 01/15/2024
-                        "%Y-%m-%d",      # 2024-01-15
-                        "%B %d, %Y",     # January 15, 2024
-                    ])
-
-                # Handle relative URL
-                href = link.get('href')
-                full_url = urljoin(url, href)
-
-                result = {
-                    'source': url,
-                    'url': full_url,
-                    'title': link.text.strip(),
-                    'date': date,
-                    'domain': domain
-                }
-                results.append(result)
-
-        return results
-
-    @classmethod
     def element_post_media(cls, urls=None, page=1):
         """
         Scrape press releases from websites with .element class and post-media-list structure.
@@ -1636,106 +1516,6 @@ class Scraper:
         return results
     
     @classmethod
-    def fischer(cls, page=1):
-        """Scrape Senator Fischer's press releases."""
-        results = []
-        url = f"https://www.fischer.senate.gov/public/index.cfm/press-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("tr")[2:]  # Skip header rows
-        for row in rows:
-            cells = row.find_all('td')
-            if len(cells) < 4 or cells[2].text.strip()[:4] == "Date":
-                continue
-                
-            link = cells[2].select_one('a')
-            if not link:
-                continue
-                
-            date = Utils.parse_date(cells[0].text.strip(), ["%m/%d/%y"])
-
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': cells[2].text.strip(),
-                'date': date,
-                'domain': "www.fischer.senate.gov"
-            }
-            results.append(result)
-        
-        return results
-    
-    
-    @classmethod
-    def kennedy(cls, page=1):
-        """Scrape Senator Kennedy's press releases."""
-        results = []
-        url = f"https://www.kennedy.senate.gov/public/press-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("table.table.recordList tr")[1:]
-        for row in rows:
-            cells = row.find_all('td')
-            if len(cells) < 4 or cells[2].text.strip() == 'Title':
-                continue
-                
-            link = cells[2].select_one('a')
-            if not link:
-                continue
-                
-            date = Utils.parse_date(cells[0].text.strip(), ["%m/%d/%y"])
-
-            result = {
-                'source': url,
-                'url': f"https://www.kennedy.senate.gov{link.get('href')}",
-                'title': cells[2].text.strip(),
-                'date': date,
-                'domain': "www.kennedy.senate.gov"
-            }
-            results.append(result)
-        
-        return results
-
-    
-    @classmethod
-    def clark(cls, page=1):
-        """Scrape Congresswoman Katherine Clark's press releases."""
-        results = []
-        domain = 'katherineclark.house.gov'
-        url = f"https://katherineclark.house.gov/press-releases?page={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select('tr')[1:]
-        for row in rows:
-            cells = row.find_all('td')
-            if len(cells) < 4 or cells[0].text.strip() == 'Date':
-                continue
-                
-            link = cells[2].select_one('a')
-            if not link:
-                continue
-                
-            date = Utils.parse_date(cells[0].text.strip(), ["%m/%d/%y"])
-            
-            result = {
-                'source': url,
-                'url': f"https://katherineclark.house.gov{link.get('href')}",
-                'title': cells[2].text.strip(),
-                'date': date,
-                'domain': domain
-            }
-            results.append(result)
-        
-        return results
-    
-    
-    @classmethod
     def joyce(cls):
         """Scrape Congressman Joyce's press releases."""
         results = []
@@ -1871,81 +1651,6 @@ class Scraper:
             }
             results.append(result)
         
-        return results
-    
-    @classmethod
-    def house_title_header(cls, urls=None, page=1):
-        """Scrape House press releases with title-header class."""
-        if urls is None:
-            urls = []
-        
-        results = []
-        for url in urls:
-            source_url = f"{url}?page={page}"
-            doc = cls.open_html(source_url)
-            if not doc:
-                continue
-                
-            domain = urlparse(url).netloc
-            rows = doc.select("tr")[1:]
-            for row in rows:
-                link = row.select_one("td a")
-                if not link:
-                    continue
-                date_elem = row.select_one("time")
-                date = None
-                if date_elem:
-                    date = Utils.parse_date(date_elem.text.strip(), ["%m/%d/%y"])
-
-                result = {
-                    'source': source_url,
-                    'url': f"https://{domain}{link.get('href')}",
-                    'title': link.text.strip(),
-                    'date': date,
-                    'domain': domain
-                }
-                results.append(result)
-
-        return results
-
-    @classmethod
-    def media_digest(cls, urls=None, page=1):
-        """Scrape House press releases with media digest pattern."""
-        if urls is None:
-            urls = []
-        
-        results = []
-        for url in urls:
-            source_url = f"{url}?page={page}"
-            doc = cls.open_html(source_url)
-            if not doc:
-                continue
-                
-            domain = urlparse(url).netloc
-            rows = doc.select(".views-row")
-            for row in rows:
-                link = row.select_one("a")
-                if not link:
-                    continue
-                date_elem = row.select_one("time")
-                date = None
-                if date_elem:
-                    date_attr = date_elem.get('datetime')
-                    if date_attr:
-                        try:
-                            date = datetime.datetime.fromisoformat(date_attr.replace('Z', '+00:00')).date()
-                        except ValueError:
-                            pass
-                
-                result = {
-                    'source': source_url,
-                    'url': f"https://{domain}{link.get('href')}",
-                    'title': link.text.strip(),
-                    'date': date,
-                    'domain': domain
-                }
-                results.append(result)
-
         return results
 
 
