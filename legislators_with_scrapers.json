@@ -99,17 +99,6 @@
     "scraper_method": "durbin"
   },
   {
-    "bioguide": "G000359",
-    "official_full": "Lindsey Graham",
-    "gender": "M",
-    "state": "SC",
-    "district": null,
-    "party": "Republican",
-    "url": "https://www.lgraham.senate.gov/public",
-    "type": "sen",
-    "scraper_method": "graham"
-  },
-  {
     "bioguide": "M000355",
     "official_full": "Mitch McConnell",
     "gender": "M",
