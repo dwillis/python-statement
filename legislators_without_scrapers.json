@@ -31,5 +31,16 @@
     "url": "",
     "type": "rep",
     "scraper_method": null
+  },
+  {
+    "bioguide": "G000608",
+    "official_full": "Darline Graham",
+    "gender": "F",
+    "state": "SC",
+    "district": null,
+    "party": "Republican",
+    "url": "https://www.dgraham.senate.gov",
+    "type": "sen",
+    "scraper_method": null
   }
 ]
