@@ -164,7 +164,7 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
 - `member_methods()` — Returns sorted list of all scraper names (strings) from SCRAPER_CONFIG
 
 **HealthChecker class (health.py):**
-- `check_scraper(name)` — Test a single scraper, returns status dict
+- `check_scraper(name)` — Test a single scraper, returns status dict including `latest_date` (ISO string of the most recent release, or `None`)
 - `run(mode, max_workers, verbose)` — Run health checks (quick or full)
 - `save_report(report, path)` — Save results to JSON
 
