@@ -99,6 +99,8 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
 
     enrich_results(results)
 
+    stale_count = sum(1 for r in results if r.get("is_stale"))
+
     # Build missing members table rows
     missing_rows_html = []
     for leg in sorted(unmatched_legislators, key=lambda l: (l["type"], l["state"], l["official_full"])):
@@ -147,6 +149,12 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
         method = html.escape(r["config_method"])
         url_base = r["url_base"]
         error = r.get("error", "")
+        latest_date = r.get("latest_date") or ""
+        days_since = r.get("days_since")
+        days_since_cell = str(days_since) if days_since is not None else ""
+        stale_badge = (
+            ' <span class="badge badge-stale">stale</span>' if r.get("is_stale") else ""
+        )
 
         url_cell = (
             f'<a href="{html.escape(url_base)}" target="_blank" rel="noopener">'
@@ -167,11 +175,13 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
         error_attr = f' title="{html.escape(error)}"' if error else ""
 
         rows_html.append(
-            f"<tr>"
+            f'<tr data-status="{status}" data-stale="{"1" if r.get("is_stale") else "0"}">'
             f"<td>{name}</td>"
-            f'<td><span class="badge {badge_cls}"{error_attr}>{status}</span></td>'
+            f'<td><span class="badge {badge_cls}"{error_attr}>{status}</span>{stale_badge}</td>'
             f"<td>{count}</td>"
             f"<td>{duration}</td>"
+            f"<td>{html.escape(latest_date)}</td>"
+            f"<td>{days_since_cell}</td>"
             f"<td>{method}</td>"
             f'<td class="url-cell">{url_cell}</td>'
             f"<td>{action_cell}</td>"
@@ -215,6 +225,7 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
   .stat-card.error .value {{ color: #d63031; }}
   .stat-card.rate .value {{ color: #0984e3; }}
   .stat-card.missing .value {{ color: #6c5ce7; }}
+  .stat-card.stale .value {{ color: #e09a00; }}
   .chart-container {{ background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 24px; max-width: 800px; }}
   .controls {{ display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }}
   .controls input {{ padding: 8px 12px; border: 1px solid #dfe6e9; border-radius: 6px; font-size: 0.9rem; width: 250px; }}
@@ -229,6 +240,7 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
   .badge-empty {{ background: #fdcb6e22; color: #e09a00; }}
   .badge-nodates {{ background: #e1705522; color: #e17055; }}
   .badge-error {{ background: #d6303122; color: #d63031; }}
+  .badge-stale {{ background: #fdcb6e22; color: #e09a00; margin-left: 4px; }}
   .badge-senate {{ background: #6c5ce722; color: #6c5ce7; }}
   .badge-house {{ background: #0984e322; color: #0984e3; }}
   .btn-issue {{ display: inline-block; padding: 4px 10px; background: #0984e3; color: #fff; border-radius: 4px; font-size: 0.8rem; text-decoration: none; white-space: nowrap; }}
@@ -259,6 +271,7 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
   <div class="stat-card nodates"><div class="label">No Dates</div><div class="value">{summary["no_dates"]}</div></div>
   <div class="stat-card error"><div class="label">Errors</div><div class="value">{summary["errors"]}</div></div>
   <div class="stat-card rate"><div class="label">Success Rate</div><div class="value">{summary["success_rate"]}%</div></div>
+  <div class="stat-card stale"><div class="label">Stale</div><div class="value">{stale_count}</div></div>
 </div>
 
 {"" if not has_history else '''
@@ -275,6 +288,7 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
     <option value="empty">Empty</option>
     <option value="no_dates">No Dates</option>
     <option value="error">Error</option>
+    <option value="stale">Stale (30+ days)</option>
   </select>
   <span class="count-display" id="countDisplay"></span>
 </div>
@@ -286,7 +300,9 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
       <th data-col="1">Status</th>
       <th data-col="2">Count</th>
       <th data-col="3">Duration (ms)</th>
-      <th data-col="4">Method</th>
+      <th data-col="4">Latest Release</th>
+      <th data-col="5">Days Since</th>
+      <th data-col="6">Method</th>
       <th>URL</th>
       <th>Actions</th>
     </tr>
@@ -370,7 +386,7 @@ table.querySelectorAll('th[data-col]').forEach(th => {{
     rows.sort((a, b) => {{
       let va = a.children[col].textContent.trim();
       let vb = b.children[col].textContent.trim();
-      if (col >= 2 && col <= 3) {{ va = parseInt(va) || 0; vb = parseInt(vb) || 0; return sortAsc ? va - vb : vb - va; }}
+      if ((col >= 2 && col <= 3) || col === 5) {{ va = parseInt(va) || 0; vb = parseInt(vb) || 0; return sortAsc ? va - vb : vb - va; }}
       return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
     }});
     rows.forEach(r => tbody.appendChild(r));
@@ -389,9 +405,10 @@ function applyFilters() {{
   let visible = 0;
   rows.forEach(row => {{
     const name = row.children[0].textContent.toLowerCase();
-    const rowStatus = row.children[1].textContent.trim();
+    const rowStatus = row.dataset.status;
+    const rowStale = row.dataset.stale === '1';
     const matchName = !search || name.includes(search);
-    const matchStatus = !status || rowStatus === status;
+    const matchStatus = !status || (status === 'stale' ? rowStale : rowStatus === status);
     row.classList.toggle('hidden', !(matchName && matchStatus));
     if (matchName && matchStatus) visible++;
   }});
