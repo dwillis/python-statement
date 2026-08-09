@@ -86,11 +86,8 @@ class HealthChecker:
                 return result
 
             result['count'] = len(data)
-            result['has_dates'] = any(
-                item.get('date') is not None for item in data
-            )
-
             dates = [item['date'] for item in data if item.get('date') is not None]
+            result['has_dates'] = bool(dates)
             if dates:
                 result['latest_date'] = max(dates).isoformat()
 
