@@ -70,6 +70,7 @@ class HealthChecker:
             'status': 'ok',
             'count': 0,
             'has_dates': False,
+            'latest_date': None,
             'duration_ms': 0,
             'error': None,
         }
@@ -88,6 +89,10 @@ class HealthChecker:
             result['has_dates'] = any(
                 item.get('date') is not None for item in data
             )
+
+            dates = [item['date'] for item in data if item.get('date') is not None]
+            if dates:
+                result['latest_date'] = max(dates).isoformat()
 
             if not result['has_dates']:
                 result['status'] = 'no_dates'
