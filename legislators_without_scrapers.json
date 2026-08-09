@@ -1,5 +1,16 @@
 [
   {
+    "bioguide": "K000393",
+    "official_full": "John Kennedy",
+    "gender": "M",
+    "state": "LA",
+    "district": null,
+    "party": "Republican",
+    "url": "https://www.kennedy.senate.gov/public",
+    "type": "sen",
+    "scraper_method": null
+  },
+  {
     "bioguide": "A000383",
     "official_full": "Alan Armstrong",
     "gender": "M",
@@ -19,6 +30,17 @@
     "party": "Republican",
     "url": "",
     "type": "rep",
+    "scraper_method": null
+  },
+  {
+    "bioguide": "G000608",
+    "official_full": "Darline Graham",
+    "gender": "F",
+    "state": "SC",
+    "district": null,
+    "party": "Republican",
+    "url": "https://www.dgraham.senate.gov",
+    "type": "sen",
     "scraper_method": null
   }
 ]
