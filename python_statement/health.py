@@ -62,7 +62,7 @@ class HealthChecker:
         Run a health check on a single scraper.
 
         Returns dict with: name, status ('ok'|'error'|'empty'|'no_dates'),
-        count, has_dates, duration_ms, error
+        count, has_dates, latest_date, duration_ms, error
         """
         start = time.time()
         result = {
