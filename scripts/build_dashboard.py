@@ -6,6 +6,7 @@ Reads health check data and scraper config, produces docs/index.html
 for deployment on GitHub Pages.
 """
 
+import datetime
 import html
 import json
 import os
@@ -54,12 +55,20 @@ def load_legislators(path):
 
 
 def enrich_results(results):
-    """Add url_base and method from SCRAPER_CONFIG to each result."""
+    """Add url_base/method from config, plus staleness fields, to each result."""
+    today = datetime.date.today()
     for r in results:
         name = r["name"]
         cfg = SCRAPER_CONFIG.get(name, {})
         r["url_base"] = cfg.get("url_base", "")
         r["config_method"] = cfg.get("method", "custom")
+
+        latest_date = r.get("latest_date")
+        days_since = None
+        if latest_date:
+            days_since = (today - datetime.date.fromisoformat(latest_date)).days
+        r["days_since"] = days_since
+        r["is_stale"] = r.get("status") == "ok" and days_since is not None and days_since >= 30
 
 
 def issue_url(name, status, url_base, error):
