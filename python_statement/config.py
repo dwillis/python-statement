@@ -494,7 +494,7 @@ SCRAPER_CONFIG = {
     'walkinshaw': {'method': 'generic', 'url_base': 'https://walkinshaw.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'weber': {'method': 'generic', 'url_base': 'https://weber.house.gov/news/documentquery.aspx?DocumentTypeID=27', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '&Page={page}'},
     'webster': {'method': 'table_recordlist_date', 'url_base': 'https://webster.house.gov/press-releases'},
-    'wittman': {'method': 'generic', 'url_base': 'https://wittman.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
+    'wittman': {'method': 'generic', 'url_base': 'https://wittman.house.gov/newsroom/press-releases', 'container': '.views-row', 'title_sel': '.h3 a', 'date_sel': '.col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
     'womack': {'method': 'generic', 'url_base': 'https://womack.house.gov/news', 'container': 'article', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y', '%Y-%m-%d'], 'pagination': '?page={page}'},
     'youngkim': {'method': 'generic', 'url_base': 'https://youngkim.house.gov/media/press-releases/', 'container': '.et_pb_post', 'title_sel': 'h2.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%b %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
     # Group 1: senate_drupal_newscontent (#newscontent h2 with span.date)
