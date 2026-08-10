@@ -127,6 +127,42 @@ class TestDetailPageDate(unittest.TestCase):
         self.assertEqual(str(results[0]['date']), '2026-08-05')
         self.assertEqual(str(results[1]['date']), '2026-07-22')
         self.assertEqual(results[0]['title'], 'Release Zero')
+        # One listing fetch + one detail fetch per dateless row.
+        self.assertEqual(mock_open_html.call_count, 3)
+
+    DATED_LISTING_HTML = """
+    <html><body>
+      <div class="views-row">
+        <div class="h3"><a href="/press/release-0"><span>Release Zero</span></a></div>
+        <div class="col-auto">March 3, 2026</div>
+      </div>
+    </body></html>
+    """
+
+    @patch('python_statement.scraper.Scraper.open_html')
+    def test_detail_page_not_fetched_when_listing_has_date(self, mock_open_html):
+        """detail_date_sel must not trigger a fetch when the row already has a date."""
+        from bs4 import BeautifulSoup
+        from python_statement import config
+        mock_open_html.return_value = BeautifulSoup(self.DATED_LISTING_HTML, 'lxml')
+        config.SCRAPER_CONFIG['detailtest'] = {
+            'method': 'generic',
+            'url_base': 'https://example.house.gov/press',
+            'container': '.views-row',
+            'title_sel': '.h3 a',
+            'date_sel': '.col-auto',
+            'detail_date_sel': '.col-auto',
+            'date_fmt': ['%B %d, %Y'],
+        }
+        try:
+            results = Scraper.run_scraper('detailtest', 1)
+        finally:
+            config.SCRAPER_CONFIG.pop('detailtest', None)
+
+        self.assertEqual(len(results), 1)
+        self.assertEqual(str(results[0]['date']), '2026-03-03')
+        # Only the listing page should have been fetched — no detail fetch.
+        self.assertEqual(mock_open_html.call_count, 1)
 
 
 class TestParseDate(unittest.TestCase):
