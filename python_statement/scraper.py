@@ -160,6 +160,9 @@ class Scraper:
         url_prefix = config.get('url_prefix', '')
         page_offset = config.get('page_offset', 0)
         date_regex = config.get('date_regex')
+        detail_date_sel = config.get('detail_date_sel')
+        detail_date_attr = config.get('detail_date_attr')
+        detail_date_fmts = config.get('detail_date_fmt', date_fmts)
 
         # Build paginated URL
         if pagination and '{page}' in pagination:
@@ -252,6 +255,21 @@ class Scraper:
                 m = re.search(date_regex, container.get_text())
                 if m:
                     date = Utils.parse_date(m.group(1), date_fmts)
+
+            # Fall back to the detail page when the listing has no usable
+            # (year-bearing) date. Only fires when detail_date_sel is set and
+            # we have an absolute URL to follow.
+            if date is None and detail_date_sel and href.startswith('http'):
+                detail = cls.open_html(href)
+                if detail:
+                    detail_elem = detail.select_one(detail_date_sel)
+                    if detail_elem:
+                        if detail_date_attr:
+                            detail_text = detail_elem.get(detail_date_attr)
+                        else:
+                            detail_text = detail_elem.get_text(strip=True)
+                        if detail_text:
+                            date = Utils.parse_date(detail_text, detail_date_fmts)
 
             result = {
                 'source': url_base,

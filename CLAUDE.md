@@ -113,6 +113,11 @@ For `'method': 'generic'` entries, these config keys are available:
 | `link_attr` | No | Attribute for URL if not `href` |
 | `base_domain` | No | Override domain for URL construction |
 | `max_results` | No | Limit number of results returned |
+| `detail_date_sel` | No | CSS selector for the date on each item's detail page. Fetched only when the listing yields no usable date. |
+| `detail_date_attr` | No | HTML attribute to read the detail-page date from (e.g. `'datetime'`) |
+| `detail_date_fmt` | No | strptime formats for the detail-page date (defaults to `date_fmt`) |
+
+**Detail-page date fallback:** Some listings (e.g. `lofgren`, `gooden`) omit a year-bearing date. When `detail_date_sel` is set and a row produces no date, the scraper follows the item URL and reads the date from the detail page. This costs one extra HTTP request per dateless item, so use it only when the listing genuinely lacks a usable date.
 
 ### Batch Generic Methods
 
