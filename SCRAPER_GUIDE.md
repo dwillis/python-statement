@@ -76,6 +76,9 @@ For `'method': 'generic'` entries, these config keys control scraping behavior:
 | `link_attr` | No | Attribute for URL if not `href` | |
 | `base_domain` | No | Override domain for URL construction | |
 | `max_results` | No | Limit results returned | |
+| `detail_date_sel` | No | Date selector on the item's detail page; followed only when the listing has no usable date | `'.col-auto'`, `'.date'` |
+| `detail_date_attr` | No | Attribute to read the detail-page date from | `'datetime'` |
+| `detail_date_fmt` | No | strptime formats for the detail-page date (defaults to `date_fmt`) | `['%B %d, %Y']` |
 
 ## Batch Generic Methods
 

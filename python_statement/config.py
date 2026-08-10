@@ -53,7 +53,7 @@ SCRAPER_CONFIG = {
     'coons': {'method': 'generic', 'url_base': 'https://www.coons.senate.gov/news/press-releases/', 'container': 'div.ArticleBlock', 'title_sel': 'a.elementor-button', 'date_sel': 'time', 'date_fmt': ['%B %d, %Y'], 'pagination': '?PageNum_rs={page}'},
     'hydesmith': {'method': 'generic', 'url_base': 'https://www.hydesmith.senate.gov/newsroom', 'container': '.views-row', 'title_sel': 'h2 a', 'date_sel': 'time', 'date_attr': 'datetime', 'date_fmt': ['%Y-%m-%dT%H:%M:%SZ']},
     'lankford': {'method': 'article_block_h2_p_date', 'url_base': 'https://www.lankford.senate.gov/news/press-releases'},
-    'lofgren': {'method': 'generic', 'url_base': 'https://lofgren.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': 'a[rel="bookmark"]', 'pagination': '?page={page}'},
+    'lofgren': {'method': 'generic', 'url_base': 'https://lofgren.house.gov/media/press-releases', 'container': '.views-row', 'title_sel': 'a[rel="bookmark"]', 'detail_date_sel': '.col-auto', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}', 'page_offset': -1},
     'lucas': {'method': 'react', 'url_base': 'https://lucas.house.gov/press'},
     'merkley': {'method': 'generic', 'url_base': 'https://www.merkley.senate.gov/news/press-releases/', 'container': 'article.elementor-post', 'title_sel': 'h2.elementor-post__title a', 'date_sel': 'span.elementor-post-date', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
     'mikelee': {'method': 'generic', 'url_base': 'https://www.lee.senate.gov/press-releases', 'container': 'div.element', 'title_sel': 'h2.element-title a', 'date_sel': 'h3.element-date', 'date_fmt': ['%b %d, %Y'], 'pagination': '?page={page}'},
@@ -512,7 +512,7 @@ SCRAPER_CONFIG = {
     # Group 2: post-media-digest-item
     'austinscott': {'method': 'generic', 'url_base': 'https://austinscott.house.gov/press-releases', 'container': '.post-media-digest-item', 'title_sel': '.post-media-digest-title', 'link_sel': 'a.media-digest-body-link', 'date_sel': '.post-media-digest-date', 'date_fmt': ['%B %d, %Y', '%B %d'], 'pagination': '?page={page}'},
     'desjarlais': {'method': 'generic', 'url_base': 'https://desjarlais.house.gov/media-center', 'container': '.post-media-digest-item', 'title_sel': '.post-media-digest-title', 'link_sel': 'a.media-digest-body-link', 'date_sel': '.post-media-digest-date', 'date_fmt': ['%B %d, %Y', '%B %d'], 'pagination': '?page={page}'},
-    'gooden': {'method': 'generic', 'url_base': 'https://gooden.house.gov/press-releases', 'container': '.post-media-digest-item', 'title_sel': '.post-media-digest-title', 'link_sel': 'a.media-digest-body-link', 'date_sel': '.post-media-digest-date', 'date_fmt': ['%B %d, %Y', '%B %d'], 'pagination': '?page={page}'},
+    'gooden': {'method': 'generic', 'url_base': 'https://gooden.house.gov/press-releases', 'container': '.post-media-digest-item', 'title_sel': '.post-media-digest-title', 'link_sel': 'a.media-digest-body-link', 'detail_date_sel': '.date', 'date_fmt': ['%B %d, %Y'], 'pagination': '?page={page}'},
     'hayes': {'method': 'generic', 'url_base': 'https://hayes.house.gov/press-releases', 'container': '.post-media-digest-item', 'title_sel': '.post-media-digest-title', 'link_sel': 'a.media-digest-body-link', 'date_sel': '.post-media-digest-date', 'date_fmt': ['%B %d, %Y', '%B %d'], 'pagination': '?page={page}'},
     'himes': {'method': 'generic', 'url_base': 'https://himes.house.gov/statements-and-releases/', 'container': 'article.et_pb_post', 'title_sel': 'h3.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/?et_blog'},
     # Group 3: WordPress/Divi .et_pb_post
@@ -636,6 +636,7 @@ VALID_GENERIC_KEYS = {
     'date_fmt', 'date_attr', 'date_from_next_sibling', 'date_sel_join',
     'pagination', 'url_prefix', 'skip_first', 'link_sel', 'link_attr',
     'base_domain', 'max_results', 'page_offset', 'date_regex',
+    'detail_date_sel', 'detail_date_attr', 'detail_date_fmt',
 }
 
 VALID_BATCH_KEYS = {'method', 'url_base'}

@@ -78,6 +78,57 @@ class TestStatement(unittest.TestCase):
         ]
         self.assertEqual(Utils.remove_generic_urls(input_data), expected)
 
+class TestDetailPageDate(unittest.TestCase):
+    """Test generic_scraper fetching dates from detail pages."""
+
+    LISTING_HTML = """
+    <html><body>
+      <div class="views-row">
+        <div class="h3"><a href="/press/release-0"><span>Release Zero</span></a></div>
+      </div>
+      <div class="views-row">
+        <div class="h3"><a href="/press/release-1"><span>Release One</span></a></div>
+      </div>
+    </body></html>
+    """
+
+    DETAIL_HTML = {
+        'https://example.house.gov/press/release-0':
+            '<html><body><div class="col-auto">August 5, 2026</div>'
+            '<div class="col-auto">Press Release</div></body></html>',
+        'https://example.house.gov/press/release-1':
+            '<html><body><div class="col-auto">July 22, 2026</div></body></html>',
+    }
+
+    def _fake_open_html(self, url):
+        from bs4 import BeautifulSoup
+        if url in self.DETAIL_HTML:
+            return BeautifulSoup(self.DETAIL_HTML[url], 'lxml')
+        return BeautifulSoup(self.LISTING_HTML, 'lxml')
+
+    @patch('python_statement.scraper.Scraper.open_html')
+    def test_date_pulled_from_detail_page(self, mock_open_html):
+        from python_statement import config
+        mock_open_html.side_effect = self._fake_open_html
+        config.SCRAPER_CONFIG['detailtest'] = {
+            'method': 'generic',
+            'url_base': 'https://example.house.gov/press',
+            'container': '.views-row',
+            'title_sel': '.h3 a',
+            'detail_date_sel': '.col-auto',
+            'date_fmt': ['%B %d, %Y'],
+        }
+        try:
+            results = Scraper.run_scraper('detailtest', 1)
+        finally:
+            config.SCRAPER_CONFIG.pop('detailtest', None)
+
+        self.assertEqual(len(results), 2)
+        self.assertEqual(str(results[0]['date']), '2026-08-05')
+        self.assertEqual(str(results[1]['date']), '2026-07-22')
+        self.assertEqual(results[0]['title'], 'Release Zero')
+
+
 class TestParseDate(unittest.TestCase):
     """Test cases for Utils.parse_date()."""
 
