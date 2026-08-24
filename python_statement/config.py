@@ -69,7 +69,7 @@ SCRAPER_CONFIG = {
 
     # element_post_media pattern - Senate sites with .element class
     'tillis': {'method': 'element_post_media', 'url_base': 'https://www.tillis.senate.gov/press-releases'},
-    'wicker': {'method': 'element_post_media', 'url_base': 'https://www.wicker.senate.gov/press-releases'},
+    'wicker': {'method': 'generic', 'url_base': 'https://www.wicker.senate.gov/category/press-releases/', 'container': 'article', 'title_sel': 'h3.entry-title a', 'date_sel': 'span.published', 'date_fmt': ['%B %d, %Y'], 'pagination': 'page/{page}/'},
     'blackburn': {'method': 'element_post_media', 'url_base': 'https://www.blackburn.senate.gov/news/cc8c80c1-d564-4bbb-93a4-f1d772346ae0'},
 
     # table_time pattern - House sites with table and <time> elements
