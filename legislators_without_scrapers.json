@@ -42,5 +42,16 @@
     "url": "https://www.dgraham.senate.gov",
     "type": "sen",
     "scraper_method": null
+  },
+  {
+    "bioguide": "B001328",
+    "official_full": "Everton Blair Jr.",
+    "gender": "M",
+    "state": "GA",
+    "district": 13,
+    "party": "D",
+    "url": "",
+    "type": "rep",
+    "scraper_method": null
   }
 ]
