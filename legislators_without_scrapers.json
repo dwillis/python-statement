@@ -49,7 +49,18 @@
     "gender": "M",
     "state": "GA",
     "district": 13,
-    "party": "D",
+    "party": "Democrat",
+    "url": "",
+    "type": "rep",
+    "scraper_method": null
+  },
+  {
+    "bioguide": "W000832",
+    "official_full": "Aisha Wahab",
+    "gender": "F",
+    "state": "CA",
+    "district": 14,
+    "party": "Democrat",
     "url": "",
     "type": "rep",
     "scraper_method": null
