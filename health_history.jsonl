@@ -46,3 +46,4 @@
 {"timestamp": "2026-10-05T18:09:37.213275", "mode": "quick", "total": 46, "ok": 44, "empty": 0, "no_dates": 2, "errors": 0, "failures": []}
 {"timestamp": "2026-10-12T18:46:56.025478", "mode": "quick", "total": 46, "ok": 42, "empty": 2, "no_dates": 2, "errors": 0, "failures": ["britt", "wicker"]}
 {"timestamp": "2026-10-19T16:19:09.932692", "mode": "quick", "total": 46, "ok": 42, "empty": 2, "no_dates": 2, "errors": 0, "failures": ["britt", "wicker"]}
+{"timestamp": "2026-10-19T20:11:51.686156", "mode": "full", "total": 538, "ok": 519, "empty": 16, "no_dates": 3, "errors": 0, "failures": ["britt", "comer", "curtis", "davidson", "kim", "landsman", "mast", "morrison", "norcross", "paul", "sessions", "stanton", "sullivan", "warren", "wicker", "yakym"]}
