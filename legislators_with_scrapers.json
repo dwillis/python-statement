@@ -5764,28 +5764,6 @@
     "scraper_method": "justice"
   },
   {
-    "bioguide": "H001104",
-    "official_full": "Jon Husted",
-    "gender": "M",
-    "state": "OH",
-    "district": null,
-    "party": "Republican",
-    "url": "https://www.husted.senate.gov",
-    "type": "sen",
-    "scraper_method": "husted"
-  },
-  {
-    "bioguide": "M001244",
-    "official_full": "Ashley Moody",
-    "gender": "F",
-    "state": "FL",
-    "district": null,
-    "party": "Republican",
-    "url": "https://www.moody.senate.gov",
-    "type": "sen",
-    "scraper_method": "moody"
-  },
-  {
     "bioguide": "P000622",
     "official_full": "Jimmy Patronis",
     "gender": "M",
