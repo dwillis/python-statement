@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-11-02T19:18:24.772680",
+  "timestamp": "2026-11-09T19:38:14.020814",
   "mode": "quick",
   "summary": {
     "total": 46,
-    "ok": 19,
-    "empty": 27,
-    "no_dates": 0,
+    "ok": 43,
+    "empty": 1,
+    "no_dates": 2,
     "errors": 0,
-    "success_rate": 41.3
+    "success_rate": 93.5
   },
   "results": [
     {
       "name": "angusking",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 729,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-11-09",
+      "duration_ms": 975,
       "error": null
     },
     {
@@ -24,17 +24,17 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-10-26",
-      "duration_ms": 782,
+      "latest_date": "2026-11-06",
+      "duration_ms": 650,
       "error": null
     },
     {
       "name": "baldwin",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 850,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-11-09",
+      "duration_ms": 622,
       "error": null
     },
     {
@@ -43,43 +43,43 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-10-27",
-      "duration_ms": 1190,
+      "duration_ms": 746,
       "error": null
     },
     {
       "name": "bennet",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 718,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "latest_date": "2026-11-09",
+      "duration_ms": 631,
       "error": null
     },
     {
       "name": "britt",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 781,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "latest_date": "2026-11-02",
+      "duration_ms": 4087,
       "error": null
     },
     {
       "name": "budd",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 839,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-11-02",
+      "duration_ms": 1661,
       "error": null
     },
     {
       "name": "cassidy",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 756,
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "latest_date": "2026-11-06",
+      "duration_ms": 872,
       "error": null
     },
     {
@@ -88,16 +88,16 @@
       "count": 0,
       "has_dates": false,
       "latest_date": null,
-      "duration_ms": 314,
+      "duration_ms": 146,
       "error": null
     },
     {
       "name": "cotton",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 20,
       "has_dates": false,
       "latest_date": null,
-      "duration_ms": 789,
+      "duration_ms": 811,
       "error": null
     },
     {
@@ -106,16 +106,16 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-07-23",
-      "duration_ms": 1134,
+      "duration_ms": 946,
       "error": null
     },
     {
       "name": "durbin",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 696,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-11-06",
+      "duration_ms": 698,
       "error": null
     },
     {
@@ -123,8 +123,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-11-02",
-      "duration_ms": 1611,
+      "latest_date": "2026-11-06",
+      "duration_ms": 994,
       "error": null
     },
     {
@@ -133,7 +133,7 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-10-01",
-      "duration_ms": 841,
+      "duration_ms": 565,
       "error": null
     },
     {
@@ -142,7 +142,7 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-10-29",
-      "duration_ms": 857,
+      "duration_ms": 598,
       "error": null
     },
     {
@@ -150,44 +150,44 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "latest_date": "2026-11-02",
-      "duration_ms": 685,
+      "latest_date": "2026-11-03",
+      "duration_ms": 608,
       "error": null
     },
     {
       "name": "grassley",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 644,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-11-09",
+      "duration_ms": 2029,
       "error": null
     },
     {
       "name": "hagerty",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 766,
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "latest_date": "2026-10-15",
+      "duration_ms": 762,
       "error": null
     },
     {
       "name": "hawley",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "latest_date": "2026-10-21",
       "duration_ms": 695,
       "error": null
     },
     {
       "name": "hirono",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 662,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-10-27",
+      "duration_ms": 1039,
       "error": null
     },
     {
@@ -195,8 +195,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2024-12-05",
-      "duration_ms": 800,
+      "latest_date": "2026-11-04",
+      "duration_ms": 754,
       "error": null
     },
     {
@@ -205,7 +205,7 @@
       "count": 6,
       "has_dates": true,
       "latest_date": "2026-10-30",
-      "duration_ms": 694,
+      "duration_ms": 612,
       "error": null
     },
     {
@@ -214,16 +214,16 @@
       "count": 6,
       "has_dates": true,
       "latest_date": "2026-07-30",
-      "duration_ms": 641,
+      "duration_ms": 620,
       "error": null
     },
     {
       "name": "lummis",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 711,
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "latest_date": "2026-10-01",
+      "duration_ms": 664,
       "error": null
     },
     {
@@ -232,25 +232,25 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-08-20",
-      "duration_ms": 676,
+      "duration_ms": 629,
       "error": null
     },
     {
       "name": "moran",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 741,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "latest_date": "2026-11-06",
+      "duration_ms": 2493,
       "error": null
     },
     {
       "name": "murray",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 770,
+      "status": "ok",
+      "count": 5,
+      "has_dates": true,
+      "latest_date": "2026-10-29",
+      "duration_ms": 689,
       "error": null
     },
     {
@@ -258,8 +258,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-10-30",
-      "duration_ms": 680,
+      "latest_date": "2026-11-05",
+      "duration_ms": 668,
       "error": null
     },
     {
@@ -267,17 +267,17 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-10-28",
-      "duration_ms": 891,
+      "latest_date": "2026-11-05",
+      "duration_ms": 776,
       "error": null
     },
     {
       "name": "rickscott",
-      "status": "empty",
-      "count": 0,
+      "status": "no_dates",
+      "count": 10,
       "has_dates": false,
       "latest_date": null,
-      "duration_ms": 686,
+      "duration_ms": 852,
       "error": null
     },
     {
@@ -286,7 +286,7 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-10-08",
-      "duration_ms": 806,
+      "duration_ms": 779,
       "error": null
     },
     {
@@ -295,25 +295,25 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-10-30",
-      "duration_ms": 883,
+      "duration_ms": 701,
       "error": null
     },
     {
       "name": "schumer",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 715,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-10-30",
+      "duration_ms": 652,
       "error": null
     },
     {
       "name": "slotkin",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 677,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "latest_date": "2026-11-07",
+      "duration_ms": 728,
       "error": null
     },
     {
@@ -321,8 +321,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-10-29",
-      "duration_ms": 915,
+      "latest_date": "2026-11-05",
+      "duration_ms": 601,
       "error": null
     },
     {
@@ -331,34 +331,34 @@
       "count": 20,
       "has_dates": true,
       "latest_date": "2026-10-29",
-      "duration_ms": 1217,
+      "duration_ms": 592,
       "error": null
     },
     {
       "name": "thune",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 703,
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "latest_date": "2026-09-30",
+      "duration_ms": 3625,
       "error": null
     },
     {
       "name": "tillis",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 720,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "latest_date": "2026-10-16",
+      "duration_ms": 644,
       "error": null
     },
     {
       "name": "timscott",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 771,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-11-09",
+      "duration_ms": 1954,
       "error": null
     },
     {
@@ -367,25 +367,25 @@
       "count": 20,
       "has_dates": true,
       "latest_date": "2026-10-21",
-      "duration_ms": 812,
+      "duration_ms": 633,
       "error": null
     },
     {
       "name": "tuberville",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 816,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "latest_date": "2026-11-02",
+      "duration_ms": 704,
       "error": null
     },
     {
       "name": "warner",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 726,
+      "status": "ok",
+      "count": 12,
+      "has_dates": true,
+      "latest_date": "2026-11-09",
+      "duration_ms": 1914,
       "error": null
     },
     {
@@ -394,34 +394,34 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-08-14",
-      "duration_ms": 907,
+      "duration_ms": 633,
       "error": null
     },
     {
       "name": "welch",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 730,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "latest_date": "2026-11-05",
+      "duration_ms": 3888,
       "error": null
     },
     {
       "name": "wicker",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 766,
+      "status": "ok",
+      "count": 10,
+      "has_dates": true,
+      "latest_date": "2026-11-02",
+      "duration_ms": 3548,
       "error": null
     },
     {
       "name": "wyden",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 769,
+      "status": "ok",
+      "count": 20,
+      "has_dates": true,
+      "latest_date": "2026-11-06",
+      "duration_ms": 680,
       "error": null
     }
   ]
