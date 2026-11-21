@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-09-21T15:45:59.846230",
+  "timestamp": "2026-11-16T19:24:54.149556",
   "mode": "quick",
   "summary": {
-    "total": 47,
+    "total": 46,
     "ok": 43,
-    "empty": 2,
+    "empty": 1,
     "no_dates": 2,
     "errors": 0,
-    "success_rate": 91.5
+    "success_rate": 93.5
   },
   "results": [
     {
@@ -15,8 +15,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 605,
+      "latest_date": "2026-11-13",
+      "duration_ms": 611,
       "error": null
     },
     {
@@ -24,8 +24,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 937,
+      "latest_date": "2026-11-10",
+      "duration_ms": 862,
       "error": null
     },
     {
@@ -33,8 +33,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 796,
+      "latest_date": "2026-11-13",
+      "duration_ms": 601,
       "error": null
     },
     {
@@ -42,8 +42,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-14",
-      "duration_ms": 775,
+      "latest_date": "2026-11-10",
+      "duration_ms": 600,
       "error": null
     },
     {
@@ -51,8 +51,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 556,
+      "latest_date": "2026-11-14",
+      "duration_ms": 709,
       "error": null
     },
     {
@@ -60,8 +60,8 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 698,
+      "latest_date": "2026-11-12",
+      "duration_ms": 2440,
       "error": null
     },
     {
@@ -69,8 +69,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 615,
+      "latest_date": "2026-11-12",
+      "duration_ms": 4076,
       "error": null
     },
     {
@@ -78,17 +78,17 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 639,
+      "latest_date": "2026-11-13",
+      "duration_ms": 784,
       "error": null
     },
     {
       "name": "cornyn",
-      "status": "ok",
-      "count": 15,
-      "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 1926,
+      "status": "empty",
+      "count": 0,
+      "has_dates": false,
+      "latest_date": null,
+      "duration_ms": 107,
       "error": null
     },
     {
@@ -97,7 +97,7 @@
       "count": 20,
       "has_dates": false,
       "latest_date": null,
-      "duration_ms": 594,
+      "duration_ms": 659,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-07-23",
-      "duration_ms": 1123,
+      "duration_ms": 1026,
       "error": null
     },
     {
@@ -114,8 +114,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-16",
-      "duration_ms": 587,
+      "latest_date": "2026-11-13",
+      "duration_ms": 616,
       "error": null
     },
     {
@@ -123,8 +123,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-16",
-      "duration_ms": 573,
+      "latest_date": "2026-11-16",
+      "duration_ms": 1024,
       "error": null
     },
     {
@@ -132,8 +132,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-08-13",
-      "duration_ms": 833,
+      "latest_date": "2026-10-01",
+      "duration_ms": 846,
       "error": null
     },
     {
@@ -141,8 +141,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-06-17",
-      "duration_ms": 744,
+      "latest_date": "2026-10-29",
+      "duration_ms": 1364,
       "error": null
     },
     {
@@ -150,17 +150,8 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "latest_date": "2026-09-21",
-      "duration_ms": 632,
-      "error": null
-    },
-    {
-      "name": "graham",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 551,
+      "latest_date": "2026-11-16",
+      "duration_ms": 623,
       "error": null
     },
     {
@@ -168,8 +159,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 599,
+      "latest_date": "2026-11-13",
+      "duration_ms": 659,
       "error": null
     },
     {
@@ -177,8 +168,8 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 715,
+      "latest_date": "2026-11-12",
+      "duration_ms": 612,
       "error": null
     },
     {
@@ -186,8 +177,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 712,
+      "latest_date": "2026-11-13",
+      "duration_ms": 611,
       "error": null
     },
     {
@@ -195,8 +186,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-15",
-      "duration_ms": 666,
+      "latest_date": "2026-11-09",
+      "duration_ms": 605,
       "error": null
     },
     {
@@ -204,8 +195,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2024-12-05",
-      "duration_ms": 662,
+      "latest_date": "2026-11-04",
+      "duration_ms": 974,
       "error": null
     },
     {
@@ -213,8 +204,8 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 721,
+      "latest_date": "2026-11-10",
+      "duration_ms": 586,
       "error": null
     },
     {
@@ -222,8 +213,8 @@
       "status": "ok",
       "count": 6,
       "has_dates": true,
-      "latest_date": "2026-07-30",
-      "duration_ms": 652,
+      "latest_date": "2026-11-11",
+      "duration_ms": 575,
       "error": null
     },
     {
@@ -231,8 +222,8 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 659,
+      "latest_date": "2026-11-10",
+      "duration_ms": 2548,
       "error": null
     },
     {
@@ -241,7 +232,7 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-08-20",
-      "duration_ms": 1084,
+      "duration_ms": 657,
       "error": null
     },
     {
@@ -249,8 +240,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 593,
+      "latest_date": "2026-11-16",
+      "duration_ms": 1376,
       "error": null
     },
     {
@@ -258,8 +249,8 @@
       "status": "ok",
       "count": 5,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 605,
+      "latest_date": "2026-11-13",
+      "duration_ms": 625,
       "error": null
     },
     {
@@ -267,8 +258,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 837,
+      "latest_date": "2026-11-05",
+      "duration_ms": 679,
       "error": null
     },
     {
@@ -276,8 +267,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-15",
-      "duration_ms": 644,
+      "latest_date": "2026-11-10",
+      "duration_ms": 733,
       "error": null
     },
     {
@@ -286,7 +277,7 @@
       "count": 10,
       "has_dates": false,
       "latest_date": null,
-      "duration_ms": 835,
+      "duration_ms": 1136,
       "error": null
     },
     {
@@ -294,8 +285,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 655,
+      "latest_date": "2026-10-08",
+      "duration_ms": 726,
       "error": null
     },
     {
@@ -303,8 +294,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 788,
+      "latest_date": "2026-11-10",
+      "duration_ms": 618,
       "error": null
     },
     {
@@ -312,8 +303,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 767,
+      "latest_date": "2026-11-13",
+      "duration_ms": 1135,
       "error": null
     },
     {
@@ -321,8 +312,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 581,
+      "latest_date": "2026-11-13",
+      "duration_ms": 627,
       "error": null
     },
     {
@@ -330,8 +321,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-16",
-      "duration_ms": 832,
+      "latest_date": "2026-11-13",
+      "duration_ms": 725,
       "error": null
     },
     {
@@ -339,8 +330,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-08",
-      "duration_ms": 855,
+      "latest_date": "2026-10-29",
+      "duration_ms": 769,
       "error": null
     },
     {
@@ -348,8 +339,8 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "latest_date": "2026-09-17",
-      "duration_ms": 687,
+      "latest_date": "2026-11-12",
+      "duration_ms": 756,
       "error": null
     },
     {
@@ -357,8 +348,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-08-18",
-      "duration_ms": 658,
+      "latest_date": "2026-10-16",
+      "duration_ms": 599,
       "error": null
     },
     {
@@ -366,8 +357,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 610,
+      "latest_date": "2026-11-11",
+      "duration_ms": 760,
       "error": null
     },
     {
@@ -375,8 +366,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-16",
-      "duration_ms": 600,
+      "latest_date": "2026-10-21",
+      "duration_ms": 693,
       "error": null
     },
     {
@@ -384,8 +375,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 589,
+      "latest_date": "2026-11-13",
+      "duration_ms": 643,
       "error": null
     },
     {
@@ -393,8 +384,8 @@
       "status": "ok",
       "count": 12,
       "has_dates": true,
-      "latest_date": "2026-09-18",
-      "duration_ms": 637,
+      "latest_date": "2026-11-11",
+      "duration_ms": 1924,
       "error": null
     },
     {
@@ -403,16 +394,16 @@
       "count": 10,
       "has_dates": true,
       "latest_date": "2026-08-14",
-      "duration_ms": 1165,
+      "duration_ms": 649,
       "error": null
     },
     {
       "name": "welch",
-      "status": "empty",
-      "count": 0,
-      "has_dates": false,
-      "latest_date": null,
-      "duration_ms": 2090,
+      "status": "ok",
+      "count": 6,
+      "has_dates": true,
+      "latest_date": "2026-11-13",
+      "duration_ms": 1231,
       "error": null
     },
     {
@@ -420,8 +411,8 @@
       "status": "ok",
       "count": 10,
       "has_dates": true,
-      "latest_date": "2026-09-16",
-      "duration_ms": 1656,
+      "latest_date": "2026-11-12",
+      "duration_ms": 1954,
       "error": null
     },
     {
@@ -429,8 +420,8 @@
       "status": "ok",
       "count": 20,
       "has_dates": true,
-      "latest_date": "2026-09-21",
-      "duration_ms": 565,
+      "latest_date": "2026-11-12",
+      "duration_ms": 703,
       "error": null
     }
   ]
