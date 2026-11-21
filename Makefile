@@ -1,4 +1,4 @@
-.PHONY: test install clean generate-legislators health health-quick trend dashboard help
+.PHONY: test install clean generate-legislators generate-committees health health-quick health-committees trend dashboard help
 
 help:
 	@echo "Available commands:"
@@ -6,8 +6,10 @@ help:
 	@echo "  make test                 - Run all tests"
 	@echo "  make clean                - Clean build artifacts and cache files"
 	@echo "  make generate-legislators - Generate legislators_with_scrapers.json"
+	@echo "  make generate-committees  - Generate committees_with_scrapers.json"
 	@echo "  make health               - Run full scraper health check (all scrapers)"
 	@echo "  make health-quick         - Run quick scraper health check (~50 scrapers)"
+	@echo "  make health-committees    - Run health check on all committee scrapers"
 	@echo "  make dashboard            - Build static health dashboard (docs/index.html)"
 	@echo "  make trend                - View health trends over time"
 
@@ -25,11 +27,17 @@ clean:
 generate-legislators:
 	uv run python scripts/generate_legislators.py
 
+generate-committees:
+	uv run python scripts/generate_committees.py
+
 health:
 	uv run python scripts/run_health_check.py --full --save
 
 health-quick:
 	uv run python scripts/run_health_check.py --save
+
+health-committees:
+	uv run python scripts/run_health_check.py --collection committees --save
 
 trend:
 	uv run python scripts/health_trend.py

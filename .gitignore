@@ -16,8 +16,11 @@ test_results.txt
 
 # Health check transient output
 health_output.txt
+committee_health_output.txt
 
 .DS_Store
 
 # Git worktrees
 .worktrees/
+# Committee discovery report (scripts/discover_committee_press.py)
+committee_discovery.json

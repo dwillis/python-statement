@@ -201,6 +201,75 @@ Results show status for each scraper: `+` OK, `-` empty, `?` no dates, `X` error
 - **No dates** — Date format or selector changed. Check the HTML and update `date_sel`/`date_fmt`.
 - **Page 1 works, page 2 fails** — Pagination pattern changed. Update the `pagination` config key.
 
+## Committee Scrapers
+
+Committees are a separate collection in `python_statement/committee_config.py`. They use the same engine, methods and selector keys as member scrapers. The canonical committee list is [`committees-current.yaml`](https://github.com/unitedstates/congress-legislators/blob/main/committees-current.yaml) from unitedstates/congress-legislators.
+
+### Entry rules
+
+```python
+'ssfi_minority': {
+    'thomas_id': 'SSFI',     # required: committee id from committees-current.yaml
+    'side': 'minority',      # required: 'majority' | 'minority' | 'full'
+    'method': 'generic',
+    'url_base': 'https://www.finance.senate.gov/newsroom/ranking-members-news/',
+    'container': '.e-loop-item',
+    'title_sel': '.elementor-heading-title a',
+    'date_sel': 'time',
+    'date_fmt': ['%m/%d/%y'],
+    'pagination': '{page}/',
+},
+```
+
+- The key must be `<thomas_id lowercase>_<side>`, and a typo is caught at import.
+- `side` is the party's current status: majority means the chair's party. Use `full` only for a single shared, nonpartisan newsroom.
+- Results get `committee` and `side` added automatically.
+- Committees that publish no press releases, or can't be scraped, go in `COMMITTEE_SKIP` with a reason.
+
+### Where committee newsrooms live
+
+| Chamber | Majority | Minority |
+|---------|----------|----------|
+| House | Main host, e.g. `agriculture.house.gov` | Usually `democrats-<name>.house.gov` (Oversight: `oversightdemocrats.house.gov`) |
+| Senate | Same host as the minority, chair's listing (e.g. `/newsroom/chairmans-news/`, `/press/majority`, `/republican/...`) | Ranking member's listing on the same host (`/newsroom/ranking-members-news/`, `/press/minority`, `/democratic/...`) |
+| Joint | JEC: Republican newsroom | JEC: Democratic newsroom |
+
+The YAML's `minority_url` values are stale: the House ones still point at `republicans-*` hosts. Find the live host instead of copying it.
+
+### Workflow
+
+1. **Discover:**
+   ```bash
+   uv run python scripts/discover_committee_press.py --only HSAG,SSFI --cache
+   ```
+   For each committee, this:
+   - tries every party variant of House hosts and follows redirects;
+   - assigns `side` from the final host's party label and `--house-majority`/`--senate-majority` (default `republicans`);
+   - collects press listings from site navigation plus standard paths;
+   - scores them with the `detect_pattern.py` patterns;
+   - verifies the best through `run_scraper`.
+
+   Output sections:
+   - **READY**: verified entries to paste.
+   - **NEEDS ATTENTION**: no dates, no working pagination, newest item 90+ days old, or a listing URL where no pattern matched. These need selectors written by hand.
+   - **NO CANDIDATE**: blocked, 404, or no URL in the YAML.
+   - **MISSING A SIDE**: only one side was found.
+2. **Write selectors** for anything that needs them. Common committee layouts:
+   - **House Drupal:** `.media-body` or `.views-row`; date in `.col-auto`; `?page={page}` with `page_offset: -1`.
+   - **House `documentquery.aspx`:** `article` / `h2 a` / `time`; `&Page={page}`.
+   - **House table views (`.../table`):** `tr` with `td a`, `time`; `?PageNum_rs={page}`.
+   - **Senate `li.PageList__item`:** date in `p`; `?PageNum_rs={page}`.
+   - **Senate Elementor:** `.e-loop-item`; pagination `{page}/`.
+   - **Senate JetEngine:** `.jet-listing-grid__item`; `?jsf=jet-engine:press-list&pagenum={page}`.
+3. **Verify** pages 1 and 2: dated, absolute URLs, different items, recent newest date.
+4. **Check coverage:** `make generate-committees`. `committees_without_scrapers.json` should be empty, and the script warns about committees whose `thomas_id` has left the YAML (dissolved or renamed).
+5. **Health:** `make health-committees`.
+6. **Backfill** a new entry's history: `uv run python scripts/backfill.py --scraper hsag_minority --since 2025-01-03 --pages 50`. Before running a big backfill, check that `pagination` works past page 2.
+
+### When majority control changes
+
+At the start of a Congress where a chamber flips, `side` flips for every committee in that chamber. Swap `majority`/`minority` in those entries and their keys. Senate listings named by party (e.g. `/republican/...`) stay attached to the same party. Re-run discovery with the new `--house-majority`/`--senate-majority` to confirm.
+
 ## Date Parsing
 
 All date parsing uses `Utils.parse_date(text, formats)` which tries strptime formats first (with dot→slash normalization), then falls back to `dateutil.parser.parse(fuzzy=True)`. Never write raw strptime try/except blocks — use the helper.
@@ -236,14 +305,19 @@ Every scraper returns a list of dicts with these keys:
 }
 ```
 
+Committee scrapers also return `'committee'` (thomas_id) and `'side'`.
+
 ## File Locations
 
 | What | Where |
 |------|-------|
 | Scraper config | `python_statement/config.py` — `SCRAPER_CONFIG` dict |
+| Committee config | `python_statement/committee_config.py` — `COMMITTEE_CONFIG`, `COMMITTEE_SKIP` |
 | Wrapper methods | `python_statement/scraper.py` — `Scraper` class |
 | Generic dispatcher | `python_statement/scraper.py` — `generic_scraper()` |
 | Health checker | `python_statement/health.py` — `HealthChecker` class |
 | Pattern detection | `scripts/detect_pattern.py` |
+| Committee discovery | `scripts/discover_committee_press.py` |
+| Committee coverage | `scripts/generate_committees.py` → `committees_with_scrapers.json`, `committees_without_scrapers.json` |
 | Health check CLI | `scripts/run_health_check.py` |
 | CI workflow | `.github/workflows/scraper-health.yml` |
