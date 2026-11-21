@@ -264,6 +264,7 @@ The YAML's `minority_url` values are stale: the House ones still point at `repub
 3. **Verify** pages 1 and 2: dated, absolute URLs, different items, recent newest date.
 4. **Check coverage:** `make generate-committees`. `committees_without_scrapers.json` should be empty, and the script warns about committees whose `thomas_id` has left the YAML (dissolved or renamed).
 5. **Health:** `make health-committees`.
+6. **Backfill** a new entry's history: `uv run python scripts/backfill.py --scraper hsag_minority --since 2025-01-03 --pages 50`. Before running a big backfill, check that `pagination` works past page 2.
 
 ### When majority control changes
 

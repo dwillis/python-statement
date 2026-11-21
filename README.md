@@ -77,6 +77,22 @@ Scraper.committee_methods()        # ['hlig_majority', 'hlig_minority', ...]
 all_committees = Scraper.committee_scrapers()
 ```
 
+### Backfilling History
+
+`scripts/backfill.py` pages scrapers from newest to oldest and writes the releases to JSON. Each scraper stops at the end of its listing, or at a page with nothing new. With `--since`, it also stops at the first page that is entirely older than the cutoff. `--pages` is a hard limit.
+
+```bash
+# One committee, every side, back to the start of the 119th Congress
+uv run python scripts/backfill.py --committee HSAG --since 2025-01-03 --pages 50
+
+# Every committee scraper
+uv run python scripts/backfill.py --all --collection committees --since 2025-01-03 \
+    --pages 100 --workers 4 --out committee_backfill.json
+
+# Members work the same way (--collection members is the default)
+uv run python scripts/backfill.py --method media_body --pages 3 --out backfill.json
+```
+
 ### Parsing RSS Feeds
 
 ```python

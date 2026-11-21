@@ -56,6 +56,15 @@ uv run python scripts/health_trend.py              # Last 10 runs
 uv run python scripts/health_trend.py --failures   # Current failures
 ```
 
+### Backfill
+`scripts/backfill.py` pages scrapers newest-first and writes JSON. Per scraper it stops at an empty page, a page with no new URLs (listings that ignore the page number), a page whose dated items are all older than `--since`, or `--pages`.
+```bash
+uv run python scripts/backfill.py --scraper harris --pages 3
+uv run python scripts/backfill.py --committee HSAG --since 2025-01-03 --pages 50
+uv run python scripts/backfill.py --all --collection committees --since 2025-01-03 \
+    --pages 100 --workers 4 --out committee_backfill.json
+```
+
 ### Testing
 ```bash
 uv run pytest tests/
@@ -273,6 +282,7 @@ The canonical committee list is [`committees-current.yaml`](https://github.com/u
 2. Paste entries from "READY". For "NEEDS ATTENTION" items, write selectors by hand for the listing URL it reports. Many Senate sites are WordPress/Elementor (`.e-loop-item`, `.jet-listing-grid__item`, pagination `{page}/` or `?jsf=jet-engine:...&pagenum={page}`).
 3. Verify: `Scraper.run_scraper('hsag_minority', 1)` and page 2 (dated, absolute URLs, different items).
 4. Run `make generate-committees`. `committees_without_scrapers.json` should be empty, and the script warns about thomas_ids no longer in the YAML.
+5. Backfill history for a new entry: `uv run python scripts/backfill.py --scraper hsag_minority --since 2025-01-03 --pages 50`.
 
 ## File Organization
 
@@ -292,6 +302,7 @@ scripts/
   generate_legislators.py     # Match legislators to scrapers
   generate_committees.py      # Match committees-current.yaml to COMMITTEE_CONFIG
   discover_committee_press.py # Find and verify committee press listings
+  backfill.py                 # Page scrapers for historical releases (--collection, --committee, --since)
   build_dashboard.py          # Static dashboard (Scraper Health / Missing Members / Committees)
 
 tests/
