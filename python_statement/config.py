@@ -645,9 +645,19 @@ VALID_GENERIC_KEYS = {
 VALID_BATCH_KEYS = {'method', 'url_base'}
 
 
-def validate_config():
-    """Validate all SCRAPER_CONFIG entries at import time."""
-    for name, config in SCRAPER_CONFIG.items():
+def validate_config(configs=None, extra_keys=frozenset()):
+    """Validate scraper config entries (SCRAPER_CONFIG by default) at import time.
+
+    Args:
+        configs: Dict of name -> config entry. Defaults to SCRAPER_CONFIG.
+        extra_keys: Additional keys allowed on every entry (e.g. committee
+            metadata). Checked for presence by the caller, not here.
+    """
+    if configs is None:
+        configs = SCRAPER_CONFIG
+    generic_keys = VALID_GENERIC_KEYS | extra_keys
+    batch_keys = VALID_BATCH_KEYS | extra_keys
+    for name, config in configs.items():
         # All entries must have method and url_base
         if 'method' not in config:
             raise ValueError(f"Scraper '{name}': missing required key 'method'")
@@ -669,11 +679,11 @@ def validate_config():
                 raise ValueError(f"Scraper '{name}': generic method requires 'title_sel'")
 
             # Check for unknown keys (catches typos)
-            unknown = set(config.keys()) - VALID_GENERIC_KEYS
+            unknown = set(config.keys()) - generic_keys
             if unknown:
                 raise ValueError(
                     f"Scraper '{name}': unknown config keys {unknown}. "
-                    f"Valid keys: {sorted(VALID_GENERIC_KEYS)}"
+                    f"Valid keys: {sorted(generic_keys)}"
                 )
 
             # date_fmt must be a list
@@ -684,11 +694,11 @@ def validate_config():
                 )
         else:
             # Batch method entries should only have method and url_base
-            unknown = set(config.keys()) - VALID_BATCH_KEYS
+            unknown = set(config.keys()) - batch_keys
             if unknown:
                 raise ValueError(
                     f"Scraper '{name}': batch method '{method}' only accepts "
-                    f"'method' and 'url_base', got extra keys {unknown}"
+                    f"{sorted(batch_keys)}, got extra keys {unknown}"
                 )
 
 

@@ -1,0 +1,962 @@
+[
+  {
+    "thomas_id": "HSAG",
+    "name": "House Committee on Agriculture",
+    "type": "house",
+    "url": "https://agriculture.house.gov/",
+    "minority_url": "https://republicans-agriculture.house.gov",
+    "rss_url": "https://agriculture.house.gov/Rss.aspx?GroupID=1",
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsag_majority",
+        "side": "majority",
+        "url_base": "https://agriculture.house.gov/news/documentquery.aspx?DocumentTypeID=27"
+      },
+      {
+        "scraper_method": "hsag_minority",
+        "side": "minority",
+        "url_base": "https://democrats-agriculture.house.gov/news/documentquery.aspx?DocumentTypeID=27"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSAP",
+    "name": "House Committee on Appropriations",
+    "type": "house",
+    "url": "https://appropriations.house.gov/",
+    "minority_url": "https://republicans-appropriations.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsap_majority",
+        "side": "majority",
+        "url_base": "https://appropriations.house.gov/news/press-releases"
+      },
+      {
+        "scraper_method": "hsap_minority",
+        "side": "minority",
+        "url_base": "https://democrats-appropriations.house.gov/news/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSAS",
+    "name": "House Committee on Armed Services",
+    "type": "house",
+    "url": "https://armedservices.house.gov/",
+    "minority_url": "https://republicans-armedservices.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsas_majority",
+        "side": "majority",
+        "url_base": "https://armedservices.house.gov/news/documentquery.aspx?DocumentTypeID=27"
+      },
+      {
+        "scraper_method": "hsas_minority",
+        "side": "minority",
+        "url_base": "https://democrats-armedservices.house.gov/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSBA",
+    "name": "House Committee on Financial Services",
+    "type": "house",
+    "url": "https://financialservices.house.gov/",
+    "minority_url": "https://republicans-financialservices.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsba_majority",
+        "side": "majority",
+        "url_base": "https://financialservices.house.gov/news/documentquery.aspx?DocumentTypeID=2092"
+      },
+      {
+        "scraper_method": "hsba_minority",
+        "side": "minority",
+        "url_base": "https://democrats-financialservices.house.gov/newsroom/documentquery.aspx?DocumentTypeID=2636"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSBU",
+    "name": "House Committee on the Budget",
+    "type": "house",
+    "url": "https://budget.house.gov/",
+    "minority_url": "https://democrats-budget.house.gov/",
+    "rss_url": "https://budget.house.gov/news/rss.aspx",
+    "minority_rss_url": "https://democrats-budget.house.gov/rss.xml",
+    "scrapers": [
+      {
+        "scraper_method": "hsbu_majority",
+        "side": "majority",
+        "url_base": "https://budget.house.gov/news/press-releases/table"
+      },
+      {
+        "scraper_method": "hsbu_minority",
+        "side": "minority",
+        "url_base": "https://democrats-budget.house.gov/news/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSED",
+    "name": "House Committee on Education and Workforce",
+    "type": "house",
+    "url": "https://edlabor.house.gov/",
+    "minority_url": "https://republicans-edlabor.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsed_majority",
+        "side": "majority",
+        "url_base": "https://edworkforce.house.gov/news/documentquery.aspx?DocumentTypeID=1823"
+      },
+      {
+        "scraper_method": "hsed_minority",
+        "side": "minority",
+        "url_base": "https://democrats-edworkforce.house.gov/media/press-releases/table"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSFA",
+    "name": "House Committee on Foreign Affairs",
+    "type": "house",
+    "url": "https://foreignaffairs.house.gov/",
+    "minority_url": "https://republicans-foreignaffairs.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsfa_majority",
+        "side": "majority",
+        "url_base": "https://foreignaffairs.house.gov/news/press-releases"
+      },
+      {
+        "scraper_method": "hsfa_minority",
+        "side": "minority",
+        "url_base": "https://democrats-foreignaffairs.house.gov/category/press-releases/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSGO",
+    "name": "House Committee on Oversight and Government Reform",
+    "type": "house",
+    "url": "https://oversight.house.gov/",
+    "minority_url": "https://republicans-oversight.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsgo_majority",
+        "side": "majority",
+        "url_base": "https://oversight.house.gov/release/"
+      },
+      {
+        "scraper_method": "hsgo_minority",
+        "side": "minority",
+        "url_base": "https://oversightdemocrats.house.gov/news/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSHA",
+    "name": "House Committee on House Administration",
+    "type": "house",
+    "url": "https://cha.house.gov/",
+    "minority_url": "https://republicans-cha.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsha_majority",
+        "side": "majority",
+        "url_base": "https://cha.house.gov/media/press-releases"
+      },
+      {
+        "scraper_method": "hsha_minority",
+        "side": "minority",
+        "url_base": "https://democrats-cha.house.gov/media/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSHM",
+    "name": "House Committee on Homeland Security",
+    "type": "house",
+    "url": "https://homeland.house.gov/",
+    "minority_url": "https://republicans-homeland.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hshm_majority",
+        "side": "majority",
+        "url_base": "https://homeland.house.gov/press/"
+      },
+      {
+        "scraper_method": "hshm_minority",
+        "side": "minority",
+        "url_base": "https://democrats-homeland.house.gov/news/press-releases/table/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSIF",
+    "name": "House Committee on Energy and Commerce",
+    "type": "house",
+    "url": "https://energycommerce.house.gov/",
+    "minority_url": "https://republicans-energycommerce.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsif_majority",
+        "side": "majority",
+        "url_base": "https://energycommerce.house.gov/news/press-release"
+      },
+      {
+        "scraper_method": "hsif_minority",
+        "side": "minority",
+        "url_base": "https://democrats-energycommerce.house.gov/media/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSII",
+    "name": "House Committee on Natural Resources",
+    "type": "house",
+    "url": "https://naturalresources.house.gov/",
+    "minority_url": "https://republicans-naturalresources.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsii_majority",
+        "side": "majority",
+        "url_base": "https://naturalresources.house.gov/news/documentquery.aspx?DocumentTypeID=1634"
+      },
+      {
+        "scraper_method": "hsii_minority",
+        "side": "minority",
+        "url_base": "https://democrats-naturalresources.house.gov/media/press-releases/table"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HLIG",
+    "name": "House Permanent Select Committee on Intelligence",
+    "type": "house",
+    "url": "https://intelligence.house.gov/",
+    "minority_url": "https://republicans-intelligence.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hlig_majority",
+        "side": "majority",
+        "url_base": "https://intelligence.house.gov/category/press-releases/"
+      },
+      {
+        "scraper_method": "hlig_minority",
+        "side": "minority",
+        "url_base": "https://democrats-intelligence.house.gov/news/documentquery.aspx?DocumentTypeID=27"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSJU",
+    "name": "House Committee on the Judiciary",
+    "type": "house",
+    "url": "https://judiciary.house.gov/",
+    "minority_url": "https://republicans-judiciary.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": "https://democrats-judiciary.house.gov/rss.xml",
+    "scrapers": [
+      {
+        "scraper_method": "hsju_majority",
+        "side": "majority",
+        "url_base": "https://judiciary.house.gov/media/press-releases"
+      },
+      {
+        "scraper_method": "hsju_minority",
+        "side": "minority",
+        "url_base": "https://democrats-judiciary.house.gov/media-center/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSPW",
+    "name": "House Committee on Transportation and Infrastructure",
+    "type": "house",
+    "url": "https://transportation.house.gov/",
+    "minority_url": "https://republicans-transportation.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hspw_majority",
+        "side": "majority",
+        "url_base": "https://transportation.house.gov/news/documentquery.aspx?DocumentTypeID=2545"
+      },
+      {
+        "scraper_method": "hspw_minority",
+        "side": "minority",
+        "url_base": "https://democrats-transportation.house.gov/news/press-releases/table"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSRU",
+    "name": "House Committee on Rules",
+    "type": "house",
+    "url": "https://rules.house.gov/",
+    "minority_url": "https://republicans-rules.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsru_majority",
+        "side": "majority",
+        "url_base": "https://rules.house.gov/media/press-releases"
+      },
+      {
+        "scraper_method": "hsru_minority",
+        "side": "minority",
+        "url_base": "https://democrats-rules.house.gov/media/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSSM",
+    "name": "House Committee on Small Business",
+    "type": "house",
+    "url": "https://smallbusiness.house.gov/",
+    "minority_url": "https://republicans-smallbusiness.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hssm_majority",
+        "side": "majority",
+        "url_base": "https://smallbusiness.house.gov/news/documentquery.aspx?DocumentTypeID=1684"
+      },
+      {
+        "scraper_method": "hssm_minority",
+        "side": "minority",
+        "url_base": "https://democrats-smallbusiness.house.gov/news/documentquery.aspx?DocumentTypeID=27"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSSO",
+    "name": "House Committee on Ethics",
+    "type": "house",
+    "url": "https://ethics.house.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsso_full",
+        "side": "full",
+        "url_base": "https://ethics.house.gov/press-releases/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSSY",
+    "name": "House Committee on Science, Space, and Technology",
+    "type": "house",
+    "url": "https://science.house.gov/",
+    "minority_url": "https://republicans-science.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hssy_majority",
+        "side": "majority",
+        "url_base": "https://science.house.gov/press-releases"
+      },
+      {
+        "scraper_method": "hssy_minority",
+        "side": "minority",
+        "url_base": "https://democrats-science.house.gov/news/press-releases/table"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSVR",
+    "name": "House Committee on Veterans' Affairs",
+    "type": "house",
+    "url": "https://veterans.house.gov/",
+    "minority_url": "https://republicans-veterans.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hsvr_majority",
+        "side": "majority",
+        "url_base": "https://veterans.house.gov/news/documentquery.aspx?DocumentTypeID=2613"
+      },
+      {
+        "scraper_method": "hsvr_minority",
+        "side": "minority",
+        "url_base": "https://democrats-veterans.house.gov/news/press-releases/table"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSWM",
+    "name": "House Committee on Ways and Means",
+    "type": "house",
+    "url": "https://waysandmeans.house.gov/",
+    "minority_url": "https://gop-waysandmeans.house.gov/",
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hswm_majority",
+        "side": "majority",
+        "url_base": "https://waysandmeans.house.gov/category/press-releases/"
+      },
+      {
+        "scraper_method": "hswm_minority",
+        "side": "minority",
+        "url_base": "https://democrats-waysandmeans.house.gov/media-center/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "JCSE",
+    "name": "Commission on Security and Cooperation in Europe",
+    "type": "joint",
+    "url": "http://www.csce.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "jcse_full",
+        "side": "full",
+        "url_base": "https://www.csce.gov/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "JSEC",
+    "name": "Joint Economic Committee",
+    "type": "joint",
+    "url": "http://www.jec.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.jec.senate.gov/republicans/public/?a=RSS.Feed",
+    "minority_rss_url": "http://www.jec.senate.gov/public/?a=RSS.Feed",
+    "scrapers": [
+      {
+        "scraper_method": "jsec_majority",
+        "side": "majority",
+        "url_base": "https://www.jec.senate.gov/public/index.cfm/republicans/newsroom"
+      },
+      {
+        "scraper_method": "jsec_minority",
+        "side": "minority",
+        "url_base": "https://www.jec.senate.gov/public/index.cfm/democrats/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SCNC",
+    "name": "United States Senate Caucus on International Narcotics Control",
+    "type": "senate",
+    "url": "http://www.drugcaucus.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "scnc_full",
+        "side": "full",
+        "url_base": "https://www.drugcaucus.senate.gov/media-center/press-releases/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SLET",
+    "name": "Senate Select Committee on Ethics",
+    "type": "senate",
+    "url": "http://www.ethics.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.ethics.senate.gov/public/?a=RSS.Feed",
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "slet_full",
+        "side": "full",
+        "url_base": "https://www.ethics.senate.gov/public/index.cfm/pressreleases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SLIA",
+    "name": "Senate Committee on Indian Affairs",
+    "type": "senate",
+    "url": "http://www.indian.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "slia_majority",
+        "side": "majority",
+        "url_base": "https://www.indian.senate.gov/newsroom/republican-news/"
+      },
+      {
+        "scraper_method": "slia_minority",
+        "side": "minority",
+        "url_base": "https://www.indian.senate.gov/newsroom/democratic-news/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SLIN",
+    "name": "Senate Select Committee on Intelligence",
+    "type": "senate",
+    "url": "http://www.intelligence.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "slin_full",
+        "side": "full",
+        "url_base": "https://www.intelligence.senate.gov/reports-publications/press-releases/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SPAG",
+    "name": "Senate Special Committee on Aging",
+    "type": "senate",
+    "url": "http://www.aging.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "spag_majority",
+        "side": "majority",
+        "url_base": "https://www.aging.senate.gov/press-room/majority"
+      },
+      {
+        "scraper_method": "spag_minority",
+        "side": "minority",
+        "url_base": "https://www.aging.senate.gov/press-room/minority"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSAF",
+    "name": "Senate Committee on Agriculture, Nutrition, and Forestry",
+    "type": "senate",
+    "url": "http://www.agriculture.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.ag.senate.gov/rss/feeds/?type=press&amp;groups=democrat",
+    "minority_rss_url": "http://www.ag.senate.gov/rss/feeds/?type=press&amp;groups=republican",
+    "scrapers": [
+      {
+        "scraper_method": "ssaf_majority",
+        "side": "majority",
+        "url_base": "https://www.agriculture.senate.gov/newsroom/majority-news"
+      },
+      {
+        "scraper_method": "ssaf_minority",
+        "side": "minority",
+        "url_base": "https://www.agriculture.senate.gov/newsroom/minority-news"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSAP",
+    "name": "Senate Committee on Appropriations",
+    "type": "senate",
+    "url": "http://www.appropriations.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "ssap_majority",
+        "side": "majority",
+        "url_base": "https://www.appropriations.senate.gov/news/majority/table/"
+      },
+      {
+        "scraper_method": "ssap_minority",
+        "side": "minority",
+        "url_base": "https://www.appropriations.senate.gov/news/minority/table/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSAS",
+    "name": "Senate Committee on Armed Services",
+    "type": "senate",
+    "url": "http://www.armed-services.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.armed-services.senate.gov/press/index.cfm?xml=Press%20Releases,RSS2.0",
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "ssas_full",
+        "side": "full",
+        "url_base": "https://www.armed-services.senate.gov/press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSBK",
+    "name": "Senate Committee on Banking, Housing, and Urban Affairs",
+    "type": "senate",
+    "url": "http://banking.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "ssbk_majority",
+        "side": "majority",
+        "url_base": "https://www.banking.senate.gov/newsroom/majority-press-releases"
+      },
+      {
+        "scraper_method": "ssbk_minority",
+        "side": "minority",
+        "url_base": "https://www.banking.senate.gov/newsroom/minority-press-releases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSBU",
+    "name": "Senate Committee on the Budget",
+    "type": "senate",
+    "url": "http://www.budget.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.budget.senate.gov/democratic/index.cfm?a=RSS.Feed&amp;Type=press-releases,statements",
+    "minority_rss_url": "http://www.budget.senate.gov/republican/public/index.cfm/rss/feed",
+    "scrapers": [
+      {
+        "scraper_method": "ssbu_majority",
+        "side": "majority",
+        "url_base": "https://www.budget.senate.gov/chairman/newsroom/press/"
+      },
+      {
+        "scraper_method": "ssbu_minority",
+        "side": "minority",
+        "url_base": "https://www.budget.senate.gov/ranking-member/newsroom/press/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSCM",
+    "name": "Senate Committee on Commerce, Science, and Transportation",
+    "type": "senate",
+    "url": "http://www.commerce.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "sscm_majority",
+        "side": "majority",
+        "url_base": "https://www.commerce.senate.gov/press/republican-news/"
+      },
+      {
+        "scraper_method": "sscm_minority",
+        "side": "minority",
+        "url_base": "https://www.commerce.senate.gov/press/democratic-news/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSEG",
+    "name": "Senate Committee on Energy and Natural Resources",
+    "type": "senate",
+    "url": "http://www.energy.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.energy.senate.gov/public/index.cfm/rss/feed?type=democratic-news",
+    "minority_rss_url": "http://www.energy.senate.gov/public/index.cfm/rss/feed?type=republican-news",
+    "scrapers": [
+      {
+        "scraper_method": "sseg_majority",
+        "side": "majority",
+        "url_base": "https://www.energy.senate.gov/republican/republican-press/"
+      },
+      {
+        "scraper_method": "sseg_minority",
+        "side": "minority",
+        "url_base": "https://www.energy.senate.gov/democratic/democratic-press/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSEV",
+    "name": "Senate Committee on Environment and Public Works",
+    "type": "senate",
+    "url": "http://www.epw.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.epw.senate.gov/public/index.cfm?FuseAction=RSS.Majority",
+    "minority_rss_url": "http://www.epw.senate.gov/public/index.cfm?FuseAction=RSS.Minority",
+    "scrapers": [
+      {
+        "scraper_method": "ssev_majority",
+        "side": "majority",
+        "url_base": "https://www.epw.senate.gov/press/majority-press/"
+      },
+      {
+        "scraper_method": "ssev_minority",
+        "side": "minority",
+        "url_base": "https://www.epw.senate.gov/press/minority-press/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSFI",
+    "name": "Senate Committee on Finance",
+    "type": "senate",
+    "url": "http://www.finance.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.finance.senate.gov/rss/feed/chair/",
+    "minority_rss_url": "http://www.finance.senate.gov/rss/feed/ranking/",
+    "scrapers": [
+      {
+        "scraper_method": "ssfi_majority",
+        "side": "majority",
+        "url_base": "https://www.finance.senate.gov/newsroom/chairmans-news/"
+      },
+      {
+        "scraper_method": "ssfi_minority",
+        "side": "minority",
+        "url_base": "https://www.finance.senate.gov/newsroom/ranking-members-news/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSFR",
+    "name": "Senate Committee on Foreign Relations",
+    "type": "senate",
+    "url": "http://www.foreign.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.foreign.senate.gov/rss/feed/chair/",
+    "minority_rss_url": "http://www.foreign.senate.gov/rss/feed/ranking/",
+    "scrapers": [
+      {
+        "scraper_method": "ssfr_majority",
+        "side": "majority",
+        "url_base": "https://www.foreign.senate.gov/press/chair"
+      },
+      {
+        "scraper_method": "ssfr_minority",
+        "side": "minority",
+        "url_base": "https://www.foreign.senate.gov/press/ranking"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSGA",
+    "name": "Senate Committee on Homeland Security and Governmental Affairs",
+    "type": "senate",
+    "url": "http://www.hsgac.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "ssga_majority",
+        "side": "majority",
+        "url_base": "https://www.hsgac.senate.gov/media/majority-news/"
+      },
+      {
+        "scraper_method": "ssga_minority",
+        "side": "minority",
+        "url_base": "https://www.hsgac.senate.gov/media/minority-news/"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSHR",
+    "name": "Senate Committee on Health, Education, Labor, and Pensions",
+    "type": "senate",
+    "url": "http://www.help.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "sshr_majority",
+        "side": "majority",
+        "url_base": "https://www.help.senate.gov/chair/newsroom/press"
+      },
+      {
+        "scraper_method": "sshr_minority",
+        "side": "minority",
+        "url_base": "https://www.help.senate.gov/ranking/newsroom/press"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSJU",
+    "name": "Senate Committee on the Judiciary",
+    "type": "senate",
+    "url": "http://www.judiciary.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "ssju_majority",
+        "side": "majority",
+        "url_base": "https://www.judiciary.senate.gov/press/majority"
+      },
+      {
+        "scraper_method": "ssju_minority",
+        "side": "minority",
+        "url_base": "https://www.judiciary.senate.gov/press/minority"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSRA",
+    "name": "Senate Committee on Rules and Administration",
+    "type": "senate",
+    "url": "http://www.rules.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.rules.senate.gov/public/?a=RSS.Feed",
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "ssra_majority",
+        "side": "majority",
+        "url_base": "https://www.rules.senate.gov/news/majority-news"
+      },
+      {
+        "scraper_method": "ssra_minority",
+        "side": "minority",
+        "url_base": "https://www.rules.senate.gov/news/minority-news"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSSB",
+    "name": "Senate Committee on Small Business and Entrepreneurship",
+    "type": "senate",
+    "url": "http://www.sbc.senate.gov/",
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "sssb_majority",
+        "side": "majority",
+        "url_base": "https://www.sbc.senate.gov/public/index.cfm/republicanpressreleases"
+      },
+      {
+        "scraper_method": "sssb_minority",
+        "side": "minority",
+        "url_base": "https://www.sbc.senate.gov/public/index.cfm/democraticpressreleases"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "SSVA",
+    "name": "Senate Committee on Veterans' Affairs",
+    "type": "senate",
+    "url": "http://www.veterans.senate.gov/",
+    "minority_url": null,
+    "rss_url": "http://www.veterans.senate.gov/rss.cfm",
+    "minority_rss_url": "http://www.veterans.senate.gov/rankingmember/rss.cfm",
+    "scrapers": [
+      {
+        "scraper_method": "ssva_majority",
+        "side": "majority",
+        "url_base": "https://www.veterans.senate.gov/majority-news"
+      },
+      {
+        "scraper_method": "ssva_minority",
+        "side": "minority",
+        "url_base": "https://www.veterans.senate.gov/minority-news"
+      }
+    ],
+    "needs_minority": false
+  },
+  {
+    "thomas_id": "HSZS",
+    "name": "House Select Committee on the Strategic Competition Between the United States and the Chinese Communist Party",
+    "type": "house",
+    "url": null,
+    "minority_url": null,
+    "rss_url": null,
+    "minority_rss_url": null,
+    "scrapers": [
+      {
+        "scraper_method": "hszs_majority",
+        "side": "majority",
+        "url_base": "https://selectcommitteeontheccp.house.gov/media/press-releases"
+      },
+      {
+        "scraper_method": "hszs_minority",
+        "side": "minority",
+        "url_base": "https://democrats-selectcommitteeontheccp.house.gov/media/press-releases"
+      }
+    ],
+    "needs_minority": false
+  }
+]

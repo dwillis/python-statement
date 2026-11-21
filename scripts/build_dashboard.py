@@ -3,7 +3,9 @@
 Generate a static HTML health dashboard from health_results.json.
 
 Reads health check data and scraper config, produces docs/index.html
-for deployment on GitHub Pages.
+for deployment on GitHub Pages. If committee_health_results.json exists
+(scripts/run_health_check.py --collection committees --save), a Committees
+tab shows it, using committees_with_scrapers.json for committee names.
 """
 
 import datetime
@@ -17,11 +19,14 @@ from pathlib import Path
 # Add project root to path so we can import config
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from python_statement.config import SCRAPER_CONFIG
+from python_statement.committee_config import COMMITTEE_CONFIG
 
 REPO = "dwillis/python-statement"
 RESULTS_FILE = "health_results.json"
 HISTORY_FILE = "health_history.jsonl"
 LEGISLATORS_FILE = "legislators_with_scrapers.json"
+COMMITTEE_RESULTS_FILE = "committee_health_results.json"
+COMMITTEES_FILE = "committees_with_scrapers.json"
 OUTPUT_DIR = "docs"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "index.html")
 
@@ -59,7 +64,7 @@ def enrich_results(results):
     today = datetime.date.today()
     for r in results:
         name = r["name"]
-        cfg = SCRAPER_CONFIG.get(name, {})
+        cfg = SCRAPER_CONFIG.get(name) or COMMITTEE_CONFIG.get(name, {})
         r["url_base"] = cfg.get("url_base", "")
         r["config_method"] = cfg.get("method", "custom")
 
@@ -69,6 +74,122 @@ def enrich_results(results):
             days_since = (today - datetime.date.fromisoformat(latest_date)).days
         r["days_since"] = days_since
         r["is_stale"] = r.get("status") == "ok" and days_since is not None and days_since >= 30
+
+
+def load_committees(path):
+    """Load committees_with_scrapers.json (list of committee records)."""
+    if not os.path.exists(path):
+        return []
+    with open(path) as f:
+        return json.load(f)
+
+
+BADGE_CLASSES = {
+    "ok": "badge-ok",
+    "empty": "badge-empty",
+    "no_dates": "badge-nodates",
+    "error": "badge-error",
+}
+
+
+def build_committee_panel(report, committees):
+    """Inner HTML for the Committees tab.
+
+    Args:
+        report: committee_health_results.json contents, or None if not run yet.
+        committees: committees_with_scrapers.json records (for names).
+    """
+    if not report:
+        return (
+            '<p style="color: #636e72;">No committee health report yet. Run '
+            "<code>uv run python scripts/run_health_check.py --collection committees "
+            "--save</code>.</p>"
+        )
+
+    results = report["results"]
+    enrich_results(results)
+    names = {c["thomas_id"]: c["name"] for c in committees}
+    summary = report["summary"]
+    stale_count = sum(1 for r in results if r.get("is_stale"))
+
+    def sort_key(r):
+        cfg = COMMITTEE_CONFIG.get(r["name"], {})
+        return (names.get(cfg.get("thomas_id"), r["name"]), r["name"])
+
+    rows = []
+    for r in sorted(results, key=sort_key):
+        cfg = COMMITTEE_CONFIG.get(r["name"], {})
+        thomas_id = cfg.get("thomas_id", "")
+        committee = names.get(thomas_id, thomas_id)
+        status = r["status"]
+        error = r.get("error") or ""
+        error_attr = f' title="{html.escape(error)}"' if error else ""
+        stale_badge = ' <span class="badge badge-stale">stale</span>' if r.get("is_stale") else ""
+        days_since = r.get("days_since")
+        url_base = r["url_base"]
+        url_cell = (
+            f'<a href="{html.escape(url_base)}" target="_blank" rel="noopener">'
+            f"{html.escape(url_base)}</a>" if url_base else ""
+        )
+        action_cell = ""
+        if status != "ok":
+            link = issue_url(r["name"], status, url_base, error)
+            action_cell = (
+                f'<a href="{html.escape(link)}" target="_blank" rel="noopener" '
+                f'class="btn-issue">Report Issue</a>'
+            )
+        rows.append(
+            f'<tr data-status="{status}" data-stale="{"1" if r.get("is_stale") else "0"}">'
+            f"<td>{html.escape(committee)} <small>({html.escape(thomas_id)})</small></td>"
+            f"<td>{html.escape(cfg.get('side', ''))}</td>"
+            f"<td>{html.escape(r['name'])}</td>"
+            f'<td><span class="badge {BADGE_CLASSES.get(status, "")}"{error_attr}>{status}</span>{stale_badge}</td>'
+            f"<td>{r.get('count', 0)}</td>"
+            f"<td>{html.escape(r.get('latest_date') or '')}</td>"
+            f"<td>{days_since if days_since is not None else ''}</td>"
+            f'<td class="url-cell">{url_cell}</td>'
+            f"<td>{action_cell}</td>"
+            f"</tr>"
+        )
+
+    return f"""
+<p class="subtitle">Committee check: {html.escape(report.get("timestamp", ""))}
+  &middot; {summary["total"]} scrapers across {len({COMMITTEE_CONFIG.get(r["name"], {}).get("thomas_id") for r in results})} committees</p>
+
+<div class="summary">
+  <div class="stat-card ok"><div class="label">OK</div><div class="value">{summary["ok"]}</div></div>
+  <div class="stat-card empty"><div class="label">Empty</div><div class="value">{summary["empty"]}</div></div>
+  <div class="stat-card nodates"><div class="label">No Dates</div><div class="value">{summary["no_dates"]}</div></div>
+  <div class="stat-card error"><div class="label">Errors</div><div class="value">{summary["errors"]}</div></div>
+  <div class="stat-card rate"><div class="label">Success Rate</div><div class="value">{summary["success_rate"]}%</div></div>
+  <div class="stat-card stale"><div class="label">Stale</div><div class="value">{stale_count}</div></div>
+</div>
+
+<div class="controls">
+  <input type="text" id="committeeSearchInput" placeholder="Search by committee or scraper...">
+  <select id="committeeStatusFilter">
+    <option value="">All statuses</option>
+    <option value="ok">OK</option>
+    <option value="empty">Empty</option>
+    <option value="no_dates">No Dates</option>
+    <option value="error">Error</option>
+    <option value="stale">Stale (30+ days)</option>
+  </select>
+  <span class="count-display" id="committeeCountDisplay"></span>
+</div>
+
+<table id="committeeTable">
+  <thead>
+    <tr>
+      <th>Committee</th><th>Side</th><th>Scraper</th><th>Status</th><th>Results</th>
+      <th>Latest</th><th>Days Since</th><th>URL</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {chr(10).join(rows)}
+  </tbody>
+</table>
+"""
 
 
 def issue_url(name, status, url_base, error):
@@ -90,7 +211,8 @@ def issue_url(name, status, url_base, error):
     return f"https://github.com/{REPO}/issues/new?{params}"
 
 
-def build_html(report, history, matched_legislators=None, unmatched_legislators=None):
+def build_html(report, history, matched_legislators=None, unmatched_legislators=None,
+               committee_report=None, committees=None):
     summary = report["summary"]
     timestamp = report["timestamp"]
     results = report["results"]
@@ -98,6 +220,11 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
     unmatched_legislators = unmatched_legislators or []
 
     enrich_results(results)
+    committee_panel = build_committee_panel(committee_report, committees or [])
+    committee_failures = sum(
+        1 for r in (committee_report or {}).get("results", []) if r.get("status") != "ok"
+    )
+    committee_badge_cls = "badge-error" if committee_failures else "badge-ok"
 
     stale_count = sum(1 for r in results if r.get("is_stale"))
 
@@ -260,6 +387,7 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
 <div class="tabs">
   <div class="tab active" data-tab="health">Scraper Health</div>
   <div class="tab" data-tab="missing">Missing Members <span class="badge badge-error">{len(unmatched_legislators)}</span></div>
+  <div class="tab" data-tab="committees">Committees <span class="badge {committee_badge_cls}">{committee_failures}</span></div>
 </div>
 
 <!-- Health Tab -->
@@ -361,7 +489,38 @@ def build_html(report, history, matched_legislators=None, unmatched_legislators=
 
 </div>
 
+<!-- Committees Tab -->
+<div id="tab-committees" class="tab-panel">
+{committee_panel}
+</div>
+
 <script>
+// Committee table filtering
+(function() {{
+  const table = document.getElementById('committeeTable');
+  if (!table) return;
+  const search = document.getElementById('committeeSearchInput');
+  const status = document.getElementById('committeeStatusFilter');
+  const count = document.getElementById('committeeCountDisplay');
+  const rows = Array.from(table.querySelectorAll('tbody tr'));
+  function apply() {{
+    const q = search.value.toLowerCase();
+    const s = status.value;
+    let shown = 0;
+    rows.forEach(row => {{
+      const matchText = !q || row.textContent.toLowerCase().includes(q);
+      const matchStatus = !s || (s === 'stale' ? row.dataset.stale === '1' : row.dataset.status === s);
+      const show = matchText && matchStatus;
+      row.classList.toggle('hidden', !show);
+      if (show) shown++;
+    }});
+    count.textContent = shown + ' of ' + rows.length + ' scrapers';
+  }}
+  search.addEventListener('input', apply);
+  status.addEventListener('change', apply);
+  apply();
+}})();
+
 // Tab switching
 document.querySelectorAll('.tab').forEach(tab => {{
   tab.addEventListener('click', () => {{
@@ -508,10 +667,15 @@ def main():
     report = load_results(RESULTS_FILE)
     history = load_history(HISTORY_FILE)
     matched_legislators, unmatched_legislators = load_legislators(LEGISLATORS_FILE)
+    committee_report = (
+        load_results(COMMITTEE_RESULTS_FILE) if os.path.exists(COMMITTEE_RESULTS_FILE) else None
+    )
+    committees = load_committees(COMMITTEES_FILE)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    page_html = build_html(report, history, matched_legislators, unmatched_legislators)
+    page_html = build_html(report, history, matched_legislators, unmatched_legislators,
+                           committee_report, committees)
     with open(OUTPUT_FILE, "w") as f:
         f.write(page_html)
 
@@ -522,6 +686,9 @@ def main():
         total = len(matched_legislators) + len(unmatched_legislators)
         print(f"  {len(matched_legislators)}/{total} legislators covered, "
               f"{len(unmatched_legislators)} missing")
+    if committee_report:
+        print(f"  {committee_report['summary']['total']} committee scrapers, "
+              f"{committee_report['summary']['ok']} ok")
 
 
 if __name__ == "__main__":

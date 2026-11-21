@@ -4,14 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Python Statement is a congressional press release scraper that parses RSS feeds and HTML pages from 390+ congressional websites. It prioritizes maintainability through a configuration-driven design where a universal `generic_scraper()` dispatcher handles most sites via CSS selector configs.
+Python Statement is a congressional press release scraper that parses RSS feeds and HTML pages from 530+ member websites and every congressional committee. It prioritizes maintainability through a configuration-driven design where a universal `generic_scraper()` dispatcher handles most sites via CSS selector configs.
+
+Members and committees are **two separate collections** with the same config shape and scraping engine but their own config dict, enumeration, health files and coverage files.
 
 **Core Architecture:**
 - **Scraper class** (`python_statement/scraper.py`): HTML scraping with config-driven generic dispatcher + batch generic methods
 - **Feed class** (`python_statement/feed.py`): RSS/Atom feed parsing
 - **Utils class** (`python_statement/utils.py`): Shared utilities for URL handling and result filtering
-- **HealthChecker class** (`python_statement/health.py`): Scraper health monitoring
-- **SCRAPER_CONFIG** (`python_statement/config.py`): Configuration dict for all 390 scrapers
+- **HealthChecker class** (`python_statement/health.py`): Scraper health monitoring, per collection
+- **SCRAPER_CONFIG** (`python_statement/config.py`): Configuration dict for the 538 member scrapers
+- **COMMITTEE_CONFIG** (`python_statement/committee_config.py`): Configuration dict for the 84 committee scrapers (see "Committee Scrapers" below)
 
 ## Development Commands
 
@@ -26,8 +29,10 @@ pip install -e . # Or with pip
 make test                  # Run all tests with pytest
 make health                # Full scraper health check (all scrapers)
 make health-quick          # Quick health check (~50 representative scrapers)
+make health-committees     # Health check on all committee scrapers
 make trend                 # View health trends over time
 make generate-legislators  # Generate legislators_with_scrapers.json
+make generate-committees   # Generate committees_with_scrapers.json
 make clean                # Clean build artifacts
 ```
 
@@ -38,6 +43,9 @@ uv run python scripts/run_health_check.py --save
 
 # Full mode (all scrapers)
 uv run python scripts/run_health_check.py --full --save --workers 10
+
+# Committees (always all of them; separate committee_health_* files)
+uv run python scripts/run_health_check.py --collection committees --save --history
 
 # Pattern detection with verification (runs config through generic_scraper)
 uv run python scripts/detect_pattern.py https://newmember.house.gov/press
@@ -153,6 +161,7 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
     'domain': 'site.gov'
 }
 ```
+Committee results also carry `'committee'` (thomas_id, e.g. `'HSAG'`) and `'side'` (`'majority'`, `'minority'` or `'full'`). Member results never have these keys.
 
 ### Key Methods
 
@@ -163,14 +172,18 @@ These handle sites with identical HTML patterns. Each collects target URLs from 
 
 **Scraper class (scraper.py):**
 - `open_html(url)` — Fetches HTML with retries and user-agent headers
-- `run_scraper(scraper_name, page)` — Routes config-driven scrapers to appropriate method
+- `run_scraper(scraper_name, page)` — Routes config-driven scrapers (member or committee) to the appropriate method; tags committee results with `committee`/`side`
 - `generic_scraper(scraper_name, page)` — Universal dispatcher for `method: 'generic'` configs
-- `member_scrapers()` / `committee_scrapers()` — Run all scrapers
-- `member_methods()` — Returns sorted list of all scraper names (strings) from SCRAPER_CONFIG
+- `member_methods()` — Sorted list of member scraper names from SCRAPER_CONFIG
+- `committee_methods()` — Sorted list of committee scraper names from COMMITTEE_CONFIG
+- `committee_scrapers(page=1)` — Run every committee scraper and combine the results
+- `member_scrapers()` — Runs a hand-picked list of member scrapers (not all of them)
 
 **HealthChecker class (health.py):**
 - `check_scraper(name)` — Test a single scraper, returns status dict including `latest_date` (ISO string of the most recent release, or `None`)
-- `run(mode, max_workers, verbose)` — Run health checks (quick or full)
+- `run(mode, max_workers, verbose, collection='members', scrapers=None)` — Run health checks. `collection='committees'` always checks every committee scraper.
+- `run_failures_only(path, ..., collection)` — Re-check only what failed in the collection's last report
+- `paths_for(collection)` — `(results_path, history_path)`: `health_results.json`/`health_history.jsonl` for members, `committee_health_results.json`/`committee_health_history.jsonl` for committees
 - `save_report(report, path)` — Save results to JSON
 
 ## Adding or Fixing Scrapers
@@ -223,29 +236,73 @@ Common formats for the `date_fmt` config key:
 
 Always check `<time datetime="">` attributes first — they're in ISO format.
 
+## Committee Scrapers
+
+The canonical committee list is [`committees-current.yaml`](https://github.com/unitedstates/congress-legislators/blob/main/committees-current.yaml) from unitedstates/congress-legislators. Every `COMMITTEE_CONFIG` entry is keyed to a committee's `thomas_id` from that file. Subcommittees are out of scope.
+
+**Entry shape:** identical to `SCRAPER_CONFIG` entries, plus two required keys:
+
+```python
+# In committee_config.py — COMMITTEE_CONFIG dict
+'hsag_minority': {
+    'thomas_id': 'HSAG',          # from committees-current.yaml
+    'side': 'minority',           # 'majority' | 'minority' | 'full'
+    'method': 'generic',
+    'url_base': 'https://democrats-agriculture.house.gov/news/documentquery.aspx?DocumentTypeID=27',
+    'container': 'article',
+    'title_sel': 'h2 a',
+    'date_sel': 'time',
+    'date_fmt': ['%B %d, %Y'],
+    'pagination': '&page={page}',
+},
+```
+
+- **Key must be `<thomas_id lowercase>_<side>`** and must not collide with a member name. `validate_committee_config()` enforces this at import.
+- **`side`** is the party's current status, not its name. Use `majority`/`minority` when the committee has separate chair and ranking-member newsrooms, and `full` for one shared newsroom (e.g. the House and Senate Ethics committees, Senate Intelligence, CSCE).
+- **House:** the majority newsroom is the committee's main host (`agriculture.house.gov`). The minority newsroom is usually `democrats-<name>.house.gov` (Oversight: `oversightdemocrats.house.gov`).
+- **Senate:** both sides usually share one host, with listings at different paths (e.g. `/newsroom/chairmans-news/` and `/newsroom/ranking-members-news/`).
+- **Don't trust `minority_url` in the YAML.** The House values still point at `republicans-*` hosts from the previous Congress. When majority control changes, every `side` flips: re-run discovery with `--house-majority`/`--senate-majority`.
+- **`COMMITTEE_SKIP`** (thomas_id → reason) holds committees deliberately not scraped (no press releases, blocked, no website). They don't count as missing.
+
+**Adding or fixing a committee scraper:**
+1. Run discovery. It resolves live hosts, finds press listings from site navigation, and verifies drafts through `run_scraper`, including a pagination variant whose page 1 is the real first page:
+   ```bash
+   uv run python scripts/discover_committee_press.py --only HSAG,SSFI --cache
+   ```
+   It skips committees already configured or skipped unless `--only`/`--all` is given. The JSON report is written to `committee_discovery.json`, which is gitignored.
+2. Paste entries from "READY". For "NEEDS ATTENTION" items, write selectors by hand for the listing URL it reports. Many Senate sites are WordPress/Elementor (`.e-loop-item`, `.jet-listing-grid__item`, pagination `{page}/` or `?jsf=jet-engine:...&pagenum={page}`).
+3. Verify: `Scraper.run_scraper('hsag_minority', 1)` and page 2 (dated, absolute URLs, different items).
+4. Run `make generate-committees`. `committees_without_scrapers.json` should be empty, and the script warns about thomas_ids no longer in the YAML.
+
 ## File Organization
 
 ```
 python_statement/
   __init__.py        # Exports Feed, Scraper, Utils
-  config.py          # SCRAPER_CONFIG dict (390 entries)
+  config.py          # SCRAPER_CONFIG dict (538 member entries) + validate_config()
+  committee_config.py  # COMMITTEE_CONFIG (84 entries), COMMITTEE_SKIP, validate_committee_config()
   scraper.py         # Scraper class with generic dispatcher + batch methods
   feed.py            # Feed class for RSS/Atom parsing
   utils.py           # Utils class for URL handling and date parsing
-  health.py          # HealthChecker class for monitoring
+  health.py          # HealthChecker class for monitoring (members / committees)
 
 scripts/
-  detect_pattern.py         # Pattern detection for new sites
-  run_health_check.py       # Health check CLI entry point
-  generate_legislators.py   # Match legislators to scrapers
+  detect_pattern.py           # Pattern detection for new sites
+  run_health_check.py         # Health check CLI entry point (--collection)
+  generate_legislators.py     # Match legislators to scrapers
+  generate_committees.py      # Match committees-current.yaml to COMMITTEE_CONFIG
+  discover_committee_press.py # Find and verify committee press listings
+  build_dashboard.py          # Static dashboard (Scraper Health / Missing Members / Committees)
 
 tests/
   test_statement.py    # Core functionality tests
+  test_committees.py   # Committee config validation and scraping (offline)
   test_media_body.py   # Tests for media_body generic method
   test_react.py        # Tests for React-based sites
 
 .github/workflows/
-  scraper-health.yml   # Weekly health check CI (creates issues on failure)
+  scraper-health.yml        # Weekly member + committee health check (creates issues on failure)
+  generate-legislators.yml  # Nightly legislators + committees coverage JSON
 ```
 
 ## Important Implementation Notes

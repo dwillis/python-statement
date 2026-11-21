@@ -14,6 +14,7 @@ import hashlib
 
 from .utils import Utils
 from .config import SCRAPER_CONFIG
+from .committee_config import COMMITTEE_CONFIG
 
 
 class Scraper:
@@ -22,6 +23,9 @@ class Scraper:
     # Configuration for scrapers that use generic methods
     # Maps scraper_method name -> {method: generic_method_name, url_base: base_url}
     SCRAPER_CONFIG = SCRAPER_CONFIG
+    # Committee scrapers: a separate collection with the same entry shape
+    # plus 'thomas_id' and 'side' (see committee_config.py)
+    COMMITTEE_CONFIG = COMMITTEE_CONFIG
 
     # Opt-in disk cache for HTTP responses (off by default)
     _cache_enabled = False
@@ -55,29 +59,46 @@ class Scraper:
             shutil.rmtree(cls._cache_dir)
 
     @classmethod
+    def _get_config(cls, scraper_name):
+        """Look up a scraper's config in the member, then committee, collection."""
+        return cls.SCRAPER_CONFIG.get(scraper_name) or cls.COMMITTEE_CONFIG.get(scraper_name)
+
+    @classmethod
     def run_scraper(cls, scraper_name, page=1, **kwargs):
         """
         Configuration-driven scraper dispatcher.
-        
-        For scrapers in SCRAPER_CONFIG, routes to the appropriate generic method with URL.
-        For others, calls the method directly if it exists.
-        
+
+        For scrapers in SCRAPER_CONFIG or COMMITTEE_CONFIG, routes to the
+        appropriate generic method with URL. For others, calls the method
+        directly if it exists. Committee results are tagged with
+        'committee' (thomas_id) and 'side'.
+
         Args:
-            scraper_name: Name of the scraper to run (e.g., 'moran', 'boozman')
+            scraper_name: Name of the scraper to run (e.g., 'moran', 'hsag_majority')
             page: Page number for pagination
             **kwargs: Additional arguments (e.g., urls for generic methods)
-            
+
         Returns:
             List of scraped results or empty list if scraper not found
         """
-        config = cls.SCRAPER_CONFIG.get(scraper_name)
+        config = cls._get_config(scraper_name)
         if not config:
             # Fall back to calling the method directly if it exists
             if hasattr(cls, scraper_name):
                 method = getattr(cls, scraper_name)
                 return method(page=page, **kwargs)
             return []
-        
+
+        results = cls._dispatch(scraper_name, config, page)
+        if 'thomas_id' in config:
+            for result in results or []:
+                result['committee'] = config['thomas_id']
+                result['side'] = config['side']
+        return results
+
+    @classmethod
+    def _dispatch(cls, scraper_name, config, page):
+        """Route a config entry to its scraping method."""
         method_name = config['method']
         url_base = config['url_base']
 
@@ -139,7 +160,7 @@ class Scraper:
             date_from_next_sibling: If True, get date text from next sibling of date_sel element
             url_prefix: Optional path prefix for relative URLs (e.g., '/news/')
         """
-        config = cls.SCRAPER_CONFIG.get(scraper_name)
+        config = cls._get_config(scraper_name)
         if not config or config['method'] != 'generic':
             return []
 
@@ -388,11 +409,16 @@ class Scraper:
     
     @classmethod
     def committee_methods(cls):
-        """Return a list of committee scraper methods."""
-        return [
-            cls.house_gop, cls.senate_approps_majority, cls.senate_approps_minority,
-            cls.senate_banking_majority, cls.senate_banking_minority
-        ]
+        """Return a sorted list of all committee scraper names."""
+        return sorted(cls.COMMITTEE_CONFIG.keys())
+
+    @classmethod
+    def committee_scrapers(cls, page=1):
+        """Scrape all committee websites in COMMITTEE_CONFIG."""
+        results = []
+        for name in cls.committee_methods():
+            results.extend(cls.run_scraper(name, page=page) or [])
+        return Utils.remove_generic_urls(results)
     
     @classmethod
     def member_scrapers(cls):
@@ -644,90 +670,6 @@ class Scraper:
 
         return results
 
-    @classmethod
-    def senate_approps_majority(cls, page=1):
-        """Scrape Senate Appropriations Committee majority press releases."""
-        results = []
-        url = f"https://www.appropriations.senate.gov/news/majority?PageNum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        h2_elements = doc.select("#newscontent h2")
-        for row in h2_elements:
-            link = row.select_one('a')
-            if not link:
-                continue
-                
-            title = row.text.strip()
-            release_url = f"https://www.appropriations.senate.gov{link.get('href').strip()}"
-            
-            # Get the date from previous sibling
-            prev = row.previous_sibling
-            if prev:
-                prev = prev.previous_sibling
-            
-            raw_date = prev.text if prev else None
-            date = None
-            if raw_date:
-                date = Utils.parse_date(raw_date, ["%m.%d.%y"])
-
-            result = {
-                'source': url,
-                'url': release_url,
-                'title': title,
-                'date': date,
-                'domain': 'www.appropriations.senate.gov',
-                'party': "majority"
-            }
-            results.append(result)
-        
-        return results
-    
-    @classmethod
-    def senate_banking_majority(cls, page=1):
-        """Scrape Senate Banking Committee majority press releases."""
-        results = []
-        url = f"https://www.banking.senate.gov/newsroom/majority-press-releases?PageNum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("#browser_table tr")
-        for row in rows:
-            if row.get('class') and 'divider' in row.get('class'):
-                continue
-                
-            # Find the title and link
-            title_cell = row.find_all('td')[2] if len(row.find_all('td')) > 2 else None
-            if not title_cell:
-                continue
-                
-            link = title_cell.select_one('a')
-            if not link:
-                continue
-                
-            title = title_cell.text.strip()
-            release_url = link.get('href').strip()
-            
-            # Find the date
-            date_cell = row.find_all('td')[0] if len(row.find_all('td')) > 0 else None
-            date = None
-            if date_cell:
-                date = Utils.parse_date(date_cell.text.strip(), ["%m/%d/%y"])
-
-            result = {
-                'source': url,
-                'url': release_url,
-                'title': title,
-                'date': date,
-                'domain': 'www.banking.senate.gov',
-                'party': "majority"
-            }
-            results.append(result)
-        
-        return results
-    
     @classmethod
     def article_block(cls, urls=None, page=1):
         """Scrape press releases from websites with ArticleBlock class."""
@@ -1573,107 +1515,11 @@ class Scraper:
             print(f"Error parsing JSON from {domain}: {e}")
         
         return results
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @classmethod
-    def senate_approps_minority(cls, page=1):
-        """Scrape Senate Appropriations Committee minority press releases."""
-        results = []
-        url = f"https://www.appropriations.senate.gov/news/minority?PageNum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        h2_elements = doc.select("#newscontent h2")
-        for row in h2_elements:
-            link = row.find('a')
-            if not link:
-                continue
-            
-            date = None
-            date_text_elem = row.find_next_sibling('p')
-            if date_text_elem:
-                date = Utils.parse_date(date_text_elem.text.strip(), ["%m.%d.%Y"])
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': 'www.appropriations.senate.gov'
-            }
-            results.append(result)
-        
-        return results
-    
-    @classmethod
-    def senate_banking_minority(cls, page=1):
-        """Scrape Senate Banking Committee minority press releases."""
-        results = []
-        url = f"https://www.banking.senate.gov/newsroom/minority-press-releases?PageNum_rs={page}"
-        doc = cls.open_html(url)
-        if not doc:
-            return []
-        
-        rows = doc.select("#browser_table tr")
-        for row in rows:
-            link = row.select_one("a")
-            if not link:
-                continue
-            
-            date_elem = row.find('td', text=lambda x: x and '.' in str(x))
-            date = None
-            if date_elem:
-                date = Utils.parse_date(date_elem.text.strip(), ["%m.%d.%Y"])
-            
-            result = {
-                'source': url,
-                'url': link.get('href'),
-                'title': link.text.strip(),
-                'date': date,
-                'domain': 'www.banking.senate.gov'
-            }
-            results.append(result)
-        
-        return results
-
-
-# Auto-generate wrapper methods for all SCRAPER_CONFIG entries
-# that don't already have a method on the Scraper class.
-# This means adding a new scraper only requires a config.py edit.
+# Auto-generate wrapper methods for all SCRAPER_CONFIG and COMMITTEE_CONFIG
+# entries that don't already have a method on the Scraper class.
+# This means adding a new scraper only requires a config edit.
 def _make_scraper_method(name):
     """Create a classmethod wrapper that calls run_scraper."""
     @classmethod
@@ -1684,7 +1530,7 @@ def _make_scraper_method(name):
     return method
 
 
-for _name in SCRAPER_CONFIG:
+for _name in list(SCRAPER_CONFIG) + list(COMMITTEE_CONFIG):
     if not hasattr(Scraper, _name):
         setattr(Scraper, _name, _make_scraper_method(_name))
 

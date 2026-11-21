@@ -1,9 +1,10 @@
 """
 Health check runner for congressional press release scrapers.
 
-Provides quick and full modes to test scraper health:
-- Quick mode: Tests ~50 representative scrapers across all patterns
-- Full mode: Tests all scrapers
+Two collections, each with its own results and history files:
+- members (SCRAPER_CONFIG): quick mode tests ~50 representative scrapers,
+  full mode tests all of them
+- committees (COMMITTEE_CONFIG): always tests every committee scraper
 
 Checks: HTTP connectivity, results > 0, dates not all None
 """
@@ -102,30 +103,54 @@ class HealthChecker:
 
         return result
 
+    # Report and history files per collection
+    COLLECTION_PATHS = {
+        'members': ('health_results.json', 'health_history.jsonl'),
+        'committees': ('committee_health_results.json', 'committee_health_history.jsonl'),
+    }
+
     @classmethod
-    def run(cls, mode='quick', max_workers=5, verbose=True):
+    def paths_for(cls, collection):
+        """Return (results_path, history_path) for a collection."""
+        if collection not in cls.COLLECTION_PATHS:
+            raise ValueError(
+                f"Unknown collection '{collection}'. Valid: {sorted(cls.COLLECTION_PATHS)}"
+            )
+        return cls.COLLECTION_PATHS[collection]
+
+    @classmethod
+    def run(cls, mode='quick', max_workers=5, verbose=True, collection='members',
+            scrapers=None):
         """
         Run health checks.
 
         Args:
-            mode: 'quick' for representative sample, 'full' for all scrapers
+            mode: 'quick' for representative sample, 'full' for all scrapers.
+                Ignored for committees, which always run in full.
             max_workers: Number of concurrent workers
             verbose: Print progress to stdout
+            collection: 'members' (SCRAPER_CONFIG) or 'committees' (COMMITTEE_CONFIG)
+            scrapers: Explicit list of scraper names to check (overrides mode)
 
         Returns:
-            dict with keys: results, summary, timestamp
+            dict with keys: results, summary, timestamp, mode, collection
         """
-        if mode == 'quick':
-            scrapers = cls.QUICK_SCRAPERS
-        else:
-            scrapers = Scraper.member_methods()
+        cls.paths_for(collection)  # validates the collection name
+        if scrapers is None:
+            if collection == 'committees':
+                mode = 'full'
+                scrapers = Scraper.committee_methods()
+            elif mode == 'quick':
+                scrapers = cls.QUICK_SCRAPERS
+            else:
+                scrapers = Scraper.member_methods()
 
         total = len(scrapers)
         results = []
         completed = 0
 
         if verbose:
-            print(f"Running {mode} health check on {total} scrapers...")
+            print(f"Running {mode} {collection} health check on {total} scrapers...")
             print(f"Workers: {max_workers}")
             print()
 
@@ -186,6 +211,7 @@ class HealthChecker:
         report = {
             'timestamp': datetime.datetime.now().isoformat(),
             'mode': mode,
+            'collection': collection,
             'summary': summary,
             'results': results,
         }
@@ -193,7 +219,7 @@ class HealthChecker:
         if verbose:
             print()
             print("=" * 60)
-            print(f"Health Check Summary ({mode} mode)")
+            print(f"Health Check Summary ({collection}, {mode} mode)")
             print("=" * 60)
             print(f"  Total:     {total}")
             print(f"  OK:        {ok}")
@@ -224,18 +250,21 @@ class HealthChecker:
         ]
 
     @classmethod
-    def run_failures_only(cls, path='health_results.json', max_workers=5, verbose=True):
+    def run_failures_only(cls, path=None, max_workers=5, verbose=True, collection='members'):
         """
         Re-run health checks only for scrapers that failed in the last report.
 
         Args:
-            path: Path to previous health_results.json
+            path: Path to the previous report (defaults to the collection's results file)
             max_workers: Number of concurrent workers
             verbose: Print progress to stdout
+            collection: 'members' or 'committees'
 
         Returns:
-            dict with keys: results, summary, timestamp
+            dict with keys: results, summary, timestamp, mode, collection
         """
+        if path is None:
+            path = cls.paths_for(collection)[0]
         try:
             scrapers = cls.failures_from_report(path)
         except FileNotFoundError:
@@ -248,6 +277,7 @@ class HealthChecker:
             return {
                 'timestamp': datetime.datetime.now().isoformat(),
                 'mode': 'failures-only',
+                'collection': collection,
                 'summary': {'total': 0, 'ok': 0, 'empty': 0, 'no_dates': 0, 'errors': 0, 'success_rate': 100.0},
                 'results': [],
             }
@@ -255,14 +285,8 @@ class HealthChecker:
         if verbose:
             print(f"Re-checking {len(scrapers)} previously failed scrapers...")
 
-        # Use the standard run infrastructure with a custom scraper list
-        original = cls.QUICK_SCRAPERS
-        cls.QUICK_SCRAPERS = scrapers
-        try:
-            report = cls.run(mode='quick', max_workers=max_workers, verbose=verbose)
-        finally:
-            cls.QUICK_SCRAPERS = original
-
+        report = cls.run(max_workers=max_workers, verbose=verbose,
+                         collection=collection, scrapers=scrapers)
         report['mode'] = 'failures-only'
         return report
 
@@ -291,6 +315,7 @@ class HealthChecker:
         entry = {
             'timestamp': report.get('timestamp', datetime.datetime.now().isoformat()),
             'mode': report.get('mode', 'unknown'),
+            'collection': report.get('collection', 'members'),
             'total': summary.get('total', 0),
             'ok': summary.get('ok', 0),
             'empty': summary.get('empty', 0),
